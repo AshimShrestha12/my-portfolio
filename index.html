@@ -1,125 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Ashim Shrestha | Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #000;
-            color: #00ff00; /* Bright green text */
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <title>Ashim Shrestha | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #000;
+      text-align: center;
+    }
 
-        .portfolio-container {
-            padding: 40px 20px;
-        }
+    .portfolio-container {
+      padding: 40px 20px;
+    }
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid #00ff00;
-        }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #000;
+    }
 
-        h1 {
-            font-size: 2.5em;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 2px solid #00ff00;
-            width: 0;
-            margin: 0 auto 10px;
-            animation: typing 3s steps(20, end) forwards, blink 0.75s step-end infinite;
-        }
+    h1 {
+      font-size: 2.5em;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #000;
+      width: 0;
+      margin: 0 auto 10px;
+      animation: typing 3s steps(20, end) forwards, blink 0.75s step-end infinite;
+    }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 15ch; }
-        }
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 15ch;
+      }
+    }
 
-        @keyframes blink {
-            50% { border-color: transparent }
-        }
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
 
-        .tagline {
-            font-style: italic;
-            font-size: 1.2em;
-            color: #66ff66;
-            animation: fadeIn 1.5s ease 3s forwards;
-            opacity: 0;
-        }
+    .tagline {
+      font-style: italic;
+      font-size: 1.2em;
+      color: #555;
+      animation: fadeIn 1.5s ease 3s forwards;
+      opacity: 0;
+    }
 
-        section {
-            margin-top: 40px;
-            opacity: 0;
-            animation: fadeIn 1.5s ease forwards;
-        }
+    section {
+      margin-top: 40px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
 
-        .about { animation-delay: 4s; }
-        .projects { animation-delay: 5s; }
-        .contact { animation-delay: 6s; }
+    .about {
+      animation-delay: 4s;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .projects {
+      animation-delay: 5s;
+    }
 
-        a {
-            color: #33ff33;
-            text-decoration: none;
-        }
+    .contact {
+      animation-delay: 6s;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        footer {
-            margin-top: 60px;
-            font-size: 0.9em;
-            color: #44aa44;
-            opacity: 0;
-            animation: fadeIn 1.5s ease 7s forwards;
-        }
-    </style>
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #777;
+      opacity: 0;
+      animation: fadeIn 1.5s ease 7s forwards;
+    }
+  </style>
 </head>
 <body>
-    <div class="portfolio-container">
-        <header>
-            <img src="images/profile.jpg" alt="Profile Image" style="width:200px; height:auto;">
-            <h1>Ashim Shrestha</h1>
-            <p class="tagline">Web Developer | Designer | Creator</p>
-        </header>
-        <section class="about">
-            <h2>About Me</h2>
-            <p>
-                Hi! I'm Ashim, a passionate web developer and designer who loves to build beautiful and functional websites and applications. I specialize in front-end development, user experience, and creative problem-solving.
-            </p>
-        </section>
-        <section class="projects">
-            <h2>Projects</h2>
-            <div class="project-list">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>A web application built with React and Node.js for managing personal tasks and productivity.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>An interactive portfolio website showcasing my work, using HTML, CSS, and JavaScript.</p>
-                </div>
-            </div>
-        </section>
-        <section class="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:ashim.shrestha.937@gmail.com">ashim.shrestha.937@gmail.com</a></p>
-            <p>GitHub: <a href="https://github.com/AshimShrestha12" target="_blank">AshimShrestha12</a></p>
-        </section>
-        <footer>
-            <p>© 2025 Ashim Shrestha. All rights reserved.</p>
-        </footer>
-    </div>
+  <div class="portfolio-container">
+    <header>
+      <img
+        src="profile.jpg"
+        alt="Ashim Shrestha Photo"
+        class="profile-img"
+      />
+      <h1>Ashim Shrestha</h1>
+      <p class="tagline">Web Developer | Designer | Creator</p>
+    </header>
+
+    <section class="about">
+      <h2>About Me</h2>
+      <p>
+        Hi! I'm Ashim, a passionate web developer and designer who loves to
+        build beautiful and functional websites and applications. I specialize
+        in front-end development, user experience, and creative
+        problem-solving.
+      </p>
+    </section>
+
+    <section class="projects">
+      <h2>Projects</h2>
+      <div class="project-list">
+        <div class="project-card">
+          <h3>Project One</h3>
+          <p>
+            A web application built with React and Node.js for managing
+            personal tasks and productivity.
+          </p>
+        </div>
+        <div class="project-card">
+          <h3>Project Two</h3>
+          <p>
+            An interactive portfolio website showcasing my work, using HTML,
+            CSS, and JavaScript.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>
+        Email:
+        <a href="mailto:ashim.shrestha.937@gmail.com"
+          >ashim.shrestha.937@gmail.com</a
+        >
+      </p>
+      <p>
+        GitHub:
+        <a
+          href="https://github.com/AshimShrestha12"
+          target="_blank"
+          >AshimShrestha12</a
+        >
+      </p>
+    </section>
+
+    <footer>
+      <p>© 2025 Ashim Shrestha. All rights reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>

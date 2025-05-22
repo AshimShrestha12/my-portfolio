@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 2em;
-    }
-    h1 {
-      color: royalblue;
-    }
-    .profile-pic {
-      width: 200px;
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      margin-top: 1em;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Ashim Shrestha | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Hello, I'm Ashim Shrestha</h1>
-  <img src="images/profile.jpg" alt="My Photo" class="profile-pic">
-  
-  <p>Welcome to my portfolio! 🚀</p>
-
-  <h2>Projects</h2>
-  <ul>
-    <li><a href="https://github.com/yourusername/project1">Project 1</a></li>
-    <li><a href="https://github.com/yourusername/project2">Project 2</a></li>
-  </ul>
+    <div class="portfolio-container">
+        <header>
+            <img src="profile.jpg" alt="Ashim Shrestha Photo" class="profile-img">
+            <h1>Ashim Shrestha</h1>
+            <p class="tagline">Web Developer | Designer | Creator</p>
+        </header>
+        <section class="about">
+            <h2>About Me</h2>
+            <p>
+                Hi! I'm Ashim, a passionate web developer and designer who loves to build beautiful and functional websites and applications. I specialize in front-end development, user experience, and creative problem-solving.
+            </p>
+        </section>
+        <section class="projects">
+            <h2>Projects</h2>
+            <div class="project-list">
+                <div class="project-card">
+                    <h3>Project One</h3>
+                    <p>A web application built with React and Node.js for managing personal tasks and productivity.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Project Two</h3>
+                    <p>An interactive portfolio website showcasing my work, using HTML, CSS, and JavaScript.</p>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </section>
+        <section class="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:ashim@example.com">ashim@example.com</a></p>
+            <p>GitHub: <a href="https://github.com/AshimShrestha12" target="_blank">AshimShrestha12</a></p>
+        </section>
+    </div>
 </body>
 </html>

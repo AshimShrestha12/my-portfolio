@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Ashim Shrestha | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ashim Shrestha's personal portfolio. Front-end web developer and designer based in Nepal." />
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -21,7 +22,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg);
+      background: radial-gradient(circle at top left, #000, #003300);
       color: var(--fg);
       text-align: center;
       overflow-x: hidden;
@@ -31,46 +32,49 @@
       padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
     }
 
     .profile-img {
-      width: 260px;
-      height: 260px;
+      width: 220px;
+      height: 220px;
       object-fit: cover;
       margin-bottom: 20px;
-      border: 6px solid var(--accent);
-      box-shadow: 0 4px 15px rgba(0, 255, 204, 0.5);
+      border: 5px solid var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 8px 25px rgba(0, 255, 204, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
     }
 
     h1 {
       font-size: 3em;
       color: var(--accent);
+      margin-bottom: 0.2em;
     }
 
     .tagline {
       font-style: italic;
-      font-size: 1.4em;
+      font-size: 1.5em;
       color: #00ffcc;
+      margin-bottom: 1.5em;
     }
 
     section {
       margin-top: 40px;
-    }
-
-    .project-card {
-      background: var(--highlight);
-      padding: 25px;
-      margin: 20px auto;
-      border-radius: 14px;
-      max-width: 700px;
-      box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+      animation: fadeIn 1s ease-in-out;
     }
 
     a {
       color: var(--accent);
       text-decoration: none;
+      font-weight: bold;
     }
     a:hover {
       text-decoration: underline;
@@ -129,6 +133,11 @@
       transform: translate(-50%, -50%);
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 600px) {
       .portfolio-container {
         padding: 20px 15px;
@@ -153,12 +162,6 @@
       section {
         margin-top: 30px;
         font-size: 0.9em;
-      }
-
-      .project-card {
-        margin: 15px auto;
-        padding: 15px;
-        max-width: 100%;
       }
 
       .clock-wrapper {
@@ -193,7 +196,7 @@
 
   <div class="portfolio-container">
     <header>
-      <img src="profile.jpg" alt="Portrait of Ashim Shrestha" class="profile-img" />
+      <img src="profile.jpg" alt="Ashim Shrestha's Profile Picture" class="profile-img" />
       <h1>Ashim Shrestha</h1>
       <p class="tagline">Web Developer | Designer | Creator</p>
     </header>
@@ -205,25 +208,10 @@
       </p>
     </section>
 
-    <section class="projects">
-      <h2>Projects</h2>
-      <div class="project-card">
-        <h3>Task Manager App</h3>
-        <p>A web application built with React and Node.js for managing personal tasks and productivity.</p>
-      </div>
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>An interactive portfolio website showcasing my work, using HTML, CSS, and JavaScript.</p>
-      </div>
-      <div class="project-card">
-        <h3>Weather Forecast App</h3>
-        <p>A clean and modern app using HTML, CSS, and JavaScript that fetches weather data via an open API and displays current conditions for any city.</p>
-      </div>
-    </section>
-
     <section class="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:ashim.shrestha.937@gmail.com">ashim.shrestha.937@gmail.com</a></p>
+      <p>Phone: <a href="tel:+9779841822421">9841822421</a></p>
       <p>GitHub: <a href="https://github.com/AshimShrestha12" target="_blank">AshimShrestha12</a></p>
     </section>
 

@@ -4,17 +4,28 @@
   <meta charset="UTF-8" />
   <title>Ashim Shrestha | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #000000;
+      --accent: #333;
+      --soft: #f4f4f4;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff;
-      color: #000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
       text-align: center;
+      transition: background 0.3s, color 0.3s;
     }
 
     .portfolio-container {
       padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
     }
 
     .profile-img {
@@ -23,32 +34,26 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 20px;
-      border: 3px solid #000;
+      border: 3px solid var(--fg);
     }
 
     h1 {
       font-size: 2.5em;
-      overflow: hidden;
       white-space: nowrap;
-      border-right: 2px solid #000;
+      border-right: 2px solid var(--fg);
       width: 0;
       margin: 0 auto 10px;
+      overflow: hidden;
       animation: typing 3s steps(20, end) forwards, blink 0.75s step-end infinite;
     }
 
     @keyframes typing {
-      from {
-        width: 0;
-      }
-      to {
-        width: 15ch;
-      }
+      from { width: 0; }
+      to { width: 18ch; }
     }
 
     @keyframes blink {
-      50% {
-        border-color: transparent;
-      }
+      50% { border-color: transparent; }
     }
 
     .tagline {
@@ -65,37 +70,29 @@
       animation: fadeIn 1.5s ease forwards;
     }
 
-    .about {
-      animation-delay: 4s;
-    }
-
-    .projects {
-      animation-delay: 5s;
-    }
-
-    .contact {
-      animation-delay: 6s;
-    }
+    .about { animation-delay: 4s; }
+    .projects { animation-delay: 5s; }
+    .contact { animation-delay: 6s; }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .project-card {
+      background: var(--soft);
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 12px;
+      max-width: 600px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     a {
-      color: #000;
+      color: var(--fg);
       text-decoration: none;
     }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a:hover { text-decoration: underline; }
 
     footer {
       margin-top: 60px;
@@ -104,71 +101,62 @@
       opacity: 0;
       animation: fadeIn 1.5s ease 7s forwards;
     }
+
+    .clock {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 1em;
+      color: #222;
+    }
   </style>
 </head>
 <body>
   <div class="portfolio-container">
     <header>
-      <img
-        src="profile.jpg"
-        alt="Ashim Shrestha Photo"
-        class="profile-img"
-      />
+      <img src="profile.jpg" alt="Portrait of Ashim Shrestha" class="profile-img" />
       <h1>Ashim Shrestha</h1>
       <p class="tagline">Web Developer | Designer | Creator</p>
+      <div class="clock" id="clock"></div>
     </header>
 
     <section class="about">
       <h2>About Me</h2>
       <p>
-        Hi! I'm Ashim, a passionate web developer and designer who loves to
-        build beautiful and functional websites and applications. I specialize
-        in front-end development, user experience, and creative
-        problem-solving.
+        Hi! I'm Ashim, a passionate web developer and designer who loves to build beautiful and functional websites and applications. I specialize in front-end development, user experience, and creative problem-solving.
       </p>
     </section>
 
     <section class="projects">
       <h2>Projects</h2>
-      <div class="project-list">
-        <div class="project-card">
-          <h3>Project One</h3>
-          <p>
-            A web application built with React and Node.js for managing
-            personal tasks and productivity.
-          </p>
-        </div>
-        <div class="project-card">
-          <h3>Project Two</h3>
-          <p>
-            An interactive portfolio website showcasing my work, using HTML,
-            CSS, and JavaScript.
-          </p>
-        </div>
+      <div class="project-card">
+        <h3>Task Manager App</h3>
+        <p>A web application built with React and Node.js for managing personal tasks and productivity.</p>
+      </div>
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>An interactive portfolio website showcasing my work, using HTML, CSS, and JavaScript.</p>
       </div>
     </section>
 
     <section class="contact">
       <h2>Contact</h2>
-      <p>
-        Email:
-        <a href="mailto:ashim.shrestha.937@gmail.com"
-          >ashim.shrestha.937@gmail.com</a
-        >
-      </p>
-      <p>
-        GitHub:
-        <a
-          href="https://github.com/AshimShrestha12"
-          target="_blank"
-          >AshimShrestha12</a
-        >
-      </p>
+      <p>Email: <a href="mailto:ashim.shrestha.937@gmail.com">ashim.shrestha.937@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/AshimShrestha12" target="_blank">AshimShrestha12</a></p>
     </section>
 
     <footer>
       <p>© 2025 Ashim Shrestha. All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString();
+      document.getElementById('clock').textContent = `Current Time: ${time}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 </body>
 </html>

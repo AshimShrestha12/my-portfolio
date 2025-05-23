@@ -7,11 +7,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff;
-      --fg: #000000;
-      --accent: #0066cc;
-      --soft: #f4f4f4;
-      --highlight: #e0f0ff;
+      --bg: #fdfdfd;
+      --fg: #1f1f1f;
+      --accent: #3366ff;
+      --soft: #f0f4f8;
+      --highlight: #e6f0ff;
     }
 
     * {
@@ -34,17 +34,17 @@
     }
 
     .profile-img {
-      width: 220px;
-      height: 220px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 20px;
-      border: 4px solid var(--fg);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border: 6px solid var(--accent);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     h1 {
-      font-size: 2.8em;
+      font-size: 3em;
       white-space: nowrap;
       border-right: 2px solid var(--fg);
       width: 0;
@@ -64,8 +64,8 @@
 
     .tagline {
       font-style: italic;
-      font-size: 1.3em;
-      color: #555;
+      font-size: 1.4em;
+      color: #666;
       animation: fadeIn 1.5s ease 3s forwards;
       opacity: 0;
     }
@@ -110,7 +110,7 @@
     footer {
       margin-top: 60px;
       font-size: 0.9em;
-      color: #777;
+      color: #555;
       opacity: 0;
       animation: fadeIn 1.5s ease 7s forwards;
     }
@@ -120,17 +120,21 @@
       top: 20px;
       right: 20px;
       text-align: center;
+      background: var(--soft);
+      padding: 12px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .clock {
       margin: auto;
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      border: 4px solid var(--fg);
+      border: 4px solid var(--accent);
       position: relative;
       background: #fff;
-      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .hand {
@@ -142,28 +146,29 @@
     }
 
     .hour {
-      width: 4px;
-      height: 25px;
+      width: 5px;
+      height: 30px;
       z-index: 3;
     }
 
     .minute {
       width: 3px;
-      height: 35px;
+      height: 45px;
       z-index: 2;
     }
 
     .second {
       width: 2px;
-      height: 45px;
+      height: 55px;
       background: red;
       z-index: 1;
     }
 
     .date {
-      margin-top: 8px;
-      font-size: 0.9em;
-      color: #555;
+      margin-top: 10px;
+      font-size: 1em;
+      color: #444;
+      font-weight: bold;
     }
   </style>
 </head>

@@ -97,6 +97,71 @@
       z-index: 10;
     }
 
+    /* Logo Styles */
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: var(--accent);
+      text-decoration: none;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-inner {
+      display: inline-block;
+      padding: 5px 10px;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      transform: skew(-10deg);
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover .logo-inner {
+      background-color: var(--accent);
+      color: var(--bg);
+      box-shadow: 0 0 15px var(--accent);
+    }
+
+    /* Navigation */
+    .nav-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 100;
+    }
+
+    .nav-button:hover {
+      background-color: #00ffaa;
+    }
+
+    /* Hidden sections */
+    .hidden {
+      display: none;
+    }
+
+    /* About section styles */
+    .about-section {
+      margin-top: 30px;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .profile-img {
       width: 200px;
       height: 200px;
@@ -133,7 +198,7 @@
 
     .clock-wrapper {
       position: fixed;
-      top: 20px;
+      top: 80px;
       right: 20px;
       background: var(--soft);
       padding: 15px;
@@ -205,6 +270,19 @@
         width: 95%;
       }
 
+      .logo {
+        font-size: 1.8em;
+        top: 15px;
+        left: 15px;
+      }
+
+      .nav-button {
+        top: 15px;
+        right: 15px;
+        padding: 8px 15px;
+        font-size: 0.9em;
+      }
+
       .profile-img {
         width: 140px;
         height: 140px;
@@ -246,6 +324,12 @@
 <body>
   <div class="matrix-rain" id="matrixRain"></div>
   
+  <a href="#" class="logo" id="homeLogo">
+    <span class="logo-inner">AS</span>
+  </a>
+
+  <button class="nav-button" id="aboutButton">About</button>
+  
   <div class="clock-wrapper">
     <div class="clock" id="clock">
       <div class="hand hour" id="hour-hand"></div>
@@ -255,16 +339,20 @@
     <div class="date" id="date"></div>
   </div>
 
-  <div class="portfolio-container">
+  <div class="portfolio-container" id="homeContainer">
+    <!-- Home content will be empty initially -->
+  </div>
+
+  <div class="portfolio-container hidden" id="aboutContainer">
     <header>
       <img src="profile.jpg" alt="Ashim Shrestha" class="profile-img">
       <h1>Ashim Shrestha</h1>
       <p class="tagline">Web Developer | Designer | Creator</p>
     </header>
 
-    <section class="about">
+    <section class="about-section">
       <h2>About Me</h2>
-      <p>Hi! I'm Ashim, I am and web designer and the master of consoles as well I enjoy coding and developing my on own terms and conditions.</p>
+      <p>Hi! I'm Ashim, a passionate web developer and designer focused on building elegant and performant web experiences. I love solving challenges and bringing ideas to life in the browser.</p>
     </section>
 
     <section class="contact">
@@ -340,12 +428,38 @@
       }
     }
 
+    // Navigation functionality
+    function setupNavigation() {
+      const aboutButton = document.getElementById('aboutButton');
+      const homeLogo = document.getElementById('homeLogo');
+      const homeContainer = document.getElementById('homeContainer');
+      const aboutContainer = document.getElementById('aboutContainer');
+
+      // Show about section when button clicked
+      aboutButton.addEventListener('click', function() {
+        homeContainer.classList.add('hidden');
+        aboutContainer.classList.remove('hidden');
+      });
+
+      // Show home when logo clicked
+      homeLogo.addEventListener('click', function(e) {
+        e.preventDefault();
+        aboutContainer.classList.add('hidden');
+        homeContainer.classList.remove('hidden');
+      });
+
+      // Start with home visible
+      homeContainer.classList.remove('hidden');
+      aboutContainer.classList.add('hidden');
+    }
+
     // Initialize everything when page loads
     window.onload = function() {
       drawClockNumbers();
       updateAnalogClock();
       setInterval(updateAnalogClock, 1000);
       createMatrixRain();
+      setupNavigation();
     };
   </script>
 </body>

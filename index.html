@@ -2,502 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Ashim Shrestha | Mountain Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Realistic Mountain Background</title>
   <style>
-    :root {
-      --bg: #0a192f;
-      --fg: #e6f1ff;
-      --accent: #64ffda;
-      --soft: #112240;
-      --highlight: #1f4068;
-    }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--fg);
-      overflow-x: hidden;
-      position: relative;
-      min-height: 100vh;
-      background-color: var(--bg);
-    }
-
-    .mountain-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+    body, html {
       height: 100%;
-      z-index: -1;
-      background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      filter: brightness(0.7);
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(10, 25, 47, 0.9) 0%, rgba(10, 25, 47, 0.6) 100%);
-      z-index: -1;
-    }
-
-    .portfolio-container {
-      padding: 20px 15px;
-      width: 95%;
-      max-width: 900px;
-      margin: 20px auto;
-      background-color: rgba(10, 25, 47, 0.85);
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
-      text-align: center;
-      position: relative;
-      z-index: 10;
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(100, 255, 218, 0.1);
-    }
-
-    /* Logo Styles */
-    .logo {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-size: 1.5em;
-      font-weight: bold;
-      color: var(--accent);
-      text-decoration: none;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-    }
-
-    .logo-inner {
-      display: inline-block;
-      padding: 8px 12px;
-      border: 2px solid var(--accent);
-      border-radius: 50%;
-      transition: all 0.3s ease;
-      background-color: rgba(10, 25, 47, 0.7);
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo:hover .logo-inner {
-      background-color: var(--accent);
-      color: var(--bg);
-      box-shadow: 0 0 15px var(--accent);
-      transform: rotate(15deg);
-    }
-
-    /* Button Styles */
-    .btn {
-      padding: 12px 24px;
-      background-color: var(--accent);
-      color: var(--bg);
-      border: none;
-      border-radius: 30px;
-      font-size: 0.95em;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: bold;
-      position: relative;
       overflow: hidden;
-      box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
-      display: inline-block;
-      text-align: center;
-      z-index: 10;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    .btn:hover {
-      background-color: var(--bg);
-      color: var(--accent);
-      box-shadow: 0 0 20px var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .btn:active {
-      transform: translateY(1px);
-    }
-
-    .btn::after {
-      content: '';
-      position: absolute;
+    .animated-mountain {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(
-        45deg,
-        transparent,
-        rgba(100, 255, 218, 0.2),
-        transparent
-      );
-      transform: translateX(-100%);
-      transition: 0.6s;
+      overflow: hidden;
+      z-index: -3;
     }
 
-    .btn:hover::after {
-      transform: translateX(100%);
-    }
-
-    .nav-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 100;
-    }
-
-    .more-button {
-      margin: 20px auto 0;
-      display: block;
-      width: fit-content;
-    }
-
-    /* Digital Clock Styles - Moved to bottom left */
-    .digital-clock {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: var(--soft);
-      padding: 10px 15px;
-      border-radius: 30px;
-      box-shadow: 0 4px 10px rgba(100, 255, 218, 0.3);
-      z-index: 100;
-      text-align: center;
-      border: 1px solid rgba(100, 255, 218, 0.2);
-    }
-
-    .time {
-      font-size: 1.2em;
-      color: var(--accent);
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .date {
-      font-size: 0.8em;
-      color: var(--fg);
-      margin-top: 3px;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    /* About section styles */
-    .about-section {
-      margin-top: 20px;
-      animation: fadeIn 0.5s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .profile-img {
-      width: 150px;
-      height: 150px;
+    #bg-video {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
-      margin: 10px auto;
-      transition: all 0.3s ease;
+      filter: brightness(0.6);
     }
 
-    .profile-img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px var(--accent);
-    }
-
-    h1 {
-      font-size: 1.8em;
-      color: var(--accent);
-      margin: 10px 0;
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: 1.4em;
-      margin: 15px 0;
-      color: var(--accent);
-      position: relative;
-      display: inline-block;
-    }
-
-    h2::after {
-      content: '';
+    .cloud-layer {
       position: absolute;
-      bottom: -5px;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/clouds.png') repeat-x;
+      animation: moveClouds 60s linear infinite;
+      opacity: 0.12;
+      z-index: -2;
+    }
+
+    @keyframes moveClouds {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .fog-overlay {
+      position: absolute;
+      bottom: 0;
       left: 0;
       width: 100%;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
+      height: 100%;
+      background: linear-gradient(to top, rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0));
+      z-index: -1;
     }
 
-    h2:hover::after {
-      transform: scaleX(1);
-    }
-
-    .tagline {
-      font-size: 1em;
-      color: var(--accent);
-      margin-bottom: 20px;
-      line-height: 1.3;
-      font-style: italic;
-    }
-
-    section {
-      margin-top: 25px;
-      padding: 0 10px;
-    }
-
-    p {
-      line-height: 1.6;
-      margin-bottom: 15px;
-      font-size: 0.95em;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      word-break: break-all;
-      transition: all 0.3s ease;
+    .content {
       position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      top: 40%;
+      transform: translateY(-50%);
     }
 
-    a::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.3s ease;
+    .content h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
     }
 
-    a:hover::after {
-      width: 100%;
+    .content p {
+      font-size: 1.2rem;
+      opacity: 0.8;
     }
 
-    footer {
-      margin-top: 30px;
-      font-size: 0.8em;
-      color: var(--accent);
-      padding-top: 15px;
-      border-top: 1px solid rgba(100, 255, 218, 0.2);
-    }
-
-    /* Desktop Styles */
-    @media (min-width: 768px) {
-      .portfolio-container {
-        padding: 30px 25px;
-        margin: 40px auto;
-        border-radius: 16px;
+    @media (max-width: 768px) {
+      .content h1 {
+        font-size: 2rem;
       }
 
-      .logo {
-        top: 30px;
-        left: 30px;
-      }
-
-      .nav-button {
-        top: 30px;
-        right: 30px;
-      }
-
-      .digital-clock {
-        bottom: 30px;
-        left: 30px;
-        padding: 12px 18px;
-      }
-      
-      .time {
-        font-size: 1.4em;
-      }
-      
-      .date {
-        font-size: 0.9em;
-      }
-
-      .profile-img {
-        width: 180px;
-        height: 180px;
-      }
-
-      h1 {
-        font-size: 2.2em;
-      }
-
-      h2 {
-        font-size: 1.8em;
-      }
-
-      .tagline {
-        font-size: 1.2em;
-      }
-    }
-
-    /* Large Desktop */
-    @media (min-width: 1024px) {
-      .portfolio-container {
-        padding: 40px;
-      }
-
-      .profile-img {
-        width: 200px;
-        height: 200px;
-      }
-
-      h1 {
-        font-size: 2.5em;
-      }
-
-      .btn {
-        padding: 14px 30px;
+      .content p {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="mountain-background"></div>
-  <div class="overlay"></div>
-  
-  <a href="#" class="logo" id="homeLogo">
-    <span class="logo-inner">AS</span>
-  </a>
 
-  <button class="btn nav-button" id="aboutButton">About</button>
-  
-  <div class="digital-clock">
-    <div class="time" id="digital-time"></div>
-    <div class="date" id="digital-date"></div>
+  <!-- Animated Background Layers -->
+  <div class="animated-mountain">
+    <video autoplay muted loop playsinline id="bg-video">
+      <source src="https://cdn.coverr.co/videos/coverr-misty-mountains-7347/1080p.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="cloud-layer"></div>
+    <div class="fog-overlay"></div>
   </div>
 
-  <div class="portfolio-container" id="homeContainer">
-    <!-- Home content will be empty initially -->
+  <!-- Main Content -->
+  <div class="content">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Experience the calm of the mountains with every scroll</p>
   </div>
 
-  <div class="portfolio-container hidden" id="aboutContainer">
-    <header>
-      <img src="profile.jpg" alt="Ashim Shrestha" class="profile-img">
-      <h1>Ashim Shrestha</h1>
-      <p class="tagline">Web Developer | Designer | Creator</p>
-    </header>
-
-    <section class="about-section">
-      <h2>About Me</h2>
-      <p>Hi! I'm Ashim, a passionate web developer and designer focused on building elegant and performant web experiences. I love solving challenges and bringing ideas to life in the browser.</p>
-      <p>When I'm not coding, you can find me exploring mountain trails or capturing the beauty of nature through my camera lens.</p>
-    </section>
-
-    <section class="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:ashim.shrestha.937@gmail.com">ashim.shrestha.937@gmail.com</a></p>
-      <p>Phone: <a href="tel:+9779841822421">+977 9841822421</a></p>
-      <p>GitHub: <a href="https://github.com/AshimShrestha12" target="_blank">AshimShrestha12</a></p>
-      <button class="btn more-button" onclick="window.open('https://www.instagram.com/the_console_jailbreaker', '_blank')">
-        My Non-Coding Adventures
-      </button>
-    </section>
-
-    <footer>
-      <p>© 2025 Ashim Shrestha. All rights reserved.</p>
-      <p><a href="https://ashimshrestha.com.np" target="_blank">ashimshrestha.com.np</a></p>
-    </footer>
-  </div>
-
-  <script>
-    // Mobile optimization
-    function isMobile() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    }
-
-    function updateDigitalClock() {
-      const now = new Date();
-      
-      // Format time (HH:MM:SS)
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      const seconds = String(now.getSeconds()).padStart(2, '0');
-      document.getElementById('digital-time').textContent = `${hours}:${minutes}:${seconds}`;
-      
-      // Format date
-      const options = { 
-        weekday: 'short', 
-        year: 'numeric', 
-        month: 'short', 
-        day: 'numeric' 
-      };
-      
-      // Simplified date for mobile
-      if (isMobile()) {
-        options.weekday = undefined;
-        options.year = undefined;
-      }
-      
-      document.getElementById('digital-date').textContent = now.toLocaleDateString(undefined, options);
-    }
-
-    // Navigation functionality
-    function setupNavigation() {
-      const aboutButton = document.getElementById('aboutButton');
-      const homeLogo = document.getElementById('homeLogo');
-      const homeContainer = document.getElementById('homeContainer');
-      const aboutContainer = document.getElementById('aboutContainer');
-
-      // Show about section when button clicked
-      aboutButton.addEventListener('click', function() {
-        homeContainer.classList.add('hidden');
-        aboutContainer.classList.remove('hidden');
-        // Scroll to top for mobile
-        window.scrollTo(0, 0);
-      });
-
-      // Show home when logo clicked
-      homeLogo.addEventListener('click', function(e) {
-        e.preventDefault();
-        aboutContainer.classList.add('hidden');
-        homeContainer.classList.remove('hidden');
-        // Scroll to top for mobile
-        window.scrollTo(0, 0);
-      });
-
-      // Start with home visible
-      homeContainer.classList.remove('hidden');
-      aboutContainer.classList.add('hidden');
-    }
-
-    // Initialize everything when page loads
-    window.onload = function() {
-      updateDigitalClock();
-      setInterval(updateDigitalClock, 1000);
-      setupNavigation();
-    };
-
-    // Prevent zooming on mobile
-    document.addEventListener('gesturestart', function(e) {
-      e.preventDefault();
-    });
-  </script>
 </body>
 </html>

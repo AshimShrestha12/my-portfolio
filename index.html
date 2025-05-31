@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Ashim Shrestha | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <title>Ashim Shrestha | Mountain Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #000;
-      --fg: #33ff33;
-      --accent: #00ffcc;
-      --soft: #111;
-      --highlight: #003300;
+      --bg: #0a192f;
+      --fg: #e6f1ff;
+      --accent: #64ffda;
+      --soft: #112240;
+      --highlight: #1f4068;
     }
 
     * {
@@ -22,68 +22,79 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background-color: var(--bg);
       color: var(--fg);
       overflow-x: hidden;
-      background-image: repeating-linear-gradient(
-        180deg,
-        rgba(0, 255, 0, 0.05) 0px,
-        rgba(0, 255, 0, 0.05) 1px,
-        transparent 1px,
-        transparent 2px
-      );
-      animation: matrixScroll 50s linear infinite;
-      touch-action: manipulation;
+      position: relative;
+      min-height: 100vh;
     }
 
-    @keyframes matrixScroll {
-      0% {
-        background-position-y: 0;
-      }
-      100% {
-        background-position-y: 1000px;
-      }
-    }
-
-    .matrix-rain {
+    .mountain-background {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 0;
+      z-index: -1;
       overflow: hidden;
-      pointer-events: none;
+      background: linear-gradient(to bottom, #0a192f 0%, #1a3a6a 100%);
     }
-    
-    .matrix-column {
+
+    .mountain-range {
       position: absolute;
-      top: -100px;
-      color: var(--fg);
-      font-size: 14px;
-      writing-mode: vertical-rl;
-      text-orientation: upright;
-      opacity: 0.6;
-      text-shadow: 0 0 3px var(--accent);
-      animation: matrix-fall linear infinite;
+      bottom: 0;
+      width: 100%;
+      height: 40%;
+      background-image: 
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23112240"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23112240"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%2364ffda"></path></svg>');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
     }
-    
-    @keyframes matrix-fall {
+
+    .clouds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" opacity=".1" fill="%23e6f1ff"></path></svg>');
+      background-repeat: repeat-x;
+      background-size: 1200px 120px;
+      animation: cloudMove 60s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes cloudMove {
       0% {
-        transform: translateY(-100px);
-        opacity: 0;
-      }
-      5% {
-        opacity: 0.6;
-      }
-      90% {
-        opacity: 0.6;
+        background-position-x: 0;
       }
       100% {
-        transform: translateY(100vh);
-        opacity: 0;
+        background-position-x: 1200px;
       }
+    }
+
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(1px 1px at 20px 30px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 40px 70px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 50px 160px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 90px 40px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 130px 80px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 160px 120px, white, rgba(0,0,0,0));
+      background-repeat: repeat;
+      animation: twinkle 4s infinite;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+      100% { opacity: 0.3; }
     }
 
     .portfolio-container {
@@ -91,19 +102,21 @@
       width: 95%;
       max-width: 900px;
       margin: 20px auto;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(10, 25, 47, 0.9);
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+      box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
       text-align: center;
       position: relative;
       z-index: 10;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(100, 255, 218, 0.1);
     }
 
     /* Logo Styles */
     .logo {
       position: fixed;
-      top: 10px;
-      left: 10px;
+      top: 20px;
+      left: 20px;
       font-size: 1.5em;
       font-weight: bold;
       color: var(--accent);
@@ -115,76 +128,80 @@
 
     .logo-inner {
       display: inline-block;
-      padding: 4px 8px;
+      padding: 8px 12px;
       border: 2px solid var(--accent);
-      border-radius: 6px;
-      transform: skew(-10deg);
+      border-radius: 50%;
       transition: all 0.3s ease;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(10, 25, 47, 0.7);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .logo:hover .logo-inner {
       background-color: var(--accent);
       color: var(--bg);
-      box-shadow: 0 0 10px var(--accent);
+      box-shadow: 0 0 15px var(--accent);
+      transform: rotate(15deg);
     }
 
     /* Button Styles */
     .btn {
-      padding: 10px 20px;
+      padding: 12px 24px;
       background-color: var(--accent);
-      color: #000;
+      color: var(--bg);
       border: none;
-      border-radius: 8px;
+      border-radius: 30px;
       font-size: 0.95em;
       cursor: pointer;
       transition: all 0.3s ease;
       font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
-      border: 1px solid rgba(0, 255, 204, 0.8);
+      box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
       display: inline-block;
       text-align: center;
+      z-index: 10;
     }
 
     .btn:hover {
-      background-color: #000;
+      background-color: var(--bg);
       color: var(--accent);
-      box-shadow: 0 0 15px var(--accent);
-      transform: translateY(-2px);
+      box-shadow: 0 0 20px var(--accent);
+      transform: translateY(-3px);
     }
 
     .btn:active {
       transform: translateY(1px);
     }
 
-    .btn::before {
+    .btn::after {
       content: '';
       position: absolute;
       top: 0;
-      left: -100%;
+      left: 0;
       width: 100%;
       height: 100%;
       background: linear-gradient(
-        90deg,
+        45deg,
         transparent,
-        rgba(0, 255, 204, 0.4),
+        rgba(100, 255, 218, 0.2),
         transparent
       );
-      transition: 0.5s;
+      transform: translateX(-100%);
+      transition: 0.6s;
     }
 
-    .btn:hover::before {
-      left: 100%;
+    .btn:hover::after {
+      transform: translateX(100%);
     }
 
     .nav-button {
       position: fixed;
-      top: 10px;
-      right: 10px;
+      top: 20px;
+      right: 20px;
       z-index: 100;
     }
 
@@ -194,19 +211,18 @@
       width: fit-content;
     }
 
-    /* Digital Clock Styles */
+    /* Digital Clock Styles - Moved to bottom left */
     .digital-clock {
       position: fixed;
-      bottom: 15px;
-      right: 50%;
-      transform: translateX(50%);
+      bottom: 20px;
+      left: 20px;
       background: var(--soft);
       padding: 10px 15px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3);
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(100, 255, 218, 0.3);
       z-index: 100;
-      font-family: 'Segoe UI', monospace;
       text-align: center;
+      border: 1px solid rgba(100, 255, 218, 0.2);
     }
 
     .time {
@@ -238,13 +254,19 @@
     }
 
     .profile-img {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
       object-fit: cover;
+      border-radius: 50%;
       border: 4px solid var(--accent);
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+      box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
       margin: 10px auto;
+      transition: all 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px var(--accent);
     }
 
     h1 {
@@ -258,21 +280,41 @@
       font-size: 1.4em;
       margin: 15px 0;
       color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    h2:hover::after {
+      transform: scaleX(1);
     }
 
     .tagline {
       font-size: 1em;
-      color: #00ffcc;
+      color: var(--accent);
       margin-bottom: 20px;
       line-height: 1.3;
+      font-style: italic;
     }
 
     section {
       margin-top: 25px;
+      padding: 0 10px;
     }
 
     p {
-      line-height: 1.5;
+      line-height: 1.6;
       margin-bottom: 15px;
       font-size: 0.95em;
     }
@@ -281,17 +323,31 @@
       color: var(--accent);
       text-decoration: none;
       word-break: break-all;
+      transition: all 0.3s ease;
+      position: relative;
     }
-    a:hover {
-      text-decoration: underline;
+
+    a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    a:hover::after {
+      width: 100%;
     }
 
     footer {
       margin-top: 30px;
       font-size: 0.8em;
-      color: #00ffcc;
+      color: var(--accent);
       padding-top: 15px;
-      border-top: 1px solid rgba(0, 255, 204, 0.2);
+      border-top: 1px solid rgba(100, 255, 218, 0.2);
     }
 
     /* Desktop Styles */
@@ -303,23 +359,27 @@
       }
 
       .logo {
-        top: 20px;
-        left: 20px;
-        font-size: 2em;
-      }
-
-      .logo-inner {
-        padding: 5px 10px;
-      }
-
-      .btn {
-        padding: 12px 25px;
-        font-size: 1em;
+        top: 30px;
+        left: 30px;
       }
 
       .nav-button {
-        top: 20px;
-        right: 20px;
+        top: 30px;
+        right: 30px;
+      }
+
+      .digital-clock {
+        bottom: 30px;
+        left: 30px;
+        padding: 12px 18px;
+      }
+      
+      .time {
+        font-size: 1.4em;
+      }
+      
+      .date {
+        font-size: 0.9em;
       }
 
       .profile-img {
@@ -337,27 +397,6 @@
 
       .tagline {
         font-size: 1.2em;
-      }
-
-      .digital-clock {
-        top: 20px;
-        right: 20px;
-        bottom: auto;
-        left: auto;
-        transform: none;
-        padding: 12px 18px;
-      }
-      
-      .time {
-        font-size: 1.4em;
-      }
-      
-      .date {
-        font-size: 0.9em;
-      }
-
-      .matrix-column {
-        font-size: 16px;
       }
     }
 
@@ -379,19 +418,15 @@
       .btn {
         padding: 14px 30px;
       }
-
-      .digital-clock {
-        padding: 15px 20px;
-      }
-      
-      .time {
-        font-size: 1.6em;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="matrix-rain" id="matrixRain"></div>
+  <div class="mountain-background">
+    <div class="stars"></div>
+    <div class="clouds"></div>
+    <div class="mountain-range"></div>
+  </div>
   
   <a href="#" class="logo" id="homeLogo">
     <span class="logo-inner">AS</span>
@@ -418,6 +453,7 @@
     <section class="about-section">
       <h2>About Me</h2>
       <p>Hi! I'm Ashim, a passionate web developer and designer focused on building elegant and performant web experiences. I love solving challenges and bringing ideas to life in the browser.</p>
+      <p>When I'm not coding, you can find me exploring mountain trails or capturing the beauty of nature through my camera lens.</p>
     </section>
 
     <section class="contact">
@@ -426,7 +462,7 @@
       <p>Phone: <a href="tel:+9779841822421">+977 9841822421</a></p>
       <p>GitHub: <a href="https://github.com/AshimShrestha12" target="_blank">AshimShrestha12</a></p>
       <button class="btn more-button" onclick="window.open('https://www.instagram.com/the_console_jailbreaker', '_blank')">
-        My Non-Coding Activities
+        My Non-Coding Adventures
       </button>
     </section>
 
@@ -468,37 +504,6 @@
       document.getElementById('digital-date').textContent = now.toLocaleDateString(undefined, options);
     }
 
-    function createMatrixRain() {
-      const matrixRain = document.getElementById('matrixRain');
-      // Clear existing columns
-      while (matrixRain.firstChild) {
-        matrixRain.removeChild(matrixRain.firstChild);
-      }
-      
-      // Adjust density based on screen size
-      const density = isMobile() ? 30 : 20;
-      const columns = Math.floor(window.innerWidth / density);
-      const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
-      
-      for (let i = 0; i < columns; i++) {
-        const column = document.createElement('div');
-        column.className = 'matrix-column';
-        column.style.left = `${(i * density) + (Math.random() * 10)}px`;
-        column.style.animationDuration = `${5 + Math.random() * 10}s`;
-        column.style.animationDelay = `${Math.random() * 5}s`;
-        
-        // Create random characters
-        let text = '';
-        const length = 15 + Math.floor(Math.random() * 20);
-        for (let j = 0; j < length; j++) {
-          text += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        
-        column.textContent = text;
-        matrixRain.appendChild(column);
-      }
-    }
-
     // Navigation functionality
     function setupNavigation() {
       const aboutButton = document.getElementById('aboutButton');
@@ -528,20 +533,11 @@
       aboutContainer.classList.add('hidden');
     }
 
-    // Handle window resize
-    function handleResize() {
-      createMatrixRain();
-    }
-
     // Initialize everything when page loads
     window.onload = function() {
       updateDigitalClock();
       setInterval(updateDigitalClock, 1000);
-      createMatrixRain();
       setupNavigation();
-      
-      // Add resize listener
-      window.addEventListener('resize', handleResize);
     };
 
     // Prevent zooming on mobile

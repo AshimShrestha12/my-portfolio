@@ -2,112 +2,450 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Realistic Mountain Background</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Ashim Shrestha | Mountain Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #0a192f;
+      --fg: #e6f1ff;
+      --accent: #64ffda;
+      --soft: #112240;
+      --highlight: #1f4068;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    body, html {
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--fg);
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      background-color: var(--bg);
     }
 
-    .animated-mountain {
+    .mountain-background {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      background-image: url('https://images.unsplash.com/photo-1602019625618-d22c3d6e77e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center bottom;
+      background-attachment: fixed;
+      filter: brightness(0.65) contrast(1.05);
       z-index: -3;
     }
 
-    #bg-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.6);
-    }
-
-    .cloud-layer {
-      position: absolute;
+    .clouds {
+      position: fixed;
       top: 0;
-      left: -50%;
-      width: 200%;
+      left: 0;
+      width: 300%;
       height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/clouds.png') repeat-x;
-      animation: moveClouds 60s linear infinite;
-      opacity: 0.12;
+      background: url('https://i.ibb.co/Jrf0FYk/clouds.png') repeat-x;
+      background-size: cover;
+      animation: moveClouds 120s linear infinite;
+      opacity: 0.2;
       z-index: -2;
+      pointer-events: none;
     }
 
     @keyframes moveClouds {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-66.6%);
+      }
     }
 
-    .fog-overlay {
-      position: absolute;
-      bottom: 0;
+    .overlay {
+      position: fixed;
+      top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to top, rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0));
+      background: linear-gradient(to bottom, rgba(10, 25, 47, 0.9) 0%, rgba(10, 25, 47, 0.6) 100%);
       z-index: -1;
     }
 
-    .content {
-      position: relative;
-      z-index: 1;
-      color: white;
+    .portfolio-container {
+      padding: 20px 15px;
+      width: 95%;
+      max-width: 900px;
+      margin: 20px auto;
+      background-color: rgba(10, 25, 47, 0.85);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
       text-align: center;
-      top: 40%;
-      transform: translateY(-50%);
+      position: relative;
+      z-index: 10;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(100, 255, 218, 0.1);
     }
 
-    .content h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+    /* Logo Styles */
+    .logo {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: var(--accent);
+      text-decoration: none;
+      z-index: 100;
+      display: flex;
+      align-items: center;
     }
 
-    .content p {
-      font-size: 1.2rem;
-      opacity: 0.8;
+    .logo-inner {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      background-color: rgba(10, 25, 47, 0.7);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    @media (max-width: 768px) {
-      .content h1 {
-        font-size: 2rem;
+    .logo:hover .logo-inner {
+      background-color: var(--accent);
+      color: var(--bg);
+      box-shadow: 0 0 15px var(--accent);
+      transform: rotate(15deg);
+    }
+
+    /* Button Styles */
+    .btn {
+      padding: 12px 24px;
+      background-color: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 30px;
+      font-size: 0.95em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+      display: inline-block;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .btn:hover {
+      background-color: var(--bg);
+      color: var(--accent);
+      box-shadow: 0 0 20px var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(100, 255, 218, 0.2),
+        transparent
+      );
+      transform: translateX(-100%);
+      transition: 0.6s;
+    }
+
+    .btn:hover::after {
+      transform: translateX(100%);
+    }
+
+    .nav-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+
+    .more-button {
+      margin: 20px auto 0;
+      display: block;
+      width: fit-content;
+    }
+
+    /* Digital Clock Styles - Moved to bottom left */
+    .digital-clock {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: var(--soft);
+      padding: 10px 15px;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(100, 255, 218, 0.3);
+      z-index: 100;
+      text-align: center;
+      border: 1px solid rgba(100, 255, 218, 0.2);
+    }
+
+    .time {
+      font-size: 1.2em;
+      color: var(--accent);
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .date {
+      font-size: 0.8em;
+      color: var(--fg);
+      margin-top: 3px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* About section styles */
+    .about-section {
+      margin-top: 20px;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+      margin: 10px auto;
+      transition: all 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px var(--accent);
+    }
+
+    h1 {
+      font-size: 1.8em;
+      color: var(--accent);
+      margin: 10px 0;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 1.4em;
+      margin: 15px 0;
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    h2:hover::after {
+      transform: scaleX(1);
+    }
+
+    .tagline {
+      font-size: 1em;
+      color: var(--accent);
+      margin-bottom: 20px;
+      line-height: 1.3;
+      font-style: italic;
+    }
+
+    section {
+      margin-top: 25px;
+      padding: 0 10px;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+      font-size: 0.95em;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    a:hover::after {
+      width: 100%;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.8em;
+      color: var(--accent);
+      padding-top: 15px;
+      border-top: 1px solid rgba(100, 255, 218, 0.2);
+    }
+
+    /* Desktop Styles */
+    @media (min-width: 768px) {
+      .portfolio-container {
+        padding: 30px 25px;
+        margin: 40px auto;
+        border-radius: 16px;
       }
 
-      .content p {
-        font-size: 1rem;
+      .logo {
+        top: 30px;
+        left: 30px;
+      }
+
+      .nav-button {
+        top: 30px;
+        right: 30px;
+      }
+
+      .digital-clock {
+        bottom: 30px;
+        left: 30px;
+        padding: 12px 18px;
+      }
+      
+      .time {
+        font-size: 1.4em;
+      }
+      
+      .date {
+        font-size: 0.9em;
+      }
+
+      .profile-img {
+        width: 180px;
+        height: 180px;
+      }
+
+      h1 {
+        font-size: 2.2em;
+      }
+
+      h2 {
+        font-size: 1.8em;
+      }
+
+      .tagline {
+        font-size: 1.2em;
+      }
+    }
+
+    /* Large Desktop */
+    @media (min-width: 1280px) {
+      .portfolio-container {
+        max-width: 1100px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Animated Background Layers -->
-  <div class="animated-mountain">
-    <video autoplay muted loop playsinline id="bg-video">
-      <source src="https://cdn.coverr.co/videos/coverr-misty-mountains-7347/1080p.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="cloud-layer"></div>
-    <div class="fog-overlay"></div>
+  <a href="#" class="logo" title="Ashim Shrestha Portfolio">
+    <span class="logo-inner">A</span>
+  </a>
+
+  <div class="mountain-background"></div>
+  <div class="clouds"></div>
+  <div class="overlay"></div>
+
+  <div class="portfolio-container" role="main" aria-label="Portfolio Content">
+    <section class="about-section">
+      <img
+        src="https://i.ibb.co/Qb7Ncnx/profile.jpg"
+        alt="Ashim Shrestha"
+        class="profile-img"
+      />
+      <h1>Ashim Shrestha</h1>
+      <p class="tagline">Creative Web Developer & Designer</p>
+      <p>
+        Welcome to my portfolio! I specialize in building responsive, dynamic websites with a focus on clean design and smooth user experience.
+      </p>
+      <a href="#projects" class="btn" role="button">View Projects</a>
+    </section>
+
+    <footer>
+      © 2025 Ashim Shrestha. All rights reserved.
+    </footer>
   </div>
 
-  <!-- Main Content -->
-  <div class="content">
-    <h1>Welcome to My Portfolio</h1>
-    <p>Experience the calm of the mountains with every scroll</p>
+  <div class="digital-clock" aria-live="polite" aria-atomic="true" role="timer" aria-label="Current time">
+    <div class="time" id="time">00:00:00</div>
+    <div class="date" id="date">Loading date...</div>
   </div>
+
+  <script>
+    function updateClock() {
+      const timeElem = document.getElementById('time');
+      const dateElem = document.getElementById('date');
+      const now = new Date();
+
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+
+      hours = hours < 10 ? '0' + hours : hours;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      timeElem.textContent = `${hours}:${minutes}:${seconds}`;
+
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      dateElem.textContent = now.toLocaleDateString(undefined, options);
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 
 </body>
 </html>

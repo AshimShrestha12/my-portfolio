@@ -2,239 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ashim Shrestha | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Everest Portfolio</title>
   <style>
-    /* Reset and base styles */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
     body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
       height: 100%;
-      background: linear-gradient(to top, #2b3a67 0%, #87ceeb 100%);
-      font-family: 'Montserrat', sans-serif;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg/1920px-Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: white;
-      overflow-x: hidden;
-      user-select: none;
     }
 
-    /* Content container */
-    .content {
-      position: relative;
-      z-index: 10;
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 1rem 2rem;
-      text-align: center;
-    }
-
-    h1 {
-      font-weight: 700;
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
-    }
-    p {
-      font-weight: 400;
-      font-size: 1.3rem;
-      line-height: 1.6;
-      max-width: 650px;
-      margin: 0 auto 3rem;
-      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-    }
-
-    /* Mountain SVG container */
-    svg#mountains {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100vw;
-      height: 55vh;
-      z-index: 1;
-      user-select: none;
-      pointer-events: none;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
-    }
-
-    /* Mountain fill gradient */
-    .mountain {
-      fill: url(#mountainGradient);
-      stroke: #2b3a67;
-      stroke-width: 1;
-    }
-
-    /* Snowcaps */
-    .snowcap {
-      fill: white;
-      opacity: 0.85;
-      filter: drop-shadow(0 0 8px rgba(255 255 255 / 0.75));
-    }
-
-    /* Clouds container */
-    .clouds {
-      position: fixed;
-      top: 6vh;
-      left: 0;
-      width: 100vw;
-      height: 25vh;
-      pointer-events: none;
-      z-index: 2;
-      overflow: visible;
-    }
-
-    /* Cloud style */
-    .cloud {
-      position: absolute;
-      background: radial-gradient(circle at 40% 50%, #fff, #ddd);
-      border-radius: 40% / 50%;
-      filter: drop-shadow(0 0 8px rgba(255 255 255 / 0.85));
-      opacity: 0.85;
-      animation-timing-function: linear;
-      will-change: transform;
-    }
-    .cloud1 {
-      width: 190px;
-      height: 90px;
-      top: 10%;
-      left: -20%;
-      animation-name: cloudMove1;
-      animation-duration: 130s;
-      animation-iteration-count: infinite;
-    }
-    .cloud2 {
-      width: 130px;
-      height: 65px;
-      top: 38%;
-      left: -28%;
-      animation-name: cloudMove2;
-      animation-duration: 95s;
-      animation-iteration-count: infinite;
-    }
-    .cloud3 {
-      width: 160px;
-      height: 80px;
-      top: 5%;
-      left: -30%;
-      animation-name: cloudMove3;
-      animation-duration: 150s;
-      animation-iteration-count: infinite;
-    }
-
-    @keyframes cloudMove1 {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(130vw); }
-    }
-    @keyframes cloudMove2 {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(120vw); }
-    }
-    @keyframes cloudMove3 {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(140vw); }
-    }
-
-    /* Snowflakes container */
-    .snowflakes {
+    nav {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1em;
+      display: flex;
+      justify-content: center;
+      gap: 2em;
       position: fixed;
       top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 3;
-      overflow: visible;
+      width: 100%;
+      z-index: 1000;
     }
 
-    /* Snowflake style */
-    .snowflake {
-      position: absolute;
-      top: -10px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.9;
-      filter: drop-shadow(0 0 3px rgba(255 255 255 / 0.8));
-      animation-name: fall;
-      animation-timing-function: linear;
-      will-change: transform;
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
     }
 
-    @keyframes fall {
-      to {
-        transform: translateY(110vh);
-      }
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    section {
+      padding: 100px 20px 20px;
+      min-height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    h1, h2 {
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: auto;
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#education">Education</a>
+    <a href="#about">About</a>
+    <a href="#more">More</a>
+  </nav>
 
-  <div class="content" role="main">
-    <h1>Ashim Shrestha</h1>
-    <p>Welcome to my portfolio. Explore mountains of creativity and snowy peaks of ideas.</p>
-  </div>
+  <section id="home">
+    <div class="content">
+      <h1>Welcome to My Portfolio</h1>
+      <p>This is my personal space inspired by the peak of the world — Everest.</p>
+    </div>
+  </section>
 
-  <!-- Realistic mountain silhouette of Everest -->
-  <svg id="mountains" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax meet" aria-hidden="true" >
-    <defs>
-      <linearGradient id="mountainGradient" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#556b8f" />
-        <stop offset="75%" stop-color="#1b2b46" />
-      </linearGradient>
-    </defs>
+  <section id="education">
+    <div class="content">
+      <h2>Education</h2>
+      <p>Details about your education go here. You can add your school, college, courses, and achievements.</p>
+    </div>
+  </section>
 
-    <!-- Simplified Everest-like shape -->
-    <path class="mountain" d="
-      M150 400
-      L280 190
-      L330 280
-      L380 160
-      L430 320
-      L500 100
-      L580 270
-      L620 220
-      L660 350
-      L720 180
-      L790 400
-      Z
-    "/>
-    <!-- Snowcaps on Everest peaks -->
-    <path class="snowcap" d="M380 160 L410 210 L350 210 Z" />
-    <path class="snowcap" d="M500 100 L530 160 L480 160 Z" />
-    <path class="snowcap" d="M720 180 L750 230 L690 230 Z" />
-  </svg>
+  <section id="about">
+    <div class="content">
+      <h2>About Me</h2>
+      <p>Write something about yourself, your passions, and your goals.</p>
+    </div>
+  </section>
 
-  <!-- Clouds -->
-  <div class="clouds" aria-hidden="true">
-    <div class="cloud cloud1"></div>
-    <div class="cloud cloud2"></div>
-    <div class="cloud cloud3"></div>
-  </div>
-
-  <!-- Snowflakes container -->
-  <div class="snowflakes" aria-hidden="true"></div>
-
-  <script>
-    // Generate snowflakes dynamically
-    const snowflakesContainer = document.querySelector('.snowflakes');
-    const snowflakeCount = 80;
-
-    for(let i = 0; i < snowflakeCount; i++) {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-
-      const size = (Math.random() * 4) + 2; // 2-6 px
-      snowflake.style.width = `${size}px`;
-      snowflake.style.height = `${size}px`;
-      snowflake.style.left = `${Math.random() * 100}vw`;
-
-      const duration = (Math.random() * 20) + 10; // 10-30 seconds fall
-      snowflake.style.animationDuration = `${duration}s`;
-
-      snowflake.style.animationDelay = `${Math.random() * duration}s`;
-
-      snowflakesContainer.appendChild(snowflake);
-    }
-  </script>
-
+  <section id="more">
+    <div class="content">
+      <h2>More</h2>
+      <p>Additional sections like projects, hobbies, or blog posts can go here.</p>
+    </div>
+  </section>
 </body>
 </html>

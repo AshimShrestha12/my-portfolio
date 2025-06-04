@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <title>Everest Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -15,7 +15,7 @@
     body, html {
       height: 100%;
       font-family: 'Montserrat', sans-serif;
-      background: url('https://images.unsplash.com/photo-1579871494447-9811cf80d66f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1618664199129-06c9b13465ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       scroll-behavior: smooth;
@@ -99,22 +99,27 @@
       text-shadow: 1px 1px 4px #000;
     }
 
-    .nepal-flag {
+    .flag-container {
       position: absolute;
-      top: 20vh;
+      top: 20%;
       left: 50%;
-      transform: translateX(-50%) scale(0.3);
-      z-index: 2;
-      animation: wave 2s infinite ease-in-out;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .nepal-flag {
+      width: 100px;
+      animation: wave 3s infinite ease-in-out;
+      transform-origin: left center;
     }
 
     @keyframes wave {
-      0%, 100% {
-        transform: translateX(-50%) rotate(-2deg) scale(0.3);
-      }
-      50% {
-        transform: translateX(-50%) rotate(2deg) scale(0.3);
-      }
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(1deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-1deg); }
+      100% { transform: rotate(0deg); }
     }
 
     footer {
@@ -143,7 +148,9 @@
     <a href="#more">More</a>
   </nav>
 
-  <img class="nepal-flag" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Flag_of_Nepal.svg/800px-Flag_of_Nepal.svg.png" alt="Nepal Flag" />
+  <div class="flag-container">
+    <img class="nepal-flag" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag" />
+  </div>
 
   <section id="home">
     <div class="content">

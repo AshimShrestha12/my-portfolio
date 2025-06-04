@@ -15,7 +15,7 @@
     body, html {
       height: 100%;
       font-family: 'Montserrat', sans-serif;
-      background: url('https://images.unsplash.com/photo-1618664199129-06c9b13465ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/7/71/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       scroll-behavior: smooth;
@@ -102,10 +102,20 @@
     .flag-container {
       position: absolute;
       top: 20%;
-      left: 50%;
+      left: 58%;
       transform: translate(-50%, -50%);
       z-index: 3;
-      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: flag-bounce 2s infinite ease-in-out;
+    }
+
+    .flag-pole {
+      width: 4px;
+      height: 100px;
+      background-color: #444;
+      box-shadow: 0 0 5px #000;
     }
 
     .nepal-flag {
@@ -116,10 +126,15 @@
 
     @keyframes wave {
       0% { transform: rotate(0deg); }
-      25% { transform: rotate(1deg); }
+      25% { transform: rotate(1.5deg); }
       50% { transform: rotate(0deg); }
-      75% { transform: rotate(-1deg); }
+      75% { transform: rotate(-1.5deg); }
       100% { transform: rotate(0deg); }
+    }
+
+    @keyframes flag-bounce {
+      0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+      50% { transform: translate(-50%, -50%) translateY(-3px); }
     }
 
     footer {
@@ -149,6 +164,7 @@
   </nav>
 
   <div class="flag-container">
+    <div class="flag-pole"></div>
     <img class="nepal-flag" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag" />
   </div>
 

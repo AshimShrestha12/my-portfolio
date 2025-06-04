@@ -4,20 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Everest Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
   <style>
-    body, html {
+    * {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+    }
+
+    body, html {
       height: 100%;
+      font-family: 'Montserrat', sans-serif;
       background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg/1920px-Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: white;
+      color: #fff;
+      scroll-behavior: smooth;
     }
 
     nav {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 1em;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1em 2em;
       display: flex;
       justify-content: center;
       gap: 2em;
@@ -25,32 +31,89 @@
       top: 0;
       width: 100%;
       z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.1em;
       transition: color 0.3s;
+      position: relative;
     }
 
-    nav a:hover {
-      color: #ffd700;
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -3px;
+      left: 0;
+      background-color: #ffd700;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     section {
-      padding: 100px 20px 20px;
+      padding: 120px 20px 60px;
       min-height: 100vh;
-      background: rgba(0, 0, 0, 0.4);
-    }
-
-    h1, h2 {
-      text-shadow: 2px 2px 5px #000;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
     }
 
     .content {
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      font-size: 3em;
+      font-weight: 700;
+      text-shadow: 3px 3px 8px #000;
+    }
+
+    h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px #000;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #ccc;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2em; }
+      h2 { font-size: 1.8em; }
+      nav {
+        flex-direction: column;
+        gap: 1em;
+      }
     }
   </style>
 </head>
@@ -65,29 +128,35 @@
   <section id="home">
     <div class="content">
       <h1>Welcome to My Portfolio</h1>
-      <p>This is my personal space inspired by the peak of the world — Everest.</p>
+      <p>Embrace the heights of creativity with a portfolio as majestic as Everest. Scroll down to explore more!</p>
     </div>
   </section>
 
   <section id="education">
     <div class="content">
       <h2>Education</h2>
-      <p>Details about your education go here. You can add your school, college, courses, and achievements.</p>
+      <p>I’ve walked the path of knowledge with dedication and curiosity. Here you can list your academic milestones, certifications, and achievements.</p>
     </div>
   </section>
 
   <section id="about">
     <div class="content">
       <h2>About Me</h2>
-      <p>Write something about yourself, your passions, and your goals.</p>
+      <img src="https://via.placeholder.com/160" alt="Ashim Shrestha Profile" class="profile-img" />
+      <p>Hi, I'm <strong>Ashim Shrestha</strong> — a passionate explorer of ideas, a creative thinker, and a proud Discord user. I enjoy expressing my creativity through design and development, always reaching for the top like Everest itself. Whether I'm building something cool or connecting with amazing people online, I bring energy, vision, and a love for learning.</p>
+      <p>Catch me on Discord and let's collaborate, chat, or game together!</p>
     </div>
   </section>
 
   <section id="more">
     <div class="content">
       <h2>More</h2>
-      <p>Additional sections like projects, hobbies, or blog posts can go here.</p>
+      <p>Projects, passions, hobbies, or a blog — let this section show the other sides of you that make your journey truly unique.</p>
     </div>
   </section>
+
+  <footer>
+    &copy; 2025 Ashim Shrestha | All rights reserved
+  </footer>
 </body>
 </html>

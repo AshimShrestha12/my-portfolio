@@ -6,47 +6,71 @@
   <title>Everest Portfolio - Ashim Shrestha</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet" />
   <style>
-    /* Reset and basics */
+    /* Reset */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     html, body {
       height: 100%;
       font-family: 'Montserrat', sans-serif;
       color: #fff;
       overflow-x: hidden;
-      scroll-behavior: smooth;
+      background: #000;
       position: relative;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
-      background-size: cover;
     }
 
-    /* Snow/cloud animation */
-    .snow {
+    /* Background mountain with summit view */
+    body::before {
+      content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 999;
-      background:
-        radial-gradient(circle, rgba(255,255,255,0.25) 2px, transparent 3px),
-        radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 2px);
-      background-position: 0 0, 50px 50px;
-      background-repeat: repeat;
-      animation: snowMove 30s linear infinite;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1920&q=80') no-repeat center top;
+      background-size: cover;
+      filter: brightness(0.6) contrast(1.1);
+      z-index: -10;
     }
 
-    @keyframes snowMove {
-      0% {background-position: 0 0, 50px 50px;}
-      100% {background-position: 100px 100px, 150px 150px;}
+    /* Multiple layered slow drifting clouds */
+    .cloud-layer {
+      position: fixed;
+      top: 0; left: 0; width: 200%; height: 100%;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') repeat-x center center/contain;
+      opacity: 0.2;
+      pointer-events: none;
+      animation: driftClouds1 120s linear infinite;
+      z-index: -5;
+    }
+    .cloud-layer.two {
+      opacity: 0.15;
+      animation: driftClouds2 90s linear infinite;
+      top: 15%;
+      background-position: center 15%;
+    }
+    .cloud-layer.three {
+      opacity: 0.1;
+      animation: driftClouds3 150s linear infinite;
+      top: 30%;
+      background-position: center 30%;
+    }
+
+    @keyframes driftClouds1 {
+      0% {transform: translateX(0);}
+      100% {transform: translateX(-50%);}
+    }
+    @keyframes driftClouds2 {
+      0% {transform: translateX(0);}
+      100% {transform: translateX(-40%);}
+    }
+    @keyframes driftClouds3 {
+      0% {transform: translateX(0);}
+      100% {transform: translateX(-60%);}
     }
 
     /* Navbar */
     nav {
       position: fixed;
       top: 0; left: 0; width: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.65);
       display: flex;
       justify-content: center;
       gap: 2.5em;
@@ -54,16 +78,19 @@
       z-index: 1000;
       box-shadow: 0 2px 15px rgba(0,0,0,0.8);
     }
-    nav a {
+    nav button {
+      background: none;
+      border: none;
       color: #ffd700;
       font-weight: 700;
       font-size: 1.2em;
-      text-decoration: none;
-      position: relative;
-      transition: color 0.3s ease;
+      cursor: pointer;
       padding-bottom: 3px;
+      transition: color 0.3s ease;
+      outline-offset: 3px;
+      position: relative;
     }
-    nav a::after {
+    nav button::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0;
@@ -72,41 +99,70 @@
       background: #ffd700;
       transition: width 0.3s ease;
     }
-    nav a:hover, nav a:focus {
+    nav button:hover, nav button:focus {
+      color: #fff;
+      outline: 2px solid #ffd700;
+      outline-offset: 4px;
+    }
+    nav button.active {
       color: #fff;
     }
-    nav a:hover::after, nav a:focus::after {
+    nav button.active::after {
       width: 100%;
     }
 
-    /* Sections */
+    /* Container for full-page sections */
+    main {
+      position: relative;
+      height: 100vh;
+      margin-top: 60px; /* navbar height */
+      overflow: hidden;
+    }
+
+    /* Sections style */
     section {
-      min-height: 100vh;
-      padding: 140px 20px 80px;
-      background: rgba(0,0,0,0.45);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      padding: 60px 40px 40px;
+      background: rgba(0,0,0,0.5);
       backdrop-filter: saturate(180%) blur(8px);
-      box-shadow: inset 0 0 60px rgba(0,0,0,0.6);
+      box-shadow: inset 0 0 60px rgba(0,0,0,0.7);
+      border-radius: 15px;
       max-width: 900px;
       margin: auto;
-      border-radius: 15px;
       color: #fff;
+      overflow-y: auto;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    section.active {
+      opacity: 1;
+      pointer-events: auto;
+      position: relative; /* keep it in normal flow */
     }
     section h1, section h2 {
       text-shadow: 2px 2px 8px #000;
+      margin-bottom: 20px;
+      text-align: center;
     }
     section h1 {
       font-size: 3.6em;
-      margin-bottom: 15px;
     }
     section h2 {
       font-size: 2.8em;
-      margin-bottom: 20px;
       color: #ffd700;
     }
     section p {
-      font-size: 1.25em;
-      line-height: 1.6;
+      font-size: 1.3em;
+      line-height: 1.7;
+      max-width: 600px;
       text-shadow: 1px 1px 5px #000;
+      margin-bottom: 1.2em;
+      text-align: center;
     }
 
     /* Profile Image */
@@ -116,70 +172,72 @@
       border-radius: 50%;
       border: 4px solid #ffd700;
       object-fit: cover;
-      margin: 25px auto 30px;
-      display: block;
+      margin: 20px auto 30px;
       box-shadow: 0 0 15px #ffd700aa;
       transition: transform 0.3s ease;
+      user-select: none;
     }
     .profile-img:hover {
       transform: scale(1.05);
       box-shadow: 0 0 30px #ffd700ee;
     }
 
-    /* Flag container positioned on mountain */
+    /* Flag container pinned on summit */
     .flag-container {
       position: fixed;
-      top: 28%;
-      left: 60%;
-      width: 120px;
-      height: 160px;
+      top: 15%;
+      left: 55%;
+      width: 140px;
+      height: 180px;
       z-index: 1500;
       pointer-events: none;
-      filter: drop-shadow(0 0 2px rgba(0,0,0,0.7));
+      filter: drop-shadow(0 0 4px rgba(0,0,0,0.9));
       transform-origin: bottom center;
-      animation: flagSway 3.2s ease-in-out infinite;
+      animation: flagSway 4s ease-in-out infinite;
     }
 
-    /* Flagpole */
     .flag-pole {
       position: absolute;
-      left: 20px;
+      left: 25px;
       bottom: 0;
-      width: 6px;
-      height: 160px;
+      width: 7px;
+      height: 180px;
       background: linear-gradient(to bottom, #6b4f32, #4b3a1c);
       border-radius: 3px;
       box-shadow:
         0 0 5px rgba(0,0,0,0.4),
-        inset 0 0 6px #a87f5f;
+        inset 0 0 8px #a87f5f;
       z-index: 1;
     }
 
-    /* Nepal Flag SVG - embedded for crispness */
+    /* Realistic Nepal flag waving animation */
     .nepal-flag {
       position: absolute;
-      bottom: 50px;
-      left: 26px;
-      width: 80px;
+      bottom: 60px;
+      left: 32px;
+      width: 85px;
       height: auto;
       transform-origin: left bottom;
-      filter: drop-shadow(0 0 1px rgba(0,0,0,0.8));
-      animation: flagWave 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 3px rgba(0,0,0,0.8));
+      animation: flagWave 4s ease-in-out infinite;
       cursor: default;
       user-select: none;
       z-index: 2;
+      will-change: transform;
     }
 
-    /* Flag sway animation */
+    /* Flag waving: combine smooth sway + subtle flutter */
     @keyframes flagSway {
       0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(3deg); }
+      25% { transform: rotate(3deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-3deg); }
     }
     @keyframes flagWave {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(4deg); }
-      50% { transform: rotate(0deg); }
-      75% { transform: rotate(-4deg); }
+      0%, 100% { transform: rotate(0deg) skewY(0deg); }
+      25% { transform: rotate(2deg) skewY(3deg); }
+      50% { transform: rotate(0deg) skewY(0deg); }
+      75% { transform: rotate(-2deg) skewY(-3deg); }
     }
 
     /* Footer */
@@ -193,13 +251,31 @@
       margin-top: 40px;
       user-select: none;
       box-shadow: inset 0 1px 8px rgba(255, 255, 255, 0.1);
+      z-index: 1000;
+    }
+
+    /* Scrollbar for sections */
+    section::-webkit-scrollbar {
+      width: 8px;
+    }
+    section::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+    section::-webkit-scrollbar-thumb {
+      background: #ffd700;
+      border-radius: 4px;
     }
 
     /* Responsive */
     @media (max-width: 900px) {
+      main {
+        margin-top: 55px;
+      }
       section {
-        margin: 0 10px;
-        padding: 110px 15px 60px;
+        max-width: 100%;
+        padding: 50px 20px 30px;
+        border-radius: 0;
       }
       section h1 {
         font-size: 2.8em;
@@ -211,103 +287,131 @@
         gap: 1.5em;
         padding: 0.9em 0;
       }
-      nav a {
+      nav button {
         font-size: 1.05em;
       }
       .flag-container {
-        top: 22%;
-        left: 72%;
-        width: 90px;
-        height: 120px;
+        top: 20%;
+        left: 60%;
+        width: 110px;
+        height: 150px;
       }
       .flag-pole {
-        left: 14px;
-        height: 120px;
-        width: 4px;
+        left: 20px;
+        height: 150px;
+        width: 5px;
       }
       .nepal-flag {
-        bottom: 40px;
-        left: 18px;
-        width: 60px;
+        bottom: 50px;
+        left: 24px;
+        width: 65px;
       }
     }
 
-    @media (max-width: 480px) {
-      section h1 {
-        font-size: 2em;
-      }
-      section h2 {
-        font-size: 1.6em;
+    @media (max-width: 450px) {
+      section p {
+        font-size: 1.1em;
       }
       nav {
         flex-wrap: wrap;
         gap: 1em;
       }
-      nav a {
+      nav button {
         font-size: 1em;
       }
       .flag-container {
-        display: none; /* Hide on small mobiles for clarity */
+        display: none; /* Hide flag on very small screens */
       }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#home" tabindex="1">Home</a>
-    <a href="#education" tabindex="2">Education</a>
-    <a href="#about" tabindex="3">About</a>
-    <a href="#more" tabindex="4">More</a>
-  </nav>
-
-  <!-- Snow/cloud overlay -->
-  <div class="snow" aria-hidden="true"></div>
-
-  <!-- Nepal Flag pinned on mountain -->
-  <div class="flag-container" aria-label="Nepal flag waving on mountain" role="img" tabindex="-1">
+  <!-- Flag anchored on summit -->
+  <div class="flag-container" aria-hidden="true">
     <div class="flag-pole"></div>
-    <svg class="nepal-flag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
-      <!-- Simplified Nepal Flag SVG with correct colors -->
-      <path fill="#DC143C" d="M0 0h320v512L0 384z"/>
-      <path fill="#fff" d="M64 96l70 98-70 98v-196z"/>
-      <circle fill="#fff" cx="128" cy="170" r="32"/>
-      <path fill="#fff" d="M64 310l70 98-70 98v-196z"/>
-      <path fill="#fff" d="M128 430l-32-32 64-32z"/>
-      <polygon fill="#003893" points="0,0 320,0 0,512"/>
-    </svg>
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg"
+      alt="Nepal Flag"
+      class="nepal-flag"
+      draggable="false"
+      loading="lazy"
+    />
   </div>
 
-  <section id="home" tabindex="0">
-    <h1>Welcome to My Portfolio</h1>
-    <p>Embrace the heights of creativity with a portfolio as majestic as Everest. Scroll down to explore more!</p>
-  </section>
+  <!-- Navigation -->
+  <nav role="tablist" aria-label="Main sections">
+    <button role="tab" aria-selected="true" aria-controls="about" id="tab-about" tabindex="0" class="active">About Me</button>
+    <button role="tab" aria-selected="false" aria-controls="projects" id="tab-projects" tabindex="-1">Projects</button>
+    <button role="tab" aria-selected="false" aria-controls="contact" id="tab-contact" tabindex="-1">Contact</button>
+  </nav>
 
-  <section id="education" tabindex="0">
-    <h2>Education</h2>
-    <p>I’ve walked the path of knowledge with dedication and curiosity. Here you can list your academic milestones, certifications, and achievements.</p>
-  </section>
+  <!-- Content sections -->
+  <main>
+    <section id="about" role="tabpanel" aria-labelledby="tab-about" tabindex="0" class="active">
+      <h1>Ashim Shrestha</h1>
+      <img src="https://avatars.githubusercontent.com/u/50329269?v=4" alt="Ashim Shrestha Profile" class="profile-img" />
+      <p>Welcome to my portfolio. I’m a passionate web developer from Nepal, inspired by the heights of Everest and the spirit of innovation.</p>
+    </section>
 
-  <section id="about" tabindex="0">
-    <h2>About Me</h2>
-    <img
-      src="https://i.pravatar.cc/170?img=12"
-      alt="Ashim Shrestha Profile Picture"
-      class="profile-img"
-      loading="lazy"
-      width="170"
-      height="170"
-    />
-    <p>Hi, I'm <strong>Ashim Shrestha</strong> — a passionate explorer of ideas, a creative thinker, and a proud Discord user. I enjoy expressing my creativity through design and development, always reaching for the top like Everest itself. Whether I'm building something cool or connecting with amazing people online, I bring energy, vision, and a love for learning.</p>
-    <p>Catch me on Discord and let's collaborate, chat, or game together!</p>
-  </section>
+    <section id="projects" role="tabpanel" aria-labelledby="tab-projects" tabindex="0" hidden>
+      <h2>Projects</h2>
+      <p>Here are some of the exciting projects I’ve worked on, combining creativity with cutting-edge technology.</p>
+    </section>
 
-  <section id="more" tabindex="0">
-    <h2>More</h2>
-    <p>Projects, passions, hobbies, or a blog — let this section show the other sides of you that make your journey truly unique.</p>
-  </section>
+    <section id="contact" role="tabpanel" aria-labelledby="tab-contact" tabindex="0" hidden>
+      <h2>Contact Me</h2>
+      <p>Feel free to get in touch for collaborations, job offers, or just to say hello!</p>
+      <p>Email: <a href="mailto:ashim.shrestha@example.com" style="color:#ffd700;">ashim.shrestha@example.com</a></p>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 Ashim Shrestha | Inspired by the peak of Everest | All rights reserved
+    © 2025 Ashim Shrestha — Inspired by Everest
   </footer>
+
+  <script>
+    // Tab switching logic with keyboard support
+    const tabs = document.querySelectorAll('nav button[role="tab"]');
+    const sections = document.querySelectorAll('main section[role="tabpanel"]');
+
+    function activateTab(tab) {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+        t.tabIndex = -1;
+      });
+      sections.forEach(s => {
+        s.classList.remove('active');
+        s.hidden = true;
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      tab.tabIndex = 0;
+      const panelId = tab.getAttribute('aria-controls');
+      const panel = document.getElementById(panelId);
+      panel.classList.add('active');
+      panel.hidden = false;
+      panel.focus();
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', e => {
+        let index = Array.from(tabs).indexOf(e.currentTarget);
+        if(e.key === 'ArrowRight') {
+          e.preventDefault();
+          const nextIndex = (index + 1) % tabs.length;
+          tabs[nextIndex].focus();
+        } else if(e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const prevIndex = (index - 1 + tabs.length) % tabs.length;
+          tabs[prevIndex].focus();
+        } else if(e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activateTab(e.currentTarget);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

@@ -41,16 +41,16 @@
 
     .clouds {
       position: absolute;
-      width: 200%;
+      width: 300%;
       height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/clouds.png') repeat;
-      animation: moveClouds 120s linear infinite;
-      opacity: 0.2;
+      background: url('https://static.vecteezy.com/system/resources/previews/029/785/439/large_2x/white-clouds-fog-or-smog-background-3d-illustration-ai-generated-free-photo.jpg') repeat-x center center / cover;
+      animation: moveClouds 200s linear infinite;
+      opacity: 0.25;
     }
 
     @keyframes moveClouds {
       from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      to { transform: translateX(-66.6%); }
     }
 
     nav {
@@ -97,6 +97,11 @@
       backdrop-filter: blur(6px);
       position: relative;
       z-index: 1;
+      display: none;
+    }
+
+    section.active {
+      display: block;
     }
 
     .content {
@@ -135,40 +140,38 @@
 
     .flag-container {
       position: absolute;
-      top: 25%;
-      left: 55%;
-      transform: translate(-50%, -50%);
+      top: 10vh;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: flag-bounce 2s infinite ease-in-out;
+      animation: flag-bounce 3s infinite ease-in-out;
     }
 
     .flag-pole {
       width: 4px;
-      height: 100px;
+      height: 120px;
       background-color: #444;
       box-shadow: 0 0 5px #000;
     }
 
     .nepal-flag {
       width: 100px;
-      animation: wave 3s infinite ease-in-out;
+      animation: wave 4s infinite ease-in-out;
       transform-origin: left center;
+      filter: drop-shadow(2px 2px 6px #000);
     }
 
     @keyframes wave {
       0% { transform: rotate(0deg); }
-      25% { transform: rotate(2deg); }
+      25% { transform: rotate(3deg); }
       50% { transform: rotate(0deg); }
-      75% { transform: rotate(-2deg); }
+      75% { transform: rotate(-3deg); }
       100% { transform: rotate(0deg); }
     }
 
     @keyframes flag-bounce {
-      0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-      50% { transform: translate(-50%, -50%) translateY(-3px); }
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-3px); }
     }
 
     footer {
@@ -207,7 +210,7 @@
     <img class="nepal-flag" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag" />
   </div>
 
-  <section id="home">
+  <section id="home" class="active">
     <div class="content">
       <h1>Welcome to My Portfolio</h1>
       <p>Embrace the heights of creativity with a portfolio as majestic as Everest. Scroll down to explore more!</p>
@@ -229,6 +232,9 @@
       <p>Catch me on Discord and let's collaborate, chat, or game together!</p>
       <p><strong>Username:</strong> ashimdev</p>
       <p><strong>Discord ID:</strong> 849001425222041621</p>
+      <p><strong>Email:</strong> ashim.shrestha.937@gmail.com</p>
+      <p><strong>Phone:</strong> 9841822421</p>
+      <p><strong>Instagram:</strong> @console_jailbreaker</p>
       <p><strong>Version:</strong> <span style="color: #ffd700;">Everest Portfolio v1.0</span></p>
     </div>
   </section>
@@ -243,5 +249,16 @@
   <footer>
     &copy; 2025 Ashim Shrestha | Inspired by the peak of Everest | All rights reserved
   </footer>
+
+  <script>
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const id = link.getAttribute('href').substring(1);
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>

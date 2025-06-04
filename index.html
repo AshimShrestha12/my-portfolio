@@ -4,23 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Everest Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet" />
   <style>
+    /* Reset and base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body, html {
+    body,
+    html {
       height: 100%;
       font-family: 'Montserrat', sans-serif;
       background: url('https://upload.wikimedia.org/wikipedia/commons/7/71/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      position: relative;
     }
 
+    /* Navigation bar */
     nav {
       background-color: rgba(0, 0, 0, 0.7);
       padding: 1em 2em;
@@ -32,6 +37,7 @@
       width: 100%;
       z-index: 1000;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      user-select: none;
     }
 
     nav a {
@@ -41,6 +47,14 @@
       font-size: 1.1em;
       transition: color 0.3s;
       position: relative;
+      padding: 10px 15px;
+      border-radius: 6px;
+    }
+
+    nav a:focus,
+    nav a:hover {
+      color: #ffd700;
+      outline: none;
     }
 
     nav a::after {
@@ -52,39 +66,31 @@
       left: 0;
       background-color: #ffd700;
       transition: width 0.3s ease;
+      border-radius: 2px;
     }
 
-    nav a:hover::after {
+    nav a:hover::after,
+    nav a:focus::after {
       width: 100%;
     }
 
+    /* Sections styling */
     section {
       padding: 120px 20px 60px;
       min-height: 100vh;
       background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(6px);
-    }
-
-    .content {
       max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .profile-img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      object-fit: cover;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      margin: 0 auto 60px auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
     }
 
     h1 {
       font-size: 3em;
       font-weight: 700;
       text-shadow: 3px 3px 8px #000;
+      margin-bottom: 0.5em;
     }
 
     h2 {
@@ -99,6 +105,25 @@
       text-shadow: 1px 1px 4px #000;
     }
 
+    /* Profile image */
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover,
+    .profile-img:focus {
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    /* Nepal flag on mountain */
     .flag-container {
       position: absolute;
       top: 20%;
@@ -109,6 +134,7 @@
       flex-direction: column;
       align-items: center;
       animation: flag-bounce 2s infinite ease-in-out;
+      user-select: none;
     }
 
     .flag-pole {
@@ -116,90 +142,225 @@
       height: 100px;
       background-color: #444;
       box-shadow: 0 0 5px #000;
+      border-radius: 2px;
     }
 
     .nepal-flag {
       width: 100px;
       animation: wave 3s infinite ease-in-out;
       transform-origin: left center;
+      border: 1px solid #ddd;
+      border-radius: 5px 5px 0 0;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      background: white;
     }
 
     @keyframes wave {
-      0% { transform: rotate(0deg); }
-      25% { transform: rotate(1.5deg); }
-      50% { transform: rotate(0deg); }
-      75% { transform: rotate(-1.5deg); }
-      100% { transform: rotate(0deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(1.5deg);
+      }
+      50% {
+        transform: rotate(0deg);
+      }
+      75% {
+        transform: rotate(-1.5deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
     }
 
     @keyframes flag-bounce {
-      0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-      50% { transform: translate(-50%, -50%) translateY(-3px); }
+      0%,
+      100% {
+        transform: translate(-50%, -50%) translateY(0);
+      }
+      50% {
+        transform: translate(-50%, -50%) translateY(-3px);
+      }
     }
 
+    /* Snowflake styling */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: var(--size, 1em);
+      opacity: 0.8;
+      pointer-events: none;
+      user-select: none;
+      animation-name: fall, sway;
+      animation-timing-function: linear, ease-in-out;
+      animation-iteration-count: infinite, infinite;
+      animation-duration: var(--duration, 20s), var(--sway-duration, 4s);
+      animation-delay: var(--delay, 0s), 0s;
+      animation-direction: normal, alternate;
+      will-change: transform;
+    }
+
+    /* Snowflake keyframes */
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(110vh);
+      }
+    }
+
+    @keyframes sway {
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(var(--sway-amplitude, 20px));
+      }
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
       background: rgba(0, 0, 0, 0.7);
       color: #ccc;
       font-size: 0.9em;
+      user-select: none;
     }
 
+    /* Responsive adjustments */
     @media (max-width: 768px) {
-      h1 { font-size: 2.2em; }
-      h2 { font-size: 1.8em; }
       nav {
-        flex-direction: column;
-        gap: 1em;
+        flex-wrap: wrap;
+        gap: 1.5em;
+        padding: 1em 2em;
+      }
+
+      nav a {
+        font-size: 1.1em;
+        padding: 10px 15px;
+      }
+
+      section {
+        padding: 110px 15px 60px;
+        margin-top: 60px;
+        border-radius: 10px;
+        max-width: 90%;
+      }
+
+      h1 {
+        font-size: 2.5em;
+      }
+
+      h2 {
+        font-size: 1.8em;
+      }
+
+      .profile-img {
+        width: 140px;
+        height: 140px;
+      }
+
+      .flag-container {
+        display: none; /* Hide flag on smaller screens */
+      }
+    }
+
+    @media (max-width: 400px) {
+      .snowflake {
+        display: none; /* Disable snowflakes on very small devices */
       }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#education">Education</a>
-    <a href="#about">About</a>
-    <a href="#more">More</a>
+  <nav role="navigation" aria-label="Primary Navigation">
+    <a href="#home" tabindex="0">Home</a>
+    <a href="#education" tabindex="0">Education</a>
+    <a href="#about" tabindex="0">About</a>
+    <a href="#more" tabindex="0">More</a>
   </nav>
 
-  <div class="flag-container">
+  <!-- Flag on Everest -->
+  <div class="flag-container" aria-label="Nepal Flag on Mount Everest">
     <div class="flag-pole"></div>
-    <img class="nepal-flag" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg" alt="Nepal Flag" />
+    <img
+      class="nepal-flag"
+      src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Nepal.svg"
+      alt="Nepal Flag"
+      tabindex="0"
+    />
   </div>
 
-  <section id="home">
-    <div class="content">
-      <h1>Welcome to My Portfolio</h1>
-      <p>Embrace the heights of creativity with a portfolio as majestic as Everest. Scroll down to explore more!</p>
-    </div>
+  <section id="home" tabindex="0" aria-label="Home Section">
+    <h1>Welcome to My Portfolio</h1>
+    <p>
+      Embrace the heights of creativity with a portfolio as majestic as Everest. Scroll down to explore
+      more!
+    </p>
   </section>
 
-  <section id="education">
-    <div class="content">
-      <h2>Education</h2>
-      <p>I’ve walked the path of knowledge with dedication and curiosity. Here you can list your academic milestones, certifications, and achievements.</p>
-    </div>
+  <section id="education" tabindex="0" aria-label="Education Section">
+    <h2>Education</h2>
+    <p>
+      I’ve walked the path of knowledge with dedication and curiosity. Here you can list your academic
+      milestones, certifications, and achievements.
+    </p>
   </section>
 
-  <section id="about">
-    <div class="content">
-      <h2>About Me</h2>
-      <img src="https://via.placeholder.com/160" alt="Ashim Shrestha Profile" class="profile-img" />
-      <p>Hi, I'm <strong>Ashim Shrestha</strong> — a passionate explorer of ideas, a creative thinker, and a proud Discord user. I enjoy expressing my creativity through design and development, always reaching for the top like Everest itself. Whether I'm building something cool or connecting with amazing people online, I bring energy, vision, and a love for learning.</p>
-      <p>Catch me on Discord and let's collaborate, chat, or game together!</p>
-    </div>
+  <section id="about" tabindex="0" aria-label="About Section">
+    <h2>About Me</h2>
+    <img
+      src="https://via.placeholder.com/160"
+      alt="Ashim Shrestha Profile"
+      class="profile-img"
+      tabindex="0"
+    />
+    <p>
+      Hi, I'm <strong>Ashim Shrestha</strong> — a passionate explorer of ideas, a creative thinker,
+      and a proud Discord user. I enjoy expressing my creativity through design and development,
+      always reaching for the top like Everest itself. Whether I'm building something cool or
+      connecting with amazing people online, I bring energy, vision, and a love for learning.
+    </p>
+    <p>Catch me on Discord and let's collaborate, chat, or game together!</p>
   </section>
 
-  <section id="more">
-    <div class="content">
-      <h2>More</h2>
-      <p>Projects, passions, hobbies, or a blog — let this section show the other sides of you that make your journey truly unique.</p>
-    </div>
+  <section id="more" tabindex="0" aria-label="More Section">
+    <h2>More</h2>
+    <p>
+      Projects, passions, hobbies, or a blog — let this section show the other sides of you that make
+      your journey truly unique.
+    </p>
   </section>
 
-  <footer>
-    &copy; 2025 Ashim Shrestha | Inspired by the peak of Everest | All rights reserved
-  </footer>
+  <footer>&copy; 2025 Ashim Shrestha | Inspired by the peak of Everest | All rights reserved</footer>
+
+  <script>
+    // Snowflake generator
+    const snowflakeCount = 100;
+    function randomRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    for (let i = 0; i < snowflakeCount; i++) {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.style.setProperty('--size', `${randomRange(8, 18)}px`);
+      snowflake.style.left = `${Math.random() * 100}vw`;
+      snowflake.style.animationDuration = `${randomRange(15, 40)}s`;
+      snowflake.style.animationDelay = `${-randomRange(0, 40)}s`;
+
+      // Horizontal sway
+      snowflake.style.setProperty('--sway-amplitude', `${randomRange(10, 30)}px`);
+      snowflake.style.setProperty('--sway-duration', `${randomRange(3, 6)}s`);
+
+      snowflake.textContent = '❄'; // Unicode snowflake
+
+      document.body.appendChild(snowflake);
+    }
+  </script>
 </body>
 </html>

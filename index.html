@@ -32,7 +32,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.75) contrast(1.15) saturate(1.2);
+      filter: brightness(0.7) contrast(1.2) saturate(1.3);
     }
     .overlay {
       position: absolute;
@@ -40,11 +40,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+      background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
       z-index: -2;
     }
     nav {
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.85);
       padding: 1em 2em;
       display: flex;
       justify-content: center;
@@ -53,7 +53,7 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.6);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
     }
     nav a {
       color: #fff;
@@ -69,7 +69,7 @@
       height: 2px;
       bottom: -3px;
       left: 0;
-      background: #ffd700;
+      background: #00ffff;
       transition: width 0.3s ease;
     }
     nav a:hover::after {
@@ -93,39 +93,39 @@
       text-align: center;
     }
     .profile-img {
-      width: 160px;
-      height: 160px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      border: 4px solid #fff;
+      border: 5px solid #00ffff;
       object-fit: cover;
       margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.7);
     }
     h1 {
-      font-size: 3.2em;
+      font-size: 3.5em;
       font-weight: 700;
-      text-shadow: 4px 4px 10px #000;
+      text-shadow: 5px 5px 15px #000;
     }
     h2 {
-      font-size: 2.5em;
+      font-size: 2.7em;
       margin-bottom: 20px;
-      text-shadow: 3px 3px 8px #000;
+      text-shadow: 4px 4px 10px #000;
     }
     p {
-      font-size: 1.2em;
-      line-height: 1.6;
+      font-size: 1.3em;
+      line-height: 1.7;
       text-shadow: 2px 2px 6px #000;
     }
     footer {
       text-align: center;
       padding: 20px;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.9);
       color: #ccc;
-      font-size: 0.9em;
+      font-size: 0.95em;
     }
     @media (max-width: 768px) {
-      h1 { font-size: 2.2em; }
-      h2 { font-size: 1.8em; }
+      h1 { font-size: 2.5em; }
+      h2 { font-size: 2em; }
       nav { flex-direction: column; gap: 1em; }
     }
   </style>
@@ -133,7 +133,7 @@
 <body>
   <div class="background-container">
     <video autoplay muted loop playsinline class="mountain-bg-video">
-      <source src="https://cdn.coverr.co/videos/coverr-revealing-the-snowy-mountains-4329/1080p.mp4" type="video/mp4">
+      <source src="https://cdn.pixabay.com/video/2023/03/27/157115-816737673_large.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
     <div class="overlay"></div>
@@ -146,38 +146,38 @@
   </nav>
   <section id="home" class="active">
     <div class="content">
-      <h1>Welcome to My Portfolio</h1>
-      <p>Stand above the clouds. Embrace the heights of creativity with a portfolio as majestic and real as Everest. Scroll down to explore more!</p>
+      <h1>Welcome to My Everest Portfolio</h1>
+      <p>Just like Everest — bold, raw, real. This is more than a portfolio; it’s a peak into my world. Scroll on and see for yourself.</p>
     </div>
   </section>
   <section id="education">
     <div class="content">
       <h2>Education</h2>
-      <p>I am currently pursuing my +2 level (Class 12) education in science, with a strong interest in mathematics, particularly calculus and analytic geometry. I'm building a collection of concise cheat sheets to reinforce my learning and revision.</p>
+      <p>I’m currently studying in Class 12, science stream. Calculus and Analytic Geometry are my mountains — steep, sharp, but I’m climbing strong. I’ve also built cheat sheets that simplify the toughest parts.</p>
     </div>
   </section>
   <section id="about">
     <div class="content">
       <h2>About Me</h2>
       <img src="https://i.imgur.com/gz1HwVw.jpeg" alt="Ashim Shrestha Profile" class="profile-img" />
-      <p>Hi, I'm <strong>Ashim Shrestha</strong> — a passionate explorer of ideas, creative thinker, and proud Discord user. I bring energy, vision, and curiosity into everything I do, from design to development.</p>
+      <p>I'm <strong>Ashim Shrestha</strong> — explorer of logic, devout learner, and passionate creator. Discord is where I spark ideas, and design is where I build them.</p>
       <p><strong>Discord:</strong> ashimdev (849001425222041621)</p>
       <p><strong>Email:</strong> ashim.shrestha.937@gmail.com</p>
       <p><strong>Phone:</strong> 9841822421</p>
       <p><strong>Instagram:</strong> @console_jailbreaker</p>
       <p><strong>Version:</strong> <span style="color: #ffd700;">Everest Portfolio v1.0</span></p>
       <p style="font-style: italic; color: #bbb;">Dark Joke: I told my calculator I needed space… now it won’t stop cosigning.</p>
-      <p><strong>Credits:</strong> <a href="https://chat.openai.com" style="color: #00ffff; text-decoration: none;">ChatGPT (OpenAI)</a> — Assisted in the development and refinement of this portfolio.</p>
+      <p><strong>Credits:</strong> <a href="https://chat.openai.com" style="color: #00ffff; text-decoration: none; font-weight: bold;">ChatGPT (OpenAI)</a> — Co-pilot on this journey to digital greatness.</p>
     </div>
   </section>
   <section id="more">
     <div class="content">
       <h2>More</h2>
-      <p>My goal is to master calculus and frontend web development. I'm passionate about building UI components, animations, and solving design challenges. This is my climb—steady and determined—just like Everest.</p>
+      <p>I’m chasing mastery in calculus and frontend development. My mind is wired for logic, my eyes for design. Everest taught me: every great view begins with a daring climb.</p>
     </div>
   </section>
   <footer>
-    &copy; 2025 Ashim Shrestha | Inspired by the peak of Everest | All rights reserved
+    &copy; 2025 Ashim Shrestha | Designed at the peak of Everest | All rights reserved
   </footer>
   <script>
     document.querySelectorAll('nav a').forEach(link => {

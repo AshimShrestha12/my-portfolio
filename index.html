@@ -1,191 +1,1036 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Ashim Shrestha" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ashim Shrestha">
   <title>Everest Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #00f7ff;
+      --secondary: #ff4d4d;
+      --dark: #0a0a0a;
+      --light: #f8f9fa;
+      --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    html, body {
-      height: 100%;
-      font-family: 'Montserrat', sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
+    
+    html {
       scroll-behavior: smooth;
     }
-    .background-container {
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark);
+      color: var(--light);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    /* Dynamic Mountain Background */
+    .mountain-bg {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -3;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
       overflow: hidden;
     }
-    .mountain-bg-video {
+    
+    .mountain-layer {
       position: absolute;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      filter: brightness(0.7) contrast(1.2) saturate(1.3);
+      background-size: cover;
+      background-position: center bottom;
+      will-change: transform;
     }
+    
+    .layer-1 {
+      background-image: url('https://github.com/ashimsh/everest-portfolio/blob/main/assets/mountains-layer-1.png?raw=true');
+      z-index: 1;
+      animation: parallax 120s linear infinite;
+    }
+    
+    .layer-2 {
+      background-image: url('https://github.com/ashimsh/everest-portfolio/blob/main/assets/mountains-layer-2.png?raw=true');
+      z-index: 2;
+      animation: parallax 80s linear infinite;
+    }
+    
+    .layer-3 {
+      background-image: url('https://github.com/ashimsh/everest-portfolio/blob/main/assets/mountains-layer-3.png?raw=true');
+      z-index: 3;
+      animation: parallax 40s linear infinite;
+    }
+    
+    .layer-4 {
+      background-image: url('https://github.com/ashimsh/everest-portfolio/blob/main/assets/mountains-layer-4.png?raw=true');
+      z-index: 4;
+      animation: parallax 20s linear infinite;
+    }
+    
     .overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
-      z-index: -2;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.2) 100%);
+      z-index: 5;
     }
+    
+    @keyframes parallax {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-25%); }
+    }
+    
+    /* Navigation */
     nav {
-      background: rgba(0, 0, 0, 0.85);
-      padding: 1em 2em;
-      display: flex;
-      justify-content: center;
-      gap: 2em;
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
     }
-    nav a {
-      color: #fff;
+    
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1em;
-      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    nav a::after {
+    
+    .logo i {
+      font-size: 1.5rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+      transition: var(--transition);
+    }
+    
+    .nav-links a::after {
       content: '';
       position: absolute;
-      width: 0%;
+      width: 0;
       height: 2px;
-      bottom: -3px;
+      bottom: -5px;
       left: 0;
-      background: #00ffff;
-      transition: width 0.3s ease;
+      background-color: var(--primary);
+      transition: var(--transition);
     }
-    nav a:hover::after {
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-links a:hover::after {
       width: 100%;
     }
-    section {
-      padding: 140px 20px 60px;
-      min-height: 100vh;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(8px);
-      position: relative;
-      z-index: 1;
+    
+    .nav-links a.active {
+      color: var(--primary);
+    }
+    
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
       display: none;
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 1.5rem;
+      cursor: pointer;
     }
-    section.active {
-      display: block;
+    
+    /* Sections */
+    section {
+      min-height: 100vh;
+      padding: 8rem 2rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .content {
-      max-width: 900px;
-      margin: auto;
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    /* Hero Section */
+    #home {
       text-align: center;
     }
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 5px solid #00ffff;
-      object-fit: cover;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
     }
-    h1 {
-      font-size: 3.5em;
+    
+    .hero-title {
+      font-size: 4rem;
       font-weight: 700;
-      text-shadow: 5px 5px 15px #000;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.2;
     }
-    h2 {
-      font-size: 2.7em;
-      margin-bottom: 20px;
-      text-shadow: 4px 4px 10px #000;
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
     }
-    p {
-      font-size: 1.3em;
-      line-height: 1.7;
-      text-shadow: 2px 2px 6px #000;
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: var(--primary);
+      color: var(--dark);
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0.5rem;
+      transition: var(--transition);
+      border: 2px solid var(--primary);
     }
-    footer {
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--dark);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .social-links a {
+      color: var(--light);
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    /* About Section */
+    #about {
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(10px);
+    }
+    
+    .section-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
       text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.9);
-      color: #ccc;
-      font-size: 0.95em;
+      position: relative;
     }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+    
+    .profile-img-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .profile-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 5px solid var(--primary);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+      transition: var(--transition);
+    }
+    
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .about-text h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .about-text p {
+      margin-bottom: 1rem;
+    }
+    
+    .info-item {
+      display: flex;
+      margin-bottom: 0.8rem;
+    }
+    
+    .info-item i {
+      color: var(--primary);
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      width: 20px;
+    }
+    
+    /* Education Section */
+    #education {
+      background: rgba(10, 10, 10, 0.6);
+      backdrop-filter: blur(10px);
+    }
+    
+    .education-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .education-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .education-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .education-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .education-card .date {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--dark);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    /* Projects Section */
+    #projects {
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(10px);
+    }
+    
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .project-info {
+      padding: 1.5rem;
+    }
+    
+    .project-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-info p {
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .project-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      color: var(--light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    
+    .project-links a:hover {
+      background: var(--primary);
+      color: var(--dark);
+    }
+    
+    /* Contact Section */
+    #contact {
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .contact-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      border-radius: 10px;
+      transition: var(--transition);
+    }
+    
+    .contact-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-5px);
+    }
+    
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .contact-form {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 15px;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      color: var(--light);
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: rgba(0, 247, 255, 0.05);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+      background: rgba(10, 10, 10, 0.9);
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-links a {
+      color: var(--light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .copyright {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    
+    /* GitHub Corner */
+    .github-corner {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 1001;
+    }
+    
+    .github-corner svg {
+      fill: var(--primary);
+      color: var(--dark);
+      width: 80px;
+      height: 80px;
+    }
+    
+    .github-corner:hover .octo-arm {
+      animation: octocat-wave 560ms ease-in-out;
+    }
+    
+    @keyframes octocat-wave {
+      0%, 100% { transform: rotate(0); }
+      20%, 60% { transform: rotate(-25deg); }
+      40%, 80% { transform: rotate(10deg); }
+    }
+    
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      animation: bounce 2s infinite;
+    }
+    
+    .scroll-indicator i {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+      40% { transform: translateY(-20px) translateX(-50%); }
+      60% { transform: translateY(-10px) translateX(-50%); }
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .about-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .profile-img {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    
     @media (max-width: 768px) {
-      h1 { font-size: 2.5em; }
-      h2 { font-size: 2em; }
-      nav { flex-direction: column; gap: 1em; }
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(10, 10, 10, 0.95);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        transition: var(--transition);
+      }
+      
+      .nav-links.active {
+        left: 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .btn {
+        padding: 0.6rem 1.5rem;
+      }
+      
+      .projects-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .github-corner svg {
+        width: 60px;
+        height: 60px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="background-container">
-    <video autoplay muted loop playsinline class="mountain-bg-video">
-      <source src="https://cdn.pixabay.com/video/2023/03/27/157115-816737673_large.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video>
+  <!-- Dynamic Mountain Background -->
+  <div class="mountain-bg">
+    <div class="mountain-layer layer-1"></div>
+    <div class="mountain-layer layer-2"></div>
+    <div class="mountain-layer layer-3"></div>
+    <div class="mountain-layer layer-4"></div>
     <div class="overlay"></div>
   </div>
+
+  <!-- GitHub Corner -->
+  <a href="https://github.com/ashimsh/everest-portfolio" class="github-corner" aria-label="View source on GitHub">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#00f7ff; color:#0a0a0a; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+      <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+      <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+  </a>
+
+  <!-- Navigation -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#education">Education</a>
-    <a href="#about">About</a>
-    <a href="#more">More</a>
+    <a href="#" class="logo">
+      <i class="fas fa-mountain"></i>
+      <span>Everest</span>
+    </a>
+    
+    <div class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
   </nav>
-  <section id="home" class="active">
-    <div class="content">
-      <h1>Welcome to My Everest Portfolio</h1>
-      <p>Just like Everest — bold, raw, real. This is more than a portfolio; it’s a peak into my world. Scroll on and see for yourself.</p>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Scaling New Heights in Web Development</h1>
+        <p class="hero-subtitle">I'm Ashim Shrestha - a passionate developer climbing the peaks of modern web technologies</p>
+        <div>
+          <a href="#projects" class="btn">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/ashimsh" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://discord.com/users/849001425222041621" target="_blank"><i class="fab fa-discord"></i></a>
+          <a href="https://instagram.com/console_jailbreaker" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:ashim.shrestha.937@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
     </div>
   </section>
-  <section id="education">
-    <div class="content">
-      <h2>Education</h2>
-      <p>I’m currently studying in Class 12, science stream. Calculus and Analytic Geometry are my mountains — steep, sharp, but I’m climbing strong. I’ve also built cheat sheets that simplify the toughest parts.</p>
-    </div>
-  </section>
+
+  <!-- About Section -->
   <section id="about">
-    <div class="content">
-      <h2>About Me</h2>
-      <img src="https://i.imgur.com/gz1HwVw.jpeg" alt="Ashim Shrestha Profile" class="profile-img" />
-      <p>I'm <strong>Ashim Shrestha</strong> — explorer of logic, devout learner, and passionate creator. Discord is where I spark ideas, and design is where I build them.</p>
-      <p><strong>Discord:</strong> ashimdev (849001425222041621)</p>
-      <p><strong>Email:</strong> ashim.shrestha.937@gmail.com</p>
-      <p><strong>Phone:</strong> 9841822421</p>
-      <p><strong>Instagram:</strong> @console_jailbreaker</p>
-      <p><strong>Version:</strong> <span style="color: #ffd700;">Everest Portfolio v1.0</span></p>
-      <p style="font-style: italic; color: #bbb;">Dark Joke: I told my calculator I needed space… now it won’t stop cosigning.</p>
-      <p><strong>Credits:</strong> <a href="https://chat.openai.com" style="color: #00ffff; text-decoration: none; font-weight: bold;">ChatGPT (OpenAI)</a> — Co-pilot on this journey to digital greatness.</p>
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      
+      <div class="about-content">
+        <div class="profile-img-container">
+          <img src="https://i.imgur.com/gz1HwVw.jpeg" alt="Ashim Shrestha" class="profile-img">
+        </div>
+        
+        <div class="about-text">
+          <h3>Climbing the Peaks of Technology</h3>
+          <p>I'm a passionate developer and student from Nepal with a love for creating beautiful, functional websites and applications. My journey in web development started when I was just beginning to explore the world of programming, and I've been climbing higher ever since.</p>
+          <p>When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or enjoying the breathtaking Himalayan landscapes that inspire my work.</p>
+          
+          <div class="info-grid">
+            <div class="info-item">
+              <i class="fas fa-user"></i>
+              <span>Ashim Shrestha</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Kathmandu, Nepal</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <span>ashim.shrestha.937@gmail.com</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <span>+977 9841822421</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-graduation-cap"></i>
+              <span>Class 12 Science Student</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-code"></i>
+              <span>Frontend Developer</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-  <section id="more">
-    <div class="content">
-      <h2>More</h2>
-      <p>I’m chasing mastery in calculus and frontend development. My mind is wired for logic, my eyes for design. Everest taught me: every great view begins with a daring climb.</p>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">My Education</h2>
+      
+      <div class="education-container">
+        <div class="education-card">
+          <h3>High School Diploma</h3>
+          <span class="date">2022 - Present</span>
+          <p>Currently pursuing my +2 in Science with focus on Computer Science and Mathematics at Trinity International College.</p>
+        </div>
+        
+        <div class="education-card">
+          <h3>Web Development</h3>
+          <span class="date">Self-Taught</span>
+          <p>Learned modern web technologies through online courses, documentation, and building personal projects.</p>
+        </div>
+        
+        <div class="education-card">
+          <h3>Mathematics Focus</h3>
+          <span class="date">Special Interest</span>
+          <p>Created comprehensive cheat sheets for Calculus and Analytic Geometry to help fellow students.</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">My Projects</h2>
+      
+      <div class="projects-container">
+        <div class="project-card">
+          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project1.jpg?raw=true" alt="Project 1" class="project-img">
+          <div class="project-info">
+            <h3>Everest Portfolio</h3>
+            <p>A responsive portfolio website with dynamic mountain background and smooth animations.</p>
+            <div class="project-links">
+              <a href="#"><i class="fas fa-eye"></i> Live Demo</a>
+              <a href="https://github.com/ashimsh/everest-portfolio"><i class="fab fa-github"></i> Source Code</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project2.jpg?raw=true" alt="Project 2" class="project-img">
+          <div class="project-info">
+            <h3>Math Cheat Sheets</h3>
+            <p>Comprehensive reference guides for Calculus and Analytic Geometry concepts.</p>
+            <div class="project-links">
+              <a href="#"><i class="fas fa-eye"></i> View PDFs</a>
+              <a href="#"><i class="fab fa-github"></i> Source Files</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project3.jpg?raw=true" alt="Project 3" class="project-img">
+          <div class="project-info">
+            <h3>Discord Bot</h3>
+            <p>A custom Discord bot with utility functions and interactive features for community servers.</p>
+            <div class="project-links">
+              <a href="#"><i class="fas fa-eye"></i> Try It Out</a>
+              <a href="#"><i class="fab fa-github"></i> Source Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <p>ashim.shrestha.937@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <h3>Phone</h3>
+              <p>+977 9841822421</p>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fab fa-discord"></i>
+            </div>
+            <div>
+              <h3>Discord</h3>
+              <p>ashimdev#0000</p>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <div>
+              <h3>GitHub</h3>
+              <p>github.com/ashimsh</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" class="form-control" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Ashim Shrestha | Designed at the peak of Everest | All rights reserved
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      
+      <p class="copyright">© 2025 Ashim Shrestha. All rights reserved. | Designed at the peak of Everest</p>
+    </div>
   </footer>
+
   <script>
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', e => {
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Active link highlighting
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= sectionTop - 300) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+          item.classList.add('active');
+        }
+      });
+    });
+    
+    // Form submission
+    const form = document.querySelector('form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const id = link.getAttribute('href').substring(1);
-        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
+        alert('Thank you for your message! I will get back to you soon.');
+        form.reset();
+      });
+    }
+    
+    // GitHub Corner animation
+    const githubCorner = document.querySelector('.github-corner');
+    if (githubCorner) {
+      githubCorner.addEventListener('mouseenter', () => {
+        const octoArm = document.querySelector('.octo-arm');
+        octoArm.style.transformOrigin = '130px 106px';
+      });
+    }
+    
+    // Parallax effect for mountain layers
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.pageYOffset;
+      const layers = document.querySelectorAll('.mountain-layer');
+      
+      layers.forEach((layer, index) => {
+        const speed = 0.2 * (index + 1);
+        const yPos = -(scrollPosition * speed);
+        layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
       });
     });
   </script>

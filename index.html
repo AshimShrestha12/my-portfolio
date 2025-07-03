@@ -4,18 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Ashim Shrestha">
-  <title>Everest Portfolio</title>
+  <meta name="description" content="Creative portfolio of Ashim Shrestha - Web Developer from Nepal">
+  <title>Everest Portfolio | Ashim Shrestha</title>
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+  
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- GLSL Canvas for WebGL Effects -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/glsl-canvas/0.1.5/glsl-canvas.min.js"></script>
+  
   <style>
     :root {
       --primary: #00f7ff;
+      --primary-dark: #00c4cc;
       --secondary: #ff4d4d;
+      --secondary-dark: #cc3d3d;
       --dark: #0a0a0a;
+      --darker: #050505;
       --light: #f8f9fa;
+      --light-gray: #e9ecef;
       --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      --section-padding: 8rem 2rem;
+      --nav-height: 80px;
+      --border-radius: 15px;
+      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
     
     * {
@@ -26,6 +50,7 @@
     
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
     }
     
     body {
@@ -34,65 +59,40 @@
       color: var(--light);
       overflow-x: hidden;
       line-height: 1.6;
+      counter-reset: section;
     }
     
-    /* Dynamic Mountain Background */
-    .mountain-bg {
+    /* Dynamic Mountain Background with WebGL */
+    .webgl-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+    
+    .mountain-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: -1;
-      overflow: hidden;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.3) 100%);
+      pointer-events: none;
     }
     
-    .mountain-layer {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center bottom;
-      will-change: transform;
-    }
-    
-    .layer-1 {
-      background-image: url('https://github.com/ashimsh/everest-portfolio/blob/main/assets/mountains-layer-1.png?raw=true');
-      z-index: 1;
-      animation: parallax 120s linear infinite;
-    }
-    
-    .layer-2 {
-      background-image: url('https://github.com/ashimsh/everest-portfolio/blob/main/assets/mountains-layer-2.png?raw=true');
-      z-index: 2;
-      animation: parallax 80s linear infinite;
-    }
-    
-    .layer-3 {
-      background-image: url('https://github.com/ashimsh/everest-portfolio/blob/main/assets/mountains-layer-3.png?raw=true');
-      z-index: 3;
-      animation: parallax 40s linear infinite;
-    }
-    
-    .layer-4 {
-      background-image: url('https://github.com/ashimsh/everest-portfolio/blob/main/assets/mountains-layer-4.png?raw=true');
-      z-index: 4;
-      animation: parallax 20s linear infinite;
-    }
-    
-    .overlay {
-      position: absolute;
+    /* Particles Background */
+    .particles {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.2) 100%);
-      z-index: 5;
-    }
-    
-    @keyframes parallax {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-25%); }
+      z-index: -1;
+      opacity: 0.3;
+      pointer-events: none;
     }
     
     /* Navigation */
@@ -109,6 +109,14 @@
       background: rgba(10, 10, 10, 0.8);
       backdrop-filter: blur(10px);
       box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+      height: var(--nav-height);
+      transition: var(--transition);
+    }
+    
+    nav.scrolled {
+      background: rgba(5, 5, 5, 0.95);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      padding: 1rem 2rem;
     }
     
     .logo {
@@ -120,6 +128,11 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      transition: var(--transition);
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
     }
     
     .logo i {
@@ -138,6 +151,19 @@
       font-size: 1.1rem;
       position: relative;
       transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .nav-links a::before {
+      content: '0' counter(section) '.';
+      position: absolute;
+      top: -20px;
+      font-size: 0.8rem;
+      color: var(--primary);
+      opacity: 0;
+      transition: var(--transition);
     }
     
     .nav-links a::after {
@@ -153,6 +179,11 @@
     
     .nav-links a:hover {
       color: var(--primary);
+    }
+    
+    .nav-links a:hover::before {
+      opacity: 1;
+      top: -15px;
     }
     
     .nav-links a:hover::after {
@@ -174,36 +205,47 @@
       color: var(--light);
       font-size: 1.5rem;
       cursor: pointer;
+      transition: var(--transition);
+      z-index: 1001;
+    }
+    
+    .mobile-menu-btn:hover {
+      color: var(--primary);
     }
     
     /* Sections */
     section {
       min-height: 100vh;
-      padding: 8rem 2rem;
+      padding: var(--section-padding);
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
     
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 2rem;
+      width: 100%;
     }
     
     /* Hero Section */
     #home {
       text-align: center;
+      position: relative;
     }
     
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
     
     .hero-title {
-      font-size: 4rem;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
       font-weight: 700;
       margin-bottom: 1.5rem;
       background: linear-gradient(to right, var(--primary), var(--secondary));
@@ -214,22 +256,52 @@
     }
     
     .hero-subtitle {
-      font-size: 1.5rem;
+      font-size: clamp(1rem, 3vw, 1.5rem);
       margin-bottom: 2rem;
       opacity: 0.9;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
     
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: 0.8rem 2rem;
       background: var(--primary);
       color: var(--dark);
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      margin: 0.5rem;
       transition: var(--transition);
       border: 2px solid var(--primary);
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .btn:hover::before {
+      left: 100%;
     }
     
     .btn-outline {
@@ -239,7 +311,7 @@
     
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 247, 255, 0.3);
     }
     
     .btn-outline:hover {
@@ -258,11 +330,35 @@
       color: var(--light);
       font-size: 1.5rem;
       transition: var(--transition);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(5px);
     }
     
     .social-links a:hover {
       color: var(--primary);
-      transform: translateY(-3px);
+      transform: translateY(-5px);
+      background: rgba(0,247,255,0.2);
+    }
+    
+    /* Floating Tech Icons */
+    .floating-tech {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.3;
+      color: var(--primary);
+      animation: float 10s infinite ease-in-out;
+      z-index: 0;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
     }
     
     /* About Section */
@@ -272,11 +368,24 @@
     }
     
     .section-title {
-      font-size: 3rem;
+      font-size: clamp(2rem, 6vw, 3rem);
       font-weight: 700;
       margin-bottom: 3rem;
       text-align: center;
       position: relative;
+      counter-increment: section;
+    }
+    
+    .section-title::before {
+      content: '0' counter(section) '.';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 0.5rem;
     }
     
     .section-title::after {
@@ -301,20 +410,40 @@
       flex: 1;
       display: flex;
       justify-content: center;
+      position: relative;
     }
     
     .profile-img {
       width: 300px;
       height: 300px;
-      border-radius: 20px;
+      border-radius: var(--border-radius);
       object-fit: cover;
       border: 5px solid var(--primary);
-      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: var(--box-shadow);
       transition: var(--transition);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .profile-img-container::before {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 2px dashed var(--primary);
+      border-radius: var(--border-radius);
+      animation: rotate 20s linear infinite;
+      z-index: 0;
+    }
+    
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
     
     .profile-img:hover {
       transform: scale(1.05);
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
     }
     
     .about-text {
@@ -322,25 +451,38 @@
     }
     
     .about-text h3 {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 4vw, 2rem);
       margin-bottom: 1.5rem;
       color: var(--primary);
     }
     
     .about-text p {
       margin-bottom: 1rem;
+      opacity: 0.9;
     }
     
-    .info-item {
+    .skills-container {
       display: flex;
-      margin-bottom: 0.8rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
     }
     
-    .info-item i {
+    .skill-tag {
+      background: rgba(0, 247, 255, 0.1);
       color: var(--primary);
-      margin-right: 1rem;
-      font-size: 1.2rem;
-      width: 20px;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid var(--primary);
+      transition: var(--transition);
+    }
+    
+    .skill-tag:hover {
+      background: var(--primary);
+      color: var(--dark);
+      transform: translateY(-3px);
     }
     
     /* Education Section */
@@ -358,22 +500,43 @@
     
     .education-card {
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
+      border-radius: var(--border-radius);
       padding: 2rem;
       transition: var(--transition);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .education-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,247,255,0.1) 0%, transparent 100%);
+      z-index: 0;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .education-card:hover::before {
+      opacity: 1;
     }
     
     .education-card:hover {
       transform: translateY(-10px);
       background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: var(--box-shadow);
     }
     
     .education-card h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
       color: var(--primary);
+      position: relative;
+      z-index: 1;
     }
     
     .education-card .date {
@@ -385,6 +548,14 @@
       font-size: 0.8rem;
       font-weight: 600;
       margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .education-card p {
+      position: relative;
+      z-index: 1;
+      opacity: 0.9;
     }
     
     /* Projects Section */
@@ -402,25 +573,44 @@
     
     .project-card {
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
+      border-radius: var(--border-radius);
       overflow: hidden;
       transition: var(--transition);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+    
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.8) 100%);
+      z-index: 1;
     }
     
     .project-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: var(--box-shadow);
     }
     
     .project-img {
       width: 100%;
       height: 200px;
       object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .project-card:hover .project-img {
+      transform: scale(1.05);
     }
     
     .project-info {
       padding: 1.5rem;
+      position: relative;
+      z-index: 2;
     }
     
     .project-info h3 {
@@ -431,6 +621,22 @@
     .project-info p {
       margin-bottom: 1rem;
       opacity: 0.8;
+    }
+    
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .tech-tag {
+      background: rgba(0, 247, 255, 0.1);
+      color: var(--primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
     }
     
     .project-links {
@@ -483,6 +689,24 @@
       padding: 1.5rem;
       border-radius: 10px;
       transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .contact-card:hover::before {
+      width: 100%;
+      opacity: 0.1;
     }
     
     .contact-card:hover {
@@ -493,16 +717,39 @@
     .contact-icon {
       font-size: 1.5rem;
       color: var(--primary);
+      min-width: 30px;
+      text-align: center;
     }
     
     .contact-form {
       background: rgba(255, 255, 255, 0.05);
       padding: 2rem;
-      border-radius: 15px;
+      border-radius: var(--border-radius);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-form::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,247,255,0.05) 0%, transparent 70%);
+      animation: rotate-bg 20s linear infinite;
+      z-index: 0;
+    }
+    
+    @keyframes rotate-bg {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
     
     .form-group {
       margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
     }
     
     .form-group label {
@@ -526,6 +773,7 @@
       outline: none;
       border-color: var(--primary);
       background: rgba(0, 247, 255, 0.05);
+      box-shadow: 0 0 0 2px rgba(0, 247, 255, 0.2);
     }
     
     textarea.form-control {
@@ -538,17 +786,21 @@
       background: rgba(10, 10, 10, 0.9);
       padding: 2rem;
       text-align: center;
+      position: relative;
     }
     
     .footer-content {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
     
     .footer-links {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
       margin-bottom: 1.5rem;
     }
     
@@ -556,40 +808,31 @@
       color: var(--light);
       text-decoration: none;
       transition: var(--transition);
+      position: relative;
+    }
+    
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--primary);
+      transition: var(--transition);
     }
     
     .footer-links a:hover {
       color: var(--primary);
     }
     
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+    
     .copyright {
       opacity: 0.7;
       font-size: 0.9rem;
-    }
-    
-    /* GitHub Corner */
-    .github-corner {
-      position: fixed;
-      top: 0;
-      right: 0;
-      z-index: 1001;
-    }
-    
-    .github-corner svg {
-      fill: var(--primary);
-      color: var(--dark);
-      width: 80px;
-      height: 80px;
-    }
-    
-    .github-corner:hover .octo-arm {
-      animation: octocat-wave 560ms ease-in-out;
-    }
-    
-    @keyframes octocat-wave {
-      0%, 100% { transform: rotate(0); }
-      20%, 60% { transform: rotate(-25deg); }
-      40%, 80% { transform: rotate(10deg); }
     }
     
     /* Scroll Indicator */
@@ -600,11 +843,26 @@
       transform: translateX(-50%);
       z-index: 1000;
       animation: bounce 2s infinite;
+      cursor: pointer;
     }
     
     .scroll-indicator i {
       font-size: 2rem;
       color: var(--primary);
+      background: rgba(10, 10, 10, 0.7);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    
+    .scroll-indicator i:hover {
+      background: var(--primary);
+      color: var(--dark);
+      transform: translateY(-5px);
     }
     
     @keyframes bounce {
@@ -613,10 +871,51 @@
       60% { transform: translateY(-10px) translateX(-50%); }
     }
     
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: var(--dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      box-shadow: 0 5px 20px rgba(0, 247, 255, 0.3);
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 247, 255, 0.4);
+    }
+    
+    /* 3D Floating Elements */
+    .floating-element {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+      filter: blur(20px);
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
     /* Responsive Styles */
     @media (max-width: 992px) {
-      .hero-title {
-        font-size: 3rem;
+      :root {
+        --section-padding: 6rem 2rem;
       }
       
       .about-content {
@@ -631,18 +930,23 @@
     }
     
     @media (max-width: 768px) {
+      :root {
+        --section-padding: 5rem 1.5rem;
+      }
+      
       .nav-links {
         position: fixed;
-        top: 80px;
+        top: var(--nav-height);
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
-        background: rgba(10, 10, 10, 0.95);
+        height: calc(100vh - var(--nav-height));
+        background: rgba(10, 10, 10, 0.98);
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 3rem;
         transition: var(--transition);
+        backdrop-filter: blur(10px);
       }
       
       .nav-links.active {
@@ -653,51 +957,56 @@
         display: block;
       }
       
-      .hero-title {
-        font-size: 2.5rem;
-      }
-      
-      .hero-subtitle {
-        font-size: 1.2rem;
-      }
-      
-      .section-title {
-        font-size: 2.5rem;
-      }
-    }
-    
-    @media (max-width: 576px) {
-      .hero-title {
-        font-size: 2rem;
-      }
-      
-      .btn {
-        padding: 0.6rem 1.5rem;
-      }
-      
       .projects-container {
         grid-template-columns: 1fr;
       }
       
-      .github-corner svg {
-        width: 60px;
-        height: 60px;
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      :root {
+        --section-padding: 4rem 1rem;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+      }
+      
+      .profile-img-container::before {
+        width: 270px;
+        height: 270px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Dynamic Mountain Background -->
-  <div class="mountain-bg">
-    <div class="mountain-layer layer-1"></div>
-    <div class="mountain-layer layer-2"></div>
-    <div class="mountain-layer layer-3"></div>
-    <div class="mountain-layer layer-4"></div>
-    <div class="overlay"></div>
-  </div>
-
+  <!-- WebGL Background -->
+  <div class="webgl-bg" id="webgl-bg"></div>
+  
+  <!-- Particles Background -->
+  <canvas class="particles" id="particles"></canvas>
+  
+  <!-- Mountain Overlay -->
+  <div class="mountain-overlay"></div>
+  
+  <!-- Floating Tech Icons -->
+  <i class="floating-tech fas fa-code" style="top: 20%; left: 10%; animation-delay: 0s;"></i>
+  <i class="floating-tech fas fa-html5" style="top: 30%; left: 85%; animation-delay: 1s;"></i>
+  <i class="floating-tech fas fa-css3-alt" style="top: 70%; left: 15%; animation-delay: 2s;"></i>
+  <i class="floating-tech fas fa-js" style="top: 80%; left: 80%; animation-delay: 3s;"></i>
+  <i class="floating-tech fas fa-react" style="top: 50%; left: 5%; animation-delay: 4s;"></i>
+  <i class="floating-tech fas fa-node" style="top: 60%; left: 90%; animation-delay: 5s;"></i>
+  
   <!-- GitHub Corner -->
-  <a href="https://github.com/ashimsh/everest-portfolio" class="github-corner" aria-label="View source on GitHub">
+  <a href="https://github.com/ashimsh/everest-portfolio" class="github-corner" aria-label="View source on GitHub" target="_blank">
     <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#00f7ff; color:#0a0a0a; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
       <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
       <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
@@ -706,7 +1015,7 @@
   </a>
 
   <!-- Navigation -->
-  <nav>
+  <nav id="navbar">
     <a href="#" class="logo">
       <i class="fas fa-mountain"></i>
       <span>Everest</span>
@@ -728,25 +1037,32 @@
   <!-- Hero Section -->
   <section id="home">
     <div class="container">
-      <div class="hero-content">
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
         <h1 class="hero-title">Scaling New Heights in Web Development</h1>
         <p class="hero-subtitle">I'm Ashim Shrestha - a passionate developer climbing the peaks of modern web technologies</p>
-        <div>
-          <a href="#projects" class="btn">View My Work</a>
-          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        <div class="hero-cta">
+          <a href="#projects" class="btn">
+            <i class="fas fa-code"></i>
+            View My Work
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-paper-plane"></i>
+            Contact Me
+          </a>
         </div>
         <div class="social-links">
-          <a href="https://github.com/ashimsh" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://discord.com/users/849001425222041621" target="_blank"><i class="fab fa-discord"></i></a>
-          <a href="https://instagram.com/console_jailbreaker" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="mailto:ashim.shrestha.937@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/ashimsh" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://discord.com/users/849001425222041621" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+          <a href="https://instagram.com/console_jailbreaker" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:ashim.shrestha.937@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://linkedin.com/in/ashim-shrestha" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
       </div>
     </div>
     
-    <div class="scroll-indicator">
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
       <i class="fas fa-chevron-down"></i>
-    </div>
+    </a>
   </section>
 
   <!-- About Section -->
@@ -755,40 +1071,24 @@
       <h2 class="section-title">About Me</h2>
       
       <div class="about-content">
-        <div class="profile-img-container">
-          <img src="https://i.imgur.com/gz1HwVw.jpeg" alt="Ashim Shrestha" class="profile-img">
+        <div class="profile-img-container" data-aos="fade-right" data-aos-duration="800">
+          <img src="https://i.imgur.com/gz1HwVw.jpeg" alt="Ashim Shrestha" class="profile-img" loading="lazy">
         </div>
         
-        <div class="about-text">
+        <div class="about-text" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
           <h3>Climbing the Peaks of Technology</h3>
           <p>I'm a passionate developer and student from Nepal with a love for creating beautiful, functional websites and applications. My journey in web development started when I was just beginning to explore the world of programming, and I've been climbing higher ever since.</p>
           <p>When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or enjoying the breathtaking Himalayan landscapes that inspire my work.</p>
           
-          <div class="info-grid">
-            <div class="info-item">
-              <i class="fas fa-user"></i>
-              <span>Ashim Shrestha</span>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Kathmandu, Nepal</span>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-envelope"></i>
-              <span>ashim.shrestha.937@gmail.com</span>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-phone"></i>
-              <span>+977 9841822421</span>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-graduation-cap"></i>
-              <span>Class 12 Science Student</span>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-code"></i>
-              <span>Frontend Developer</span>
-            </div>
+          <div class="skills-container">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">UI/UX</span>
           </div>
         </div>
       </div>
@@ -801,19 +1101,19 @@
       <h2 class="section-title">My Education</h2>
       
       <div class="education-container">
-        <div class="education-card">
+        <div class="education-card" data-aos="fade-up" data-aos-duration="800">
           <h3>High School Diploma</h3>
           <span class="date">2022 - Present</span>
           <p>Currently pursuing my +2 in Science with focus on Computer Science and Mathematics at Trinity International College.</p>
         </div>
         
-        <div class="education-card">
+        <div class="education-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
           <h3>Web Development</h3>
           <span class="date">Self-Taught</span>
           <p>Learned modern web technologies through online courses, documentation, and building personal projects.</p>
         </div>
         
-        <div class="education-card">
+        <div class="education-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
           <h3>Mathematics Focus</h3>
           <span class="date">Special Interest</span>
           <p>Created comprehensive cheat sheets for Calculus and Analytic Geometry to help fellow students.</p>
@@ -828,38 +1128,52 @@
       <h2 class="section-title">My Projects</h2>
       
       <div class="projects-container">
-        <div class="project-card">
-          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project1.jpg?raw=true" alt="Project 1" class="project-img">
+        <div class="project-card" data-aos="fade-up" data-aos-duration="800">
+          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project1.jpg?raw=true" alt="Everest Portfolio Project" class="project-img" loading="lazy">
           <div class="project-info">
             <h3>Everest Portfolio</h3>
             <p>A responsive portfolio website with dynamic mountain background and smooth animations.</p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
             <div class="project-links">
-              <a href="#"><i class="fas fa-eye"></i> Live Demo</a>
-              <a href="https://github.com/ashimsh/everest-portfolio"><i class="fab fa-github"></i> Source Code</a>
+              <a href="#" aria-label="Live Demo"><i class="fas fa-eye"></i> Live Demo</a>
+              <a href="https://github.com/ashimsh/everest-portfolio" aria-label="Source Code"><i class="fab fa-github"></i> Source Code</a>
             </div>
           </div>
         </div>
         
-        <div class="project-card">
-          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project2.jpg?raw=true" alt="Project 2" class="project-img">
+        <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project2.jpg?raw=true" alt="Math Cheat Sheets Project" class="project-img" loading="lazy">
           <div class="project-info">
             <h3>Math Cheat Sheets</h3>
             <p>Comprehensive reference guides for Calculus and Analytic Geometry concepts.</p>
+            <div class="project-tech">
+              <span class="tech-tag">LaTeX</span>
+              <span class="tech-tag">Mathematics</span>
+            </div>
             <div class="project-links">
-              <a href="#"><i class="fas fa-eye"></i> View PDFs</a>
-              <a href="#"><i class="fab fa-github"></i> Source Files</a>
+              <a href="#" aria-label="View PDFs"><i class="fas fa-eye"></i> View PDFs</a>
+              <a href="#" aria-label="Source Files"><i class="fab fa-github"></i> Source Files</a>
             </div>
           </div>
         </div>
         
-        <div class="project-card">
-          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project3.jpg?raw=true" alt="Project 3" class="project-img">
+        <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project3.jpg?raw=true" alt="Discord Bot Project" class="project-img" loading="lazy">
           <div class="project-info">
             <h3>Discord Bot</h3>
             <p>A custom Discord bot with utility functions and interactive features for community servers.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Discord.js</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
             <div class="project-links">
-              <a href="#"><i class="fas fa-eye"></i> Try It Out</a>
-              <a href="#"><i class="fab fa-github"></i> Source Code</a>
+              <a href="#" aria-label="Try It Out"><i class="fas fa-eye"></i> Try It Out</a>
+              <a href="#" aria-label="Source Code"><i class="fab fa-github"></i> Source Code</a>
             </div>
           </div>
         </div>
@@ -874,7 +1188,7 @@
       
       <div class="contact-container">
         <div class="contact-info">
-          <div class="contact-card">
+          <div class="contact-card" data-aos="fade-right" data-aos-duration="800">
             <div class="contact-icon">
               <i class="fas fa-envelope"></i>
             </div>
@@ -884,7 +1198,7 @@
             </div>
           </div>
           
-          <div class="contact-card">
+          <div class="contact-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
             <div class="contact-icon">
               <i class="fas fa-phone"></i>
             </div>
@@ -894,7 +1208,7 @@
             </div>
           </div>
           
-          <div class="contact-card">
+          <div class="contact-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
             <div class="contact-icon">
               <i class="fab fa-discord"></i>
             </div>
@@ -904,7 +1218,7 @@
             </div>
           </div>
           
-          <div class="contact-card">
+          <div class="contact-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="300">
             <div class="contact-icon">
               <i class="fab fa-github"></i>
             </div>
@@ -915,8 +1229,8 @@
           </div>
         </div>
         
-        <div class="contact-form">
-          <form>
+        <div class="contact-form" data-aos="fade-left" data-aos-duration="800">
+          <form id="contactForm">
             <div class="form-group">
               <label for="name">Your Name</label>
               <input type="text" id="name" class="form-control" required>
@@ -937,7 +1251,10 @@
               <textarea id="message" class="form-control" required></textarea>
             </div>
             
-            <button type="submit" class="btn">Send Message</button>
+            <button type="submit" class="btn">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </button>
           </form>
         </div>
       </div>
@@ -955,11 +1272,25 @@
         <a href="#contact">Contact</a>
       </div>
       
-      <p class="copyright">© 2025 Ashim Shrestha. All rights reserved. | Designed at the peak of Everest</p>
+      <p class="copyright">© <span id="year"></span> Ashim Shrestha. All rights reserved. | Designed at the peak of Everest</p>
     </div>
   </footer>
 
+  <!-- Back to Top Button -->
+  <a href="#home" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Initialize AOS animation library
+    AOS.init({
+      once: true,
+      easing: 'ease-out-quad',
+      duration: 800
+    });
+    
     // Mobile Menu Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
@@ -1001,36 +1332,188 @@
           item.classList.add('active');
         }
       });
+      
+      // Navbar background change on scroll
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      
+      // Back to top button visibility
+      const backToTop = document.querySelector('.back-to-top');
+      if (window.scrollY > 300) {
+        backToTop.classList.add('active');
+      } else {
+        backToTop.classList.remove('active');
+      }
     });
     
     // Form submission
-    const form = document.querySelector('form');
+    const form = document.getElementById('contactForm');
     if (form) {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Thank you for your message! I will get back to you soon.');
+        
+        // Form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Here you would typically send the data to a server
+        // For this example, we'll just show a success message
+        alert(`Thank you for your message, ${name}! I will get back to you soon at ${email}.`);
         form.reset();
       });
     }
     
-    // GitHub Corner animation
-    const githubCorner = document.querySelector('.github-corner');
-    if (githubCorner) {
-      githubCorner.addEventListener('mouseenter', () => {
-        const octoArm = document.querySelector('.octo-arm');
-        octoArm.style.transformOrigin = '130px 106px';
-      });
-    }
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
     
-    // Parallax effect for mountain layers
-    window.addEventListener('scroll', () => {
-      const scrollPosition = window.pageYOffset;
-      const layers = document.querySelectorAll('.mountain-layer');
+    // Initialize Particles.js
+    const initParticles = () => {
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
       
-      layers.forEach((layer, index) => {
-        const speed = 0.2 * (index + 1);
-        const yPos = -(scrollPosition * speed);
-        layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      const particles = [];
+      const particleCount = Math.floor(window.innerWidth / 10);
+      
+      // Particle class
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 3 + 1;
+          this.speedX = Math.random() * 2 - 1;
+          this.speedY = Math.random() * 2 - 1;
+          this.color = `rgba(0, 247, 255, ${Math.random() * 0.5})`;
+        }
+        
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          
+          if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        }
+        
+        draw() {
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      
+      // Create particles
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+      
+      // Animation loop
+      const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+        }
+        
+        requestAnimationFrame(animate);
+      };
+      
+      animate();
+      
+      // Handle resize
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    };
+    
+    // Initialize WebGL Background
+    const initWebGL = () => {
+      const canvas = document.getElementById('webgl-bg');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      // GLSL shader code for animated background
+      const fragmentShader = `
+        precision highp float;
+        
+        uniform float time;
+        uniform vec2 resolution;
+        
+        void main() {
+          vec2 uv = gl_FragCoord.xy / resolution.xy;
+          uv -= 0.5;
+          uv.x *= resolution.x / resolution.y;
+          
+          float d = length(uv);
+          float c = smoothstep(0.3, 0.29, d);
+          
+          // Add pulsing effect
+          c += sin(time + uv.x * 10.0) * 0.05;
+          c += cos(time + uv.y * 10.0) * 0.05;
+          
+          // Color gradient
+          vec3 color = mix(
+            vec3(0.0, 0.5, 0.8),
+            vec3(0.0, 0.8, 0.9),
+            uv.y + 0.5
+          );
+          
+          gl_FragColor = vec4(color * c, 0.3);
+        }
+      `;
+      
+      const glslCanvas = new GlslCanvas(canvas, {
+        fragmentString: fragmentShader
+      });
+      
+      // Update uniforms
+      const updateUniforms = () => {
+        const time = performance.now() * 0.001;
+        glslCanvas.setUniform('time', time);
+        glslCanvas.setUniform('resolution', [canvas.width, canvas.height]);
+        requestAnimationFrame(updateUniforms);
+      };
+      
+      updateUniforms();
+      
+      // Handle resize
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    };
+    
+    // Initialize all effects
+    window.addEventListener('load', () => {
+      initParticles();
+      initWebGL();
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - document.getElementById('navbar').offsetHeight,
+            behavior: 'smooth'
+          });
+        }
       });
     });
   </script>

@@ -25,6 +25,21 @@
   <!-- GLSL Canvas for WebGL Effects -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/glsl-canvas/0.1.5/glsl-canvas.min.js"></script>
   
+  <!-- Three.js for 3D Elements -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- GSAP for Advanced Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  
+  <!-- Splitting.js for Text Effects -->
+  <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
+  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css">
+  
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.0/dist/lenis.min.js"></script> 
+  
   <style>
     :root {
       --primary: #00f7ff;
@@ -40,6 +55,8 @@
       --nav-height: 80px;
       --border-radius: 15px;
       --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
     }
     
     * {
@@ -62,7 +79,7 @@
       counter-reset: section;
     }
     
-    /* Dynamic Mountain Background with WebGL */
+    /* WebGL Background with Three.js */
     .webgl-bg {
       position: fixed;
       top: 0;
@@ -72,6 +89,7 @@
       z-index: -2;
     }
     
+    /* Mountain Overlay with Parallax */
     .mountain-overlay {
       position: fixed;
       top: 0;
@@ -95,7 +113,7 @@
       pointer-events: none;
     }
     
-    /* Navigation */
+    /* Navigation - Glass Morphism */
     nav {
       position: fixed;
       top: 0;
@@ -107,10 +125,12 @@
       align-items: center;
       z-index: 1000;
       background: rgba(10, 10, 10, 0.8);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
       height: var(--nav-height);
       transition: var(--transition);
+      border-bottom: 1px solid var(--glass-border);
     }
     
     nav.scrolled {
@@ -129,10 +149,26 @@
       align-items: center;
       gap: 0.5rem;
       transition: var(--transition);
+      position: relative;
+      overflow: hidden;
     }
     
-    .logo:hover {
-      transform: scale(1.05);
+    .logo::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s ease;
+    }
+    
+    .logo:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
     
     .logo i {
@@ -164,6 +200,7 @@
       color: var(--primary);
       opacity: 0;
       transition: var(--transition);
+      font-family: 'Montserrat', sans-serif;
     }
     
     .nav-links a::after {
@@ -231,7 +268,7 @@
       width: 100%;
     }
     
-    /* Hero Section */
+    /* Hero Section with Text Animation */
     #home {
       text-align: center;
       position: relative;
@@ -253,6 +290,18 @@
       background-clip: text;
       color: transparent;
       line-height: 1.2;
+    }
+    
+    .hero-title .word {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+    }
+    
+    .hero-title .char {
+      display: inline-block;
+      transform: translateY(100%);
+      opacity: 0;
     }
     
     .hero-subtitle {
@@ -336,17 +385,19 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      background: rgba(255,255,255,0.1);
+      background: var(--glass-bg);
       backdrop-filter: blur(5px);
+      border: 1px solid var(--glass-border);
     }
     
     .social-links a:hover {
       color: var(--primary);
       transform: translateY(-5px);
       background: rgba(0,247,255,0.2);
+      box-shadow: 0 5px 15px rgba(0, 247, 255, 0.2);
     }
     
-    /* Floating Tech Icons */
+    /* Floating Tech Icons with 3D Effect */
     .floating-tech {
       position: absolute;
       font-size: 2rem;
@@ -354,6 +405,7 @@
       color: var(--primary);
       animation: float 10s infinite ease-in-out;
       z-index: 0;
+      filter: drop-shadow(0 0 5px rgba(0, 247, 255, 0.5));
     }
     
     @keyframes float {
@@ -361,7 +413,7 @@
       50% { transform: translateY(-20px) rotate(5deg); }
     }
     
-    /* About Section */
+    /* About Section with 3D Profile */
     #about {
       background: rgba(10, 10, 10, 0.7);
       backdrop-filter: blur(10px);
@@ -411,6 +463,13 @@
       display: flex;
       justify-content: center;
       position: relative;
+      perspective: 1000px;
+    }
+    
+    .profile-img-wrapper {
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
     }
     
     .profile-img {
@@ -423,6 +482,7 @@
       transition: var(--transition);
       position: relative;
       z-index: 1;
+      transform: translateZ(20px);
     }
     
     .profile-img-container::before {
@@ -442,7 +502,7 @@
     }
     
     .profile-img:hover {
-      transform: scale(1.05);
+      transform: translateZ(30px) scale(1.05);
       box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
     }
     
@@ -477,15 +537,17 @@
       font-weight: 600;
       border: 1px solid var(--primary);
       transition: var(--transition);
+      cursor: default;
     }
     
     .skill-tag:hover {
       background: var(--primary);
       color: var(--dark);
       transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 247, 255, 0.2);
     }
     
-    /* Education Section */
+    /* Education Section with Timeline Effect */
     #education {
       background: rgba(10, 10, 10, 0.6);
       backdrop-filter: blur(10px);
@@ -496,16 +558,31 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
+      position: relative;
+    }
+    
+    .education-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+      transform: translateX(-50%);
+      z-index: 0;
     }
     
     .education-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--glass-bg);
       border-radius: var(--border-radius);
       padding: 2rem;
       transition: var(--transition);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--glass-border);
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(5px);
+      z-index: 1;
     }
     
     .education-card::before {
@@ -516,7 +593,7 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(135deg, rgba(0,247,255,0.1) 0%, transparent 100%);
-      z-index: 0;
+      z-index: -1;
       opacity: 0;
       transition: var(--transition);
     }
@@ -558,7 +635,7 @@
       opacity: 0.9;
     }
     
-    /* Projects Section */
+    /* Projects Section with Interactive Cards */
     #projects {
       background: rgba(10, 10, 10, 0.7);
       backdrop-filter: blur(10px);
@@ -572,12 +649,13 @@
     }
     
     .project-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--glass-bg);
       border-radius: var(--border-radius);
       overflow: hidden;
       transition: var(--transition);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--glass-border);
       position: relative;
+      backdrop-filter: blur(5px);
     }
     
     .project-card::after {
@@ -596,15 +674,22 @@
       box-shadow: var(--box-shadow);
     }
     
-    .project-img {
+    .project-img-container {
       width: 100%;
       height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .project-img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       transition: var(--transition);
     }
     
     .project-card:hover .project-img {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
     
     .project-info {
@@ -637,6 +722,7 @@
       border-radius: 50px;
       font-size: 0.8rem;
       font-weight: 600;
+      border: 1px solid var(--primary);
     }
     
     .project-links {
@@ -655,14 +741,16 @@
       text-decoration: none;
       font-size: 0.9rem;
       transition: var(--transition);
+      border: 1px solid var(--glass-border);
     }
     
     .project-links a:hover {
       background: var(--primary);
       color: var(--dark);
+      transform: translateY(-3px);
     }
     
-    /* Contact Section */
+    /* Contact Section with Interactive Form */
     #contact {
       background: rgba(10, 10, 10, 0.8);
       backdrop-filter: blur(10px);
@@ -685,12 +773,14 @@
       display: flex;
       align-items: flex-start;
       gap: 1rem;
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--glass-bg);
       padding: 1.5rem;
       border-radius: 10px;
       transition: var(--transition);
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(5px);
+      border: 1px solid var(--glass-border);
     }
     
     .contact-card::before {
@@ -722,11 +812,13 @@
     }
     
     .contact-form {
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--glass-bg);
       padding: 2rem;
       border-radius: var(--border-radius);
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(5px);
+      border: 1px solid var(--glass-border);
     }
     
     .contact-form::before {
@@ -762,7 +854,7 @@
       width: 100%;
       padding: 0.8rem 1rem;
       background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid var(--glass-border);
       border-radius: 5px;
       color: var(--light);
       font-family: inherit;
@@ -781,12 +873,13 @@
       resize: vertical;
     }
     
-    /* Footer */
+    /* Footer with Wave Animation */
     footer {
       background: rgba(10, 10, 10, 0.9);
       padding: 2rem;
       text-align: center;
       position: relative;
+      overflow: hidden;
     }
     
     .footer-content {
@@ -857,6 +950,7 @@
       justify-content: center;
       border-radius: 50%;
       transition: var(--transition);
+      border: 1px solid var(--glass-border);
     }
     
     .scroll-indicator i:hover {
@@ -890,6 +984,8 @@
       visibility: hidden;
       transition: var(--transition);
       box-shadow: 0 5px 20px rgba(0, 247, 255, 0.3);
+      border: none;
+      cursor: pointer;
     }
     
     .back-to-top.active {
@@ -927,11 +1023,16 @@
         width: 250px;
         height: 250px;
       }
+      
+      .education-container::before {
+        display: none;
+      }
     }
     
     @media (max-width: 768px) {
       :root {
         --section-padding: 5rem 1.5rem;
+        --nav-height: 70px;
       }
       
       .nav-links {
@@ -947,6 +1048,8 @@
         gap: 3rem;
         transition: var(--transition);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-top: 1px solid var(--glass-border);
       }
       
       .nav-links.active {
@@ -984,12 +1087,20 @@
         width: 270px;
         height: 270px;
       }
+      
+      .project-links {
+        flex-direction: column;
+      }
+      
+      .project-links a {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- WebGL Background -->
-  <div class="webgl-bg" id="webgl-bg"></div>
+  <!-- WebGL Background with Three.js -->
+  <canvas class="webgl-bg" id="webgl-bg"></canvas>
   
   <!-- Particles Background -->
   <canvas class="particles" id="particles"></canvas>
@@ -1029,7 +1140,7 @@
       <a href="#contact">Contact</a>
     </div>
     
-    <button class="mobile-menu-btn">
+    <button class="mobile-menu-btn" aria-label="Menu">
       <i class="fas fa-bars"></i>
     </button>
   </nav>
@@ -1037,8 +1148,8 @@
   <!-- Hero Section -->
   <section id="home">
     <div class="container">
-      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-        <h1 class="hero-title">Scaling New Heights in Web Development</h1>
+      <div class="hero-content">
+        <h1 class="hero-title" data-splitting>Scaling New Heights in Web Development</h1>
         <p class="hero-subtitle">I'm Ashim Shrestha - a passionate developer climbing the peaks of modern web technologies</p>
         <div class="hero-cta">
           <a href="#projects" class="btn">
@@ -1072,7 +1183,9 @@
       
       <div class="about-content">
         <div class="profile-img-container" data-aos="fade-right" data-aos-duration="800">
-          <img src="https://i.imgur.com/gz1HwVw.jpeg" alt="Ashim Shrestha" class="profile-img" loading="lazy">
+          <div class="profile-img-wrapper">
+            <img src="https://i.imgur.com/gz1HwVw.jpeg" alt="Ashim Shrestha" class="profile-img" loading="lazy">
+          </div>
         </div>
         
         <div class="about-text" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
@@ -1080,6 +1193,7 @@
           <p>I'm a passionate developer and student from Nepal with a love for creating beautiful, functional websites and applications. My journey in web development started when I was just beginning to explore the world of programming, and I've been climbing higher ever since.</p>
           <p>When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or enjoying the breathtaking Himalayan landscapes that inspire my work.</p>
           
+          <h4 style="margin-top: 1.5rem; color: var(--primary);">My Skills</h4>
           <div class="skills-container">
             <span class="skill-tag">HTML5</span>
             <span class="skill-tag">CSS3</span>
@@ -1089,6 +1203,10 @@
             <span class="skill-tag">Git</span>
             <span class="skill-tag">Responsive Design</span>
             <span class="skill-tag">UI/UX</span>
+            <span class="skill-tag">GSAP</span>
+            <span class="skill-tag">Three.js</span>
+            <span class="skill-tag">WebGL</span>
+            <span class="skill-tag">Figma</span>
           </div>
         </div>
       </div>
@@ -1129,7 +1247,9 @@
       
       <div class="projects-container">
         <div class="project-card" data-aos="fade-up" data-aos-duration="800">
-          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project1.jpg?raw=true" alt="Everest Portfolio Project" class="project-img" loading="lazy">
+          <div class="project-img-container">
+            <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project1.jpg?raw=true" alt="Everest Portfolio Project" class="project-img" loading="lazy">
+          </div>
           <div class="project-info">
             <h3>Everest Portfolio</h3>
             <p>A responsive portfolio website with dynamic mountain background and smooth animations.</p>
@@ -1137,6 +1257,7 @@
               <span class="tech-tag">HTML5</span>
               <span class="tech-tag">CSS3</span>
               <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">GSAP</span>
             </div>
             <div class="project-links">
               <a href="#" aria-label="Live Demo"><i class="fas fa-eye"></i> Live Demo</a>
@@ -1146,7 +1267,9 @@
         </div>
         
         <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project2.jpg?raw=true" alt="Math Cheat Sheets Project" class="project-img" loading="lazy">
+          <div class="project-img-container">
+            <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project2.jpg?raw=true" alt="Math Cheat Sheets Project" class="project-img" loading="lazy">
+          </div>
           <div class="project-info">
             <h3>Math Cheat Sheets</h3>
             <p>Comprehensive reference guides for Calculus and Analytic Geometry concepts.</p>
@@ -1162,7 +1285,9 @@
         </div>
         
         <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-          <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project3.jpg?raw=true" alt="Discord Bot Project" class="project-img" loading="lazy">
+          <div class="project-img-container">
+            <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project3.jpg?raw=true" alt="Discord Bot Project" class="project-img" loading="lazy">
+          </div>
           <div class="project-info">
             <h3>Discord Bot</h3>
             <p>A custom Discord bot with utility functions and interactive features for community servers.</p>
@@ -1277,9 +1402,9 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <a href="#home" class="back-to-top" aria-label="Back to top">
+  <button class="back-to-top" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
-  </a>
+  </button>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1290,6 +1415,23 @@
       easing: 'ease-out-quad',
       duration: 800
     });
+    
+    // Initialize Splitting.js for text animation
+    Splitting();
+    
+    // Initialize Lenis smooth scroll
+    const lenis = new Lenis({
+      lerp: 0.1,
+      smooth: true,
+      direction: 'vertical'
+    });
+    
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    
+    requestAnimationFrame(raf);
     
     // Mobile Menu Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -1314,14 +1456,14 @@
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-links a');
     
-    window.addEventListener('scroll', () => {
+    lenis.on('scroll', ({ scroll }) => {
       let current = '';
       
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
         
-        if (pageYOffset >= sectionTop - 300) {
+        if (scroll >= sectionTop - 300) {
           current = section.getAttribute('id');
         }
       });
@@ -1335,7 +1477,7 @@
       
       // Navbar background change on scroll
       const navbar = document.getElementById('navbar');
-      if (window.scrollY > 100) {
+      if (scroll > 100) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
@@ -1343,7 +1485,7 @@
       
       // Back to top button visibility
       const backToTop = document.querySelector('.back-to-top');
-      if (window.scrollY > 300) {
+      if (scroll > 300) {
         backToTop.classList.add('active');
       } else {
         backToTop.classList.remove('active');
@@ -1364,7 +1506,34 @@
         
         // Here you would typically send the data to a server
         // For this example, we'll just show a success message
-        alert(`Thank you for your message, ${name}! I will get back to you soon at ${email}.`);
+        const notification = document.createElement('div');
+        notification.style.position = 'fixed';
+        notification.style.bottom = '20px';
+        notification.style.right = '20px';
+        notification.style.padding = '1rem 2rem';
+        notification.style.background = 'var(--primary)';
+        notification.style.color = 'var(--dark)';
+        notification.style.borderRadius = 'var(--border-radius)';
+        notification.style.boxShadow = 'var(--box-shadow)';
+        notification.style.zIndex = '1000';
+        notification.style.transform = 'translateY(100px)';
+        notification.style.opacity = '0';
+        notification.style.transition = 'all 0.4s ease';
+        notification.textContent = `Thank you, ${name}! Your message has been sent.`;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.style.transform = 'translateY(0)';
+          notification.style.opacity = '1';
+        }, 100);
+        
+        setTimeout(() => {
+          notification.style.transform = 'translateY(100px)';
+          notification.style.opacity = '0';
+          setTimeout(() => notification.remove(), 400);
+        }, 3000);
+        
         form.reset();
       });
     }
@@ -1392,11 +1561,14 @@
           this.speedX = Math.random() * 2 - 1;
           this.speedY = Math.random() * 2 - 1;
           this.color = `rgba(0, 247, 255, ${Math.random() * 0.5})`;
+          this.angle = 0;
+          this.angleSpeed = Math.random() * 0.02 - 0.01;
         }
         
         update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
+          this.angle += this.angleSpeed;
+          this.x += this.speedX + Math.cos(this.angle) * 0.5;
+          this.y += this.speedY + Math.sin(this.angle) * 0.5;
           
           if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
           if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
@@ -1422,6 +1594,22 @@
         for (let i = 0; i < particles.length; i++) {
           particles[i].update();
           particles[i].draw();
+          
+          // Draw connections between particles
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 100) {
+              ctx.strokeStyle = `rgba(0, 247, 255, ${1 - distance / 100})`;
+              ctx.lineWidth = 0.5;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
         }
         
         requestAnimationFrame(animate);
@@ -1436,67 +1624,106 @@
       });
     };
     
-    // Initialize WebGL Background
-    const initWebGL = () => {
+    // Initialize Three.js Background
+    const initThreeJS = () => {
       const canvas = document.getElementById('webgl-bg');
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
       
-      // GLSL shader code for animated background
-      const fragmentShader = `
-        precision highp float;
-        
-        uniform float time;
-        uniform vec2 resolution;
-        
-        void main() {
-          vec2 uv = gl_FragCoord.xy / resolution.xy;
-          uv -= 0.5;
-          uv.x *= resolution.x / resolution.y;
-          
-          float d = length(uv);
-          float c = smoothstep(0.3, 0.29, d);
-          
-          // Add pulsing effect
-          c += sin(time + uv.x * 10.0) * 0.05;
-          c += cos(time + uv.y * 10.0) * 0.05;
-          
-          // Color gradient
-          vec3 color = mix(
-            vec3(0.0, 0.5, 0.8),
-            vec3(0.0, 0.8, 0.9),
-            uv.y + 0.5
-          );
-          
-          gl_FragColor = vec4(color * c, 0.3);
-        }
-      `;
+      // Scene
+      const scene = new THREE.Scene();
       
-      const glslCanvas = new GlslCanvas(canvas, {
-        fragmentString: fragmentShader
+      // Camera
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 5;
+      
+      // Renderer
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true
+      });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      
+      // Geometry
+      const geometry = new THREE.IcosahedronGeometry(1, 0);
+      
+      // Material
+      const material = new THREE.MeshBasicMaterial({
+        color: 0x00f7ff,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.1
       });
       
-      // Update uniforms
-      const updateUniforms = () => {
-        const time = performance.now() * 0.001;
-        glslCanvas.setUniform('time', time);
-        glslCanvas.setUniform('resolution', [canvas.width, canvas.height]);
-        requestAnimationFrame(updateUniforms);
+      // Mesh
+      const mesh = new THREE.Mesh(geometry, material);
+      scene.add(mesh);
+      
+      // Animation
+      const animate = () => {
+        requestAnimationFrame(animate);
+        
+        mesh.rotation.x += 0.001;
+        mesh.rotation.y += 0.002;
+        
+        renderer.render(scene, camera);
       };
       
-      updateUniforms();
+      animate();
       
       // Handle resize
       window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    };
+    
+    // Animate hero title with GSAP
+    const animateHeroTitle = () => {
+      const heroTitle = document.querySelector('.hero-title');
+      const chars = heroTitle.querySelectorAll('.char');
+      
+      gsap.from(chars, {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        stagger: 0.05,
+        delay: 0.2
       });
     };
     
     // Initialize all effects
     window.addEventListener('load', () => {
       initParticles();
-      initWebGL();
+      initThreeJS();
+      animateHeroTitle();
+      
+      // Animate profile image on about section enter
+      gsap.to('.profile-img-wrapper', {
+        rotationY: 10,
+        scrollTrigger: {
+          trigger: '#about',
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true
+        }
+      });
+      
+      // Animate education cards with GSAP
+      gsap.utils.toArray('.education-card').forEach((card, i) => {
+        gsap.from(card, {
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+          delay: i * 0.1,
+          scrollTrigger: {
+            trigger: '#education',
+            start: 'top 80%'
+          }
+        });
+      });
     });
     
     // Smooth scrolling for anchor links
@@ -1509,9 +1736,8 @@
         
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - document.getElementById('navbar').offsetHeight,
-            behavior: 'smooth'
+          lenis.scrollTo(targetElement, {
+            offset: -document.getElementById('navbar').offsetHeight
           });
         }
       });

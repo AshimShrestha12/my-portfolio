@@ -1,166 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- 'no-js' class is swapped to 'js' via script to prevent FOUC (Flash of Unstyled Content) -->
+<html lang="en" class="no-js" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashim Shrestha | Full-Stack Developer</title>
-    <!-- CSS will be linked here later -->
+    <!-- Viewport fit=cover handles edge-to-edge screens on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- Primary Meta Tags for SEO -->
+    <title>Ashim Shrestha | Full-Stack Web Developer</title>
+    <meta name="title" content="Ashim Shrestha | Full-Stack Web Developer">
+    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer and BCA student based in Nepal specializing in PHP, Node.js, and scalable web applications.">
+    <meta name="author" content="Ashim Shrestha">
+    <meta name="theme-color" content="#fcfcfc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ashimshrestha1.com.np/">
+    <meta property="og:title" content="Ashim Shrestha | Full-Stack Web Developer">
+    <meta property="og:description" content="Building robust web applications and interactive digital experiences.">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.ashimshrestha1.com.np/">
+    <meta property="twitter:title" content="Ashim Shrestha | Full-Stack Web Developer">
+
+    <!-- Performance: Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS link -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Canonical URL to prevent duplicate content SEO penalties -->
+    <link rel="canonical" href="https://www.ashimshrestha1.com.np/">
+
+    <!-- Structured Data (JSON-LD) for Google Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ashim Shrestha",
+      "url": "https://www.ashimshrestha1.com.np/",
+      "jobTitle": "Full-Stack Web Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Shankharapur",
+        "addressRegion": "Bagmati Province",
+        "addressCountry": "Nepal"
+      },
+      "sameAs": [
+        "https://github.com/ashimsh"
+      ]
+    }
+    </script>
 </head>
 <body>
+    <!-- Skip link for keyboard users (Accessibility standard) -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
 
-    <!-- 1. Navigation -->
-    <nav>
-        <div class="logo">
-            <a href="#home">Ashim Shrestha</a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="assets/Ashim_Shrestha_CV.pdf" target="_blank">Resume</a></li>
-        </ul>
-    </nav>
-
-    <!-- Main Content Wrapper -->
-    <main>
-
-        <!-- 2. Hero Section (Introduction) -->
-        <header id="home">
-            <h1>Hi, I'm Ashim.</h1>
-            <h2>Full-Stack Web Developer & BCA Student</h2>
-            <p>
-                I build robust web applications and interactive digital experiences. 
-                Currently focused on backend architecture and modern JavaScript frameworks.
-            </p>
-            <div class="hero-actions">
-                <a href="#projects">View My Work</a>
-                <a href="#contact">Get in Touch</a>
+    <header class="site-header">
+        <nav class="main-nav" aria-label="Primary Navigation">
+            <div class="logo">
+                <a href="/" aria-current="page">Ashim.dev</a>
             </div>
-        </header>
-
-        <!-- 3. Projects Section -->
-        <section id="projects">
-            <h2>Featured Work</h2>
-
-            <!-- Centerpiece Project: Bus Ticket System -->
-            <article class="featured-project">
-                <!-- Placeholder for project screenshot -->
-                <div class="project-image">
-                    <img src="assets/bus-booking-preview.jpg" alt="Preview of Bus Ticket Booking System">
-                </div>
-                
-                <div class="project-details">
-                    <h3>Bus Ticket Booking System</h3>
-                    <p>
-                        A comprehensive online reservation and management web application designed for 
-                        streamlined student transit booking. Features user authentication, dynamic route 
-                        management, seat selection, and an admin dashboard.
-                    </p>
-                    
-                    <h4>Tech Stack</h4>
-                    <ul class="tech-tags">
-                        <li>PHP</li>
-                        <li>MySQL</li>
-                        <li>JavaScript</li>
-                        <li>HTML/CSS</li>
-                        <li>XAMPP</li>
-                    </ul>
-
-                    <div class="project-links">
-                        <a href="https://github.com/ashimsh/bus-booking-repo" target="_blank">View Source Code</a>
-                        <!-- Add a Live Demo link if you host it eventually -->
-                    </div>
-                </div>
-            </article>
-
-            <!-- Secondary Projects Grid -->
-            <h3>Other Projects</h3>
-            <div class="projects-grid">
-                
-                <article class="project-card">
-                    <h4>Custom Discord Bot</h4>
-                    <p>A utility bot with interactive features for community servers, handling complex commands and API integrations.</p>
-                    <ul class="tech-tags">
-                        <li>Node.js</li>
-                        <li>Discord.js</li>
-                    </ul>
-                    <a href="https://github.com/ashimsh/discord-bot" target="_blank">Source Code</a>
-                </article>
-
-                <article class="project-card">
-                    <h4>Math Reference Guides</h4>
-                    <p>Comprehensive cheat sheets for Calculus and Analytic Geometry.</p>
-                    <ul class="tech-tags">
-                        <li>LaTeX</li>
-                    </ul>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- 4. Skills & Education Section -->
-        <section id="skills-education">
-            <div class="skills-container">
-                <h2>Technical Skills</h2>
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <p>HTML5, CSS3, JavaScript (ES6+), React, GSAP, UI/UX Design</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend & Database</h3>
-                    <p>Node.js, PHP, MySQL</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Tools</h3>
-                    <p>Git, GitHub, XAMPP, Figma</p>
-                </div>
-            </div>
-
-            <div class="education-container" id="education">
-                <h2>Education</h2>
-                <article class="edu-item">
-                    <h3>Bachelor of Computer Applications (BCA)</h3>
-                    <p>Current Focus: Software engineering concepts, digital logic circuit design, and database management.</p>
-                </article>
-                <article class="edu-item">
-                    <h3>High School Diploma (+2 Science)</h3>
-                    <p>Trinity International College | Focus: Computer Science and Mathematics</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- 5. Contact Section -->
-        <section id="contact">
-            <h2>Let's Connect</h2>
-            <p>I'm currently open to new opportunities and collaborations.</p>
             
-            <form action="YOUR_FORM_ENDPOINT_HERE" method="POST">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+            <!-- Accessible Hamburger Button -->
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon" aria-hidden="true"></span>
+            </button>
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+            <ul id="nav-list" class="nav-list" role="list">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <a href="assets/Ashim_Shrestha_CV.pdf" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                        Resume <span class="sr-only">(Opens in a new tab)</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+    <main id="main-content" tabindex="-1">
+        
+        <!-- Hero Section -->
+        <section id="hero" aria-label="Introduction">
+            <div class="container hero-content">
+                <p class="greeting" aria-hidden="true">👋 Hi, my name is</p>
+                <h1 class="hero-title">Ashim Shrestha.</h1>
+                <h2 class="hero-subtitle">I engineer solutions for the web.</h2>
+                <p class="hero-description">
+                    I'm a Full-Stack Developer and BCA student specializing in building robust, data-driven web applications. From complex relational databases to seamless user interfaces, I turn logic into digital experiences.
+                </p>
+                <div class="cta-group">
+                    <a href="#projects" class="btn-primary">View Projects</a>
+                    <a href="https://github.com/ashimsh" class="btn-secondary" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                </div>
+            </div>
+        </section>
 
-                <button type="submit">Send Message</button>
-            </form>
+        <!-- Featured Projects Section -->
+        <section id="projects" aria-labelledby="projects-heading">
+            <div class="container">
+                <h2 id="projects-heading" class="section-title">Featured Work</h2>
+
+                <!-- Centerpiece: Bus Ticket Booking -->
+                <article class="project-showcase">
+                    <figure class="project-visual">
+                        <!-- loading="lazy" defers offscreen images for faster load times -->
+                        <img src="assets/bus-booking.webp" alt="Dashboard view of the Bus Ticket Booking System showing route management" loading="lazy" width="800" height="450">
+                    </figure>
+                    <div class="project-content">
+                        <p class="project-overline">Featured Project</p>
+                        <h3 class="project-title">Bus Ticket Booking System</h3>
+                        <p class="project-description">
+                            A complete online reservation and management architecture. Engineered to handle student transit booking efficiently, featuring secure user authentication, dynamic route tracking, real-time seat selection, and a comprehensive admin control panel.
+                        </p>
+                        <ul class="tech-stack" aria-label="Technologies used">
+                            <li>PHP</li>
+                            <li>MySQL</li>
+                            <li>JavaScript</li>
+                            <li>HTML5/CSS3</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/ashimsh/bus-booking" aria-label="View Bus Booking Source Code" target="_blank" rel="noopener noreferrer">
+                                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><!-- GitHub SVG Icon here --></svg>
+                                Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Grid of Secondary Projects -->
+                <h3 class="subsection-title">Other Technical Pursuits</h3>
+                <div class="project-grid">
+                    
+                    <article class="card">
+                        <header>
+                            <h4 class="card-title">Discord Utility Bot</h4>
+                            <p class="card-description">A custom server bot built to automate community management, featuring complex command parsing and third-party API integrations.</p>
+                        </header>
+                        <footer>
+                            <ul class="tech-stack small" aria-label="Technologies used">
+                                <li>Node.js</li>
+                                <li>Discord.js</li>
+                            </ul>
+                        </footer>
+                    </article>
+
+                    <article class="card">
+                        <header>
+                            <h4 class="card-title">Automated Video Generation Pipeline</h4>
+                            <p class="card-description">Exploratory project generating short-form AI video content tailored for social media algorithms and rapid platform distribution.</p>
+                        </header>
+                        <footer>
+                            <ul class="tech-stack small" aria-label="Technologies used">
+                                <li>AI Automation</li>
+                                <li>Content Algorithms</li>
+                            </ul>
+                        </footer>
+                    </article>
+
+                    <article class="card">
+                        <header>
+                            <h4 class="card-title">Mathematical Formula Reference</h4>
+                            <p class="card-description">Programmed comprehensive, pixel-perfect typesetting for advanced Calculus and Analytic Geometry equations.</p>
+                        </header>
+                        <footer>
+                            <ul class="tech-stack small" aria-label="Technologies used">
+                                <li>LaTeX</li>
+                                <li>Data Structuring</li>
+                            </ul>
+                        </footer>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Skills -->
+        <section id="background" aria-labelledby="background-heading">
+            <div class="container grid-layout">
+                
+                <div class="skills-wrapper">
+                    <h2 id="background-heading" class="section-title">Technical Arsenal</h2>
+                    <dl class="skills-list">
+                        <dt>Core Backend</dt>
+                        <dd>PHP, Node.js, MySQL, RESTful APIs</dd>
+                        
+                        <dt>Frontend Development</dt>
+                        <dd>JavaScript (ES6+), React, HTML5, CSS3, GSAP</dd>
+                        
+                        <dt>Computer Science Fundamentals</dt>
+                        <dd>Digital Logic Circuit Design, Software Engineering Architecture</dd>
+                        
+                        <dt>Tools & Environment</dt>
+                        <dd>Git/GitHub, XAMPP, Figma, VS Code</dd>
+                    </dl>
+                </div>
+
+                <div class="education-wrapper">
+                    <h2 class="section-title">Education</h2>
+                    <ol class="timeline" role="list">
+                        <li class="timeline-item">
+                            <h3 class="timeline-title">Bachelor of Computer Applications (BCA)</h3>
+                            <p class="timeline-org">Current Academic Focus</p>
+                            <time datetime="2024">Present</time>
+                            <p class="timeline-desc">Specializing in application development, relational databases, and core software engineering principles.</p>
+                        </li>
+                        <li class="timeline-item">
+                            <h3 class="timeline-title">High School Diploma (+2 Science)</h3>
+                            <p class="timeline-org">Trinity International College</p>
+                            <p class="timeline-desc">Concentration in Computer Science and Mathematics.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" aria-labelledby="contact-heading" class="contact-section">
+            <div class="container">
+                <h2 id="contact-heading" class="section-title">Initiate Contact</h2>
+                <p class="contact-text">Whether you have a question, a project proposal, or just want to discuss digital logic and web architectures, my inbox is open.</p>
+                
+                <form class="contact-form" action="/api/contact" method="POST" novalidate>
+                    <div class="form-group">
+                        <label for="userName">Name</label>
+                        <!-- autocomplete helps browsers autofill the user's details -->
+                        <input type="text" id="userName" name="name" required autocomplete="name" placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userEmail">Email</label>
+                        <input type="email" id="userEmail" name="email" required autocomplete="email" placeholder="john@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userMessage">Message</label>
+                        <textarea id="userMessage" name="message" required rows="6" placeholder="How can we work together?"></textarea>
+                    </div>
+                    
+                    <!-- Form feedback region for accessibility -->
+                    <div id="form-status" aria-live="polite" class="sr-only"></div>
+
+                    <button type="submit" class="btn-primary form-submit">Send Message</button>
+                </form>
+            </div>
         </section>
 
     </main>
 
-    <!-- 6. Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="https://github.com/ashimsh" target="_blank">GitHub</a>
-            <a href="mailto:ashim.shrestha.937@gmail.com">Email</a>
-            <!-- Add LinkedIn here if you have one -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="social-links" aria-label="Social Media Profiles">
+                <a href="https://github.com/ashimsh" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    GitHub
+                </a>
+                <a href="mailto:ashim.shrestha.937@gmail.com" aria-label="Email Ashim">
+                    Email
+                </a>
+            </div>
+            <p class="copyright">
+                &copy; <time datetime="2026">2026</time> Ashim Shrestha. Built with precision.
+            </p>
         </div>
-        <p>&copy; 2026 Ashim Shrestha. Built from scratch.</p>
     </footer>
 
+    <!-- Scripts placed at the bottom for performance -->
+    <script>
+        // Remove no-js class (used for CSS fallbacks)
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
 </body>
 </html>

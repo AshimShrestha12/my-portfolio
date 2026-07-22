@@ -1,1749 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7612562498748064"
-     crossorigin="anonymous"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Ashim Shrestha">
-  <meta name="description" content="Creative portfolio of Ashim Shrestha - Web Developer from Nepal">
-  <title>Everest Portfolio | Ashim Shrestha</title>
-  
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="assets/favicon/site.webmanifest">
-  
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
-  <!-- GLSL Canvas for WebGL Effects -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/glsl-canvas/0.1.5/glsl-canvas.min.js"></script>
-  
-  <!-- Three.js for 3D Elements -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  
-  <!-- GSAP for Advanced Animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-  
-  <!-- Splitting.js for Text Effects -->
-  <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
-  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css">
-  
-  <!-- Lenis Smooth Scroll -->
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.0/dist/lenis.min.js"></script> 
-  
-  <style>
-    :root {
-      --primary: #00f7ff;
-      --primary-dark: #00c4cc;
-      --secondary: #ff4d4d;
-      --secondary-dark: #cc3d3d;
-      --dark: #0a0a0a;
-      --darker: #050505;
-      --light: #f8f9fa;
-      --light-gray: #e9ecef;
-      --transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-      --section-padding: 8rem 2rem;
-      --nav-height: 80px;
-      --border-radius: 15px;
-      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: var(--nav-height);
-    }
-    
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--dark);
-      color: var(--light);
-      overflow-x: hidden;
-      line-height: 1.6;
-      counter-reset: section;
-    }
-    
-    /* WebGL Background with Three.js */
-    .webgl-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-    }
-    
-    /* Mountain Overlay with Parallax */
-    .mountain-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: linear-gradient(to bottom, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.3) 100%);
-      pointer-events: none;
-    }
-    
-    /* Particles Background */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 0.3;
-      pointer-events: none;
-    }
-    
-    /* Navigation - Glass Morphism */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      background: rgba(10, 10, 10, 0.8);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-      height: var(--nav-height);
-      transition: var(--transition);
-      border-bottom: 1px solid var(--glass-border);
-    }
-    
-    nav.scrolled {
-      background: rgba(5, 5, 5, 0.95);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      padding: 1rem 2rem;
-    }
-    
-    .logo {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .logo::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--primary);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.4s ease;
-    }
-    
-    .logo:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-    
-    .logo i {
-      font-size: 1.5rem;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-    
-    .nav-links a {
-      color: var(--light);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      position: relative;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .nav-links a::before {
-      content: '0' counter(section) '.';
-      position: absolute;
-      top: -20px;
-      font-size: 0.8rem;
-      color: var(--primary);
-      opacity: 0;
-      transition: var(--transition);
-      font-family: 'Montserrat', sans-serif;
-    }
-    
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -5px;
-      left: 0;
-      background-color: var(--primary);
-      transition: var(--transition);
-    }
-    
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-    
-    .nav-links a:hover::before {
-      opacity: 1;
-      top: -15px;
-    }
-    
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-    
-    .nav-links a.active {
-      color: var(--primary);
-    }
-    
-    .nav-links a.active::after {
-      width: 100%;
-    }
-    
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--light);
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: var(--transition);
-      z-index: 1001;
-    }
-    
-    .mobile-menu-btn:hover {
-      color: var(--primary);
-    }
-    
-    /* Sections */
-    section {
-      min-height: 100vh;
-      padding: var(--section-padding);
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      width: 100%;
-    }
-    
-    /* Hero Section with Text Animation */
-    #home {
-      text-align: center;
-      position: relative;
-    }
-    
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .hero-title {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(to right, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      line-height: 1.2;
-    }
-    
-    .hero-title .word {
-      display: inline-block;
-      overflow: hidden;
-      vertical-align: top;
-    }
-    
-    .hero-title .char {
-      display: inline-block;
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    
-    .hero-subtitle {
-      font-size: clamp(1rem, 3vw, 1.5rem);
-      margin-bottom: 2rem;
-      opacity: 0.9;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .hero-cta {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.8rem 2rem;
-      background: var(--primary);
-      color: var(--dark);
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
-      border: 2px solid var(--primary);
-      gap: 0.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: 0.5s;
-    }
-    
-    .btn:hover::before {
-      left: 100%;
-    }
-    
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-    }
-    
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 247, 255, 0.3);
-    }
-    
-    .btn-outline:hover {
-      background: var(--primary);
-      color: var(--dark);
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    
-    .social-links a {
-      color: var(--light);
-      font-size: 1.5rem;
-      transition: var(--transition);
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: var(--glass-bg);
-      backdrop-filter: blur(5px);
-      border: 1px solid var(--glass-border);
-    }
-    
-    .social-links a:hover {
-      color: var(--primary);
-      transform: translateY(-5px);
-      background: rgba(0,247,255,0.2);
-      box-shadow: 0 5px 15px rgba(0, 247, 255, 0.2);
-    }
-    
-    /* Floating Tech Icons with 3D Effect */
-    .floating-tech {
-      position: absolute;
-      font-size: 2rem;
-      opacity: 0.3;
-      color: var(--primary);
-      animation: float 10s infinite ease-in-out;
-      z-index: 0;
-      filter: drop-shadow(0 0 5px rgba(0, 247, 255, 0.5));
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(5deg); }
-    }
-    
-    /* About Section with 3D Profile */
-    #about {
-      background: rgba(10, 10, 10, 0.7);
-      backdrop-filter: blur(10px);
-    }
-    
-    .section-title {
-      font-size: clamp(2rem, 6vw, 3rem);
-      font-weight: 700;
-      margin-bottom: 3rem;
-      text-align: center;
-      position: relative;
-      counter-increment: section;
-    }
-    
-    .section-title::before {
-      content: '0' counter(section) '.';
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.2rem;
-      color: var(--primary);
-      font-family: 'Montserrat', sans-serif;
-      margin-bottom: 0.5rem;
-    }
-    
-    .section-title::after {
-      content: '';
-      position: absolute;
-      width: 80px;
-      height: 4px;
-      background: var(--primary);
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-    
-    .about-content {
-      display: flex;
-      align-items: center;
-      gap: 4rem;
-    }
-    
-    .profile-img-container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      position: relative;
-      perspective: 1000px;
-    }
-    
-    .profile-img-wrapper {
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.5s ease;
-    }
-    
-    .profile-img {
-      width: 300px;
-      height: 300px;
-      border-radius: var(--border-radius);
-      object-fit: cover;
-      border: 5px solid var(--primary);
-      box-shadow: var(--box-shadow);
-      transition: var(--transition);
-      position: relative;
-      z-index: 1;
-      transform: translateZ(20px);
-    }
-    
-    .profile-img-container::before {
-      content: '';
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border: 2px dashed var(--primary);
-      border-radius: var(--border-radius);
-      animation: rotate 20s linear infinite;
-      z-index: 0;
-    }
-    
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .profile-img:hover {
-      transform: translateZ(30px) scale(1.05);
-      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
-    }
-    
-    .about-text {
-      flex: 1;
-    }
-    
-    .about-text h3 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      margin-bottom: 1.5rem;
-      color: var(--primary);
-    }
-    
-    .about-text p {
-      margin-bottom: 1rem;
-      opacity: 0.9;
-    }
-    
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    
-    .skill-tag {
-      background: rgba(0, 247, 255, 0.1);
-      color: var(--primary);
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      border: 1px solid var(--primary);
-      transition: var(--transition);
-      cursor: default;
-    }
-    
-    .skill-tag:hover {
-      background: var(--primary);
-      color: var(--dark);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 247, 255, 0.2);
-    }
-    
-    /* Education Section with Timeline Effect */
-    #education {
-      background: rgba(10, 10, 10, 0.6);
-      backdrop-filter: blur(10px);
-    }
-    
-    .education-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-      position: relative;
-    }
-    
-    .education-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      height: 100%;
-      width: 2px;
-      background: linear-gradient(to bottom, transparent, var(--primary), transparent);
-      transform: translateX(-50%);
-      z-index: 0;
-    }
-    
-    .education-card {
-      background: var(--glass-bg);
-      border-radius: var(--border-radius);
-      padding: 2rem;
-      transition: var(--transition);
-      border: 1px solid var(--glass-border);
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(5px);
-      z-index: 1;
-    }
-    
-    .education-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0,247,255,0.1) 0%, transparent 100%);
-      z-index: -1;
-      opacity: 0;
-      transition: var(--transition);
-    }
-    
-    .education-card:hover::before {
-      opacity: 1;
-    }
-    
-    .education-card:hover {
-      transform: translateY(-10px);
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: var(--box-shadow);
-    }
-    
-    .education-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-      position: relative;
-      z-index: 1;
-    }
-    
-    .education-card .date {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--dark);
-      padding: 0.3rem 0.8rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .education-card p {
-      position: relative;
-      z-index: 1;
-      opacity: 0.9;
-    }
-    
-    /* Projects Section with Interactive Cards */
-    #projects {
-      background: rgba(10, 10, 10, 0.7);
-      backdrop-filter: blur(10px);
-    }
-    
-    .projects-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .project-card {
-      background: var(--glass-bg);
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      transition: var(--transition);
-      border: 1px solid var(--glass-border);
-      position: relative;
-      backdrop-filter: blur(5px);
-    }
-    
-    .project-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.8) 100%);
-      z-index: 1;
-    }
-    
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--box-shadow);
-    }
-    
-    .project-img-container {
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .project-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: var(--transition);
-    }
-    
-    .project-card:hover .project-img {
-      transform: scale(1.1);
-    }
-    
-    .project-info {
-      padding: 1.5rem;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .project-info h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .project-info p {
-      margin-bottom: 1rem;
-      opacity: 0.8;
-    }
-    
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .tech-tag {
-      background: rgba(0, 247, 255, 0.1);
-      color: var(--primary);
-      padding: 0.3rem 0.8rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      border: 1px solid var(--primary);
-    }
-    
-    .project-links {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .project-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 5px;
-      color: var(--light);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: var(--transition);
-      border: 1px solid var(--glass-border);
-    }
-    
-    .project-links a:hover {
-      background: var(--primary);
-      color: var(--dark);
-      transform: translateY(-3px);
-    }
-    
-    /* Contact Section with Interactive Form */
-    #contact {
-      background: rgba(10, 10, 10, 0.8);
-      backdrop-filter: blur(10px);
-    }
-    
-    .contact-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-      margin-top: 3rem;
-    }
-    
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    
-    .contact-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      background: var(--glass-bg);
-      padding: 1.5rem;
-      border-radius: 10px;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(5px);
-      border: 1px solid var(--glass-border);
-    }
-    
-    .contact-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 3px;
-      height: 100%;
-      background: var(--primary);
-      transition: var(--transition);
-    }
-    
-    .contact-card:hover::before {
-      width: 100%;
-      opacity: 0.1;
-    }
-    
-    .contact-card:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-5px);
-    }
-    
-    .contact-icon {
-      font-size: 1.5rem;
-      color: var(--primary);
-      min-width: 30px;
-      text-align: center;
-    }
-    
-    .contact-form {
-      background: var(--glass-bg);
-      padding: 2rem;
-      border-radius: var(--border-radius);
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(5px);
-      border: 1px solid var(--glass-border);
-    }
-    
-    .contact-form::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0,247,255,0.05) 0%, transparent 70%);
-      animation: rotate-bg 20s linear infinite;
-      z-index: 0;
-    }
-    
-    @keyframes rotate-bg {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .form-group {
-      margin-bottom: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    
-    .form-control {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid var(--glass-border);
-      border-radius: 5px;
-      color: var(--light);
-      font-family: inherit;
-      transition: var(--transition);
-    }
-    
-    .form-control:focus {
-      outline: none;
-      border-color: var(--primary);
-      background: rgba(0, 247, 255, 0.05);
-      box-shadow: 0 0 0 2px rgba(0, 247, 255, 0.2);
-    }
-    
-    textarea.form-control {
-      min-height: 150px;
-      resize: vertical;
-    }
-    
-    /* Footer with Wave Animation */
-    footer {
-      background: rgba(10, 10, 10, 0.9);
-      padding: 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .footer-content {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .footer-links a {
-      color: var(--light);
-      text-decoration: none;
-      transition: var(--transition);
-      position: relative;
-    }
-    
-    .footer-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -5px;
-      left: 0;
-      background-color: var(--primary);
-      transition: var(--transition);
-    }
-    
-    .footer-links a:hover {
-      color: var(--primary);
-    }
-    
-    .footer-links a:hover::after {
-      width: 100%;
-    }
-    
-    .copyright {
-      opacity: 0.7;
-      font-size: 0.9rem;
-    }
-    
-    /* Scroll Indicator */
-    .scroll-indicator {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      animation: bounce 2s infinite;
-      cursor: pointer;
-    }
-    
-    .scroll-indicator i {
-      font-size: 2rem;
-      color: var(--primary);
-      background: rgba(10, 10, 10, 0.7);
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transition: var(--transition);
-      border: 1px solid var(--glass-border);
-    }
-    
-    .scroll-indicator i:hover {
-      background: var(--primary);
-      color: var(--dark);
-      transform: translateY(-5px);
-    }
-    
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-      40% { transform: translateY(-20px) translateX(-50%); }
-      60% { transform: translateY(-10px) translateX(-50%); }
-    }
-    
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 50px;
-      height: 50px;
-      background: var(--primary);
-      color: var(--dark);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      box-shadow: 0 5px 20px rgba(0, 247, 255, 0.3);
-      border: none;
-      cursor: pointer;
-    }
-    
-    .back-to-top.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 247, 255, 0.4);
-    }
-    
-    /* 3D Floating Elements */
-    .floating-element {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-      filter: blur(20px);
-      opacity: 0.1;
-      z-index: 0;
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 992px) {
-      :root {
-        --section-padding: 6rem 2rem;
-      }
-      
-      .about-content {
-        flex-direction: column;
-        gap: 2rem;
-      }
-      
-      .profile-img {
-        width: 250px;
-        height: 250px;
-      }
-      
-      .education-container::before {
-        display: none;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      :root {
-        --section-padding: 5rem 1.5rem;
-        --nav-height: 70px;
-      }
-      
-      .nav-links {
-        position: fixed;
-        top: var(--nav-height);
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - var(--nav-height));
-        background: rgba(10, 10, 10, 0.98);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 3rem;
-        transition: var(--transition);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-top: 1px solid var(--glass-border);
-      }
-      
-      .nav-links.active {
-        left: 0;
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-      }
-      
-      .projects-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    @media (max-width: 576px) {
-      :root {
-        --section-padding: 4rem 1rem;
-      }
-      
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
-      
-      .hero-cta {
-        flex-direction: column;
-      }
-      
-      .profile-img-container::before {
-        width: 270px;
-        height: 270px;
-      }
-      
-      .project-links {
-        flex-direction: column;
-      }
-      
-      .project-links a {
-        justify-content: center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashim Shrestha</title>
+    <meta name="description" content="Ashim Shrestha - Passionate developer climbing the peaks of modern web technologies.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Base Styles & CSS Variables */
+        :root {
+            --primary: #0f172a;
+            --accent: #38bdf8;
+            --text-light: #f8fafc;
+            --text-dark: #334155;
+            --bg-light: #ffffff;
+            --bg-alt: #f1f5f9;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
+        
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background: rgba(255,255,255,0.95); position: fixed; width: 100%; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .nav-links a { margin-left: 2rem; text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .btn-cv { background: var(--accent); color: white !important; padding: 0.5rem 1rem; border-radius: 5px; }
+        
+        /* Hero Section */
+        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2074&auto=format&fit=crop') center/cover; color: var(--text-light); padding: 0 20px; }
+        header h1 { font-size: 4rem; margin-bottom: 1rem; }
+        header p { font-size: 1.2rem; max-width: 600px; margin-bottom: 2rem; }
+        .hero-btn { padding: 10px 25px; background: var(--accent); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; font-size: 1.1rem; transition: transform 0.3s; }
+        .hero-btn:hover { transform: translateY(-3px); }
+
+        /* Sections */
+        section { padding: 5rem 5%; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--primary); }
+        
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        
+        /* Project Cards */
+        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s; border-top: 4px solid var(--accent); }
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { margin-bottom: 1rem; color: var(--primary); }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+        .tag { background: var(--bg-alt); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        
+        /* Contact Form */
+        .contact-form { display: flex; flex-direction: column; gap: 1rem; max-width: 600px; margin: 0 auto; }
+        .contact-form input, .contact-form textarea { padding: 1rem; border: 1px solid #ccc; border-radius: 5px; width: 100%; }
+        .contact-form button { padding: 1rem; background: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1rem; }
+        
+        /* Footer */
+        footer { background: var(--primary); color: white; text-align: center; padding: 2rem; }
+        
+        @media(max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Add mobile menu logic later */
+        }
+    </style>
 </head>
 <body>
-  <!-- WebGL Background with Three.js -->
-  <canvas class="webgl-bg" id="webgl-bg"></canvas>
-  
-  <!-- Particles Background -->
-  <canvas class="particles" id="particles"></canvas>
-  
-  <!-- Mountain Overlay -->
-  <div class="mountain-overlay"></div>
-  
-  <!-- Floating Tech Icons -->
-  <i class="floating-tech fas fa-code" style="top: 20%; left: 10%; animation-delay: 0s;"></i>
-  <i class="floating-tech fas fa-html5" style="top: 30%; left: 85%; animation-delay: 1s;"></i>
-  <i class="floating-tech fas fa-css3-alt" style="top: 70%; left: 15%; animation-delay: 2s;"></i>
-  <i class="floating-tech fas fa-js" style="top: 80%; left: 80%; animation-delay: 3s;"></i>
-  <i class="floating-tech fas fa-react" style="top: 50%; left: 5%; animation-delay: 4s;"></i>
-  <i class="floating-tech fas fa-node" style="top: 60%; left: 90%; animation-delay: 5s;"></i>
-  
-  <!-- GitHub Corner -->
-  <a href="https://github.com/ashimsh/everest-portfolio" class="github-corner" aria-label="View source on GitHub" target="_blank">
-    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#00f7ff; color:#0a0a0a; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
-      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-      <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-      <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
-    </svg>
-  </a>
 
-  <!-- Navigation -->
-  <nav id="navbar">
-    <a href="#" class="logo">
-      <i class="fas fa-mountain"></i>
-      <span>Everest</span>
-    </a>
-    
-    <div class="nav-links">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-    
-    <button class="mobile-menu-btn" aria-label="Menu">
-      <i class="fas fa-bars"></i>
-    </button>
-  </nav>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Everest.</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a href="resume.pdf" class="btn-cv" target="_blank"><i class="fas fa-download"></i> CV</a>
+        </div>
+    </nav>
 
-  <!-- Hero Section -->
-  <section id="home">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title" data-splitting>Scaling New Heights in Web Development</h1>
-        <p class="hero-subtitle">I'm Ashim Shrestha - a passionate developer climbing the peaks of modern web technologies</p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn">
-            <i class="fas fa-code"></i>
-            View My Work
-          </a>
-          <a href="#contact" class="btn btn-outline">
-            <i class="fas fa-paper-plane"></i>
-            Contact Me
-          </a>
-        </div>
-        <div class="social-links">
-          <a href="https://github.com/ashimsh" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://discord.com/users/849001425222041621" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
-          <a href="https://instagram.com/console_jailbreaker" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="mailto:ashim.shrestha.937@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          <a href="https://linkedin.com/in/ashim-shrestha" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </div>
-    </div>
-    
-    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
-      <i class="fas fa-chevron-down"></i>
-    </a>
-  </section>
+    <!-- Hero Section -->
+    <header id="home">
+        <h1 class="gsap-hero">Ashim Shrestha</h1>
+        <p class="gsap-hero">Scaling the peaks of modern web technologies. Building responsive, dynamic, and user-centric digital experiences.</p>
+        <a href="#projects" class="hero-btn gsap-hero">View My Work</a>
+    </header>
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      
-      <div class="about-content">
-        <div class="profile-img-container" data-aos="fade-right" data-aos-duration="800">
-          <div class="profile-img-wrapper">
-            <img src="https://i.imgur.com/gz1HwVw.jpeg" alt="Ashim Shrestha" class="profile-img" loading="lazy">
-          </div>
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">Base Camp: About Me</h2>
+        <div class="grid-2">
+            <div class="about-text gsap-fade">
+                <p>I'm a passionate developer and student from Nepal with a love for creating beautiful, functional websites and applications. My journey in software engineering pushes me to constantly explore new frameworks and optimize backend architectures.</p>
+                <br>
+                <p>When I'm not coding, I'm exploring new technologies, exploring digital logic, or enjoying the breathtaking Himalayan landscapes that inspire my work.</p>
+            </div>
+            <div class="skills gsap-fade">
+                <h3>Technical Gear</h3>
+                <div class="tags" style="margin-top: 1.5rem;">
+                    <span class="tag">HTML5/CSS3</span>
+                    <span class="tag">JavaScript (ES6+)</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">GSAP</span>
+                    <span class="tag">UI/UX</span>
+                </div>
+            </div>
         </div>
-        
-        <div class="about-text" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
-          <h3>Climbing the Peaks of Technology</h3>
-          <p>I'm a passionate developer and student from Nepal with a love for creating beautiful, functional websites and applications. My journey in web development started when I was just beginning to explore the world of programming, and I've been climbing higher ever since.</p>
-          <p>When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or enjoying the breathtaking Himalayan landscapes that inspire my work.</p>
-          
-          <h4 style="margin-top: 1.5rem; color: var(--primary);">My Skills</h4>
-          <div class="skills-container">
-            <span class="skill-tag">HTML5</span>
-            <span class="skill-tag">CSS3</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Responsive Design</span>
-            <span class="skill-tag">UI/UX</span>
-            <span class="skill-tag">GSAP</span>
-            <span class="skill-tag">Three.js</span>
-            <span class="skill-tag">WebGL</span>
-            <span class="skill-tag">Figma</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Education Section -->
-  <section id="education">
-    <div class="container">
-      <h2 class="section-title">My Education</h2>
-      
-      <div class="education-container">
-        <div class="education-card" data-aos="fade-up" data-aos-duration="800">
-          <h3>High School Diploma</h3>
-          <span class="date">2022 - Present</span>
-          <p>Currently pursuing my +2 in Science with focus on Computer Science and Mathematics at Trinity International College.</p>
+    <!-- Education Section -->
+    <section id="education" style="background: var(--bg-alt);">
+        <h2 class="section-title">The Ascent: Education</h2>
+        <div class="grid-2">
+            <div class="card gsap-slide-up">
+                <h3>Bachelor of Computer Applications (BCA)</h3>
+                <p><strong>Current Focus</strong></p>
+                <p style="margin-top: 1rem;">Studying advanced computer application topics, software engineering concepts, and digital logic circuit design.</p>
+            </div>
+            <div class="card gsap-slide-up">
+                <h3>High School Diploma (+2 Science)</h3>
+                <p><strong>Trinity International College</strong></p>
+                <p style="margin-top: 1rem;">Focused on Computer Science and Mathematics, laying the groundwork for algorithmic problem solving.</p>
+            </div>
         </div>
-        
-        <div class="education-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-          <h3>Web Development</h3>
-          <span class="date">Self-Taught</span>
-          <p>Learned modern web technologies through online courses, documentation, and building personal projects.</p>
-        </div>
-        
-        <div class="education-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-          <h3>Mathematics Focus</h3>
-          <span class="date">Special Interest</span>
-          <p>Created comprehensive cheat sheets for Calculus and Analytic Geometry to help fellow students.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">My Projects</h2>
-      
-      <div class="projects-container">
-        <div class="project-card" data-aos="fade-up" data-aos-duration="800">
-          <div class="project-img-container">
-            <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project1.jpg?raw=true" alt="Everest Portfolio Project" class="project-img" loading="lazy">
-          </div>
-          <div class="project-info">
-            <h3>Everest Portfolio</h3>
-            <p>A responsive portfolio website with dynamic mountain background and smooth animations.</p>
-            <div class="project-tech">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">GSAP</span>
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Peaks Conquered: Projects</h2>
+        <div class="grid-3">
+            
+            <!-- Project 1 -->
+            <div class="card gsap-slide-up">
+                <h3>Bus Ticket Booking System</h3>
+                <p>An online reservation and management web application built for seamless student transit booking and route management.</p>
+                <div class="tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
             </div>
-            <div class="project-links">
-              <a href="#" aria-label="Live Demo"><i class="fas fa-eye"></i> Live Demo</a>
-              <a href="https://github.com/ashimsh/everest-portfolio" aria-label="Source Code"><i class="fab fa-github"></i> Source Code</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-          <div class="project-img-container">
-            <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project2.jpg?raw=true" alt="Math Cheat Sheets Project" class="project-img" loading="lazy">
-          </div>
-          <div class="project-info">
-            <h3>Math Cheat Sheets</h3>
-            <p>Comprehensive reference guides for Calculus and Analytic Geometry concepts.</p>
-            <div class="project-tech">
-              <span class="tech-tag">LaTeX</span>
-              <span class="tech-tag">Mathematics</span>
-            </div>
-            <div class="project-links">
-              <a href="#" aria-label="View PDFs"><i class="fas fa-eye"></i> View PDFs</a>
-              <a href="#" aria-label="Source Files"><i class="fab fa-github"></i> Source Files</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-          <div class="project-img-container">
-            <img src="https://github.com/ashimsh/everest-portfolio/blob/main/assets/project3.jpg?raw=true" alt="Discord Bot Project" class="project-img" loading="lazy">
-          </div>
-          <div class="project-info">
-            <h3>Discord Bot</h3>
-            <p>A custom Discord bot with utility functions and interactive features for community servers.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">Discord.js</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-            <div class="project-links">
-              <a href="#" aria-label="Try It Out"><i class="fas fa-eye"></i> Try It Out</a>
-              <a href="#" aria-label="Source Code"><i class="fab fa-github"></i> Source Code</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      
-      <div class="contact-container">
-        <div class="contact-info">
-          <div class="contact-card" data-aos="fade-right" data-aos-duration="800">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
+            <!-- Project 2 -->
+            <div class="card gsap-slide-up">
+                <h3>Everest Portfolio</h3>
+                <p>A responsive portfolio website with a mountain theme, featuring dynamic scroll interactions and clean UI/UX principles.</p>
+                <div class="tags">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">GSAP</span>
+                </div>
             </div>
-            <div>
-              <h3>Email</h3>
-              <p>ashim.shrestha.937@gmail.com</p>
-            </div>
-          </div>
-          
-          <div class="contact-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
-            <div class="contact-icon">
-              <i class="fas fa-phone"></i>
-            </div>
-            <div>
-              <h3>Phone</h3>
-              <p>+977 9841822421</p>
-            </div>
-          </div>
-          
-          <div class="contact-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
-            <div class="contact-icon">
-              <i class="fab fa-discord"></i>
-            </div>
-            <div>
-              <h3>Discord</h3>
-              <p>ashimdev#0000</p>
-            </div>
-          </div>
-          
-          <div class="contact-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="300">
-            <div class="contact-icon">
-              <i class="fab fa-github"></i>
-            </div>
-            <div>
-              <h3>GitHub</h3>
-              <p>github.com/ashimsh</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="contact-form" data-aos="fade-left" data-aos-duration="800">
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" class="form-control" required>
+
+            <!-- Project 3 -->
+            <div class="card gsap-slide-up">
+                <h3>Custom Discord Bot</h3>
+                <p>A utility bot with interactive features for community servers, handling complex commands and API integrations.</p>
+                <div class="tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Discord.js</span>
+                </div>
             </div>
             
-            <div class="form-group">
-              <label for="email">Your Email</label>
-              <input type="email" id="email" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" class="form-control" required></textarea>
-            </div>
-            
-            <button type="submit" class="btn">
-              <i class="fas fa-paper-plane"></i>
-              Send Message
-            </button>
-          </form>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-      
-      <p class="copyright">© <span id="year"></span> Ashim Shrestha. All rights reserved. | Designed at the peak of Everest</p>
-    </div>
-  </footer>
+    <!-- Contact Section -->
+    <section id="contact" style="background: var(--bg-alt);">
+        <h2 class="section-title">Reach the Summit: Get in Touch</h2>
+        <form class="contact-form gsap-fade">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+        </form>
+    </section>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Ashim Shrestha. Designed at the peak of Everest.</p>
+    </footer>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    // Initialize AOS animation library
-    AOS.init({
-      once: true,
-      easing: 'ease-out-quad',
-      duration: 800
-    });
-    
-    // Initialize Splitting.js for text animation
-    Splitting();
-    
-    // Initialize Lenis smooth scroll
-    const lenis = new Lenis({
-      lerp: 0.1,
-      smooth: true,
-      direction: 'vertical'
-    });
-    
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    
-    requestAnimationFrame(raf);
-    
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
-    });
-    
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-      });
-    });
-    
-    // Active link highlighting
-    const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('.nav-links a');
-    
-    lenis.on('scroll', ({ scroll }) => {
-      let current = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (scroll >= sectionTop - 300) {
-          current = section.getAttribute('id');
-        }
-      });
-      
-      navItems.forEach(item => {
-        item.classList.remove('active');
-        if (item.getAttribute('href') === `#${current}`) {
-          item.classList.add('active');
-        }
-      });
-      
-      // Navbar background change on scroll
-      const navbar = document.getElementById('navbar');
-      if (scroll > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-      
-      // Back to top button visibility
-      const backToTop = document.querySelector('.back-to-top');
-      if (scroll > 300) {
-        backToTop.classList.add('active');
-      } else {
-        backToTop.classList.remove('active');
-      }
-    });
-    
-    // Form submission
-    const form = document.getElementById('contactForm');
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Form data
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-        
-        // Here you would typically send the data to a server
-        // For this example, we'll just show a success message
-        const notification = document.createElement('div');
-        notification.style.position = 'fixed';
-        notification.style.bottom = '20px';
-        notification.style.right = '20px';
-        notification.style.padding = '1rem 2rem';
-        notification.style.background = 'var(--primary)';
-        notification.style.color = 'var(--dark)';
-        notification.style.borderRadius = 'var(--border-radius)';
-        notification.style.boxShadow = 'var(--box-shadow)';
-        notification.style.zIndex = '1000';
-        notification.style.transform = 'translateY(100px)';
-        notification.style.opacity = '0';
-        notification.style.transition = 'all 0.4s ease';
-        notification.textContent = `Thank you, ${name}! Your message has been sent.`;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-          notification.style.transform = 'translateY(0)';
-          notification.style.opacity = '1';
-        }, 100);
-        
-        setTimeout(() => {
-          notification.style.transform = 'translateY(100px)';
-          notification.style.opacity = '0';
-          setTimeout(() => notification.remove(), 400);
-        }, 3000);
-        
-        form.reset();
-      });
-    }
-    
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Initialize Particles.js
-    const initParticles = () => {
-      const canvas = document.getElementById('particles');
-      const ctx = canvas.getContext('2d');
-      
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      
-      const particles = [];
-      const particleCount = Math.floor(window.innerWidth / 10);
-      
-      // Particle class
-      class Particle {
-        constructor() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.size = Math.random() * 3 + 1;
-          this.speedX = Math.random() * 2 - 1;
-          this.speedY = Math.random() * 2 - 1;
-          this.color = `rgba(0, 247, 255, ${Math.random() * 0.5})`;
-          this.angle = 0;
-          this.angleSpeed = Math.random() * 0.02 - 0.01;
-        }
-        
-        update() {
-          this.angle += this.angleSpeed;
-          this.x += this.speedX + Math.cos(this.angle) * 0.5;
-          this.y += this.speedY + Math.sin(this.angle) * 0.5;
-          
-          if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-          if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-        }
-        
-        draw() {
-          ctx.fillStyle = this.color;
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-      
-      // Create particles
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-      
-      // Animation loop
-      const animate = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        for (let i = 0; i < particles.length; i++) {
-          particles[i].update();
-          particles[i].draw();
-          
-          // Draw connections between particles
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            
-            if (distance < 100) {
-              ctx.strokeStyle = `rgba(0, 247, 255, ${1 - distance / 100})`;
-              ctx.lineWidth = 0.5;
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.stroke();
-            }
-          }
-        }
-        
-        requestAnimationFrame(animate);
-      };
-      
-      animate();
-      
-      // Handle resize
-      window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      });
-    };
-    
-    // Initialize Three.js Background
-    const initThreeJS = () => {
-      const canvas = document.getElementById('webgl-bg');
-      
-      // Scene
-      const scene = new THREE.Scene();
-      
-      // Camera
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.z = 5;
-      
-      // Renderer
-      const renderer = new THREE.WebGLRenderer({
-        canvas,
-        alpha: true,
-        antialias: true
-      });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      
-      // Geometry
-      const geometry = new THREE.IcosahedronGeometry(1, 0);
-      
-      // Material
-      const material = new THREE.MeshBasicMaterial({
-        color: 0x00f7ff,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.1
-      });
-      
-      // Mesh
-      const mesh = new THREE.Mesh(geometry, material);
-      scene.add(mesh);
-      
-      // Animation
-      const animate = () => {
-        requestAnimationFrame(animate);
-        
-        mesh.rotation.x += 0.001;
-        mesh.rotation.y += 0.002;
-        
-        renderer.render(scene, camera);
-      };
-      
-      animate();
-      
-      // Handle resize
-      window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-    };
-    
-    // Animate hero title with GSAP
-    const animateHeroTitle = () => {
-      const heroTitle = document.querySelector('.hero-title');
-      const chars = heroTitle.querySelectorAll('.char');
-      
-      gsap.from(chars, {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        stagger: 0.05,
-        delay: 0.2
-      });
-    };
-    
-    // Initialize all effects
-    window.addEventListener('load', () => {
-      initParticles();
-      initThreeJS();
-      animateHeroTitle();
-      
-      // Animate profile image on about section enter
-      gsap.to('.profile-img-wrapper', {
-        rotationY: 10,
-        scrollTrigger: {
-          trigger: '#about',
-          start: 'top center',
-          end: 'bottom center',
-          scrub: true
-        }
-      });
-      
-      // Animate education cards with GSAP
-      gsap.utils.toArray('.education-card').forEach((card, i) => {
-        gsap.from(card, {
-          y: 50,
-          opacity: 0,
-          duration: 0.8,
-          delay: i * 0.1,
-          scrollTrigger: {
-            trigger: '#education',
-            start: 'top 80%'
-          }
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation
+        gsap.from(".gsap-hero", { y: 50, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out" });
+
+        // Fade In Sections
+        gsap.utils.toArray('.gsap-fade').forEach(element => {
+            gsap.from(element, {
+                scrollTrigger: { trigger: element, start: "top 80%" },
+                y: 30, opacity: 0, duration: 1, ease: "power3.out"
+            });
         });
-      });
-    });
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          lenis.scrollTo(targetElement, {
-            offset: -document.getElementById('navbar').offsetHeight
-          });
-        }
-      });
-    });
-  </script>
+
+        // Slide Up Cards (Staggered)
+        gsap.utils.toArray('.grid-2, .grid-3').forEach(grid => {
+            gsap.from(grid.children, {
+                scrollTrigger: { trigger: grid, start: "top 80%" },
+                y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: "back.out(1.7)"
+            });
+        });
+    </script>
 </body>
 </html>

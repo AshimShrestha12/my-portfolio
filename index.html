@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- Primary Meta Tags -->
-    <title>Ashim Shrestha | Haunted Full-Stack Nightmare</title>
-    <meta name="title" content="Ashim Shrestha | Haunted Full-Stack Nightmare">
-    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Developer. Dynamic, erratic scary interferences make the experience targeting and volatile. Now mobile-optimized for nightmare speeds.">
+    <title>Ashim Shrestha | Intentional Nightmare Full-Stack</title>
+    <meta name="title" content="Ashim Shrestha | Intentional Nightmare Full-Stack">
+    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer. A deliberately, computationally slow and unstable nightmare experience, now restored with procedural chaotic noise and aggressive layout thumping.">
     <meta name="author" content="Ashim Shrestha">
 
-    <!-- Fonts - Adding 'display=swap' for optimized loading -->
+    <!-- Fonts - Keep 'swap' but layered with horror fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700;800;900&family=Special+Elite&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
@@ -18,13 +18,12 @@
     <!-- ALL CSS EMBEDDED HERE -->
     <style>
         /* ==========================================================================
-           1. Base Setup & Variables (HAUNTED PERFORMANCE THEME)
+           1. Base Setup & Variables (HAUNTED DREAD THEME)
            ========================================================================== */
         :root {
-            /* Pure Horror Palette */
-            --bg-primary: #000000; /* Absolute black for performance */
+            /* Horror Palette (Crimson Cult) */
+            --bg-primary: #000000; /* Absolute black */
             --bg-secondary: #0a0000; /* Darker near-black red */
-            /* Optimized to remove complex backdrop filters */
             --bg-glass: rgba(10, 0, 0, 0.95); /* Nearly solid translucent dark crimson */
             
             /* Blood-Toned Text */
@@ -45,11 +44,13 @@
             /* Horror Typography */
             --font-sans: 'Special Elite', 'Courier New', monospace; /* Faded typewriter/distressed */
             --font-horror: 'Grenze Gotisch', cursive; /* Gothic Blackletter for titles */
-            --font-mono: 'Fira Code', monospace; /* Keep for tech stack */
+            --font-mono: 'Fira Code', monospace; /* Keep for tech stack, but add texture */
             
             /* Layout & Optimized Transitions */
             --max-width: 1050px;
-            --transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            
+            /* Modification: Supernatural 'Drifting' Transition */
+            --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -69,192 +70,68 @@
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            /* Simplified background: no complex filters or noise textures */
+            /* REINTRODUCING PROCEDURAL NOISE - Guaranteed to lag rendering */
+            filter: url(#noiseFilter); 
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(255, 0, 0, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 15% 50%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(255, 0, 0, 0.1) 0%, transparent 50%);
             background-attachment: fixed;
         }
 
+        /* Define the SVG Filter here (Computational Noise engine) */
+        svg.sr-only {
+            display: block; width: 0; height: 0; position: absolute;
+            pointer-events: none;
+        }
+
         /* ==========================================================================
-           MODIFIED: Slower, Still Optimized Flashing Alphabets Map (Stable Layer)
+           RE-ACTIVATING Aggressive Unstable Alphabets Map (Volatile Chaos)
            ========================================================================== */
-        body::before {
-            content: "☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ ☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ";
+        body::after {
+            /* Targeted voice strings flash sporadically (1%, 15%, 85%) */
+            content: "☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ Z";
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            color: rgba(255, 0, 0, 0.04); /* Faded arterial red */
-            font-family: var(--font-mono);
-            font-size: 2rem;
-            letter-spacing: 2.5rem;
-            word-wrap: break-word;
-            opacity: 0;
+            color: rgba(255, 0, 0, 0.12); /* Visible but chaotic geometry */
+            font-family: var(--font-horror);
+            font-size: clamp(3rem, 15vw, 10rem); /* Massive scattered geometric symbols */
+            line-height: 0.8;
+            letter-spacing: clamp(10rem, 50vw, 100rem); /* Scattered geometry map */
             z-index: 1; /* Above background, below content */
             pointer-events: none; /* User can click through it */
-            animation: ghostFlicker 2s infinite;
-            will-change: opacity, transform; /* Optimize render ahead */
-        }
-
-        /* Highly optimized cheap animation */
-        @keyframes ghostFlicker {
-            0% { opacity: 0; transform: translateY(0); }
-            10% { opacity: 0.1; }
-            15% { opacity: 0.05; transform: translateY(-2px); }
-            20% { opacity: 0; }
-            45% { opacity: 0.08; transform: translateY(2px); }
-            55% { opacity: 0; }
-            75% { opacity: 0.12; transform: translateY(-3px); }
-            80% { opacity: 0.05; }
-            100% { opacity: 0; transform: translateY(0); }
-        }
-
-        /* ==========================================================================
-           NEW DYNAMIC & ERRACTIC Additions (VOLATILE Layer)
-           ========================================================================== */
-
-        /* A: Truly Scattered Chaos Symbols */
-        main::before {
-            content: "☠ ✞ Φ Ψ Ω ℵ ℑ Z"; /* Simple set to scatter */
-            position: fixed;
-            top: -100px; /* Start off-screen */
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            color: rgba(255, 0, 0, 0.1); /* Visible but dangerous */
-            font-family: var(--font-horror);
-            font-size: clamp(3rem, 20vw, 15rem); /* Massive on desktop */
-            line-height: 0.8;
-            letter-spacing: clamp(10rem, 50vw, 100rem); /* Extreme scattering map */
-            z-index: 5; /* Over everything but mobile menu */
-            pointer-events: none;
-            will-change: transform, opacity;
-            animation: scatterSymbols 15s infinite;
+            animation: unstableGeometry 20s infinite;
+            will-change: opacity, transform; /* Hinting render path for localized chaos */
             text-align: center;
         }
 
-        @keyframes scatterSymbols {
-            0% { top: -100px; opacity: 0; transform: scale(1) rotate(0deg) skew(0deg); }
-            2% { top: 20%; opacity: 0.3; transform: scale(1.1) rotate(5deg) skew(5deg); }
-            3% { top: 15%; opacity: 0.1; transform: translate(0); }
-            5% { top: 5%; opacity: 0.5; transform: rotate(10deg); }
+        /* MODIFIED keyframes - ERRATIC and Erratic geometry, thumping render thumps */
+        @keyframes unstableGeometry {
+            0% { opacity: 0; transform: scale(1) rotate(0deg); letter-spacing: 10rem;}
+            1% { opacity: 0.3; transform: scale(1.1) rotate(5deg); letter-spacing: 8rem; }
+            3% { opacity: 0.1; transform: translate(0); letter-spacing: 10rem;}
             
-            6% { top: -100px; opacity: 0; transform: scale(1) rotate(0deg) skew(0deg); } /* Short burst */
-
-            20% { top: 10%; opacity: 0; transform: scale(0.9); }
-            21% { top: 30%; opacity: 0.3; transform: rotate(15deg); }
-            22% { top: 35%; opacity: 0.1; transform: translate(5px, 5px); }
+            /* Erratic burst of scattered geometric contacts */
+            15% { opacity: 0; transform: translate(-5px, -5px); letter-spacing: 15rem;}
+            16% { opacity: 0.4; transform: scale(0.9) skew(10deg); letter-spacing: 5rem;}
+            18% { opacity: 0.1; transform: translate(0); letter-spacing: 10rem;}
             
-            23% { top: -100px; opacity: 0; transform: scale(1) rotate(0deg) skew(0deg); } /* Short burst */
-
-            60% { top: 50%; opacity: 0; transform: skew(10deg); }
-            62% { top: 60%; opacity: 0.2; transform: scale(1.2); }
+            50% { opacity: 0; letter-spacing: 10rem;}
             
-            63% { top: -100px; opacity: 0; transform: scale(1) rotate(0deg) skew(0deg); } /* Short burst */
-
-            90% { top: 80%; opacity: 0; transform: scale(0.8); }
-            92% { top: 75%; opacity: 0.4; transform: rotate(-5deg); }
-            93% { top: 70%; opacity: 0.1; transform: translate(-10px, -10px); }
+            85% { opacity: 0.1; transform: translate(5px, 5px); letter-spacing: 12rem;}
+            86% { opacity: 0.5; transform: scale(1.2) rotate(-5deg) skew(-10deg); letter-spacing: 3rem;}
+            88% { opacity: 0.1; transform: translate(0); letter-spacing: 10rem;}
             
-            100% { top: -100px; opacity: 0; transform: scale(1) rotate(0deg) skew(0deg); }
-        }
-
-        /* B: Cursed Voice targeted sentences (dynamic text, sporadically targeted) */
-        #projects::before {
-            content: "We see you."; /* targeted voice string */
-            position: absolute;
-            top: -30%; /* Start slightly off-screen */
-            left: 10%;
-            width: 80%;
-            padding: 1rem;
-            background: rgba(10, 0, 0, 0.95);
-            border: var(--glass-border);
-            border-color: var(--accent);
-            color: var(--text-primary);
-            font-family: var(--font-horror);
-            font-size: clamp(1.2rem, 4vw, 2rem);
-            text-align: center;
-            z-index: 10;
-            opacity: 0;
-            will-change: opacity, content;
-            animation: terribleVoices 30s infinite;
-        }
-
-        @keyframes terribleVoices {
-            0% { opacity: 0; content: "It sees you."; }
-            1% { opacity: 1; content: "It sees you."; }
-            2% { opacity: 0; }
-
-            /* Targeted dynamic voice interferences */
-            15% { opacity: 0; content: "They have a leak."; }
-            16% { opacity: 1; content: "They have a leak."; }
-            18% { opacity: 0; content: "They have a leak."; }
-            
-            35% { opacity: 0; content: " Don't scroll."; }
-            36% { opacity: 1; content: " Don't scroll."; }
-            40% { opacity: 0; content: " Don't scroll."; }
-
-            50% { opacity: 0; content: " We see you."; }
-            51% { opacity: 1; content: " We see you."; }
-            55% { opacity: 0; content: " We see you."; }
-
-            75% { opacity: 0; content: " It's closer now."; }
-            76% { opacity: 1; content: " It's closer now."; }
-            78% { opacity: 0; content: " It's closer now."; }
-
-            85% { opacity: 0; content: " The Tome is not sealed."; }
-            86% { opacity: 1; content: " The Tome is not sealed."; }
-            90% { opacity: 0; content: " The Tome is not sealed."; }
-
-            99% { opacity: 0; content: "It sees you."; }
-            100% { opacity: 0; content: "It sees you."; }
-        }
-
-        /* ==========================================================================
-           OLD: Stable Intentional Glitch Effect for HEADLINES (PERFORMANCE-SAFE)
-           ========================================================================== */
-        .glitch-text {
-            display: inline-block;
-            color: var(--accent);
-            text-shadow: 0 0 10px var(--accent-glow);
-            position: relative;
-        }
-
-        .glitch-text::after {
-            /* content set below in mobile optimization query */
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-            opacity: 0;
-            clip-path: polygon(0 0, 100% 0, 100% 5%, 0 15%);
-            animation: glitchEffect 4s infinite linear alternate-reverse;
-            color: var(--text-primary);
-        }
-
-        @keyframes glitchEffect {
-            0% { clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%); transform: translate(0); }
-            2% { clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%); transform: translate(-2px, 1px); opacity: 0.2; }
-            3% { clip-path: polygon(0 10%, 100% 10%, 100% 15%, 0 15%); transform: translate(2px, -1px); opacity: 0.1; }
-            5% { clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%); transform: translate(0); opacity: 0; }
-            20% { clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%); transform: translate(-1px, 2px); opacity: 0.2; }
-            22% { clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); transform: translate(1px, -2px); opacity: 0.1; }
-            23% { clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%); transform: translate(0); opacity: 0; }
-            70% { clip-path: polygon(0 40%, 100% 40%, 100% 45%, 0 45%); transform: translate(-2px); opacity: 0.2; }
-            72% { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); transform: translate(2px); opacity: 0.1; }
-            73% { clip-path: polygon(0 40%, 100% 40%, 100% 45%, 0 45%); transform: translate(0); opacity: 0; }
-            100% { clip-path: polygon(0 80%, 100% 80%, 100% 85%, 0 85%); transform: translate(0); }
+            100% { opacity: 0; transform: translateY(0); letter-spacing: 10rem;}
         }
 
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
         /* ==========================================================================
            2. Layout Utilities
-           ========================================================================== */
+           ========================================================================= */
         .container { width: 90%; max-width: var(--max-width); margin: 0 auto; position: relative; z-index: 2; }
         section { padding: 120px 0; }
 
@@ -279,11 +156,14 @@
         }
 
         /* ==========================================================================
-           3. Navigation (Simplified, No heavy backdrop blurs)
-           ========================================================================== */
+           3. Navigation (Reintroducing heavy blurs as Environmental Dread)
+           ========================================================================= */
         .site-header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             background: var(--bg-glass);
+            /* Aggressive Environmental Blur - Non-optimized environmental slowness engine */
+            backdrop-filter: blur(12px) brightness(0.8);
+            -webkit-backdrop-filter: blur(12px) brightness(0.8);
             border-bottom: var(--glass-border);
             padding: 1.2rem 0;
             transition: all 0.3s ease;
@@ -339,11 +219,11 @@
         .btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border: var(--glass-border); }
         .btn-secondary:hover { background: rgba(139, 0, 0, 0.1); transform: translateY(-2px); }
 
-        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); z-index: 1001;}
+        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); }
 
         /* ==========================================================================
            4. Hero Section
-           ========================================================================== */
+           ========================================================================= */
         #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
 
         .greeting { font-family: var(--font-horror); color: var(--text-tertiary); margin-bottom: 1rem; font-weight: 500; letter-spacing: 1px; font-size: 1.2rem; }
@@ -351,12 +231,15 @@
         .hero-title { 
             font-family: var(--font-horror);
             font-size: clamp(4rem, 10vw, 7rem); font-weight: 900; line-height: 1.0; margin-bottom: 0.5rem; 
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent-glow);
         }
         
         .hero-subtitle { 
             font-family: var(--font-horror);
             font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 2rem; 
-            color: var(--text-secondary);
+            background: linear-gradient(90deg, var(--text-secondary), var(--text-tertiary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         
         .hero-description { 
@@ -369,7 +252,7 @@
 
         /* ==========================================================================
            5. Featured Project
-           ========================================================================== */
+           ========================================================================= */
         .project-showcase {
             display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem;
             align-items: center; margin-bottom: 8rem;
@@ -389,9 +272,9 @@
             border: var(--glass-border);
             box-shadow: 0 20px 40px rgba(139,0,0,0.5); /* Heavy red shadow */
             transition: var(--transition);
-            filter: grayscale(100%) desaturate(100%); /* Full grayscale, speedy visual trail */
+            filter: grayscale(80%) sepia(30%) hue-rotate(320deg); /* Desaturate to look like horror film */
         }
-        .project-visual img:hover { transform: scale(1.02) rotate(-1deg); filter: grayscale(50%) desaturate(50%); }
+        .project-visual img:hover { transform: scale(1.02); filter: grayscale(20%) sepia(50%) hue-rotate(320deg); }
 
         .project-overline { font-family: var(--font-horror); color: var(--text-tertiary); font-size: 1.1rem; margin-bottom: 0.5rem; }
         .project-title { font-family: var(--font-horror); font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
@@ -399,6 +282,7 @@
         .project-description { 
             color: var(--text-secondary); margin-bottom: 1.5rem; 
             background: rgba(10, 0, 0, 0.9); /* Dark background within card */
+            backdrop-filter: blur(10px);
             padding: 1.8rem; border-radius: 8px; 
             border: var(--glass-border);
             box-shadow: var(--glass-shadow);
@@ -421,7 +305,7 @@
             color: var(--text-primary); text-decoration: none; font-weight: 600; 
             transition: all 0.3s ease;
         }
-        .project-links a:hover { color: var(--accent); transform: translateX(5px) scale(1.1); text-shadow: 0 0 5px var(--accent); }
+        .project-links a:hover { color: var(--accent); transform: translateX(5px); text-shadow: 0 0 5px var(--accent); }
 
         /* Grid Projects (Gravestones Style) */
         .subsection-title { font-family: var(--font-horror); font-size: 2rem; margin-bottom: 3rem; text-align: center; color: var(--text-tertiary); }
@@ -431,29 +315,21 @@
         .card { 
             background: var(--bg-glass); border: var(--glass-border); 
             padding: 2.5rem; border-radius: 12px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             transition: var(--transition); 
             display: flex; flex-direction: column; justify-content: space-between; 
             position: relative; overflow: hidden;
-            /* Gravity stone texture simplified: Solid with faint texture suggestion */
-            background-color: #0d0d0d;
-            background-image: linear-gradient(135deg, rgba(255,0,0,0.01) 25%, transparent 25%), linear-gradient(225deg, rgba(255,0,0,0.01) 25%, transparent 25%);
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.1"/></svg>'); /* Gravestone/cracked texture */
         }
         
-        /* Hover glitch effect simplified: Quick clip, cheap transformations */
-        .card:hover { transform: translateY(-10px) rotate(1deg); border-color: rgba(255, 0, 0, 0.6); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }
+        /* Hover glitch effect for cards */
         .card::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,0,0,0.1), transparent);
             transition: all 0.5s ease; transform: skewX(-20deg);
         }
-        .card:hover::before { animation: glitchCard 0.3s ease-out; }
-
-        @keyframes glitchCard {
-            0% { left: -100%; opacity: 0; clip-path: polygon(0 0, 100% 0, 100% 10%, 0 20%);}
-            50% { left: 50%; opacity: 0.2; clip-path: polygon(0 30%, 100% 15%, 100% 40%, 0 50%);}
-            100% { left: 150%; opacity: 0; clip-path: polygon(0 80%, 100% 70%, 100% 90%, 0 100%);}
-        }
+        .card:hover { transform: translateY(-10px) scale(1.02); border-color: rgba(255, 0, 0, 0.6); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }
+        .card:hover::before { left: 150%; }
 
         .card-title { font-family: var(--font-horror); font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent); }
         .card-description { color: var(--text-secondary); font-size: 1rem; margin-bottom: 2rem; }
@@ -462,7 +338,7 @@
 
         /* ==========================================================================
            6. Skills & Education (Timeline/Crypt Style)
-           ========================================================================== */
+           ========================================================================= */
         .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
 
         .skills-list dt { font-family: var(--font-horror); color: var(--accent); margin-bottom: 0.5rem; font-size: 1.3rem; text-shadow: 0 0 5px var(--accent-glow); }
@@ -492,7 +368,7 @@
 
         /* ==========================================================================
            7. Contact & Footer (Gothic Form Style)
-           ========================================================================== */
+           ========================================================================= */
         .contact-section { text-align: center; }
         .contact-text { color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; }
         
@@ -528,18 +404,19 @@
         .copyright { color: var(--text-tertiary); font-size: 0.875rem; font-family: var(--font-sans); }
 
         /* ==========================================================================
-           8. Mobile Responsiveness & NIGHTMARE Threshold Optimization
-           ========================================================================== */
+           8. Mobile Responsiveness
+           ========================================================================= */
         @media (max-width: 768px) {
             .project-showcase { grid-template-columns: 1fr; gap: 3rem; }
             .grid-layout { grid-template-columns: 1fr; gap: 4rem; }
             .cta-group { flex-direction: column; display: flex; gap: 1rem; }
             
-            .mobile-menu-toggle { display: block; }
+            .mobile-menu-toggle { display: block; z-index: 1001; }
             .nav-list { 
                 display: none; flex-direction: column; 
                 position: absolute; top: 100%; left: 0; width: 100%; 
                 background: rgba(10, 0, 0, 0.98); /* Deep black red */
+                backdrop-filter: blur(20px);
                 padding: 3rem 0; border-bottom: var(--glass-border);
             }
             .nav-list.active { display: flex; animation: navSlideDown 0.3s var(--transition); }
@@ -547,20 +424,6 @@
             section { padding: 80px 0; }
             .hero-title { font-size: 3rem; }
             .section-title { font-size: 2rem; }
-
-            /* NEW MOBILE OPTIMIZATION: Nightmare Threshold */
-            /* We remove the headline glitches entirely to prioritize clean content on small screens */
-            .glitch-text::after {
-                content: none;
-                animation: none;
-            }
-
-            /* But we keep the unstable, scattered dynamic interferences because they are targeted scares */
-            #projects::before, main::before {
-                /* Slightly less massive/erratic to save CPU */
-                font-size: clamp(2rem, 15vw, 10rem);
-                color: rgba(255, 0, 0, 0.1); 
-            }
         }
 
         @keyframes navSlideDown {
@@ -570,6 +433,23 @@
     </style>
 </head>
 <body>
+
+    <!-- SVG NOISE FILTER DEFINITION (Computational Noise engine, guaranteed environmental dread) -->
+    <svg class="sr-only">
+        <filter id="noiseFilter">
+            <feTurbulence 
+                type="fractalNoise" 
+                baseFrequency="0.9" 
+                numOctaves="4" stitchTiles="stitch"/>
+            <feColorMatrix type="matrix" values="
+                0.2 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+            "/>
+            <feComposite operator="in" in2="SourceGraphic"/>
+        </filter>
+    </svg>
 
     <header class="site-header">
         <nav class="main-nav">
@@ -598,8 +478,8 @@
         <section id="hero">
             <div class="container hero-content">
                 <p class="greeting">It is foreseen. You are here for</p>
-                <h1 class="hero-title glitch-text">Ashim Shrestha.</h1>
-                <h2 class="hero-subtitle glitch-text">I engineer cursed solutions for the web.</h2>
+                <h1 class="hero-title">Ashim Shrestha.</h1>
+                <h2 class="hero-subtitle">I engineering cursed solutions for the web.</h2>
                 <p class="hero-description">
                     Full-Stack Developer and BCA student specializing in building robust, data-driven web architectures. From complex relational databases to seamless interfaces, I turn logic into digital experiences. *They watch from the code.*
                 </p>
@@ -613,7 +493,7 @@
         <!-- Featured Projects Section -->
         <section id="projects">
             <div class="container">
-                <h2 class="section-title">Major Rituals</h2>
+                <h2 class="section-title">Major Rituals (Featured Work)</h2>
 
                 <!-- Centerpiece: Bus Ticket Booking -->
                 <article class="project-showcase">
@@ -672,7 +552,7 @@
 
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Math Formula Reference</h4>
+                            <h4 class="card-title">Mathematical Formula Reference</h4>
                             <p class="card-description">Programmed comprehensive, pixel-perfect typesetting for advanced Calculus and Geometry equations. The geometry is non-Euclidean.</p>
                         </header>
                         <footer>
@@ -709,10 +589,10 @@
                 </div>
 
                 <div class="education-wrapper">
-                    <h2 class="section-title">Initiations</h2>
+                    <h2 class="section-title">Initiations (Education)</h2>
                     <ol class="timeline">
                         <li class="timeline-item">
-                            <h3 class="timeline-title">Computer Applications (BCA)</h3>
+                            <h3 class="timeline-title">Bachelor of Computer Applications (BCA)</h3>
                             <p class="timeline-org">Current Academic Focus</p>
                             <time>The Present</time>
                             <p class="timeline-desc">Specializing in application development, relational databases, and core software engineering principles. *The Tome remains unsealed.*</p>
@@ -760,7 +640,7 @@
         <div class="container footer-content">
             <div class="social-links">
                 <a href="https://github.com/ashimsh" target="_blank">Tome (GitHub)</a>
-                <a href="mailto:ashim.shrestha.937@gmail.com">Summon (Email)</a>
+                <a href="mailto:ashim.shrestha.937@gmail.com">Summon via Email</a>
             </div>
             <p class="copyright">
                 &copy; 2026 Ashim Shrestha. *The code watches forever.* Built with precision.

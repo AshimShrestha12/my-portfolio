@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- Primary Meta Tags -->
-    <title>Ashim Shrestha | Intentional Nightmare Full-Stack</title>
-    <meta name="title" content="Ashim Shrestha | Intentional Nightmare Full-Stack">
-    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer based in Nepal. A speed-optimized site deliberately slowed for a controlled, haunted visual experience.">
+    <title>Ashim Shrestha | Haunted Full-Stack Nightmare</title>
+    <meta name="title" content="Ashim Shrestha | Haunted Full-Stack Nightmare">
+    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Developer. Dynamic, erratic scary interferences make the experience targeting and volatile. Now mobile-optimized for nightmare speeds.">
     <meta name="author" content="Ashim Shrestha">
 
     <!-- Fonts - Adding 'display=swap' for optimized loading -->
@@ -18,12 +18,13 @@
     <!-- ALL CSS EMBEDDED HERE -->
     <style>
         /* ==========================================================================
-           1. Base Setup & Variables (INTENTIONAL NIGHTMARE THEME)
+           1. Base Setup & Variables (HAUNTED PERFORMANCE THEME)
            ========================================================================== */
         :root {
             /* Pure Horror Palette */
-            --bg-primary: #000000; /* Absolute black */
+            --bg-primary: #000000; /* Absolute black for performance */
             --bg-secondary: #0a0000; /* Darker near-black red */
+            /* Optimized to remove complex backdrop filters */
             --bg-glass: rgba(10, 0, 0, 0.95); /* Nearly solid translucent dark crimson */
             
             /* Blood-Toned Text */
@@ -48,13 +49,13 @@
             
             /* Layout & Optimized Transitions */
             --max-width: 1050px;
-            --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); /* Faster, snappy transitions */
+            --transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         /* ==========================================================================
-           Supernatural Drifting Smooth Scroll (controlled speed)
+           Optimized Supernatural Smooth Scroll (controlled speed)
            ========================================================================== */
         html { 
             scroll-behavior: smooth;
@@ -68,23 +69,15 @@
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            /* Simplified background */
+            /* Simplified background: no complex filters or noise textures */
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 85% 30%, rgba(255, 0, 0, 0.08) 0%, transparent 50%);
             background-attachment: fixed;
-            
-            /* NEW: Intentional Drifting Effect for 'Keeping it Slow' */
-            animation: bodyDrift 12s infinite alternate ease-in-out;
-        }
-
-        @keyframes bodyDrift {
-            from { transform: translateY(0px); }
-            to { transform: translateY(2px); }
         }
 
         /* ==========================================================================
-           OPTIMIZED Animation: Haunted Flashing Alphabets Effect
+           MODIFIED: Slower, Still Optimized Flashing Alphabets Map (Stable Layer)
            ========================================================================== */
         body::before {
             content: "☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ ☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ";
@@ -93,7 +86,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            color: rgba(255, 0, 0, 0.05); /* Extremely faded arterial red */
+            color: rgba(255, 0, 0, 0.04); /* Faded arterial red */
             font-family: var(--font-mono);
             font-size: 2rem;
             letter-spacing: 2.5rem;
@@ -101,7 +94,7 @@
             opacity: 0;
             z-index: 1; /* Above background, below content */
             pointer-events: none; /* User can click through it */
-            animation: ghostFlicker 2.5s infinite;
+            animation: ghostFlicker 2s infinite;
             will-change: opacity, transform; /* Optimize render ahead */
         }
 
@@ -119,7 +112,108 @@
         }
 
         /* ==========================================================================
-           MODIFIED: Slower, More Random Intentional Glitch Effect
+           NEW DYNAMIC & ERRACTIC Additions (VOLATILE Layer)
+           ========================================================================== */
+
+        /* A: Truly Scattered Chaos Symbols */
+        main::before {
+            content: "☠ ✞ Φ Ψ Ω ℵ ℑ Z"; /* Simple set to scatter */
+            position: fixed;
+            top: -100px; /* Start off-screen */
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            color: rgba(255, 0, 0, 0.1); /* Visible but dangerous */
+            font-family: var(--font-horror);
+            font-size: clamp(3rem, 20vw, 15rem); /* Massive on desktop */
+            line-height: 0.8;
+            letter-spacing: clamp(10rem, 50vw, 100rem); /* Extreme scattering map */
+            z-index: 5; /* Over everything but mobile menu */
+            pointer-events: none;
+            will-change: transform, opacity;
+            animation: scatterSymbols 15s infinite;
+            text-align: center;
+        }
+
+        @keyframes scatterSymbols {
+            0% { top: -100px; opacity: 0; transform: scale(1) rotate(0deg) skew(0deg); }
+            2% { top: 20%; opacity: 0.3; transform: scale(1.1) rotate(5deg) skew(5deg); }
+            3% { top: 15%; opacity: 0.1; transform: translate(0); }
+            5% { top: 5%; opacity: 0.5; transform: rotate(10deg); }
+            
+            6% { top: -100px; opacity: 0; transform: scale(1) rotate(0deg) skew(0deg); } /* Short burst */
+
+            20% { top: 10%; opacity: 0; transform: scale(0.9); }
+            21% { top: 30%; opacity: 0.3; transform: rotate(15deg); }
+            22% { top: 35%; opacity: 0.1; transform: translate(5px, 5px); }
+            
+            23% { top: -100px; opacity: 0; transform: scale(1) rotate(0deg) skew(0deg); } /* Short burst */
+
+            60% { top: 50%; opacity: 0; transform: skew(10deg); }
+            62% { top: 60%; opacity: 0.2; transform: scale(1.2); }
+            
+            63% { top: -100px; opacity: 0; transform: scale(1) rotate(0deg) skew(0deg); } /* Short burst */
+
+            90% { top: 80%; opacity: 0; transform: scale(0.8); }
+            92% { top: 75%; opacity: 0.4; transform: rotate(-5deg); }
+            93% { top: 70%; opacity: 0.1; transform: translate(-10px, -10px); }
+            
+            100% { top: -100px; opacity: 0; transform: scale(1) rotate(0deg) skew(0deg); }
+        }
+
+        /* B: Cursed Voice targeted sentences (dynamic text, sporadically targeted) */
+        #projects::before {
+            content: "We see you."; /* targeted voice string */
+            position: absolute;
+            top: -30%; /* Start slightly off-screen */
+            left: 10%;
+            width: 80%;
+            padding: 1rem;
+            background: rgba(10, 0, 0, 0.95);
+            border: var(--glass-border);
+            border-color: var(--accent);
+            color: var(--text-primary);
+            font-family: var(--font-horror);
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            text-align: center;
+            z-index: 10;
+            opacity: 0;
+            will-change: opacity, content;
+            animation: terribleVoices 30s infinite;
+        }
+
+        @keyframes terribleVoices {
+            0% { opacity: 0; content: "It sees you."; }
+            1% { opacity: 1; content: "It sees you."; }
+            2% { opacity: 0; }
+
+            /* Targeted dynamic voice interferences */
+            15% { opacity: 0; content: "They have a leak."; }
+            16% { opacity: 1; content: "They have a leak."; }
+            18% { opacity: 0; content: "They have a leak."; }
+            
+            35% { opacity: 0; content: " Don't scroll."; }
+            36% { opacity: 1; content: " Don't scroll."; }
+            40% { opacity: 0; content: " Don't scroll."; }
+
+            50% { opacity: 0; content: " We see you."; }
+            51% { opacity: 1; content: " We see you."; }
+            55% { opacity: 0; content: " We see you."; }
+
+            75% { opacity: 0; content: " It's closer now."; }
+            76% { opacity: 1; content: " It's closer now."; }
+            78% { opacity: 0; content: " It's closer now."; }
+
+            85% { opacity: 0; content: " The Tome is not sealed."; }
+            86% { opacity: 1; content: " The Tome is not sealed."; }
+            90% { opacity: 0; content: " The Tome is not sealed."; }
+
+            99% { opacity: 0; content: "It sees you."; }
+            100% { opacity: 0; content: "It sees you."; }
+        }
+
+        /* ==========================================================================
+           OLD: Stable Intentional Glitch Effect for HEADLINES (PERFORMANCE-SAFE)
            ========================================================================== */
         .glitch-text {
             display: inline-block;
@@ -129,7 +223,7 @@
         }
 
         .glitch-text::after {
-            /* content is set in specific classes below */
+            /* content set below in mobile optimization query */
             position: absolute;
             top: 0;
             left: 0;
@@ -137,33 +231,23 @@
             height: 100%;
             display: block;
             opacity: 0;
-            animation: glitchEffect 6s infinite linear alternate-reverse; /* NEW: Slower core glitch */
+            clip-path: polygon(0 0, 100% 0, 100% 5%, 0 15%);
+            animation: glitchEffect 4s infinite linear alternate-reverse;
             color: var(--text-primary);
         }
-        
-        .hero-title.glitch-text::after { content: "Ashim Shrestha."; }
-        .hero-subtitle.glitch-text::after { content: "I engineering cursed solutions for the web."; }
-        
-        /* Modifying keyframes to make the interference seem rare/sudden */
+
         @keyframes glitchEffect {
             0% { clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%); transform: translate(0); }
-            1% { clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%); transform: translate(-2px, 1px); opacity: 0.2; }
-            2% { clip-path: polygon(0 10%, 100% 10%, 100% 15%, 0 15%); transform: translate(2px, -1px); opacity: 0.1; }
-            4% { clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%); transform: translate(0); opacity: 0; }
-            
-            /* Long break with no interference for predictability */
-            50% { opacity: 0; transform: translate(0); }
-
-            51% { clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%); transform: translate(-1px, 2px); opacity: 0.2; }
-            53% { clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); transform: translate(1px, -2px); opacity: 0.1; }
-            55% { clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%); transform: translate(0); opacity: 0; }
-
-            /* Another long break */
-            95% { opacity: 0; transform: translate(0); }
-            
-            96% { clip-path: polygon(0 40%, 100% 40%, 100% 45%, 0 45%); transform: translate(-2px); opacity: 0.2; }
-            98% { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); transform: translate(2px); opacity: 0.1; }
-            100% { clip-path: polygon(0 80%, 100% 80%, 100% 85%, 0 85%); transform: translate(0); opacity: 0;}
+            2% { clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%); transform: translate(-2px, 1px); opacity: 0.2; }
+            3% { clip-path: polygon(0 10%, 100% 10%, 100% 15%, 0 15%); transform: translate(2px, -1px); opacity: 0.1; }
+            5% { clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%); transform: translate(0); opacity: 0; }
+            20% { clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%); transform: translate(-1px, 2px); opacity: 0.2; }
+            22% { clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); transform: translate(1px, -2px); opacity: 0.1; }
+            23% { clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%); transform: translate(0); opacity: 0; }
+            70% { clip-path: polygon(0 40%, 100% 40%, 100% 45%, 0 45%); transform: translate(-2px); opacity: 0.2; }
+            72% { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); transform: translate(2px); opacity: 0.1; }
+            73% { clip-path: polygon(0 40%, 100% 40%, 100% 45%, 0 45%); transform: translate(0); opacity: 0; }
+            100% { clip-path: polygon(0 80%, 100% 80%, 100% 85%, 0 85%); transform: translate(0); }
         }
 
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -195,7 +279,7 @@
         }
 
         /* ==========================================================================
-           3. Navigation (Simplified)
+           3. Navigation (Simplified, No heavy backdrop blurs)
            ========================================================================== */
         .site-header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
@@ -235,41 +319,27 @@
         .nav-list a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent-glow); }
         .nav-list a:not(.btn-primary):hover::after { width: 100%; }
 
-        /* MODIFIED: Buttons with intentional interaction lag */
+        /* Buttons - Haunted Blood Glow Style */
         .btn-primary, .btn-secondary {
             display: inline-block; padding: 0.8rem 1.8rem; border-radius: 4px; font-weight: 600;
             text-decoration: none; transition: var(--transition); cursor: pointer;
             letter-spacing: 0.5px;
             font-family: var(--font-sans);
-            position: relative;
-            overflow: hidden;
         }
         .btn-primary { 
             background: transparent; color: var(--accent) !important; 
             border: 1px solid var(--accent);
             box-shadow: 0 0 10px var(--accent-glow), inset 0 0 10px var(--accent-glow);
         }
-        
-        /* NEW: Hover state triggers temporary interference */
         .btn-primary:hover { 
             background: rgba(139, 0, 0, 0.2);
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), inset 0 0 15px rgba(255, 0, 0, 0.6);
             transform: translateY(-3px) scale(1.02);
-            animation: btnInterference 0.5s ease;
         }
-        
-        /* Adds a quick clip to simulate temporary data loss */
-        @keyframes btnInterference {
-            0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-            20% { clip-path: polygon(0 15%, 100% 5%, 100% 25%, 0 35%); opacity: 0.5;}
-            30% { clip-path: polygon(0 50%, 100% 60%, 100% 80%, 0 70%); opacity: 0.2;}
-            50% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); opacity: 1;}
-        }
-        
         .btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border: var(--glass-border); }
         .btn-secondary:hover { background: rgba(139, 0, 0, 0.1); transform: translateY(-2px); }
 
-        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); }
+        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); z-index: 1001;}
 
         /* ==========================================================================
            4. Hero Section
@@ -319,7 +389,7 @@
             border: var(--glass-border);
             box-shadow: 0 20px 40px rgba(139,0,0,0.5); /* Heavy red shadow */
             transition: var(--transition);
-            filter: grayscale(100%) desaturate(100%); /* Full grayscale */
+            filter: grayscale(100%) desaturate(100%); /* Full grayscale, speedy visual trail */
         }
         .project-visual img:hover { transform: scale(1.02) rotate(-1deg); filter: grayscale(50%) desaturate(50%); }
 
@@ -365,11 +435,12 @@
             transition: var(--transition); 
             display: flex; flex-direction: column; justify-content: space-between; 
             position: relative; overflow: hidden;
+            /* Gravity stone texture simplified: Solid with faint texture suggestion */
             background-color: #0d0d0d;
             background-image: linear-gradient(135deg, rgba(255,0,0,0.01) 25%, transparent 25%), linear-gradient(225deg, rgba(255,0,0,0.01) 25%, transparent 25%);
         }
         
-        /* Hover glitch effect simplified */
+        /* Hover glitch effect simplified: Quick clip, cheap transformations */
         .card:hover { transform: translateY(-10px) rotate(1deg); border-color: rgba(255, 0, 0, 0.6); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }
         .card::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
@@ -457,14 +528,14 @@
         .copyright { color: var(--text-tertiary); font-size: 0.875rem; font-family: var(--font-sans); }
 
         /* ==========================================================================
-           8. Mobile Responsiveness
+           8. Mobile Responsiveness & NIGHTMARE Threshold Optimization
            ========================================================================== */
         @media (max-width: 768px) {
             .project-showcase { grid-template-columns: 1fr; gap: 3rem; }
             .grid-layout { grid-template-columns: 1fr; gap: 4rem; }
             .cta-group { flex-direction: column; display: flex; gap: 1rem; }
             
-            .mobile-menu-toggle { display: block; z-index: 1001; }
+            .mobile-menu-toggle { display: block; }
             .nav-list { 
                 display: none; flex-direction: column; 
                 position: absolute; top: 100%; left: 0; width: 100%; 
@@ -476,6 +547,20 @@
             section { padding: 80px 0; }
             .hero-title { font-size: 3rem; }
             .section-title { font-size: 2rem; }
+
+            /* NEW MOBILE OPTIMIZATION: Nightmare Threshold */
+            /* We remove the headline glitches entirely to prioritize clean content on small screens */
+            .glitch-text::after {
+                content: none;
+                animation: none;
+            }
+
+            /* But we keep the unstable, scattered dynamic interferences because they are targeted scares */
+            #projects::before, main::before {
+                /* Slightly less massive/erratic to save CPU */
+                font-size: clamp(2rem, 15vw, 10rem);
+                color: rgba(255, 0, 0, 0.1); 
+            }
         }
 
         @keyframes navSlideDown {

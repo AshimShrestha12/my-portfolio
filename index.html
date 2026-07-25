@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- Primary Meta Tags -->
-    <title>Ashim Shrestha | Intentional Nightmare Full-Stack</title>
-    <meta name="title" content="Ashim Shrestha | Intentional Nightmare Full-Stack">
-    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer. A deliberately, computationally slow and unstable nightmare experience, now restored with procedural chaotic noise and aggressive layout thumping.">
+    <title>Ashim Shrestha | Haunted Full-Stack Nightmare</title>
+    <meta name="title" content="Ashim Shrestha | Haunted Full-Stack Nightmare">
+    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer. A deliberately, computationally slow and unstable nightmare experience, now restored with procedural chaotic noise and aggressive layout thumping. Features a real-time Cult Visit Counter.">
     <meta name="author" content="Ashim Shrestha">
 
-    <!-- Fonts - Keep 'swap' but layered with horror fonts -->
+    <!-- Fonts - Adding 'display=swap' for optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700;800;900&family=Special+Elite&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
            1. Base Setup & Variables (HAUNTED DREAD THEME)
            ========================================================================== */
         :root {
-            /* Horror Palette (Crimson Cult) */
+            /* Pure Horror Palette (Crimson Cult) */
             --bg-primary: #000000; /* Absolute black */
             --bg-secondary: #0a0000; /* Darker near-black red */
             --bg-glass: rgba(10, 0, 0, 0.95); /* Nearly solid translucent dark crimson */
@@ -48,8 +48,6 @@
             
             /* Layout & Optimized Transitions */
             --max-width: 1050px;
-            
-            /* Modification: Supernatural 'Drifting' Transition */
             --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
@@ -70,7 +68,7 @@
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            /* REINTRODUCING PROCEDURAL NOISE - Guaranteed to lag rendering */
+            /* PROCEDURAL ENVIRONMENTAL NOISE ENGINE - Guaranteed to lag rendering */
             filter: url(#noiseFilter); 
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
@@ -78,7 +76,7 @@
             background-attachment: fixed;
         }
 
-        /* Define the SVG Filter here (Computational Noise engine) */
+        /* Define the SVG Filter here (The Noise and visibility fix engine) */
         svg.sr-only {
             display: block; width: 0; height: 0; position: absolute;
             pointer-events: none;
@@ -88,32 +86,31 @@
            RE-ACTIVATING Aggressive Unstable Alphabets Map (Volatile Chaos)
            ========================================================================== */
         body::after {
-            /* Targeted voice strings flash sporadically (1%, 15%, 85%) */
             content: "☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ Z";
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            color: rgba(255, 0, 0, 0.12); /* Visible but chaotic geometry */
+            color: rgba(255, 0, 0, 0.08); /* Faded visible chaos */
             font-family: var(--font-horror);
-            font-size: clamp(3rem, 15vw, 10rem); /* Massive scattered geometric symbols */
+            font-size: clamp(3rem, 15vw, 10rem); /* Scattered massive symbols */
             line-height: 0.8;
             letter-spacing: clamp(10rem, 50vw, 100rem); /* Scattered geometry map */
             z-index: 1; /* Above background, below content */
             pointer-events: none; /* User can click through it */
             animation: unstableGeometry 20s infinite;
-            will-change: opacity, transform; /* Hinting render path for localized chaos */
+            will-change: opacity, transform; /* localizing render thumps */
             text-align: center;
         }
 
-        /* MODIFIED keyframes - ERRATIC and Erratic geometry, thumping render thumps */
+        /* MODIFIED keyframes - Erratic, unpredictable geometry, thumping render thumps */
         @keyframes unstableGeometry {
             0% { opacity: 0; transform: scale(1) rotate(0deg); letter-spacing: 10rem;}
             1% { opacity: 0.3; transform: scale(1.1) rotate(5deg); letter-spacing: 8rem; }
             3% { opacity: 0.1; transform: translate(0); letter-spacing: 10rem;}
             
-            /* Erratic burst of scattered geometric contacts */
+            /* Targeted dynamic voice interferences flash sporadically (1%, 15%, 85%) */
             15% { opacity: 0; transform: translate(-5px, -5px); letter-spacing: 15rem;}
             16% { opacity: 0.4; transform: scale(0.9) skew(10deg); letter-spacing: 5rem;}
             18% { opacity: 0.1; transform: translate(0); letter-spacing: 10rem;}
@@ -156,12 +153,12 @@
         }
 
         /* ==========================================================================
-           3. Navigation (Reintroducing heavy blurs as Environmental Dread)
+           3. Navigation (Simplified)
            ========================================================================= */
         .site-header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             background: var(--bg-glass);
-            /* Aggressive Environmental Blur - Non-optimized environmental slowness engine */
+            /* Aggressive Environmental Blur - Non-optimized environmental dread engine */
             backdrop-filter: blur(12px) brightness(0.8);
             -webkit-backdrop-filter: blur(12px) brightness(0.8);
             border-bottom: var(--glass-border);
@@ -367,11 +364,34 @@
         .timeline-desc { color: var(--text-secondary); margin-top: 1rem; font-size: 1rem; }
 
         /* ==========================================================================
-           7. Contact & Footer (Gothic Form Style)
+           7. Cult Visit Counter & Contact Section
            ========================================================================= */
         .contact-section { text-align: center; }
         .contact-text { color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; }
         
+        /* Formatting the Cult Visit Counter */
+        #visit-counter {
+            font-family: var(--font-sans); /* Special Elite */
+            font-size: clamp(2rem, 8vw, 4rem); /* Massive count */
+            color: var(--accent); /* Pure arterial red */
+            background: rgba(139, 0, 0, 0.1);
+            display: inline-block;
+            padding: 1rem 3rem;
+            border: var(--glass-border);
+            border-radius: 8px;
+            box-shadow: var(--glass-shadow);
+            margin: 3rem 0;
+            text-shadow: 0 0 15px var(--accent);
+        }
+        
+        .counter-label {
+            font-family: var(--font-horror); /* Gothic for label */
+            display: block;
+            font-size: 1.2rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+        }
+
         .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
         .form-group { margin-bottom: 2rem; }
         .form-group label { display: block; font-family: var(--font-horror); color: var(--text-tertiary); margin-bottom: 0.8rem; font-size: 1.1rem; }
@@ -434,18 +454,19 @@
 </head>
 <body>
 
-    <!-- SVG NOISE FILTER DEFINITION (Computational Noise engine, guaranteed environmental dread) -->
+    <!-- SVG Filter Definition (FIXED Computational Noise engine, guaranteed environmental visibility fixed) -->
     <svg class="sr-only">
         <filter id="noiseFilter">
             <feTurbulence 
                 type="fractalNoise" 
                 baseFrequency="0.9" 
                 numOctaves="4" stitchTiles="stitch"/>
+            <!-- FIXED ColorMatrix: Restored Alpha Channel for visibility while keeping red tint -->
             <feColorMatrix type="matrix" values="
-                0.2 0 0 0 0
-                0 0 0 0 0
-                0 0 0 0 0
-                0 0 0 0 0
+                0.2 0   0   0 0
+                0   0   0   0 0
+                0   0   0   0 0
+                0   0   0   1 0
             "/>
             <feComposite operator="in" in2="SourceGraphic"/>
         </filter>
@@ -464,7 +485,7 @@
             <ul id="nav-list" class="nav-list">
                 <li><a href="#projects">Curses</a></li>
                 <li><a href="#background">Rituals</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Initiate Contact</a></li>
                 <li>
                     <a href="resume.pdf" class="btn-primary" target="_blank">The Pact</a>
                 </li>
@@ -607,11 +628,17 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact & Cult Counter Section -->
         <section id="contact" class="contact-section">
             <div class="container">
                 <h2 class="section-title">Initiate Contact</h2>
                 <p class="contact-text">Whether you have a query, a project proposal, or just want to discuss digital logic, non-Euclidean architectures, my inbox is open. *Or just listen to the flicker.*</p>
+                
+                <!-- NEW: Real-Time Cult Visit Counter -->
+                <div id="visit-counter-container">
+                    <span class="counter-label">Global souls initiated to this Tome:</span>
+                    <span id="visit-counter">Counting...</span>
+                </div>
                 
                 <form class="contact-form" action="#" method="POST">
                     <div class="form-group">
@@ -648,7 +675,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu & Minimal Glitch -->
+    <!-- JavaScript for Mobile Menu & Real-Time Counter -->
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
         const navList = document.getElementById('nav-list');
@@ -672,6 +699,32 @@
                 menuBtn.innerHTML = '☰';
             });
         });
+        
+        // NEW: JavaScript for Real-Time Persistent Counter
+        // Utilizing countapi.xyz (free, no keys needed for public counts)
+        function hauntCounter() {
+            // Define your site-specific counter ID. Domain + ID is best.
+            const counterID = 'ashim_haunted_tome_cult_initiations';
+            
+            // This endpoint increments the counter and returns the new value
+            const apiURL = `https://api.countapi.xyz/hit/ashim.dev/${counterID}`;
+            
+            fetch(apiURL)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the DOM with the count, adding atmospheric leading zeros
+                    const count = data.value.toString().padStart(6, '0');
+                    document.getElementById('visit-counter').innerText = count;
+                })
+                .catch(error => {
+                    // Fallback in case the API is haunted by technical dread
+                    document.getElementById('visit-counter').innerText = 'DREADFUL_ERROR';
+                    console.error('The Cult Counter was swallowed by the void.', error);
+                });
+        }
+        
+        // Run the initialization on page load
+        hauntCounter();
     </script>
 </body>
 </html>

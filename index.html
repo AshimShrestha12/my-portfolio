@@ -5,66 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- Primary Meta Tags -->
-    <title>Ashim Shrestha | Full-Stack Web Developer</title>
-    <meta name="title" content="Ashim Shrestha | Full-Stack Web Developer">
-    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer and BCA student based in Nepal specializing in PHP, Node.js, and scalable web applications.">
+    <title>Ashim Shrestha | Haunted Full-Stack Web Developer</title>
+    <meta name="title" content="Ashim Shrestha | Haunted Full-Stack Web Developer">
+    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer and BCA student based in Nepal specializing in PHP, Node.js, and scalable web applications. The site appears to be haunted.">
     <meta name="author" content="Ashim Shrestha">
 
-    <!-- Fonts -->
+    <!-- Fonts - Adding Gothic and Distressed Fonts for Horror Theme -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700;800;900&family=Special+Elite&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- ALL CSS EMBEDDED HERE -->
     <style>
         /* ==========================================================================
-           1. Base Setup & Variables (Cyber-Neon Theme)
+           1. Base Setup & Variables (Haunted Horror Theme)
            ========================================================================== */
         :root {
-            /* Deep dark space backgrounds */
-            --bg-primary: #050b14;
-            --bg-secondary: rgba(13, 22, 38, 0.6);
-            --bg-glass: rgba(15, 23, 42, 0.4);
+            /* Pure Horror Palette */
+            --bg-primary: #000000; /* Absolute black */
+            --bg-secondary: #0a0000; /* Darker near-black red */
+            --bg-glass: rgba(10, 0, 0, 0.7); /* Translucent dark red-black */
             
-            /* High-contrast neon text */
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-tertiary: #64748b;
+            /* Blood-Toned Text */
+            --text-primary: #f1e0e0; /* Off-white with red tint for readability */
+            --text-secondary: #b89494; /* Desaturated red-grey */
+            --text-tertiary: #6e4e4e; /* Dark, faded blood red */
             
-            /* Glowing Accents */
-            --accent: #00f0ff; /* Cyber Cyan */
-            --accent-secondary: #7000ff; /* Deep Neon Purple */
-            --accent-glow: rgba(0, 240, 255, 0.4);
+            /* Arterial Red Accents & Glitches */
+            --accent: #ff0000; /* Pure blood red */
+            --accent-secondary: #990000; /* Dried blood red */
+            --accent-glow: rgba(255, 0, 0, 0.6);
             
-            /* Borders and Glass Effects */
-            --border: rgba(255, 255, 255, 0.08);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            /* Gothic & Damaged Borders */
+            --border: rgba(255, 0, 0, 0.1);
+            --glass-border: 1px solid rgba(255, 0, 0, 0.2);
+            --glass-shadow: 0 8px 32px 0 rgba(139, 0, 0, 0.4); /* Intense red shadow */
 
-            /* Typography */
-            --font-sans: 'Inter', -apple-system, sans-serif;
-            --font-mono: 'Fira Code', monospace;
+            /* Horror Typography */
+            --font-sans: 'Special Elite', 'Courier New', monospace; /* Faded typewriter/distressed */
+            --font-horror: 'Grenze Gotisch', cursive; /* Gothic Blackletter for titles */
+            --font-mono: 'Fira Code', monospace; /* Keep for tech stack, but add texture */
             
-            /* Layout */
+            /* Layout & Transitions */
             --max-width: 1050px;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            /* Modification: Supernatural 'Drifting' Transition */
+            --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+
+        /* ==========================================================================
+           User Request Modification: Supernatural Smooth Scroll
+           ========================================================================== */
+        html { 
+            scroll-behavior: smooth;
+            transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+            scroll-duration: 2s; /* Note: scroll-duration is experimental, CSS smooth scrolling often handles this internally based on distance */
+        }
 
         body {
             font-family: var(--font-sans);
             background-color: var(--bg-primary);
-            /* Add a subtle radial gradient mesh to the background */
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(112, 0, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.08) 0%, transparent 50%);
-            background-attachment: fixed;
             color: var(--text-primary);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>'); /* Faint noise/film grain texture */
+            background-attachment: fixed;
+        }
+
+        /* ==========================================================================
+           User Request Modification: Haunted Flashing Alphabets Effect
+           ========================================================================== */
+        body::before {
+            content: "☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            color: rgba(255, 0, 0, 0.05); /* Extremely faded arterial red */
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            letter-spacing: 2rem;
+            word-wrap: break-word;
+            opacity: 0;
+            z-index: 1; /* Above background, below content */
+            pointer-events: none; /* User can click through it */
+            animation: ghostFlicker 3s infinite;
+        }
+
+        @keyframes ghostFlicker {
+            0% { opacity: 0; transform: translateY(0) scale(1); }
+            5% { opacity: 0.1; }
+            10% { opacity: 0.05; content: "H E L P U S"; }
+            15% { opacity: 0.1; }
+            20% { opacity: 0.03; transform: translateY(-5px); }
+            25% { opacity: 0.08; content: "☠ ✞ ⚰ ☥ ☦ ☧"; }
+            30% { opacity: 0; transform: scale(1.02); }
+            50% { opacity: 0.05; content: "A H L M P T X Z"; }
+            60% { opacity: 0.02; }
+            80% { opacity: 0.1; content: "Φ Ψ Ω ℵ ℑ"; transform: translateY(5px); }
+            100% { opacity: 0; transform: translateY(0) scale(1); }
         }
 
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -76,21 +122,23 @@
         section { padding: 120px 0; }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-family: var(--font-horror); /* Gothic Blackletter for titles */
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 800;
             margin-bottom: 4rem;
             position: relative;
             display: inline-block;
-            background: linear-gradient(90deg, var(--text-primary), var(--text-secondary));
+            background: linear-gradient(135deg, var(--accent), var(--text-primary)); /* Blood red gradient */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px var(--accent-glow);
         }
         .section-title::after {
             content: ''; position: absolute; bottom: -15px; left: 0;
             width: 80px; height: 3px; 
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            background: linear-gradient(90deg, var(--accent), transparent);
             border-radius: 4px;
-            box-shadow: 0 0 10px var(--accent-glow);
+            box-shadow: 0 0 10px var(--accent);
         }
 
         /* ==========================================================================
@@ -112,12 +160,13 @@
         }
 
         .logo a { 
-            font-weight: 800; font-size: 1.6rem; text-decoration: none; 
-            color: var(--text-primary); letter-spacing: -1px;
-            text-shadow: 0 0 15px rgba(255,255,255,0.2);
+            font-family: var(--font-horror);
+            font-weight: 800; font-size: 2rem; text-decoration: none; 
+            color: var(--accent); 
+            letter-spacing: -1px;
+            text-shadow: 0 0 15px var(--accent-glow);
         }
-        .logo a span { color: var(--accent); } /* Assuming you wrap 'dev' in a span eventually, but works without */
-
+        
         .nav-list { display: flex; gap: 2.5rem; list-style: none; align-items: center; margin: 0; }
         .nav-list a { 
             text-decoration: none; color: var(--text-secondary); 
@@ -135,24 +184,25 @@
         .nav-list a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent-glow); }
         .nav-list a:not(.btn-primary):hover::after { width: 100%; }
 
-        /* Buttons - Neon Style */
+        /* Buttons - Haunted Blood Glow Style */
         .btn-primary, .btn-secondary {
             display: inline-block; padding: 0.8rem 1.8rem; border-radius: 4px; font-weight: 600;
-            text-decoration: none; transition: all 0.3s ease; cursor: pointer;
+            text-decoration: none; transition: var(--transition); cursor: pointer;
             letter-spacing: 0.5px;
+            font-family: var(--font-sans);
         }
         .btn-primary { 
             background: transparent; color: var(--accent) !important; 
             border: 1px solid var(--accent);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.1), inset 0 0 10px rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 10px var(--accent-glow), inset 0 0 10px var(--accent-glow);
         }
         .btn-primary:hover { 
-            background: rgba(0, 240, 255, 0.1);
-            box-shadow: 0 0 20px var(--accent-glow), inset 0 0 15px var(--accent-glow);
-            transform: translateY(-2px);
+            background: rgba(139, 0, 0, 0.2);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), inset 0 0 15px rgba(255, 0, 0, 0.6);
+            transform: translateY(-3px) scale(1.02);
         }
         .btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border: var(--glass-border); }
-        .btn-secondary:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+        .btn-secondary:hover { background: rgba(139, 0, 0, 0.1); transform: translateY(-2px); }
 
         .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); }
 
@@ -161,22 +211,28 @@
            ========================================================================== */
         #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
 
-        .greeting { font-family: var(--font-mono); color: var(--accent); margin-bottom: 1.5rem; font-weight: 500; letter-spacing: 1px; }
+        .greeting { font-family: var(--font-horror); color: var(--text-tertiary); margin-bottom: 1rem; font-weight: 500; letter-spacing: 1px; font-size: 1.2rem; }
         
         .hero-title { 
-            font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 800; line-height: 1.1; margin-bottom: 0.5rem; 
-            color: var(--text-primary);
+            font-family: var(--font-horror);
+            font-size: clamp(4rem, 10vw, 7rem); font-weight: 900; line-height: 1.0; margin-bottom: 0.5rem; 
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent-glow);
         }
         
         .hero-subtitle { 
-            font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 2rem; 
+            font-family: var(--font-horror);
+            font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 2rem; 
             background: linear-gradient(90deg, var(--text-secondary), var(--text-tertiary));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         
         .hero-description { 
-            font-size: 1.15rem; max-width: 650px; color: var(--text-secondary); margin-bottom: 3rem; 
+            font-size: 1.1rem; max-width: 650px; color: var(--text-secondary); margin-bottom: 3rem; 
             line-height: 1.8;
+            border-left: 2px solid var(--accent);
+            padding-left: 1.5rem;
+            background: rgba(139, 0, 0, 0.03);
         }
 
         /* ==========================================================================
@@ -188,7 +244,7 @@
             position: relative;
         }
 
-        /* Glowing background blob behind the project image */
+        /* Blood-red radial nebula behind image */
         .project-visual { position: relative; }
         .project-visual::before {
             content: ''; position: absolute; top: -10%; left: -10%; right: -10%; bottom: -10%;
@@ -197,19 +253,20 @@
         }
 
         .project-visual img { 
-            width: 100%; height: auto; border-radius: 12px; 
+            width: 100%; height: auto; border-radius: 8px; 
             border: var(--glass-border);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            transition: transform 0.5s ease;
+            box-shadow: 0 20px 40px rgba(139,0,0,0.5); /* Heavy red shadow */
+            transition: var(--transition);
+            filter: grayscale(80%) sepia(30%) hue-rotate(320deg); /* Desaturate to look like horror film */
         }
-        .project-visual img:hover { transform: scale(1.02); }
+        .project-visual img:hover { transform: scale(1.02); filter: grayscale(20%) sepia(50%) hue-rotate(320deg); }
 
-        .project-overline { font-family: var(--font-mono); color: var(--accent); font-size: 0.875rem; margin-bottom: 0.5rem; }
-        .project-title { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--text-primary); }
+        .project-overline { font-family: var(--font-horror); color: var(--text-tertiary); font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .project-title { font-family: var(--font-horror); font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
         
         .project-description { 
             color: var(--text-secondary); margin-bottom: 1.5rem; 
-            background: var(--bg-glass);
+            background: rgba(10, 0, 0, 0.9); /* Dark background within card */
             backdrop-filter: blur(10px);
             padding: 1.8rem; border-radius: 8px; 
             border: var(--glass-border);
@@ -222,103 +279,113 @@
             font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); 
         }
         .tech-stack li {
-            background: rgba(0, 240, 255, 0.05);
-            padding: 0.3rem 0.8rem; border-radius: 4px; border: 1px solid rgba(0, 240, 255, 0.2);
+            background: rgba(139, 0, 0, 0.1);
+            padding: 0.3rem 0.8rem; border-radius: 4px; border: 1px solid rgba(255, 0, 0, 0.3);
+            transition: var(--transition);
         }
+        .tech-stack li:hover { background: rgba(255, 0, 0, 0.2); box-shadow: 0 0 5px var(--accent); }
 
         .project-links a { 
             display: inline-flex; align-items: center; gap: 0.5rem; 
             color: var(--text-primary); text-decoration: none; font-weight: 600; 
             transition: all 0.3s ease;
         }
-        .project-links a:hover { color: var(--accent); transform: translateX(5px); }
+        .project-links a:hover { color: var(--accent); transform: translateX(5px); text-shadow: 0 0 5px var(--accent); }
 
-        /* Grid Projects (Glass Cards) */
-        .subsection-title { font-size: 1.8rem; margin-bottom: 3rem; text-align: center; }
+        /* Grid Projects (Gravestones Style) */
+        .subsection-title { font-family: var(--font-horror); font-size: 2rem; margin-bottom: 3rem; text-align: center; color: var(--text-tertiary); }
         
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
         
         .card { 
             background: var(--bg-glass); border: var(--glass-border); 
             padding: 2.5rem; border-radius: 12px; 
-            backdrop-filter: blur(10px); box-shadow: var(--glass-shadow);
+            backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             transition: var(--transition); 
             display: flex; flex-direction: column; justify-content: space-between; 
             position: relative; overflow: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.1"/></svg>'); /* Gravestone/cracked texture */
         }
         
-        /* Hover glow effect for cards */
+        /* Hover glitch effect for cards */
         .card::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,0,0,0.1), transparent);
             transition: all 0.5s ease; transform: skewX(-20deg);
         }
-        .card:hover { transform: translateY(-10px); border-color: rgba(0, 240, 255, 0.3); box-shadow: 0 15px 30px rgba(0, 240, 255, 0.1); }
+        .card:hover { transform: translateY(-10px) scale(1.02); border-color: rgba(255, 0, 0, 0.6); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }
         .card:hover::before { left: 150%; }
 
-        .card-title { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-primary); }
+        .card-title { font-family: var(--font-horror); font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent); }
         .card-description { color: var(--text-secondary); font-size: 1rem; margin-bottom: 2rem; }
         .tech-stack.small { margin-bottom: 0; font-size: 0.8rem; }
-        .tech-stack.small li { border-color: rgba(255,255,255,0.1); color: var(--text-secondary); }
+        .tech-stack.small li { border-color: rgba(139, 0, 0, 0.4); color: var(--text-secondary); }
 
         /* ==========================================================================
-           6. Skills & Education
+           6. Skills & Education (Timeline/Crypt Style)
            ========================================================================== */
         .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
 
-        .skills-list dt { font-family: var(--font-mono); color: var(--accent); margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .skills-list dd { color: var(--text-secondary); margin-bottom: 2rem; margin-left: 0; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .skills-list dt { font-family: var(--font-horror); color: var(--accent); margin-bottom: 0.5rem; font-size: 1.3rem; text-shadow: 0 0 5px var(--accent-glow); }
+        .skills-list dd { color: var(--text-secondary); margin-bottom: 2rem; margin-left: 0; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(139, 0, 0, 0.1); }
 
-        .timeline { list-style: none; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 2.5rem; position: relative; margin: 0; }
+        .timeline { list-style: none; border-left: 2px solid rgba(139,0,0,0.2); padding-left: 2.5rem; position: relative; margin: 0; }
         .timeline-item { margin-bottom: 3.5rem; position: relative; }
         
-        /* Neon dot on timeline */
+        /* Arterial Red dot on timeline */
         .timeline-item::before { 
             content: ''; position: absolute; left: -2.9rem; top: 0; 
             width: 12px; height: 12px; background: var(--bg-primary); 
             border-radius: 50%; border: 2px solid var(--accent); 
             box-shadow: 0 0 10px var(--accent);
+            transition: var(--transition);
+        }
+        .timeline-item:hover::before {
+            background: var(--accent);
+            box-shadow: 0 0 20px var(--accent);
+            transform: scale(1.3);
         }
         
-        .timeline-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .timeline-title { font-family: var(--font-horror); font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--accent); }
         .timeline-org { font-weight: 600; color: var(--text-secondary); }
-        .timeline-item time { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-secondary); display: block; margin: 0.5rem 0; }
+        .timeline-item time { font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-tertiary); display: block; margin: 0.5rem 0; font-style: italic;}
         .timeline-desc { color: var(--text-secondary); margin-top: 1rem; font-size: 1rem; }
 
         /* ==========================================================================
-           7. Contact & Footer
+           7. Contact & Footer (Gothic Form Style)
            ========================================================================== */
         .contact-section { text-align: center; }
         .contact-text { color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; }
         
         .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
         .form-group { margin-bottom: 2rem; }
-        .form-group label { display: block; font-family: var(--font-mono); color: var(--accent); margin-bottom: 0.8rem; font-size: 0.9rem; }
+        .form-group label { display: block; font-family: var(--font-horror); color: var(--text-tertiary); margin-bottom: 0.8rem; font-size: 1.1rem; }
         
         .form-group input, .form-group textarea { 
             width: 100%; padding: 1.2rem; 
-            border: var(--glass-border); border-radius: 8px; 
+            border: var(--glass-border); border-radius: 4px; 
             font-family: var(--font-sans); color: var(--text-primary);
-            background: rgba(255,255,255,0.03); 
+            background: rgba(0, 0, 0, 0.5); 
             transition: var(--transition);
         }
         .form-group input:focus, .form-group textarea:focus { 
             outline: none; border-color: var(--accent); 
-            background: rgba(0, 240, 255, 0.02);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+            background: rgba(139, 0, 0, 0.05);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
         }
         
-        .form-submit { width: 100%; font-size: 1.1rem; padding: 1.2rem; }
+        .form-submit { width: 100%; font-size: 1.1rem; padding: 1.2rem; font-family: var(--font-horror); font-size: 1.5rem;}
 
-        .site-footer { text-align: center; padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 6rem; }
+        .site-footer { text-align: center; padding: 3rem 0; border-top: 1px solid rgba(139, 0, 0, 0.1); margin-top: 6rem; background: var(--bg-secondary); position: relative; z-index: 2; }
         .social-links { margin-bottom: 1.5rem; }
         .social-links a { 
-            font-family: var(--font-mono); color: var(--text-secondary); 
+            font-family: var(--font-horror); color: var(--text-secondary); 
             margin: 0 1.5rem; text-decoration: none; 
+            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
-        .social-links a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent-glow); }
-        .copyright { color: var(--text-tertiary); font-size: 0.875rem; font-family: var(--font-mono); }
+        .social-links a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent); }
+        .copyright { color: var(--text-tertiary); font-size: 0.875rem; font-family: var(--font-sans); }
 
         /* ==========================================================================
            8. Mobile Responsiveness
@@ -326,20 +393,26 @@
         @media (max-width: 768px) {
             .project-showcase { grid-template-columns: 1fr; gap: 3rem; }
             .grid-layout { grid-template-columns: 1fr; gap: 4rem; }
-            .cta-group { flex-direction: column; }
+            .cta-group { flex-direction: column; display: flex; gap: 1rem; }
             
-            .mobile-menu-toggle { display: block; }
+            .mobile-menu-toggle { display: block; z-index: 1001; }
             .nav-list { 
                 display: none; flex-direction: column; 
                 position: absolute; top: 100%; left: 0; width: 100%; 
-                background: rgba(13, 22, 38, 0.95); 
+                background: rgba(10, 0, 0, 0.98); /* Deep black red */
                 backdrop-filter: blur(20px);
-                padding: 2rem 0; border-bottom: var(--glass-border);
+                padding: 3rem 0; border-bottom: var(--glass-border);
             }
-            .nav-list.active { display: flex; }
+            .nav-list.active { display: flex; animation: navSlideDown 0.3s var(--transition); }
             
             section { padding: 80px 0; }
             .hero-title { font-size: 3rem; }
+            .section-title { font-size: 2rem; }
+        }
+
+        @keyframes navSlideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -348,19 +421,19 @@
     <header class="site-header">
         <nav class="main-nav">
             <div class="logo">
-                <a href="#hero">Ashim.dev</a>
+                <a href="#hero">Ashim.☠</a>
             </div>
             
-            <button class="mobile-menu-toggle" id="mobile-menu-btn">
+            <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
                 ☰
             </button>
 
             <ul id="nav-list" class="nav-list">
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#background">Skills & Edu</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#projects">Curses (Projects)</a></li>
+                <li><a href="#background">Rituals (Skills & Edu)</a></li>
+                <li><a href="#contact">Initiate Contact</a></li>
                 <li>
-                    <a href="resume.pdf" class="btn-primary" target="_blank">Resume</a>
+                    <a href="resume.pdf" class="btn-primary" target="_blank">The Pact (Resume)</a>
                 </li>
             </ul>
         </nav>
@@ -371,15 +444,15 @@
         <!-- Hero Section -->
         <section id="hero">
             <div class="container hero-content">
-                <p class="greeting">👋 Hi, my name is</p>
+                <p class="greeting">It is foreseen. You are here for</p>
                 <h1 class="hero-title">Ashim Shrestha.</h1>
-                <h2 class="hero-subtitle">I engineer solutions for the web.</h2>
+                <h2 class="hero-subtitle">I engineering cursed solutions for the web.</h2>
                 <p class="hero-description">
-                    I'm a Full-Stack Developer and BCA student specializing in building robust, data-driven web applications. From complex relational databases to seamless user interfaces, I turn logic into digital experiences.
+                    Full-Stack Developer and BCA student specializing in building robust, data-driven web architectures. From complex relational databases to seamless interfaces, I turn logic into digital experiences. *They watch from the code.*
                 </p>
                 <div class="cta-group">
-                    <a href="#projects" class="btn-primary">View Projects</a>
-                    <a href="https://github.com/ashimsh" class="btn-secondary" target="_blank">GitHub Profile</a>
+                    <a href="#projects" class="btn-primary">View the Curses</a>
+                    <a href="https://github.com/ashimsh" class="btn-secondary" target="_blank">The Tome (GitHub)</a>
                 </div>
             </div>
         </section>
@@ -387,19 +460,18 @@
         <!-- Featured Projects Section -->
         <section id="projects">
             <div class="container">
-                <h2 class="section-title">Featured Work</h2>
+                <h2 class="section-title">Major Rituals (Featured Work)</h2>
 
                 <!-- Centerpiece: Bus Ticket Booking -->
                 <article class="project-showcase">
                     <figure class="project-visual">
-                        <!-- Placeholder Image added here so it doesn't look broken -->
                         <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800" alt="Dashboard view of the Bus Ticket Booking System" loading="lazy">
                     </figure>
                     <div class="project-content">
-                        <p class="project-overline">Featured Project</p>
+                        <p class="project-overline">Major Ritual</p>
                         <h3 class="project-title">Bus Ticket Booking System</h3>
                         <p class="project-description">
-                            A complete online reservation and management architecture. Engineered to handle student transit booking efficiently, featuring secure user authentication, dynamic route tracking, real-time seat selection, and a comprehensive admin control panel.
+                            A complete online reservation and management architecture. Engineered to handle student transit booking efficiently, featuring secure authentication, dynamic route tracking, real-time seat selection, and a comprehensive admin control panel. The final stop.
                         </p>
                         <ul class="tech-stack">
                             <li>PHP</li>
@@ -409,20 +481,20 @@
                         </ul>
                         <div class="project-links">
                             <a href="https://github.com/ashimsh" target="_blank">
-                                <span>Code Repository ↗</span>
+                                <span>Code Tome Repository ↗</span>
                             </a>
                         </div>
                     </div>
                 </article>
 
                 <!-- Grid of Secondary Projects -->
-                <h3 class="subsection-title">Other Technical Pursuits</h3>
+                <h3 class="subsection-title">Other Technical Obsessions</h3>
                 <div class="project-grid">
                     
                     <article class="card">
                         <header>
                             <h4 class="card-title">Discord Utility Bot</h4>
-                            <p class="card-description">A custom server bot built to automate community management, featuring complex command parsing and third-party API integrations.</p>
+                            <p class="card-description">A custom server bot built to automate community management, featuring complex command parsing and third-party API integrations. It knows your commands before you type.</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
@@ -435,7 +507,7 @@
                     <article class="card">
                         <header>
                             <h4 class="card-title">Automated Video Generation Pipeline</h4>
-                            <p class="card-description">Exploratory project generating short-form AI video content tailored for social media algorithms and rapid platform distribution.</p>
+                            <p class="card-description">Exploratory project generating short-form AI video content tailored for social algorithms and rapid distribution. It sees what you watch.</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
@@ -448,7 +520,7 @@
                     <article class="card">
                         <header>
                             <h4 class="card-title">Mathematical Formula Reference</h4>
-                            <p class="card-description">Programmed comprehensive, pixel-perfect typesetting for advanced Calculus and Analytic Geometry equations.</p>
+                            <p class="card-description">Programmed comprehensive, pixel-perfect typesetting for advanced Calculus and Geometry equations. The geometry is non-Euclidean.</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
@@ -469,33 +541,33 @@
                 <div class="skills-wrapper">
                     <h2 class="section-title">Technical Arsenal</h2>
                     <dl class="skills-list">
-                        <dt>Core Backend</dt>
+                        <dt>The Core Backend</dt>
                         <dd>PHP, Node.js, MySQL, RESTful APIs</dd>
                         
-                        <dt>Frontend Development</dt>
+                        <dt>The Outer Front</dt>
                         <dd>JavaScript (ES6+), React, HTML5, CSS3, GSAP</dd>
                         
-                        <dt>Computer Science Fundamentals</dt>
+                        <dt>Cursed Fundamentals</dt>
                         <dd>Digital Logic Circuit Design, Software Engineering Architecture</dd>
                         
-                        <dt>Tools & Environment</dt>
+                        <dt>The Tools of Summoning</dt>
                         <dd>Git/GitHub, XAMPP, Figma, VS Code</dd>
                     </dl>
                 </div>
 
                 <div class="education-wrapper">
-                    <h2 class="section-title">Education</h2>
+                    <h2 class="section-title">Initiations (Education)</h2>
                     <ol class="timeline">
                         <li class="timeline-item">
                             <h3 class="timeline-title">Bachelor of Computer Applications (BCA)</h3>
                             <p class="timeline-org">Current Academic Focus</p>
-                            <time>Present</time>
-                            <p class="timeline-desc">Specializing in application development, relational databases, and core software engineering principles.</p>
+                            <time>The Present</time>
+                            <p class="timeline-desc">Specializing in application development, relational databases, and core software engineering principles. *The Tome remains unsealed.*</p>
                         </li>
                         <li class="timeline-item">
                             <h3 class="timeline-title">High School Diploma (+2 Science)</h3>
                             <p class="timeline-org">Trinity International College</p>
-                            <p class="timeline-desc">Concentration in Computer Science and Mathematics.</p>
+                            <p class="timeline-desc">Concentration in Computer Science and Mathematics. Initiated into the logic.</p>
                         </li>
                     </ol>
                 </div>
@@ -506,25 +578,25 @@
         <section id="contact" class="contact-section">
             <div class="container">
                 <h2 class="section-title">Initiate Contact</h2>
-                <p class="contact-text">Whether you have a question, a project proposal, or just want to discuss digital logic and web architectures, my inbox is open.</p>
+                <p class="contact-text">Whether you have a query, a project proposal, or just want to discuss digital logic, non-Euclidean architectures, my inbox is open. *Or just listen to the flicker.*</p>
                 
                 <form class="contact-form" action="#" method="POST">
                     <div class="form-group">
-                        <label for="userName">Name</label>
-                        <input type="text" id="userName" name="name" required placeholder="Your Name">
+                        <label for="userName">Name (Identify Yourself)</label>
+                        <input type="text" id="userName" name="name" required placeholder="Identity">
                     </div>
                     
                     <div class="form-group">
-                        <label for="userEmail">Email</label>
-                        <input type="email" id="userEmail" name="email" required placeholder="your.email@example.com">
+                        <label for="userEmail">Email (Contact Frequencies)</label>
+                        <input type="email" id="userEmail" name="email" required placeholder="frequency@dimension.com">
                     </div>
                     
                     <div class="form-group">
-                        <label for="userMessage">Message</label>
-                        <textarea id="userMessage" name="message" required rows="6" placeholder="How can we work together?"></textarea>
+                        <label for="userMessage">Message (The Inquiry)</label>
+                        <textarea id="userMessage" name="message" required rows="6" placeholder="The terms of negotiation?"></textarea>
                     </div>
 
-                    <button type="submit" class="btn-primary form-submit">Send Message</button>
+                    <button type="submit" class="btn-primary form-submit">Send Message / Seal Pact</button>
                 </form>
             </div>
         </section>
@@ -534,16 +606,16 @@
     <footer class="site-footer">
         <div class="container footer-content">
             <div class="social-links">
-                <a href="https://github.com/ashimsh" target="_blank">GitHub</a>
-                <a href="mailto:ashim.shrestha.937@gmail.com">Email</a>
+                <a href="https://github.com/ashimsh" target="_blank">The Tome (GitHub)</a>
+                <a href="mailto:ashim.shrestha.937@gmail.com">Summon via Email</a>
             </div>
             <p class="copyright">
-                &copy; 2026 Ashim Shrestha. Built with precision.
+                &copy; 2026 Ashim Shrestha. *The code watches forever.* Built with precision.
             </p>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu -->
+    <!-- JavaScript for Mobile Menu & Minimal Glitch -->
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
         const navList = document.getElementById('nav-list');
@@ -553,8 +625,10 @@
             // Toggle hamburger to an 'X' symbol when open
             if(navList.classList.contains('active')) {
                 menuBtn.innerHTML = '✕';
+                menuBtn.style.color = '#ff0000';
             } else {
                 menuBtn.innerHTML = '☰';
+                menuBtn.style.color = '#ff0000';
             }
         });
 

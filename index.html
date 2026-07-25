@@ -7,10 +7,10 @@
     <!-- Primary Meta Tags -->
     <title>Ashim Shrestha | Haunted Full-Stack Web Developer</title>
     <meta name="title" content="Ashim Shrestha | Haunted Full-Stack Web Developer">
-    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer and BCA student based in Nepal specializing in PHP, Node.js, and scalable web applications. The site appears to be haunted.">
+    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer and BCA student based in Nepal specializing in PHP, Node.js, and scalable web applications.">
     <meta name="author" content="Ashim Shrestha">
 
-    <!-- Fonts - Adding Gothic and Distressed Fonts for Horror Theme -->
+    <!-- Fonts - Adding 'display=swap' for optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700;800;900&family=Special+Elite&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
@@ -61,7 +61,6 @@
         html { 
             scroll-behavior: smooth;
             transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-            scroll-duration: 2s; /* Note: scroll-duration is experimental, CSS smooth scrolling often handles this internally based on distance */
         }
 
         body {
@@ -79,10 +78,10 @@
         }
 
         /* ==========================================================================
-           User Request Modification: Haunted Flashing Alphabets Effect
+           OPTIMIZED Animation: Haunted Flashing Alphabets Effect
            ========================================================================== */
         body::before {
-            content: "☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ";
+            content: "☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ ☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ";
             position: fixed;
             top: 0;
             left: 0;
@@ -97,20 +96,20 @@
             z-index: 1; /* Above background, below content */
             pointer-events: none; /* User can click through it */
             animation: ghostFlicker 3s infinite;
+            will-change: opacity, transform; /* Hints browser for optimization */
         }
 
+        /* Animated only opacity and transform (cheap) instead of content (expensive) */
         @keyframes ghostFlicker {
-            0% { opacity: 0; transform: translateY(0) scale(1); }
-            5% { opacity: 0.1; }
-            10% { opacity: 0.05; content: "H E L P U S"; }
-            15% { opacity: 0.1; }
-            20% { opacity: 0.03; transform: translateY(-5px); }
-            25% { opacity: 0.08; content: "☠ ✞ ⚰ ☥ ☦ ☧"; }
-            30% { opacity: 0; transform: scale(1.02); }
-            50% { opacity: 0.05; content: "A H L M P T X Z"; }
-            60% { opacity: 0.02; }
-            80% { opacity: 0.1; content: "Φ Ψ Ω ℵ ℑ"; transform: translateY(5px); }
-            100% { opacity: 0; transform: translateY(0) scale(1); }
+            0% { opacity: 0; transform: translateY(0); }
+            10% { opacity: 0.08; }
+            15% { opacity: 0.12; }
+            20% { opacity: 0.05; transform: translateY(-3px); }
+            30% { opacity: 0; }
+            45% { opacity: 0.05; }
+            60% { opacity: 0; }
+            80% { opacity: 0.1; transform: translateY(3px); }
+            100% { opacity: 0; transform: translateY(0); }
         }
 
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -429,11 +428,11 @@
             </button>
 
             <ul id="nav-list" class="nav-list">
-                <li><a href="#projects">Curses (Projects)</a></li>
-                <li><a href="#background">Rituals (Skills & Edu)</a></li>
-                <li><a href="#contact">Initiate Contact</a></li>
+                <li><a href="#projects">Curses</a></li>
+                <li><a href="#background">Rituals</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li>
-                    <a href="resume.pdf" class="btn-primary" target="_blank">The Pact (Resume)</a>
+                    <a href="resume.pdf" class="btn-primary" target="_blank">The Pact</a>
                 </li>
             </ul>
         </nav>
@@ -446,7 +445,7 @@
             <div class="container hero-content">
                 <p class="greeting">It is foreseen. You are here for</p>
                 <h1 class="hero-title">Ashim Shrestha.</h1>
-                <h2 class="hero-subtitle">I engineering cursed solutions for the web.</h2>
+                <h2 class="hero-subtitle">I engineer cursed solutions for the web.</h2>
                 <p class="hero-description">
                     Full-Stack Developer and BCA student specializing in building robust, data-driven web architectures. From complex relational databases to seamless interfaces, I turn logic into digital experiences. *They watch from the code.*
                 </p>
@@ -460,7 +459,7 @@
         <!-- Featured Projects Section -->
         <section id="projects">
             <div class="container">
-                <h2 class="section-title">Major Rituals (Featured Work)</h2>
+                <h2 class="section-title">Major Rituals</h2>
 
                 <!-- Centerpiece: Bus Ticket Booking -->
                 <article class="project-showcase">
@@ -506,7 +505,7 @@
 
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Automated Video Generation Pipeline</h4>
+                            <h4 class="card-title">Automated Video Pipeline</h4>
                             <p class="card-description">Exploratory project generating short-form AI video content tailored for social algorithms and rapid distribution. It sees what you watch.</p>
                         </header>
                         <footer>
@@ -519,7 +518,7 @@
 
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Mathematical Formula Reference</h4>
+                            <h4 class="card-title">Math Formula Reference</h4>
                             <p class="card-description">Programmed comprehensive, pixel-perfect typesetting for advanced Calculus and Geometry equations. The geometry is non-Euclidean.</p>
                         </header>
                         <footer>
@@ -556,10 +555,10 @@
                 </div>
 
                 <div class="education-wrapper">
-                    <h2 class="section-title">Initiations (Education)</h2>
+                    <h2 class="section-title">Initiations</h2>
                     <ol class="timeline">
                         <li class="timeline-item">
-                            <h3 class="timeline-title">Bachelor of Computer Applications (BCA)</h3>
+                            <h3 class="timeline-title">Computer Applications (BCA)</h3>
                             <p class="timeline-org">Current Academic Focus</p>
                             <time>The Present</time>
                             <p class="timeline-desc">Specializing in application development, relational databases, and core software engineering principles. *The Tome remains unsealed.*</p>
@@ -582,17 +581,17 @@
                 
                 <form class="contact-form" action="#" method="POST">
                     <div class="form-group">
-                        <label for="userName">Name (Identify Yourself)</label>
+                        <label for="userName">Name</label>
                         <input type="text" id="userName" name="name" required placeholder="Identity">
                     </div>
                     
                     <div class="form-group">
-                        <label for="userEmail">Email (Contact Frequencies)</label>
+                        <label for="userEmail">Email</label>
                         <input type="email" id="userEmail" name="email" required placeholder="frequency@dimension.com">
                     </div>
                     
                     <div class="form-group">
-                        <label for="userMessage">Message (The Inquiry)</label>
+                        <label for="userMessage">Message</label>
                         <textarea id="userMessage" name="message" required rows="6" placeholder="The terms of negotiation?"></textarea>
                     </div>
 
@@ -606,8 +605,8 @@
     <footer class="site-footer">
         <div class="container footer-content">
             <div class="social-links">
-                <a href="https://github.com/ashimsh" target="_blank">The Tome (GitHub)</a>
-                <a href="mailto:ashim.shrestha.937@gmail.com">Summon via Email</a>
+                <a href="https://github.com/ashimsh" target="_blank">Tome (GitHub)</a>
+                <a href="mailto:ashim.shrestha.937@gmail.com">Summon (Email)</a>
             </div>
             <p class="copyright">
                 &copy; 2026 Ashim Shrestha. *The code watches forever.* Built with precision.

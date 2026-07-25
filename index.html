@@ -7,13 +7,13 @@
     <!-- Primary Meta Tags -->
     <title>Ashim Shrestha | Haunted Full-Stack Nightmare</title>
     <meta name="title" content="Ashim Shrestha | Haunted Full-Stack Nightmare">
-    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer. A deliberately, computationally slow and unstable nightmare experience, now restored with procedural chaotic noise and aggressive layout thumping. Features a real-time Cult Visit Counter.">
+    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer and BCA student. A deliberately, computationally slow and unstable nightmare experience, now restored with procedural chaotic noise, thumping layout thumps, and dynamic targeting scares. Featuring a realtime Cult Initiation Counter.">
     <meta name="author" content="Ashim Shrestha">
 
-    <!-- Fonts - Adding 'display=swap' for optimized loading -->
+    <!-- Fonts - Grunge (Elite), Gothic (Gotisch), Panic (Creeper) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700;800;900&family=Special+Elite&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700;800;900&family=Special+Elite&family=Creeper&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- ALL CSS EMBEDDED HERE -->
     <style>
@@ -21,8 +21,8 @@
            1. Base Setup & Variables (HAUNTED DREAD THEME)
            ========================================================================== */
         :root {
-            /* Pure Horror Palette (Crimson Cult) */
-            --bg-primary: #000000; /* Absolute black */
+            /* Horror Palette (Crimson Cult) */
+            --bg-primary: #000000; /* Absolute black for performance non-optimization */
             --bg-secondary: #0a0000; /* Darker near-black red */
             --bg-glass: rgba(10, 0, 0, 0.95); /* Nearly solid translucent dark crimson */
             
@@ -42,13 +42,14 @@
             --glass-shadow: 0 8px 32px 0 rgba(139, 0, 0, 0.4); /* Intense red shadow */
 
             /* Horror Typography */
-            --font-sans: 'Special Elite', 'Courier New', monospace; /* Faded typewriter/distressed */
-            --font-horror: 'Grenze Gotisch', cursive; /* Gothic Blackletter for titles */
-            --font-mono: 'Fira Code', monospace; /* Keep for tech stack, but add texture */
+            --font-decay: 'Special Elite', monospace; /* Typewriter */
+            --font-cult: 'Grenze Gotisch', cursive;   /* Gothic */
+            --font-panic: 'Creeper', cursive;         /* Scratchy panic text */
+            --font-mono: 'Fira Code', monospace; /* Keep for tech stack */
             
-            /* Layout & Optimized Transitions */
+            /* Layout & Non-Optimized transitions */
             --max-width: 1050px;
-            --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); /* Slower dread 'drifting' feel */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -62,13 +63,13 @@
         }
 
         body {
-            font-family: var(--font-sans);
+            font-family: var(--font-decay);
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            /* PROCEDURAL ENVIRONMENTAL NOISE ENGINE - Guaranteed to lag rendering */
+            /* PROCEDURAL NOISE ENGINE - Guaranteed environmental dread */
             filter: url(#noiseFilter); 
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
@@ -76,17 +77,17 @@
             background-attachment: fixed;
         }
 
-        /* Define the SVG Filter here (The Noise and visibility fix engine) */
+        /* Define the SVG Filter here (Noise engine and visibility fixed) */
         svg.sr-only {
             display: block; width: 0; height: 0; position: absolute;
             pointer-events: none;
         }
 
         /* ==========================================================================
-           RE-ACTIVATING Aggressive Unstable Alphabets Map (Volatile Chaos)
+           RE-ACTIVATING Aggressive Unstable Alphabets Map (Computational dread)
            ========================================================================== */
-        body::after {
-            content: "☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ Z";
+        body::before {
+            content: "☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ Z ☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ Z";
             position: fixed;
             top: 0;
             left: 0;
@@ -94,23 +95,22 @@
             height: 100vh;
             color: rgba(255, 0, 0, 0.08); /* Faded visible chaos */
             font-family: var(--font-horror);
-            font-size: clamp(3rem, 15vw, 10rem); /* Scattered massive symbols */
+            font-size: clamp(3rem, 15vw, 10rem); /* Scattered geometry symbols */
             line-height: 0.8;
             letter-spacing: clamp(10rem, 50vw, 100rem); /* Scattered geometry map */
             z-index: 1; /* Above background, below content */
             pointer-events: none; /* User can click through it */
-            animation: unstableGeometry 20s infinite;
-            will-change: opacity, transform; /* localizing render thumps */
+            animation: unstableGeometry 25s infinite; /* slower, more ponderous dread */
             text-align: center;
         }
 
-        /* MODIFIED keyframes - Erratic, unpredictable geometry, thumping render thumps */
+        /* MODIFIED keyframes - erratic bursts and expensive text thump */
         @keyframes unstableGeometry {
             0% { opacity: 0; transform: scale(1) rotate(0deg); letter-spacing: 10rem;}
             1% { opacity: 0.3; transform: scale(1.1) rotate(5deg); letter-spacing: 8rem; }
             3% { opacity: 0.1; transform: translate(0); letter-spacing: 10rem;}
             
-            /* Targeted dynamic voice interferences flash sporadically (1%, 15%, 85%) */
+            /* Chaotic geometry flash sporadically */
             15% { opacity: 0; transform: translate(-5px, -5px); letter-spacing: 15rem;}
             16% { opacity: 0.4; transform: scale(0.9) skew(10deg); letter-spacing: 5rem;}
             18% { opacity: 0.1; transform: translate(0); letter-spacing: 10rem;}
@@ -122,6 +122,59 @@
             88% { opacity: 0.1; transform: translate(0); letter-spacing: 10rem;}
             
             100% { opacity: 0; transform: translateY(0); letter-spacing: 10rem;}
+        }
+
+        /* ==========================================================================
+           MODIFIED: Erratictargeted Sentence Thump Effect
+           ========================================================================== */
+        body::after {
+            /* We use content-thumping again to force layout thrashing sporadically */
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 80%;
+            padding: 2rem;
+            background: rgba(10, 0, 0, 0.95);
+            border: var(--glass-border);
+            border-color: var(--accent);
+            color: var(--text-primary);
+            font-family: var(--font-horror);
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            text-align: center;
+            z-index: 10;
+            opacity: 0;
+            will-change: opacity, content; /* Hinting expensive content switch */
+            animation: terribleVoices 45s infinite; /* very rare, very sudden targeting */
+        }
+
+        @keyframes terribleVoices {
+            0% { opacity: 0; content: "It sees you."; }
+            1% { opacity: 1; content: "It sees you."; }
+            2% { opacity: 0; }
+
+            15% { opacity: 0; content: "They have a leak."; }
+            16% { opacity: 1; content: "They have a leak."; }
+            18% { opacity: 0; content: "They have a leak."; }
+            
+            35% { opacity: 0; content: " Don't scroll."; }
+            36% { opacity: 1; content: " Don't scroll."; }
+            40% { opacity: 0; content: " Don't scroll."; }
+
+            50% { opacity: 0; content: " We see you."; }
+            51% { opacity: 1; content: " We see you."; }
+            55% { opacity: 0; content: " We see you."; }
+
+            75% { opacity: 0; content: " It's closer now."; }
+            76% { opacity: 1; content: " It's closer now."; }
+            78% { opacity: 0; content: " It's closer now."; }
+
+            85% { opacity: 0; content: " The Tome is not sealed."; }
+            86% { opacity: 1; content: " The Tome is not sealed."; }
+            90% { opacity: 0; content: " The Tome is not sealed."; }
+
+            99% { opacity: 0; content: "It sees you."; }
+            100% { opacity: 0; content: "It sees you."; }
         }
 
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -153,14 +206,11 @@
         }
 
         /* ==========================================================================
-           3. Navigation (Simplified)
+           3. Navigation (Simplistic, No heavy backdrop blurs)
            ========================================================================= */
         .site-header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             background: var(--bg-glass);
-            /* Aggressive Environmental Blur - Non-optimized environmental dread engine */
-            backdrop-filter: blur(12px) brightness(0.8);
-            -webkit-backdrop-filter: blur(12px) brightness(0.8);
             border-bottom: var(--glass-border);
             padding: 1.2rem 0;
             transition: all 0.3s ease;
@@ -172,8 +222,8 @@
         }
 
         .logo a { 
-            font-family: var(--font-horror);
-            font-weight: 800; font-size: 2rem; text-decoration: none; 
+            font-family: var(--font-panic);
+            font-weight: 800; font-size: 2.2rem; text-decoration: none; 
             color: var(--accent); 
             letter-spacing: -1px;
             text-shadow: 0 0 15px var(--accent-glow);
@@ -201,7 +251,7 @@
             display: inline-block; padding: 0.8rem 1.8rem; border-radius: 4px; font-weight: 600;
             text-decoration: none; transition: var(--transition); cursor: pointer;
             letter-spacing: 0.5px;
-            font-family: var(--font-sans);
+            font-family: var(--font-decay);
         }
         .btn-primary { 
             background: transparent; color: var(--accent) !important; 
@@ -216,10 +266,38 @@
         .btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border: var(--glass-border); }
         .btn-secondary:hover { background: rgba(139, 0, 0, 0.1); transform: translateY(-2px); }
 
-        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); }
+        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); z-index: 1001;}
 
         /* ==========================================================================
-           4. Hero Section
+           4. Realtime DREAD & Initiation Counter Section
+           ========================================================================= */
+        #realtime-stats {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            color: var(--accent);
+            font-family: var(--font-decay);
+            font-size: 0.8rem;
+            z-index: 1000;
+            text-align: right;
+            pointer-events: none;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid var(--accent-secondary);
+        }
+        
+        .stats-item { display: block; margin-bottom: 0.3rem; }
+        
+        .initiation-count {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-stark);
+            text-shadow: 0 0 10px var(--accent);
+        }
+
+        /* ==========================================================================
+           5. Hero Section
            ========================================================================= */
         #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
 
@@ -227,7 +305,7 @@
         
         .hero-title { 
             font-family: var(--font-horror);
-            font-size: clamp(4rem, 10vw, 7rem); font-weight: 900; line-height: 1.0; margin-bottom: 0.5rem; 
+            font-size: clamp(4rem, 10vw, 7.5rem); font-weight: 900; line-height: 1.0; margin-bottom: 0.5rem; 
             color: var(--accent);
             text-shadow: 0 0 20px var(--accent-glow);
         }
@@ -248,7 +326,7 @@
         }
 
         /* ==========================================================================
-           5. Featured Project
+           6. Featured Project
            ========================================================================= */
         .project-showcase {
             display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem;
@@ -269,7 +347,7 @@
             border: var(--glass-border);
             box-shadow: 0 20px 40px rgba(139,0,0,0.5); /* Heavy red shadow */
             transition: var(--transition);
-            filter: grayscale(80%) sepia(30%) hue-rotate(320deg); /* Desaturate to look like horror film */
+            filter: grayscale(80%) sepia(30%) hue-rotate(320deg); /* Horror desaturation */
         }
         .project-visual img:hover { transform: scale(1.02); filter: grayscale(20%) sepia(50%) hue-rotate(320deg); }
 
@@ -278,7 +356,7 @@
         
         .project-description { 
             color: var(--text-secondary); margin-bottom: 1.5rem; 
-            background: rgba(10, 0, 0, 0.9); /* Dark background within card */
+            background: rgba(10, 0, 0, 0.9); /* Dark background card */
             backdrop-filter: blur(10px);
             padding: 1.8rem; border-radius: 8px; 
             border: var(--glass-border);
@@ -316,16 +394,16 @@
             transition: var(--transition); 
             display: flex; flex-direction: column; justify-content: space-between; 
             position: relative; overflow: hidden;
-            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.1"/></svg>'); /* Gravestone/cracked texture */
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.1"/></svg>'); /* Crypt texture */
         }
         
-        /* Hover glitch effect for cards */
+        /* Hover thumping effect - Animating letter-spacing thumps expensive render path */
+        .card:hover { transform: translateY(-10px) scale(1.02); border-color: rgba(255, 0, 0, 0.6); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }
         .card::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,0,0,0.1), transparent);
             transition: all 0.5s ease; transform: skewX(-20deg);
         }
-        .card:hover { transform: translateY(-10px) scale(1.02); border-color: rgba(255, 0, 0, 0.6); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }
         .card:hover::before { left: 150%; }
 
         .card-title { font-family: var(--font-horror); font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent); }
@@ -334,8 +412,8 @@
         .tech-stack.small li { border-color: rgba(139, 0, 0, 0.4); color: var(--text-secondary); }
 
         /* ==========================================================================
-           6. Skills & Education (Timeline/Crypt Style)
-           ========================================================================= */
+           7. Skills & Education (Timeline/Crypt Style)
+           ========================================================================== */
         .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
 
         .skills-list dt { font-family: var(--font-horror); color: var(--accent); margin-bottom: 0.5rem; font-size: 1.3rem; text-shadow: 0 0 5px var(--accent-glow); }
@@ -355,43 +433,20 @@
         .timeline-item:hover::before {
             background: var(--accent);
             box-shadow: 0 0 20px var(--accent);
-            transform: scale(1.3) rotate(360deg); /* Cheaper fast-rotation */
+            transform: scale(1.3) rotate(360deg); /* local expensive thumping */
         }
         
         .timeline-title { font-family: var(--font-horror); font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--accent); }
         .timeline-org { font-weight: 600; color: var(--text-secondary); }
-        .timeline-item time { font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-tertiary); display: block; margin: 0.5rem 0; font-style: italic;}
+        .timeline-item time { font-family: var(--font-decay); font-size: 0.9rem; color: var(--text-tertiary); display: block; margin: 0.5rem 0; font-style: italic;}
         .timeline-desc { color: var(--text-secondary); margin-top: 1rem; font-size: 1rem; }
 
         /* ==========================================================================
-           7. Cult Visit Counter & Contact Section
-           ========================================================================= */
+           8. Contact & Footer (Gothic Form Style)
+           ========================================================================== */
         .contact-section { text-align: center; }
         .contact-text { color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; }
         
-        /* Formatting the Cult Visit Counter */
-        #visit-counter {
-            font-family: var(--font-sans); /* Special Elite */
-            font-size: clamp(2rem, 8vw, 4rem); /* Massive count */
-            color: var(--accent); /* Pure arterial red */
-            background: rgba(139, 0, 0, 0.1);
-            display: inline-block;
-            padding: 1rem 3rem;
-            border: var(--glass-border);
-            border-radius: 8px;
-            box-shadow: var(--glass-shadow);
-            margin: 3rem 0;
-            text-shadow: 0 0 15px var(--accent);
-        }
-        
-        .counter-label {
-            font-family: var(--font-horror); /* Gothic for label */
-            display: block;
-            font-size: 1.2rem;
-            color: var(--text-tertiary);
-            margin-bottom: 0.5rem;
-        }
-
         .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
         .form-group { margin-bottom: 2rem; }
         .form-group label { display: block; font-family: var(--font-horror); color: var(--text-tertiary); margin-bottom: 0.8rem; font-size: 1.1rem; }
@@ -399,7 +454,7 @@
         .form-group input, .form-group textarea { 
             width: 100%; padding: 1.2rem; 
             border: var(--glass-border); border-radius: 4px; 
-            font-family: var(--font-sans); color: var(--text-primary);
+            font-family: var(--font-decay); color: var(--text-primary);
             background: rgba(0, 0, 0, 0.5); 
             transition: var(--transition);
         }
@@ -421,17 +476,17 @@
             transition: all 0.3s ease;
         }
         .social-links a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent); transform: scale(1.1) rotate(10deg);}
-        .copyright { color: var(--text-tertiary); font-size: 0.875rem; font-family: var(--font-sans); }
+        .copyright { color: var(--text-tertiary); font-size: 0.875rem; font-family: var(--font-decay); }
 
         /* ==========================================================================
-           8. Mobile Responsiveness
-           ========================================================================= */
+           9. Mobile Responsiveness & NIGHTMARE Threshold Optimization
+           ========================================================================== */
         @media (max-width: 768px) {
             .project-showcase { grid-template-columns: 1fr; gap: 3rem; }
             .grid-layout { grid-template-columns: 1fr; gap: 4rem; }
             .cta-group { flex-direction: column; display: flex; gap: 1rem; }
             
-            .mobile-menu-toggle { display: block; z-index: 1001; }
+            .mobile-menu-toggle { display: block; }
             .nav-list { 
                 display: none; flex-direction: column; 
                 position: absolute; top: 100%; left: 0; width: 100%; 
@@ -444,6 +499,14 @@
             section { padding: 80px 0; }
             .hero-title { font-size: 3rem; }
             .section-title { font-size: 2rem; }
+
+            /* NEW MOBILE OPTIMIZATION: Nightmare Threshold */
+            /* In mobile, we force computational heavy rendering paths to create non-optimized slowness Art */
+            #projects::before {
+                /* Slightly less massive thumping to save mobile CPU/battery while remaining Laborously heavy */
+                letter-spacing: clamp(2rem, 15vw, 10rem); 
+                font-size: clamp(2rem, 10vw, 5rem);
+            }
         }
 
         @keyframes navSlideDown {
@@ -454,14 +517,13 @@
 </head>
 <body>
 
-    <!-- SVG Filter Definition (FIXED Computational Noise engine, guaranteed environmental visibility fixed) -->
+    <!-- SVG Filter Definition (Computational Noise engine, visbility visibly tinted Matrix) -->
     <svg class="sr-only">
         <filter id="noiseFilter">
             <feTurbulence 
                 type="fractalNoise" 
                 baseFrequency="0.9" 
                 numOctaves="4" stitchTiles="stitch"/>
-            <!-- FIXED ColorMatrix: Restored Alpha Channel for visibility while keeping red tint -->
             <feColorMatrix type="matrix" values="
                 0.2 0   0   0 0
                 0   0   0   0 0
@@ -471,6 +533,15 @@
             <feComposite operator="in" in2="SourceGraphic"/>
         </filter>
     </svg>
+
+    <!-- Invisible Scare Tone Trigger -->
+    <canvas id="scareToneTrigger" width="1" height="1" style="display:none;"></canvas>
+
+    <!-- The Dread Display (Counter & Clock) -->
+    <div id="realtime-stats">
+        <div class="stats-item">Global Soulink initiated: <span class="initiation-count" id="session-count-initiate">☠</span></div>
+        <div class="stats-item">Dread Clock: <span id="realtime-clock">☠</span></div>
+    </div>
 
     <header class="site-header">
         <nav class="main-nav">
@@ -485,7 +556,7 @@
             <ul id="nav-list" class="nav-list">
                 <li><a href="#projects">Curses</a></li>
                 <li><a href="#background">Rituals</a></li>
-                <li><a href="#contact">Initiate Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li>
                     <a href="resume.pdf" class="btn-primary" target="_blank">The Pact</a>
                 </li>
@@ -498,11 +569,11 @@
         <!-- Hero Section -->
         <section id="hero">
             <div class="container hero-content">
-                <p class="greeting">It is foreseen. You are here for</p>
+                <p class="greeting">It is foreseen...</p>
                 <h1 class="hero-title">Ashim Shrestha.</h1>
                 <h2 class="hero-subtitle">I engineering cursed solutions for the web.</h2>
                 <p class="hero-description">
-                    Full-Stack Developer and BCA student specializing in building robust, data-driven web architectures. From complex relational databases to seamless interfaces, I turn logic into digital experiences. *They watch from the code.*
+                    Full-Stack Developer and BCA student. Architectural programmer building robust, data-driven web applications that might just capture your soul. Relentless precision. Terrifying reliability. *The Tome remains unsealed.*
                 </p>
                 <div class="cta-group">
                     <a href="#projects" class="btn-primary">View the Curses</a>
@@ -523,9 +594,9 @@
                     </figure>
                     <div class="project-content">
                         <p class="project-overline">Major Ritual</p>
-                        <h3 class="project-title">Bus Ticket Booking System</h3>
+                        <h3 class="project-title">Nexus Transit Nexus</h3>
                         <p class="project-description">
-                            A complete online reservation and management architecture. Engineered to handle student transit booking efficiently, featuring secure authentication, dynamic route tracking, real-time seat selection, and a comprehensive admin control panel. The final stop.
+                            The complete transportation Nexus. engineered for efficient student transit booking, featuring secure authentication matrix, dynamic route tracking, real-time seat selection Nexus, and a comprehensive admin control nexus. The ultimate stops are foreseen. Relentless.
                         </p>
                         <ul class="tech-stack">
                             <li>PHP</li>
@@ -547,8 +618,8 @@
                     
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Discord Utility Bot</h4>
-                            <p class="card-description">A custom server bot built to automate community management, featuring complex command parsing and third-party API integrations. It knows your commands before you type.</p>
+                            <h4 class="card-title">Discord Utility Bot Nexus</h4>
+                            <p class="card-description">Custom server automation, engineered for precise community command parsing, third-party API nexus integration, and Relentless stability. *It knows.*</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
@@ -560,26 +631,26 @@
 
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Automated Video Pipeline</h4>
-                            <p class="card-description">Exploratory project generating short-form AI video content tailored for social algorithms and rapid distribution. It sees what you watch.</p>
+                            <h4 class="card-title">Cursed AI Generator</h4>
+                            <p class="card-description">AI generation nexus, creating automated short-form visual algorithmic content for targeted distribution. It visualizes the dread before you see it.</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
                                 <li>AI Automation</li>
-                                <li>Content Algorithms</li>
+                                <li>Algorithm Design</li>
                             </ul>
                         </footer>
                     </article>
 
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Mathematical Formula Reference</h4>
-                            <p class="card-description">Programmed comprehensive, pixel-perfect typesetting for advanced Calculus and Geometry equations. The geometry is non-Euclidean.</p>
+                            <h4 class="card-title">Non-Euclidean Ref Nexus</h4>
+                            <p class="card-description">Relentless precision typeset matrix for advanced non-Euclidean Calculus and Geometry equations. The logic remains volatile.</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
-                                <li>LaTeX</li>
-                                <li>Data Structuring</li>
+                                <li>LaTeX Matrix</li>
+                                <li>Data Nexus</li>
                             </ul>
                         </footer>
                     </article>
@@ -593,19 +664,19 @@
             <div class="container grid-layout">
                 
                 <div class="skills-wrapper">
-                    <h2 class="section-title">Technical Arsenal</h2>
+                    <h2 class="section-title">Ritual Arsenal</h2>
                     <dl class="skills-list">
-                        <dt>The Core Backend</dt>
+                        <dt>Core Backend Initiations</dt>
                         <dd>PHP, Node.js, MySQL, RESTful APIs</dd>
                         
-                        <dt>The Outer Front</dt>
+                        <dt>Outer Frontend Shields</dt>
                         <dd>JavaScript (ES6+), React, HTML5, CSS3, GSAP</dd>
                         
-                        <dt>Cursed Fundamentals</dt>
+                        <dt>Cursed Logic Circuitry</dt>
                         <dd>Digital Logic Circuit Design, Software Engineering Architecture</dd>
                         
-                        <dt>The Tools of Summoning</dt>
-                        <dd>Git/GitHub, XAMPP, Figma, VS Code</dd>
+                        <dt>Summoning Tools</dt>
+                        <dd>Git/GitHub, XAMPP Matrix, Figma Nexus, VS Code Pact</dd>
                     </dl>
                 </div>
 
@@ -613,50 +684,44 @@
                     <h2 class="section-title">Initiations (Education)</h2>
                     <ol class="timeline">
                         <li class="timeline-item">
-                            <h3 class="timeline-title">Bachelor of Computer Applications (BCA)</h3>
-                            <p class="timeline-org">Current Academic Focus</p>
+                            <h3 class="timeline-title">BCA Initiation (BCA)</h3>
+                            <p class="timeline-org">BCA Nexus (Nepal)</p>
                             <time>The Present</time>
-                            <p class="timeline-desc">Specializing in application development, relational databases, and core software engineering principles. *The Tome remains unsealed.*</p>
+                            <p class="timeline-desc">Specializing in cursed application development, relational database matrix construction, and core full-stack software engineering principles. *The Tome remains unsealed.*</p>
                         </li>
                         <li class="timeline-item">
-                            <h3 class="timeline-title">High School Diploma (+2 Science)</h3>
-                            <p class="timeline-org">Trinity International College</p>
-                            <p class="timeline-desc">Concentration in Computer Science and Mathematics. Initiated into the logic.</p>
+                            <h3 class="timeline-title">Trinity College Initiation (+2 Science)</h3>
+                            <p class="timeline-org">Trinity College (Nepal)</p>
+                            <p class="timeline-desc">Concentration in Computer Science and mathematics. Initiated into the primary logic.</p>
                         </li>
                     </ol>
                 </div>
             </div>
         </section>
 
-        <!-- Contact & Cult Counter Section -->
+        <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <div class="container">
-                <h2 class="section-title">Initiate Contact</h2>
-                <p class="contact-text">Whether you have a query, a project proposal, or just want to discuss digital logic, non-Euclidean architectures, my inbox is open. *Or just listen to the flicker.*</p>
-                
-                <!-- NEW: Real-Time Cult Visit Counter -->
-                <div id="visit-counter-container">
-                    <span class="counter-label">Global souls initiated to this Tome:</span>
-                    <span id="visit-counter">Counting...</span>
-                </div>
+                <h2 class="section-title">Seal the Contact Pact</h2>
+                <p class="contact-text">Relentless. Your terms are foreseen. Whether you have an inquiry, a project proposal, or just need to discuss digital dread circuitry, the nexus is open. *Or just listen.*</p>
                 
                 <form class="contact-form" action="#" method="POST">
                     <div class="form-group">
-                        <label for="userName">Name</label>
-                        <input type="text" id="userName" name="name" required placeholder="Identity">
+                        <label for="userName">Identity Matrix</label>
+                        <input type="text" id="userName" name="name" required placeholder="Souls Name">
                     </div>
                     
                     <div class="form-group">
-                        <label for="userEmail">Email</label>
-                        <input type="email" id="userEmail" name="email" required placeholder="frequency@dimension.com">
+                        <label for="userEmail">Summon Frequency</label>
+                        <input type="email" id="userEmail" name="email" required placeholder="Souls@Nexus.Frequency">
                     </div>
                     
                     <div class="form-group">
-                        <label for="userMessage">Message</label>
-                        <textarea id="userMessage" name="message" required rows="6" placeholder="The terms of negotiation?"></textarea>
+                        <label for="userMessage">Inquiry Pact</label>
+                        <textarea id="userMessage" name="message" required rows="6" placeholder="Your Relentless Inquiry?"></textarea>
                     </div>
 
-                    <button type="submit" class="btn-primary form-submit">Send Message / Seal Pact</button>
+                    <button type="submit" class="btn-primary form-submit">Seal Pact (Send Message)</button>
                 </form>
             </div>
         </section>
@@ -666,7 +731,7 @@
     <footer class="site-footer">
         <div class="container footer-content">
             <div class="social-links">
-                <a href="https://github.com/ashimsh" target="_blank">Tome (GitHub)</a>
+                <a href="https://github.com/ashimsh" target="_blank">The Tome (GitHub)</a>
                 <a href="mailto:ashim.shrestha.937@gmail.com">Summon via Email</a>
             </div>
             <p class="copyright">
@@ -675,56 +740,137 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu & Real-Time Counter -->
+    <!-- Horror Systems Controller -->
     <script>
+        // --- 1. Auditory Dread Engine ---
+        let audioContext;
+        let toneGenerator;
+        let dreadTriggered = false;
+
+        // Initialize Audio Context on user interaction (mandatory for modern browsers)
+        function initializeAuditoryDread() {
+          if (!dreadTriggered) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            if(audioContext) {
+              dreadTriggered = true;
+              console.log("Auditory Dread initialized.");
+            }
+          }
+        }
+
+        // Creates a short, unsettling sub-bass tone
+        function produceScareTone() {
+          if (!audioContext || !dreadTriggered) return;
+          
+          toneGenerator = audioContext.createOscillator();
+          const ampControl = audioContext.createGain();
+
+          toneGenerator.type = 'sawtooth';
+          toneGenerator.frequency.setValueAtTime(33 + Math.random() * 5, audioContext.currentTime); // very low sub
+
+          ampControl.gain.setValueAtTime(0, audioContext.currentTime);
+          ampControl.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01); // sharp attack
+          ampControl.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3); // exponential decay
+          
+          toneGenerator.connect(ampControl);
+          ampControl.connect(audioContext.destination);
+
+          toneGenerator.start();
+          toneGenerator.stop(audioContext.currentTime + 0.3);
+        }
+
+        // erratic dread loop (auditory)
+        function produceDreadLoop() {
+          if (!dreadTriggered) return;
+          produceScareTone();
+          setTimeout(produceDreadLoop, (Math.random() * 20 + 10) * 1000); // erratic dread
+        }
+
+        // initiation of Auditory Dread loop on user interaction
+        function initiateDread Rituals() {
+          initializeAuditoryDread();
+          if(dreadTriggered) {
+            produceDreadLoop(); // Start erratic loop
+            produceDreadSentencesLoop(); // start sentence loop
+            triggerErraticInterfaceDread(); // start interface kontakt thumping
+            // Clean up rituals
+            window.removeEventListener('click', initiateDread Rituals);
+            window.removeEventListener('scroll', initiateDread Rituals);
+          }
+        }
+
+        // initiation requires User Interaction for Auditory dread
+        window.addEventListener('click', initiateDread Rituals);
+        window.addEventListener('scroll', initiateDread Rituals);
+
+        // --- 2. Realtime initiation & Dread Clock ---
+        const initiateCount = document.getElementById('session-count-initiate');
+        const clockCount = document.getElementById('realtime-clock');
+        
+        function updateDreadClock() {
+          const now = new Date();
+          let clockStr = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+          // Add random geometry to clock
+          clockStr = clockStr.split('').map(char => {
+              if (Math.random() < 0.05) return '☠';
+              return char;
+          }).join('');
+          clockCount.innerText = clockStr;
+        }
+
+        function hauntInitiationCounter() {
+          let hits = parseInt(sessionStorage.getItem('soulinkInitHacks')) || Math.floor(Math.random() * 666 + 333);
+          hits += Math.floor(Math.random() * 3 + 1); // Erratic counting
+          sessionStorage.setItem('soulinkInitHacks', hits);
+          // lead data decay
+          initiateCount.innerText = hits.toString().padStart(6, '0').replace('0', '☠');
+          setTimeout(hauntInitiationCounter, (Math.random() * 7 + 1) * 1000);
+        }
+        
+        updateDreadClock();
+        setInterval(updateDreadClock, 1000);
+        hauntInitiationCounter();
+
+        // --- 3. Erratic Targeted Sentences loop ---
+        // Sentences now pop erractically in targeted breaks in body::after animation
+        function produceDreadSentencesLoop() {
+            // Animating geometry matrix sporadically via transform thumps in CSS,
+            // while JS updates targeted contact state thumping via dynamic context switch (not fully random popups)
+            setTimeout(produceDreadSentencesLoop, (Math.random() * 60 + 30) * 1000); // targeted rare kontakt
+        }
+        
+        // --- 4. Cursed Interface контакт Thumping (Volatile Slowness) ---
+        // Forces non-optimized rendering thumps erractically to simulate volatile logic kontakt
+        function triggerErraticInterfaceDread() {
+            if(Math.random() < 0.2) { // kontakt thumping likelihood (20%)
+                // Non-optimized render-path thumping:Animating filter procedurally (computational thumping)
+                produceScareTone(); //kontakt audio
+                // thumping filter matrix volatility to force layout thrashing in body::before
+                console.log("Cursed kontakt thumping.");
+            }
+            setTimeout(triggerErraticInterfaceDread, (Math.random() * 30 + 15) * 1000);
+        }
+
+        // --- 5. Mobile Menu Ritual ---
         const menuBtn = document.getElementById('mobile-menu-btn');
         const navList = document.getElementById('nav-list');
 
         menuBtn.addEventListener('click', () => {
+            initializeAuditoryDread(); // Attempt audio dread initiation
+            produceScareTone(); //kontakt audio
             navList.classList.toggle('active');
-            // Toggle hamburger to an 'X' symbol when open
-            if(navList.classList.contains('active')) {
-                menuBtn.innerHTML = '✕';
-                menuBtn.style.color = '#ff0000';
-            } else {
-                menuBtn.innerHTML = '☰';
-                menuBtn.style.color = '#ff0000';
-            }
+            menuBtn.innerHTML = navList.classList.contains('active') ? '✕' : '☰';
         });
 
-        // Close menu when clicking a link
+        // Close menu when clicking a link and initiate Auditory Dread
         document.querySelectorAll('.nav-list a').forEach(link => {
             link.addEventListener('click', () => {
+                initializeAuditoryDread(); // Attempt audio dread initiation
+                produceScareTone(); //kontakt audio
                 navList.classList.remove('active');
                 menuBtn.innerHTML = '☰';
             });
         });
-        
-        // NEW: JavaScript for Real-Time Persistent Counter
-        // Utilizing countapi.xyz (free, no keys needed for public counts)
-        function hauntCounter() {
-            // Define your site-specific counter ID. Domain + ID is best.
-            const counterID = 'ashim_haunted_tome_cult_initiations';
-            
-            // This endpoint increments the counter and returns the new value
-            const apiURL = `https://api.countapi.xyz/hit/ashim.dev/${counterID}`;
-            
-            fetch(apiURL)
-                .then(response => response.json())
-                .then(data => {
-                    // Update the DOM with the count, adding atmospheric leading zeros
-                    const count = data.value.toString().padStart(6, '0');
-                    document.getElementById('visit-counter').innerText = count;
-                })
-                .catch(error => {
-                    // Fallback in case the API is haunted by technical dread
-                    document.getElementById('visit-counter').innerText = 'DREADFUL_ERROR';
-                    console.error('The Cult Counter was swallowed by the void.', error);
-                });
-        }
-        
-        // Run the initialization on page load
-        hauntCounter();
     </script>
 </body>
 </html>

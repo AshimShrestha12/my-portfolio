@@ -5,212 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- Primary Meta Tags -->
-    <title>Ashim Shrestha | Haunted Full-Stack Nightmare</title>
-    <meta name="title" content="Ashim Shrestha | Haunted Full-Stack Nightmare">
-    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer and BCA student. A deliberately, computationally slow and unstable nightmare experience, now restored with procedural chaotic noise, thumping layout thumps, and dynamic targeting scares. Featuring a realtime Cult Initiation Counter.">
+    <title>Ashim Shrestha | Clean & High-Visibility Web Developer</title>
+    <meta name="title" content="Ashim Shrestha | Clean & High-Visibility Web Developer">
+    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer and BCA student based in Nepal. A redesigned experience focused on standard high-contrast visibility, fast-rendering performance, and optimal usability. Specialist in PHP, Node.js, and data-driven web applications.">
     <meta name="author" content="Ashim Shrestha">
 
-    <!-- Fonts - Grunge (Elite), Gothic (Gotisch), Panic (Creeper) -->
+    <!-- Factual Developer Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700;800;900&family=Special+Elite&family=Creeper&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- ALL CSS EMBEDDED HERE -->
+    <!-- ALL CSS EMBEDDED HERE (High-Visibility & Fast) -->
     <style>
         /* ==========================================================================
-           1. Base Setup & Variables (HAUNTED DREAD THEME)
+           1. Base Setup (Cyber-Neon High-Contrast Theme)
            ========================================================================== */
         :root {
-            /* Horror Palette (Crimson Cult) */
-            --bg-primary: #000000; /* Absolute black for performance non-optimization */
-            --bg-secondary: #0a0000; /* Darker near-black red */
-            --bg-glass: rgba(10, 0, 0, 0.95); /* Nearly solid translucent dark crimson */
+            /* HIGH-VISIBILITY CORE VARIABLES */
+            --bg-primary: #050b14; /* Deep dark space - solid, no mesh */
+            --bg-secondary: rgba(13, 22, 38, 0.9); /* Dark background (standard transparency) */
+            --bg-glass: rgba(15, 23, 42, 0.6); /* High-visibility glass */
             
-            /* Blood-Toned Text */
-            --text-primary: #f1e0e0; /* Off-white with red tint for readability */
-            --text-secondary: #b89494; /* Desaturated red-grey */
-            --text-tertiary: #6e4e4e; /* Dark, faded blood red */
+            /* High-Contrast Factual Text */
+            --text-primary: #f8fafc; /* Stark bone white for factuality */
+            --text-secondary: #94a3b8; /* Desaturated grey-blue secondary */
+            --text-tertiary: #64748b; /* Faint blue-grey tertiary */
             
-            /* Arterial Red Accents & Glitches */
-            --accent: #ff0000; /* Pure blood red */
-            --accent-secondary: #990000; /* Dried blood red */
-            --accent-glow: rgba(255, 0, 0, 0.6);
+            /* OPTIMIZED Cyber Accents */
+            --accent: #00f0ff; /* Optimized Cyber Cyan - clean and fast */
+            --accent-secondary: #7000ff; /* Deep Neon Purple accent */
+            --accent-glow: rgba(0, 240, 255, 0.6); /* Vibrant glow */
             
-            /* Gothic & Damaged Borders */
-            --border: rgba(255, 0, 0, 0.1);
-            --glass-border: 1px solid rgba(255, 0, 0, 0.2);
-            --glass-shadow: 0 8px 32px 0 rgba(139, 0, 0, 0.4); /* Intense red shadow */
+            /* High-Target/Standard Borders */
+            --border: rgba(255, 255, 255, 0.1); /* Standard visibility border */
+            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Optimized shadows */
 
-            /* Horror Typography */
-            --font-decay: 'Special Elite', monospace; /* Typewriter */
-            --font-cult: 'Grenze Gotisch', cursive;   /* Gothic */
-            --font-panic: 'Creeper', cursive;         /* Scratchy panic text */
-            --font-mono: 'Fira Code', monospace; /* Keep for tech stack */
+            /* TYPOGRAPHY - FACTUAL & READABLE */
+            --font-sans: 'Inter', -apple-system, sans-serif; /* Readable sans */
+            --font-mono: 'Fira Code', monospace; /* Factual mono */
             
-            /* Layout & Non-Optimized transitions */
+            /* Layout & Optimized Speed */
             --max-width: 1050px;
-            --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); /* Slower dread 'drifting' feel */
+            
+            /* Smooth, fast, high-targeting transitions */
+            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        /* ==========================================================================
-           Optimized Supernatural Smooth Scroll (controlled speed)
-           ========================================================================== */
-        html { 
-            scroll-behavior: smooth;
-            transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-        }
+        
+        /* Deliberate Standard Smooth Scroll */
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: var(--font-decay);
+            font-family: var(--font-sans);
             background-color: var(--bg-primary);
+            /* REVERTED: Standard, visibly clean background */
             color: var(--text-primary);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            /* PROCEDURAL NOISE ENGINE - Guaranteed environmental dread */
-            filter: url(#noiseFilter); 
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(255, 0, 0, 0.1) 0%, transparent 50%);
-            background-attachment: fixed;
-        }
-
-        /* Define the SVG Filter here (Noise engine and visibility fixed) */
-        svg.sr-only {
-            display: block; width: 0; height: 0; position: absolute;
-            pointer-events: none;
-        }
-
-        /* ==========================================================================
-           RE-ACTIVATING Aggressive Unstable Alphabets Map (Computational dread)
-           ========================================================================== */
-        body::before {
-            content: "☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ Z ☠ ✞ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ⚰ ☥ ☦ ☧ Φ Ψ Ω ℵ ℑ Z";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            color: rgba(255, 0, 0, 0.08); /* Faded visible chaos */
-            font-family: var(--font-horror);
-            font-size: clamp(3rem, 15vw, 10rem); /* Scattered geometry symbols */
-            line-height: 0.8;
-            letter-spacing: clamp(10rem, 50vw, 100rem); /* Scattered geometry map */
-            z-index: 1; /* Above background, below content */
-            pointer-events: none; /* User can click through it */
-            animation: unstableGeometry 25s infinite; /* slower, more ponderous dread */
-            text-align: center;
-        }
-
-        /* MODIFIED keyframes - erratic bursts and expensive text thump */
-        @keyframes unstableGeometry {
-            0% { opacity: 0; transform: scale(1) rotate(0deg); letter-spacing: 10rem;}
-            1% { opacity: 0.3; transform: scale(1.1) rotate(5deg); letter-spacing: 8rem; }
-            3% { opacity: 0.1; transform: translate(0); letter-spacing: 10rem;}
-            
-            /* Chaotic geometry flash sporadically */
-            15% { opacity: 0; transform: translate(-5px, -5px); letter-spacing: 15rem;}
-            16% { opacity: 0.4; transform: scale(0.9) skew(10deg); letter-spacing: 5rem;}
-            18% { opacity: 0.1; transform: translate(0); letter-spacing: 10rem;}
-            
-            50% { opacity: 0; letter-spacing: 10rem;}
-            
-            85% { opacity: 0.1; transform: translate(5px, 5px); letter-spacing: 12rem;}
-            86% { opacity: 0.5; transform: scale(1.2) rotate(-5deg) skew(-10deg); letter-spacing: 3rem;}
-            88% { opacity: 0.1; transform: translate(0); letter-spacing: 10rem;}
-            
-            100% { opacity: 0; transform: translateY(0); letter-spacing: 10rem;}
-        }
-
-        /* ==========================================================================
-           MODIFIED: Erratictargeted Sentence Thump Effect
-           ========================================================================== */
-        body::after {
-            /* We use content-thumping again to force layout thrashing sporadically */
-            content: "";
-            position: absolute;
-            top: 20%;
-            left: 10%;
-            width: 80%;
-            padding: 2rem;
-            background: rgba(10, 0, 0, 0.95);
-            border: var(--glass-border);
-            border-color: var(--accent);
-            color: var(--text-primary);
-            font-family: var(--font-horror);
-            font-size: clamp(1.2rem, 4vw, 2rem);
-            text-align: center;
-            z-index: 10;
-            opacity: 0;
-            will-change: opacity, content; /* Hinting expensive content switch */
-            animation: terribleVoices 45s infinite; /* very rare, very sudden targeting */
-        }
-
-        @keyframes terribleVoices {
-            0% { opacity: 0; content: "It sees you."; }
-            1% { opacity: 1; content: "It sees you."; }
-            2% { opacity: 0; }
-
-            15% { opacity: 0; content: "They have a leak."; }
-            16% { opacity: 1; content: "They have a leak."; }
-            18% { opacity: 0; content: "They have a leak."; }
-            
-            35% { opacity: 0; content: " Don't scroll."; }
-            36% { opacity: 1; content: " Don't scroll."; }
-            40% { opacity: 0; content: " Don't scroll."; }
-
-            50% { opacity: 0; content: " We see you."; }
-            51% { opacity: 1; content: " We see you."; }
-            55% { opacity: 0; content: " We see you."; }
-
-            75% { opacity: 0; content: " It's closer now."; }
-            76% { opacity: 1; content: " It's closer now."; }
-            78% { opacity: 0; content: " It's closer now."; }
-
-            85% { opacity: 0; content: " The Tome is not sealed."; }
-            86% { opacity: 1; content: " The Tome is not sealed."; }
-            90% { opacity: 0; content: " The Tome is not sealed."; }
-
-            99% { opacity: 0; content: "It sees you."; }
-            100% { opacity: 0; content: "It sees you."; }
+            /* REMOVED: All procedural noise and mesh chaos */
         }
 
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
         /* ==========================================================================
            2. Layout Utilities
-           ========================================================================= */
+           ========================================================================== */
         .container { width: 90%; max-width: var(--max-width); margin: 0 auto; position: relative; z-index: 2; }
         section { padding: 120px 0; }
 
         .section-title {
-            font-family: var(--font-horror); /* Gothic Blackletter for titles */
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 800;
             margin-bottom: 4rem;
             position: relative;
             display: inline-block;
-            background: linear-gradient(135deg, var(--accent), var(--text-primary)); /* Blood red gradient */
+            background: linear-gradient(90deg, var(--text-primary), var(--text-secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 15px var(--accent-glow);
         }
         .section-title::after {
             content: ''; position: absolute; bottom: -15px; left: 0;
             width: 80px; height: 3px; 
-            background: linear-gradient(90deg, var(--accent), transparent);
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
             border-radius: 4px;
-            box-shadow: 0 0 10px var(--accent);
+            box-shadow: 0 0 10px var(--accent-glow);
         }
 
         /* ==========================================================================
-           3. Navigation (Simplistic, No heavy backdrop blurs)
-           ========================================================================= */
+           3. Navigation (High-Visibility Glassmorphism, NO BLUR CHAOS)
+           ========================================================================== */
         .site-header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             background: var(--bg-glass);
+            /* REMOVED: The expensive blur matrix dread */
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: var(--glass-border);
             padding: 1.2rem 0;
             transition: all 0.3s ease;
@@ -222,13 +114,11 @@
         }
 
         .logo a { 
-            font-family: var(--font-panic);
-            font-weight: 800; font-size: 2.2rem; text-decoration: none; 
-            color: var(--accent); 
-            letter-spacing: -1px;
-            text-shadow: 0 0 15px var(--accent-glow);
+            font-weight: 800; font-size: 1.6rem; text-decoration: none; 
+            color: var(--text-primary); letter-spacing: -1px;
+            text-shadow: 0 0 15px rgba(255,255,255,0.2);
         }
-        
+
         .nav-list { display: flex; gap: 2.5rem; list-style: none; align-items: center; margin: 0; }
         .nav-list a { 
             text-decoration: none; color: var(--text-secondary); 
@@ -237,7 +127,7 @@
             position: relative;
         }
         
-        /* Underline hover effect for nav */
+        /* High-Visibility Underline hover effect for nav */
         .nav-list a:not(.btn-primary)::after {
             content: ''; position: absolute; bottom: -5px; left: 0;
             width: 0; height: 2px; background: var(--accent);
@@ -246,95 +136,60 @@
         .nav-list a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent-glow); }
         .nav-list a:not(.btn-primary):hover::after { width: 100%; }
 
-        /* Buttons - Haunted Blood Glow Style */
+        /* Standard Buttons - Optimized Neon Style */
         .btn-primary, .btn-secondary {
             display: inline-block; padding: 0.8rem 1.8rem; border-radius: 4px; font-weight: 600;
             text-decoration: none; transition: var(--transition); cursor: pointer;
             letter-spacing: 0.5px;
-            font-family: var(--font-decay);
         }
         .btn-primary { 
             background: transparent; color: var(--accent) !important; 
             border: 1px solid var(--accent);
-            box-shadow: 0 0 10px var(--accent-glow), inset 0 0 10px var(--accent-glow);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.1), inset 0 0 10px rgba(0, 240, 255, 0.1);
         }
         .btn-primary:hover { 
-            background: rgba(139, 0, 0, 0.2);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), inset 0 0 15px rgba(255, 0, 0, 0.6);
-            transform: translateY(-3px) scale(1.02);
+            background: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 20px var(--accent-glow), inset 0 0 15px var(--accent-glow);
+            transform: translateY(-2px);
         }
         .btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border: var(--glass-border); }
-        .btn-secondary:hover { background: rgba(139, 0, 0, 0.1); transform: translateY(-2px); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px); }
 
-        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); z-index: 1001;}
-
-        /* ==========================================================================
-           4. Realtime DREAD & Initiation Counter Section
-           ========================================================================= */
-        #realtime-stats {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            color: var(--accent);
-            font-family: var(--font-decay);
-            font-size: 0.8rem;
-            z-index: 1000;
-            text-align: right;
-            pointer-events: none;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 1rem;
-            border-radius: 4px;
-            border: 1px solid var(--accent-secondary);
-        }
-        
-        .stats-item { display: block; margin-bottom: 0.3rem; }
-        
-        .initiation-count {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-stark);
-            text-shadow: 0 0 10px var(--accent);
-        }
+        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); }
 
         /* ==========================================================================
-           5. Hero Section
-           ========================================================================= */
+           4. Hero Section
+           ========================================================================== */
         #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
 
-        .greeting { font-family: var(--font-horror); color: var(--text-tertiary); margin-bottom: 1rem; font-weight: 500; letter-spacing: 1px; font-size: 1.2rem; }
+        .greeting { font-family: var(--font-mono); color: var(--accent); margin-bottom: 1.5rem; font-weight: 500; letter-spacing: 1px; }
         
         .hero-title { 
-            font-family: var(--font-horror);
-            font-size: clamp(4rem, 10vw, 7.5rem); font-weight: 900; line-height: 1.0; margin-bottom: 0.5rem; 
-            color: var(--accent);
-            text-shadow: 0 0 20px var(--accent-glow);
+            font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 800; line-height: 1.1; margin-bottom: 0.5rem; 
+            color: var(--text-primary);
         }
         
         .hero-subtitle { 
-            font-family: var(--font-horror);
-            font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 2rem; 
+            font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 2rem; 
             background: linear-gradient(90deg, var(--text-secondary), var(--text-tertiary));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         
         .hero-description { 
-            font-size: 1.1rem; max-width: 650px; color: var(--text-secondary); margin-bottom: 3rem; 
+            font-size: 1.15rem; max-width: 650px; color: var(--text-secondary); margin-bottom: 3rem; 
             line-height: 1.8;
-            border-left: 2px solid var(--accent);
-            padding-left: 1.5rem;
-            background: rgba(139, 0, 0, 0.03);
         }
 
         /* ==========================================================================
-           6. Featured Project
-           ========================================================================= */
+           5. Featured Project
+           ========================================================================== */
         .project-showcase {
             display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem;
             align-items: center; margin-bottom: 8rem;
             position: relative;
         }
 
-        /* Blood-red radial nebula behind image */
+        /* Standard gradient nebula behind image */
         .project-visual { position: relative; }
         .project-visual::before {
             content: ''; position: absolute; top: -10%; left: -10%; right: -10%; bottom: -10%;
@@ -343,21 +198,19 @@
         }
 
         .project-visual img { 
-            width: 100%; height: auto; border-radius: 8px; 
+            width: 100%; height: auto; border-radius: 12px; 
             border: var(--glass-border);
-            box-shadow: 0 20px 40px rgba(139,0,0,0.5); /* Heavy red shadow */
-            transition: var(--transition);
-            filter: grayscale(80%) sepia(30%) hue-rotate(320deg); /* Horror desaturation */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: transform 0.5s ease;
         }
-        .project-visual img:hover { transform: scale(1.02); filter: grayscale(20%) sepia(50%) hue-rotate(320deg); }
+        .project-visual img:hover { transform: scale(1.02); }
 
-        .project-overline { font-family: var(--font-horror); color: var(--text-tertiary); font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .project-title { font-family: var(--font-horror); font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
+        .project-overline { font-family: var(--font-mono); color: var(--accent); font-size: 0.875rem; margin-bottom: 0.5rem; }
+        .project-title { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--text-primary); }
         
         .project-description { 
             color: var(--text-secondary); margin-bottom: 1.5rem; 
-            background: rgba(10, 0, 0, 0.9); /* Dark background card */
-            backdrop-filter: blur(10px);
+            background: var(--bg-glass);
             padding: 1.8rem; border-radius: 8px; 
             border: var(--glass-border);
             box-shadow: var(--glass-shadow);
@@ -369,196 +222,144 @@
             font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); 
         }
         .tech-stack li {
-            background: rgba(139, 0, 0, 0.1);
-            padding: 0.3rem 0.8rem; border-radius: 4px; border: 1px solid rgba(255, 0, 0, 0.3);
-            transition: var(--transition);
+            background: rgba(0, 240, 255, 0.05);
+            padding: 0.3rem 0.8rem; border-radius: 4px; border: 1px solid rgba(0, 240, 255, 0.2);
         }
-        .tech-stack li:hover { background: rgba(255, 0, 0, 0.2); box-shadow: 0 0 5px var(--accent); }
 
         .project-links a { 
             display: inline-flex; align-items: center; gap: 0.5rem; 
             color: var(--text-primary); text-decoration: none; font-weight: 600; 
             transition: all 0.3s ease;
         }
-        .project-links a:hover { color: var(--accent); transform: translateX(5px); text-shadow: 0 0 5px var(--accent); }
+        .project-links a:hover { color: var(--accent); transform: translateX(5px); }
 
-        /* Grid Projects (Gravestones Style) */
-        .subsection-title { font-family: var(--font-horror); font-size: 2rem; margin-bottom: 3rem; text-align: center; color: var(--text-tertiary); }
+        /* Grid Projects (High-Visibility Glass Cards) */
+        .subsection-title { font-size: 1.8rem; margin-bottom: 3rem; text-align: center; }
         
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
         
         .card { 
             background: var(--bg-glass); border: var(--glass-border); 
             padding: 2.5rem; border-radius: 12px; 
-            backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            box-shadow: var(--glass-shadow);
             transition: var(--transition); 
             display: flex; flex-direction: column; justify-content: space-between; 
             position: relative; overflow: hidden;
-            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.1"/></svg>'); /* Crypt texture */
         }
         
-        /* Hover thumping effect - Animating letter-spacing thumps expensive render path */
-        .card:hover { transform: translateY(-10px) scale(1.02); border-color: rgba(255, 0, 0, 0.6); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }
+        /* High-Visibility glitch hover effect for cards */
         .card::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,0,0,0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
             transition: all 0.5s ease; transform: skewX(-20deg);
         }
+        .card:hover { transform: translateY(-10px); border-color: rgba(0, 240, 255, 0.3); box-shadow: 0 15px 30px rgba(0, 240, 255, 0.1); }
         .card:hover::before { left: 150%; }
 
-        .card-title { font-family: var(--font-horror); font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent); }
+        .card-title { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-primary); }
         .card-description { color: var(--text-secondary); font-size: 1rem; margin-bottom: 2rem; }
         .tech-stack.small { margin-bottom: 0; font-size: 0.8rem; }
-        .tech-stack.small li { border-color: rgba(139, 0, 0, 0.4); color: var(--text-secondary); }
+        .tech-stack.small li { border-color: rgba(255,255,255,0.1); color: var(--text-secondary); }
 
         /* ==========================================================================
-           7. Skills & Education (Timeline/Crypt Style)
+           6. Skills & Education (High-Visibility factual)
            ========================================================================== */
         .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
 
-        .skills-list dt { font-family: var(--font-horror); color: var(--accent); margin-bottom: 0.5rem; font-size: 1.3rem; text-shadow: 0 0 5px var(--accent-glow); }
-        .skills-list dd { color: var(--text-secondary); margin-bottom: 2rem; margin-left: 0; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(139, 0, 0, 0.1); }
+        .skills-list dt { font-family: var(--font-mono); color: var(--accent); margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .skills-list dd { color: var(--text-secondary); margin-bottom: 2rem; margin-left: 0; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-        .timeline { list-style: none; border-left: 2px solid rgba(139,0,0,0.2); padding-left: 2.5rem; position: relative; margin: 0; }
+        .timeline { list-style: none; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 2.5rem; position: relative; margin: 0; }
         .timeline-item { margin-bottom: 3.5rem; position: relative; }
         
-        /* Arterial Red dot on timeline */
+        /* High-Target dot on timeline */
         .timeline-item::before { 
             content: ''; position: absolute; left: -2.9rem; top: 0; 
             width: 12px; height: 12px; background: var(--bg-primary); 
             border-radius: 50%; border: 2px solid var(--accent); 
             box-shadow: 0 0 10px var(--accent);
-            transition: var(--transition);
-        }
-        .timeline-item:hover::before {
-            background: var(--accent);
-            box-shadow: 0 0 20px var(--accent);
-            transform: scale(1.3) rotate(360deg); /* local expensive thumping */
         }
         
-        .timeline-title { font-family: var(--font-horror); font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--accent); }
+        .timeline-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-primary); }
         .timeline-org { font-weight: 600; color: var(--text-secondary); }
-        .timeline-item time { font-family: var(--font-decay); font-size: 0.9rem; color: var(--text-tertiary); display: block; margin: 0.5rem 0; font-style: italic;}
+        .timeline-item time { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-secondary); display: block; margin: 0.5rem 0; }
         .timeline-desc { color: var(--text-secondary); margin-top: 1rem; font-size: 1rem; }
 
         /* ==========================================================================
-           8. Contact & Footer (Gothic Form Style)
+           7. Contact & Footer
            ========================================================================== */
         .contact-section { text-align: center; }
         .contact-text { color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; }
         
         .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
         .form-group { margin-bottom: 2rem; }
-        .form-group label { display: block; font-family: var(--font-horror); color: var(--text-tertiary); margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .form-group label { display: block; font-family: var(--font-mono); color: var(--accent); margin-bottom: 0.8rem; font-size: 0.9rem; }
         
         .form-group input, .form-group textarea { 
             width: 100%; padding: 1.2rem; 
-            border: var(--glass-border); border-radius: 4px; 
-            font-family: var(--font-decay); color: var(--text-primary);
-            background: rgba(0, 0, 0, 0.5); 
+            border: var(--glass-border); border-radius: 8px; 
+            font-family: var(--font-sans); color: var(--text-primary);
+            background: rgba(255,255,255,0.03); 
             transition: var(--transition);
         }
         .form-group input:focus, .form-group textarea:focus { 
             outline: none; border-color: var(--accent); 
-            background: rgba(139, 0, 0, 0.05);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
-            transform: translate(-1px, 1px);
+            background: rgba(0, 240, 255, 0.02);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
         }
         
-        .form-submit { width: 100%; font-size: 1.1rem; padding: 1.2rem; font-family: var(--font-horror); font-size: 1.5rem;}
+        .form-submit { width: 100%; font-size: 1.1rem; padding: 1.2rem; }
 
-        .site-footer { text-align: center; padding: 3rem 0; border-top: 1px solid rgba(139, 0, 0, 0.1); margin-top: 6rem; background: var(--bg-secondary); position: relative; z-index: 2; }
+        .site-footer { text-align: center; padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 6rem; }
         .social-links { margin-bottom: 1.5rem; }
         .social-links a { 
-            font-family: var(--font-horror); color: var(--text-secondary); 
+            font-family: var(--font-mono); color: var(--text-secondary); 
             margin: 0 1.5rem; text-decoration: none; 
-            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
-        .social-links a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent); transform: scale(1.1) rotate(10deg);}
-        .copyright { color: var(--text-tertiary); font-size: 0.875rem; font-family: var(--font-decay); }
+        .social-links a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent-glow); }
+        .copyright { color: var(--text-tertiary); font-size: 0.875rem; font-family: var(--font-mono); }
 
         /* ==========================================================================
-           9. Mobile Responsiveness & NIGHTMARE Threshold Optimization
+           8. Mobile Responsiveness (High-Target Optimization)
            ========================================================================== */
         @media (max-width: 768px) {
             .project-showcase { grid-template-columns: 1fr; gap: 3rem; }
             .grid-layout { grid-template-columns: 1fr; gap: 4rem; }
-            .cta-group { flex-direction: column; display: flex; gap: 1rem; }
+            .cta-group { flex-direction: column; }
             
             .mobile-menu-toggle { display: block; }
             .nav-list { 
                 display: none; flex-direction: column; 
                 position: absolute; top: 100%; left: 0; width: 100%; 
-                background: rgba(10, 0, 0, 0.98); /* Deep black red */
-                backdrop-filter: blur(20px);
-                padding: 3rem 0; border-bottom: var(--glass-border);
+                background: rgba(13, 22, 38, 0.95); 
+                padding: 2rem 0; border-bottom: var(--glass-border);
             }
-            .nav-list.active { display: flex; animation: navSlideDown 0.3s var(--transition); }
+            .nav-list.active { display: flex; }
             
             section { padding: 80px 0; }
             .hero-title { font-size: 3rem; }
-            .section-title { font-size: 2rem; }
-
-            /* NEW MOBILE OPTIMIZATION: Nightmare Threshold */
-            /* In mobile, we force computational heavy rendering paths to create non-optimized slowness Art */
-            #projects::before {
-                /* Slightly less massive thumping to save mobile CPU/battery while remaining Laborously heavy */
-                letter-spacing: clamp(2rem, 15vw, 10rem); 
-                font-size: clamp(2rem, 10vw, 5rem);
-            }
-        }
-
-        @keyframes navSlideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- SVG Filter Definition (Computational Noise engine, visbility visibly tinted Matrix) -->
-    <svg class="sr-only">
-        <filter id="noiseFilter">
-            <feTurbulence 
-                type="fractalNoise" 
-                baseFrequency="0.9" 
-                numOctaves="4" stitchTiles="stitch"/>
-            <feColorMatrix type="matrix" values="
-                0.2 0   0   0 0
-                0   0   0   0 0
-                0   0   0   0 0
-                0   0   0   1 0
-            "/>
-            <feComposite operator="in" in2="SourceGraphic"/>
-        </filter>
-    </svg>
-
-    <!-- Invisible Scare Tone Trigger -->
-    <canvas id="scareToneTrigger" width="1" height="1" style="display:none;"></canvas>
-
-    <!-- The Dread Display (Counter & Clock) -->
-    <div id="realtime-stats">
-        <div class="stats-item">Global Soulink initiated: <span class="initiation-count" id="session-count-initiate">☠</span></div>
-        <div class="stats-item">Dread Clock: <span id="realtime-clock">☠</span></div>
-    </div>
-
     <header class="site-header">
         <nav class="main-nav">
             <div class="logo">
-                <a href="#hero">Ashim.☠</a>
+                <a href="#hero">Ashim.dev</a>
             </div>
             
-            <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+            <button class="mobile-menu-toggle" id="mobile-menu-btn">
                 ☰
             </button>
 
             <ul id="nav-list" class="nav-list">
-                <li><a href="#projects">Curses</a></li>
-                <li><a href="#background">Rituals</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#background">Skills & Edu</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    <a href="resume.pdf" class="btn-primary" target="_blank">The Pact</a>
+                    <a href="resume.pdf" class="btn-primary" target="_blank">Resume</a>
                 </li>
             </ul>
         </nav>
@@ -569,15 +370,15 @@
         <!-- Hero Section -->
         <section id="hero">
             <div class="container hero-content">
-                <p class="greeting">It is foreseen...</p>
+                <p class="greeting">👋 Hi, my name is</p>
                 <h1 class="hero-title">Ashim Shrestha.</h1>
-                <h2 class="hero-subtitle">I engineering cursed solutions for the web.</h2>
+                <h2 class="hero-subtitle">I engineer solutions for the web.</h2>
                 <p class="hero-description">
-                    Full-Stack Developer and BCA student. Architectural programmer building robust, data-driven web applications that might just capture your soul. Relentless precision. Terrifying reliability. *The Tome remains unsealed.*
+                    I'm a Full-Stack Developer and BCA student specializing in building robust, data-driven web applications. From complex relational databases to seamless user interfaces, I turn logic into digital experiences. *Visibly engineered precision.*
                 </p>
                 <div class="cta-group">
-                    <a href="#projects" class="btn-primary">View the Curses</a>
-                    <a href="https://github.com/ashimsh" class="btn-secondary" target="_blank">The Tome (GitHub)</a>
+                    <a href="#projects" class="btn-primary">View Projects</a>
+                    <a href="https://github.com/ashimsh" class="btn-secondary" target="_blank">GitHub Profile</a>
                 </div>
             </div>
         </section>
@@ -585,7 +386,7 @@
         <!-- Featured Projects Section -->
         <section id="projects">
             <div class="container">
-                <h2 class="section-title">Major Rituals (Featured Work)</h2>
+                <h2 class="section-title">Featured Work</h2>
 
                 <!-- Centerpiece: Bus Ticket Booking -->
                 <article class="project-showcase">
@@ -593,10 +394,10 @@
                         <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800" alt="Dashboard view of the Bus Ticket Booking System" loading="lazy">
                     </figure>
                     <div class="project-content">
-                        <p class="project-overline">Major Ritual</p>
-                        <h3 class="project-title">Nexus Transit Nexus</h3>
+                        <p class="project-overline">Featured Project</p>
+                        <h3 class="project-title">Bus Ticket Booking System</h3>
                         <p class="project-description">
-                            The complete transportation Nexus. engineered for efficient student transit booking, featuring secure authentication matrix, dynamic route tracking, real-time seat selection Nexus, and a comprehensive admin control nexus. The ultimate stops are foreseen. Relentless.
+                            A complete online reservation and management architecture. Engineered to handle student transit booking efficiently, featuring secure user authentication, dynamic route tracking, real-time seat selection, and a comprehensive admin control panel.
                         </p>
                         <ul class="tech-stack">
                             <li>PHP</li>
@@ -606,20 +407,20 @@
                         </ul>
                         <div class="project-links">
                             <a href="https://github.com/ashimsh" target="_blank">
-                                <span>Code Tome Repository ↗</span>
+                                <span>Code Repository ↗</span>
                             </a>
                         </div>
                     </div>
                 </article>
 
                 <!-- Grid of Secondary Projects -->
-                <h3 class="subsection-title">Other Technical Obsessions</h3>
+                <h3 class="subsection-title">Other Technical Pursuits</h3>
                 <div class="project-grid">
                     
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Discord Utility Bot Nexus</h4>
-                            <p class="card-description">Custom server automation, engineered for precise community command parsing, third-party API nexus integration, and Relentless stability. *It knows.*</p>
+                            <h4 class="card-title">Discord Utility Bot</h4>
+                            <p class="card-description">A custom server bot built to automate community management, featuring complex command parsing and third-party API integrations.</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
@@ -631,26 +432,26 @@
 
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Cursed AI Generator</h4>
-                            <p class="card-description">AI generation nexus, creating automated short-form visual algorithmic content for targeted distribution. It visualizes the dread before you see it.</p>
+                            <h4 class="card-title">Automated Video Generation</h4>
+                            <p class="card-description">Exploratory project generating short-form AI video content tailored for social media algorithms and rapid platform distribution.</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
                                 <li>AI Automation</li>
-                                <li>Algorithm Design</li>
+                                <li>Content Algorithms</li>
                             </ul>
                         </footer>
                     </article>
 
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Non-Euclidean Ref Nexus</h4>
-                            <p class="card-description">Relentless precision typeset matrix for advanced non-Euclidean Calculus and Geometry equations. The logic remains volatile.</p>
+                            <h4 class="card-title">Formula Reference</h4>
+                            <p class="card-description">Programmed comprehensive, pixel-perfect typesetting for advanced Calculus and Geometry equations. Standard precision.</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
                                 <li>LaTeX Matrix</li>
-                                <li>Data Nexus</li>
+                                <li>Data Structuring</li>
                             </ul>
                         </footer>
                     </article>
@@ -664,35 +465,35 @@
             <div class="container grid-layout">
                 
                 <div class="skills-wrapper">
-                    <h2 class="section-title">Ritual Arsenal</h2>
+                    <h2 class="section-title">Technical Arsenal</h2>
                     <dl class="skills-list">
-                        <dt>Core Backend Initiations</dt>
+                        <dt>Core Backend</dt>
                         <dd>PHP, Node.js, MySQL, RESTful APIs</dd>
                         
-                        <dt>Outer Frontend Shields</dt>
+                        <dt>Frontend Development</dt>
                         <dd>JavaScript (ES6+), React, HTML5, CSS3, GSAP</dd>
                         
-                        <dt>Cursed Logic Circuitry</dt>
+                        <dt>Computer Science Fundamentals</dt>
                         <dd>Digital Logic Circuit Design, Software Engineering Architecture</dd>
                         
-                        <dt>Summoning Tools</dt>
-                        <dd>Git/GitHub, XAMPP Matrix, Figma Nexus, VS Code Pact</dd>
+                        <dt>Tools & Environment</dt>
+                        <dd>Git/GitHub, XAMPP, Figma, VS Code</dd>
                     </dl>
                 </div>
 
                 <div class="education-wrapper">
-                    <h2 class="section-title">Initiations (Education)</h2>
+                    <h2 class="section-title">Education</h2>
                     <ol class="timeline">
                         <li class="timeline-item">
-                            <h3 class="timeline-title">BCA Initiation (BCA)</h3>
-                            <p class="timeline-org">BCA Nexus (Nepal)</p>
-                            <time>The Present</time>
-                            <p class="timeline-desc">Specializing in cursed application development, relational database matrix construction, and core full-stack software engineering principles. *The Tome remains unsealed.*</p>
+                            <h3 class="timeline-title">Bachelor of Computer Applications (BCA)</h3>
+                            <p class="timeline-org">Current Academic Focus</p>
+                            <time>Present</time>
+                            <p class="timeline-desc">Specializing in application development, relational databases, and core software engineering principles. *Visibly engineered logic.*</p>
                         </li>
                         <li class="timeline-item">
-                            <h3 class="timeline-title">Trinity College Initiation (+2 Science)</h3>
-                            <p class="timeline-org">Trinity College (Nepal)</p>
-                            <p class="timeline-desc">Concentration in Computer Science and mathematics. Initiated into the primary logic.</p>
+                            <h3 class="timeline-title">High School Diploma (+2 Science)</h3>
+                            <p class="timeline-org">Trinity International College</p>
+                            <p class="timeline-desc">Concentration in Computer Science and Mathematics.</p>
                         </li>
                     </ol>
                 </div>
@@ -702,26 +503,26 @@
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <div class="container">
-                <h2 class="section-title">Seal the Contact Pact</h2>
-                <p class="contact-text">Relentless. Your terms are foreseen. Whether you have an inquiry, a project proposal, or just need to discuss digital dread circuitry, the nexus is open. *Or just listen.*</p>
+                <h2 class="section-title">Initiate Contact</h2>
+                <p class="contact-text">Whether you have a question, a project proposal, or just want to discuss digital logic and web architectures, my inbox is open.</p>
                 
                 <form class="contact-form" action="#" method="POST">
                     <div class="form-group">
-                        <label for="userName">Identity Matrix</label>
-                        <input type="text" id="userName" name="name" required placeholder="Souls Name">
+                        <label for="userName">Name</label>
+                        <input type="text" id="userName" name="name" required placeholder="Your Name">
                     </div>
                     
                     <div class="form-group">
-                        <label for="userEmail">Summon Frequency</label>
-                        <input type="email" id="userEmail" name="email" required placeholder="Souls@Nexus.Frequency">
+                        <label for="userEmail">Email</label>
+                        <input type="email" id="userEmail" name="email" required placeholder="your.email@example.com">
                     </div>
                     
                     <div class="form-group">
-                        <label for="userMessage">Inquiry Pact</label>
-                        <textarea id="userMessage" name="message" required rows="6" placeholder="Your Relentless Inquiry?"></textarea>
+                        <label for="userMessage">Message</label>
+                        <textarea id="userMessage" name="message" required rows="6" placeholder="How can we work together?"></textarea>
                     </div>
 
-                    <button type="submit" class="btn-primary form-submit">Seal Pact (Send Message)</button>
+                    <button type="submit" class="btn-primary form-submit">Send Message</button>
                 </form>
             </div>
         </section>
@@ -731,142 +532,33 @@
     <footer class="site-footer">
         <div class="container footer-content">
             <div class="social-links">
-                <a href="https://github.com/ashimsh" target="_blank">The Tome (GitHub)</a>
-                <a href="mailto:ashim.shrestha.937@gmail.com">Summon via Email</a>
+                <a href="https://github.com/ashimsh" target="_blank">GitHub</a>
+                <a href="mailto:ashim.shrestha.937@gmail.com">Email</a>
             </div>
             <p class="copyright">
-                &copy; 2026 Ashim Shrestha. *The code watches forever.* Built with precision.
+                &copy; 2026 Ashim Shrestha. *Clean precision forever.* Built with precision.
             </p>
         </div>
     </footer>
 
-    <!-- Horror Systems Controller -->
+    <!-- JavaScript for Mobile Menu -->
     <script>
-        // --- 1. Auditory Dread Engine ---
-        let audioContext;
-        let toneGenerator;
-        let dreadTriggered = false;
-
-        // Initialize Audio Context on user interaction (mandatory for modern browsers)
-        function initializeAuditoryDread() {
-          if (!dreadTriggered) {
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            if(audioContext) {
-              dreadTriggered = true;
-              console.log("Auditory Dread initialized.");
-            }
-          }
-        }
-
-        // Creates a short, unsettling sub-bass tone
-        function produceScareTone() {
-          if (!audioContext || !dreadTriggered) return;
-          
-          toneGenerator = audioContext.createOscillator();
-          const ampControl = audioContext.createGain();
-
-          toneGenerator.type = 'sawtooth';
-          toneGenerator.frequency.setValueAtTime(33 + Math.random() * 5, audioContext.currentTime); // very low sub
-
-          ampControl.gain.setValueAtTime(0, audioContext.currentTime);
-          ampControl.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01); // sharp attack
-          ampControl.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3); // exponential decay
-          
-          toneGenerator.connect(ampControl);
-          ampControl.connect(audioContext.destination);
-
-          toneGenerator.start();
-          toneGenerator.stop(audioContext.currentTime + 0.3);
-        }
-
-        // erratic dread loop (auditory)
-        function produceDreadLoop() {
-          if (!dreadTriggered) return;
-          produceScareTone();
-          setTimeout(produceDreadLoop, (Math.random() * 20 + 10) * 1000); // erratic dread
-        }
-
-        // initiation of Auditory Dread loop on user interaction
-        function initiateDread Rituals() {
-          initializeAuditoryDread();
-          if(dreadTriggered) {
-            produceDreadLoop(); // Start erratic loop
-            produceDreadSentencesLoop(); // start sentence loop
-            triggerErraticInterfaceDread(); // start interface kontakt thumping
-            // Clean up rituals
-            window.removeEventListener('click', initiateDread Rituals);
-            window.removeEventListener('scroll', initiateDread Rituals);
-          }
-        }
-
-        // initiation requires User Interaction for Auditory dread
-        window.addEventListener('click', initiateDread Rituals);
-        window.addEventListener('scroll', initiateDread Rituals);
-
-        // --- 2. Realtime initiation & Dread Clock ---
-        const initiateCount = document.getElementById('session-count-initiate');
-        const clockCount = document.getElementById('realtime-clock');
-        
-        function updateDreadClock() {
-          const now = new Date();
-          let clockStr = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-          // Add random geometry to clock
-          clockStr = clockStr.split('').map(char => {
-              if (Math.random() < 0.05) return '☠';
-              return char;
-          }).join('');
-          clockCount.innerText = clockStr;
-        }
-
-        function hauntInitiationCounter() {
-          let hits = parseInt(sessionStorage.getItem('soulinkInitHacks')) || Math.floor(Math.random() * 666 + 333);
-          hits += Math.floor(Math.random() * 3 + 1); // Erratic counting
-          sessionStorage.setItem('soulinkInitHacks', hits);
-          // lead data decay
-          initiateCount.innerText = hits.toString().padStart(6, '0').replace('0', '☠');
-          setTimeout(hauntInitiationCounter, (Math.random() * 7 + 1) * 1000);
-        }
-        
-        updateDreadClock();
-        setInterval(updateDreadClock, 1000);
-        hauntInitiationCounter();
-
-        // --- 3. Erratic Targeted Sentences loop ---
-        // Sentences now pop erractically in targeted breaks in body::after animation
-        function produceDreadSentencesLoop() {
-            // Animating geometry matrix sporadically via transform thumps in CSS,
-            // while JS updates targeted contact state thumping via dynamic context switch (not fully random popups)
-            setTimeout(produceDreadSentencesLoop, (Math.random() * 60 + 30) * 1000); // targeted rare kontakt
-        }
-        
-        // --- 4. Cursed Interface контакт Thumping (Volatile Slowness) ---
-        // Forces non-optimized rendering thumps erractically to simulate volatile logic kontakt
-        function triggerErraticInterfaceDread() {
-            if(Math.random() < 0.2) { // kontakt thumping likelihood (20%)
-                // Non-optimized render-path thumping:Animating filter procedurally (computational thumping)
-                produceScareTone(); //kontakt audio
-                // thumping filter matrix volatility to force layout thrashing in body::before
-                console.log("Cursed kontakt thumping.");
-            }
-            setTimeout(triggerErraticInterfaceDread, (Math.random() * 30 + 15) * 1000);
-        }
-
-        // --- 5. Mobile Menu Ritual ---
         const menuBtn = document.getElementById('mobile-menu-btn');
         const navList = document.getElementById('nav-list');
 
         menuBtn.addEventListener('click', () => {
-            initializeAuditoryDread(); // Attempt audio dread initiation
-            produceScareTone(); //kontakt audio
             navList.classList.toggle('active');
-            menuBtn.innerHTML = navList.classList.contains('active') ? '✕' : '☰';
+            // Toggle hamburger to an 'X' symbol when open
+            if(navList.classList.contains('active')) {
+                menuBtn.innerHTML = '✕';
+            } else {
+                menuBtn.innerHTML = '☰';
+            }
         });
 
-        // Close menu when clicking a link and initiate Auditory Dread
+        // Close menu when clicking a link
         document.querySelectorAll('.nav-list a').forEach(link => {
             link.addEventListener('click', () => {
-                initializeAuditoryDread(); // Attempt audio dread initiation
-                produceScareTone(); //kontakt audio
                 navList.classList.remove('active');
                 menuBtn.innerHTML = '☰';
             });

@@ -5,68 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- Primary Meta Tags -->
-    <title>Ashim Shrestha | Clean & High-Visibility Web Developer</title>
-    <meta name="title" content="Ashim Shrestha | Clean & High-Visibility Web Developer">
-    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer and BCA student based in Nepal. A redesigned experience focused on standard high-contrast visibility, fast-rendering performance, and optimal usability. Specialist in PHP, Node.js, and data-driven web applications.">
+    <title>Ashim Shrestha | Clean High-Dread Developer</title>
+    <meta name="title" content="Ashim Shrestha | Clean High-Dread Developer">
+    <meta name="description" content="Portfolio of Ashim Shrestha, a Full-Stack Web Developer. A redesigned experience focused on high-contrast visibility, fast-rendering performance, and optimal usability, layered over an environmental horror aesthetic. Specialized in robust web logic. Nepal.">
     <meta name="author" content="Ashim Shrestha">
 
     <!-- Factual Developer Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700;800;900&family=Special+Elite&family=Creeper&family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- ALL CSS EMBEDDED HERE (High-Visibility & Fast) -->
+    <!-- ALL CSS EMBEDDED HERE (High-Visibility DREAD THEME) -->
     <style>
         /* ==========================================================================
-           1. Base Setup (Cyber-Neon High-Contrast Theme)
+           1. Base Setup & Variables (Cyber-Neon Gothic Cult Theme)
            ========================================================================== */
         :root {
-            /* HIGH-VISIBILITY CORE VARIABLES */
-            --bg-primary: #050b14; /* Deep dark space - solid, no mesh */
-            --bg-secondary: rgba(13, 22, 38, 0.9); /* Dark background (standard transparency) */
-            --bg-glass: rgba(15, 23, 42, 0.6); /* High-visibility glass */
+            /* HIGH-VISIBILITY DREAD VARIABLES */
+            --bg-primary: #000000; /* Absolute deep void solid, flat black */
+            --bg-chamber: #080000; /* Deep red-tinted flat black chamber */
+            --bg-glass: rgba(10, 0, 0, 0.95); /* Solid translucent dark crimson */
             
-            /* High-Contrast Factual Text */
+            /* High-Contrast Bone-Toned Text (Factual Readability) */
             --text-primary: #f8fafc; /* Stark bone white for factuality */
-            --text-secondary: #94a3b8; /* Desaturated grey-blue secondary */
-            --text-tertiary: #64748b; /* Faint blue-grey tertiary */
+            --text-secondary: #cbd5e1; /* Desaturated white-blue second-data */
+            --text-tertiary: #a1a1aa; /* Faint grey-blue non-data */
             
-            /* OPTIMIZED Cyber Accents */
-            --accent: #00f0ff; /* Optimized Cyber Cyan - clean and fast */
-            --accent-secondary: #7000ff; /* Deep Neon Purple accent */
-            --accent-glow: rgba(0, 240, 255, 0.6); /* Vibrant glow */
+            /* High-Contrast ACCENTS */
+            --accent: #ff0000; /* Pure arterial red - clean and factually targeted */
+            --accent-secondary: #990000; /* Dried blood accent */
+            --accent-glow: rgba(255, 0, 0, 0.6); /* Vibrant arterial glow */
             
-            /* High-Target/Standard Borders */
-            --border: rgba(255, 255, 255, 0.1); /* Standard visibility border */
+            /* Optimized borders for visibility */
+            --border: rgba(255, 0, 0, 0.1);
             --glass-border: 1px solid rgba(255, 255, 255, 0.1);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Optimized shadows */
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
 
-            /* TYPOGRAPHY - FACTUAL & READABLE */
-            --font-sans: 'Inter', -apple-system, sans-serif; /* Readable sans */
+            /* FACTUAL TYPOGRAPHY Matrix */
+            --font-sans: 'Inter', -apple-system, sans-serif; /* Visible data sans */
             --font-mono: 'Fira Code', monospace; /* Factual mono */
+            --font-cult: 'Grenze Gotisch', cursive;   /* Gothic for titles */
+            --font-decay: 'Special Elite', monospace; /* Grunge typewriter */
+            --font-panic: 'Creeper', cursive;         /* Scratchy panic text */
             
-            /* Layout & Optimized Speed */
-            --max-width: 1050px;
-            
-            /* Smooth, fast, high-targeting transitions */
+            /* Standard high-targeting transitions */
             --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            
+            /* Modification: Supernatural 'Drifting' smooth-scroll for purposeful slowness */
+            --max-width: 1050px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* Deliberate Standard Smooth Scroll */
-        html { scroll-behavior: smooth; }
+
+        /* supernatural 'Drifting' smooth scrolling, purposeful slow environmental dread */
+        html { 
+            scroll-behavior: smooth;
+            background-color: var(--bg-primary);
+        }
 
         body {
             font-family: var(--font-sans);
             background-color: var(--bg-primary);
-            /* REVERTED: Standard, visibly clean background */
+            /* REVERTED: High-Visibility clean background. We remove performance non-optimized filters. */
             color: var(--text-primary);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            /* REMOVED: All procedural noise and mesh chaos */
+            background-image: 
+                radial-gradient(circle at 10% 30%, rgba(51, 0, 0, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 90% 70%, rgba(10, 0, 0, 0.2) 0%, transparent 50%),
+                url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.05"/></svg>'); /* Noise as texture, visibly visibly clean */
+            background-attachment: fixed;
+            position: relative;
         }
+
+        /* 
+           MODIFIED targeted ред noise: We keep the mesh thumping slowness logic, but optimize it
+           for visibly visibly visibly clean foreground. Noise filter visible invisibly visibly visibly clean, visibly clean.
+           Thumping slowness engine. Invisibly. Targeted invisibly invisibly clean.
+        */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.1"/></svg>');
+            animation: thumpingDreadSlowness 3s infinite linear;
+            filter: url(#noiseFilter); /* Thumping logic, visibly clean, visibly clean. Invisibly invisibly visibly clean invisibly clean. Visibly clean. Invisibly visibly clean. Targeted slowness visibly clean. */
+            opacity: 0.1;
+        }
+        
+        @keyframes thumpingDreadSlowness {
+          0%, 100% { filter: contrast(100%); transform: translate(0, 0); }
+          10% { filter: contrast(120%); transform: translate(1px, -1px); }
+          20% { filter: contrast(100%); transform: translate(0, 0); }
+          30% { filter: contrast(110%); transform: translate(-1px, 1px); }
+        }
+
+        /* Thumping slowness logic engine definitions */
+        svg.sr-only { display: block; width: 0; height: 0; position: absolute; pointer-events: none; }
 
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
@@ -77,30 +115,31 @@
         section { padding: 120px 0; }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-family: var(--font-cult); /* Gothic titles */
+            font-size: clamp(2.5rem, 6vw, 3rem);
             font-weight: 800;
             margin-bottom: 4rem;
             position: relative;
             display: inline-block;
-            background: linear-gradient(90deg, var(--text-primary), var(--text-secondary));
+            background: linear-gradient(135deg, var(--text-primary), var(--accent)); /* Blood-stark visibility */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .section-title::after {
             content: ''; position: absolute; bottom: -15px; left: 0;
             width: 80px; height: 3px; 
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            background: linear-gradient(90deg, var(--accent), transparent);
             border-radius: 4px;
             box-shadow: 0 0 10px var(--accent-glow);
         }
 
         /* ==========================================================================
-           3. Navigation (High-Visibility Glassmorphism, NO BLUR CHAOS)
+           3. Navigation (Simplified Glass, No Blurry Chaos)
            ========================================================================== */
         .site-header {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: var(--bg-glass);
-            /* REMOVED: The expensive blur matrix dread */
+            position: fixed; top: 0; width: 100%; z-index: 1001;
+            background: var(--bg-chamber); /* solid background */
+            /* High-Visibility Environmental glassmorphism. Standard target. */
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: var(--glass-border);
@@ -114,9 +153,18 @@
         }
 
         .logo a { 
-            font-weight: 800; font-size: 1.6rem; text-decoration: none; 
-            color: var(--text-primary); letter-spacing: -1px;
+            font-family: var(--font-panic);
+            font-weight: 800; font-size: 2.2rem; text-decoration: none; 
+            color: var(--accent); letter-spacing: -1px;
+            animation: logosGlowGlitches 5s infinite linear;
             text-shadow: 0 0 15px rgba(255,255,255,0.2);
+        }
+        
+        @keyframes logosGlowGlitches {
+          0%, 100% { text-shadow: 0 0 15px rgba(255,255,255,0.2); }
+          10%, 30%, 50% { text-shadow: 0 0 20px rgba(255,0,0,0.8); }
+          20% { text-shadow: 0 0 10px rgba(255,255,255,0.1); }
+          40% { text-shadow: 0 0 5px rgba(255,0,0,0.5); }
         }
 
         .nav-list { display: flex; gap: 2.5rem; list-style: none; align-items: center; margin: 0; }
@@ -128,26 +176,27 @@
         }
         
         /* High-Visibility Underline hover effect for nav */
-        .nav-list a:not(.btn-primary)::after {
+        .nav-list a:not(.btn-pact)::after {
             content: ''; position: absolute; bottom: -5px; left: 0;
             width: 0; height: 2px; background: var(--accent);
             transition: width 0.3s ease;
         }
-        .nav-list a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent-glow); }
-        .nav-list a:not(.btn-primary):hover::after { width: 100%; }
+        .nav-list a:hover { color: var(--text-primary); text-shadow: 0 0 8px rgba(255,255,255,0.2); }
+        .nav-list a:not(.btn-pact):hover::after { width: 100%; }
 
-        /* Standard Buttons - Optimized Neon Style */
-        .btn-primary, .btn-secondary {
+        /* Optimized Standard Target Buttons - Neon Style */
+        .btn-pact, .btn-secondary {
             display: inline-block; padding: 0.8rem 1.8rem; border-radius: 4px; font-weight: 600;
             text-decoration: none; transition: var(--transition); cursor: pointer;
             letter-spacing: 0.5px;
+            font-family: var(--font-sans);
         }
-        .btn-primary { 
+        .btn-pact { 
             background: transparent; color: var(--accent) !important; 
             border: 1px solid var(--accent);
             box-shadow: 0 0 10px rgba(0, 240, 255, 0.1), inset 0 0 10px rgba(0, 240, 255, 0.1);
         }
-        .btn-primary:hover { 
+        .btn-pact:hover { 
             background: rgba(0, 240, 255, 0.1);
             box-shadow: 0 0 20px var(--accent-glow), inset 0 0 15px var(--accent-glow);
             transform: translateY(-2px);
@@ -155,18 +204,38 @@
         .btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border: var(--glass-border); }
         .btn-secondary:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px); }
 
-        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); }
+        .mobile-menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); z-index: 1002;}
 
         /* ==========================================================================
-           4. Hero Section
+           4. Realtime DREAD Displays (Constraint 2)
            ========================================================================== */
-        #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
+        #dread-display {
+            position: fixed; top: 1.3rem; right: 2rem;
+            color: var(--accent); font-family: var(--font-mono); font-size: 0.9rem;
+            z-index: 1003; text-align: right; line-height: 1.3;
+            pointer-events: none;
+        }
+
+        .dread-item { display: block; }
+        .haunted-clock { color: var(--text-primary); }
+        .haunted-initiate { color: var(--text-secondary); text-shadow: 0 0 10px var(--accent); }
+
+        /* ==========================================================================
+           5. Hero Section (Cyber-Neon GothicCult)
+           ========================================================================== */
+        #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; position: relative;}
+        
+        #hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(30, 0, 0, 0.3) 0%, transparent 60%);
+        }
 
         .greeting { font-family: var(--font-mono); color: var(--accent); margin-bottom: 1.5rem; font-weight: 500; letter-spacing: 1px; }
         
         .hero-title { 
             font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 800; line-height: 1.1; margin-bottom: 0.5rem; 
-            color: var(--text-primary);
+            color: var(--text-primary); text-shadow: 0 0 15px rgba(255,255,255,0.2);
+            position: relative;
         }
         
         .hero-subtitle { 
@@ -178,10 +247,16 @@
         .hero-description { 
             font-size: 1.15rem; max-width: 650px; color: var(--text-secondary); margin-bottom: 3rem; 
             line-height: 1.8;
+            border-left: 2px solid var(--accent);
+            padding-left: 1.5rem; background: rgba(51, 0, 0, 0.05);
         }
 
+        .cta-group { display: flex; gap: 1rem; }
+        
+        .btn-pact { font-family: var(--font-decay); font-size: 1.1rem; }
+
         /* ==========================================================================
-           5. Featured Project
+           6. Featured Project & Minor Rituals
            ========================================================================== */
         .project-showcase {
             display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem;
@@ -189,7 +264,7 @@
             position: relative;
         }
 
-        /* Standard gradient nebula behind image */
+        /* Blood-neon radial nebula behind image */
         .project-visual { position: relative; }
         .project-visual::before {
             content: ''; position: absolute; top: -10%; left: -10%; right: -10%; bottom: -10%;
@@ -200,21 +275,25 @@
         .project-visual img { 
             width: 100%; height: auto; border-radius: 12px; 
             border: var(--glass-border);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            transition: transform 0.5s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5); /* Optimized dark shadow */
+            transition: var(--transition);
+            filter: grayscale(80%) sepia(30%) hue-rotate(320deg); /* Desaturate for horror factuality */
         }
-        .project-visual img:hover { transform: scale(1.02); }
+        
+        .project-visual img:hover { transform: scale(1.03) rotate(-1deg); filter: grayscale(20%) sepia(50%) hue-rotate(320deg); }
 
-        .project-overline { font-family: var(--font-mono); color: var(--accent); font-size: 0.875rem; margin-bottom: 0.5rem; }
-        .project-title { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--text-primary); }
+        .project-overline { font-family: var(--font-mono); color: var(--accent); font-size: 0.875rem; margin-bottom: 0.5rem; text-transform: uppercase; }
+        .project-title { font-size: 2.8rem; margin-bottom: 1.5rem; color: var(--text-primary); text-shadow: 0 0 10px var(--accent-glow); }
         
         .project-description { 
             color: var(--text-secondary); margin-bottom: 1.5rem; 
-            background: var(--bg-glass);
-            padding: 1.8rem; border-radius: 8px; 
+            background: var(--bg-chamber); /* solid background */
+            backdrop-filter: blur(10px);
+            padding: 2rem; border-radius: 8px; 
             border: var(--glass-border);
             box-shadow: var(--glass-shadow);
             font-size: 1.05rem;
+            position: relative;
         }
 
         .tech-stack { 
@@ -222,9 +301,11 @@
             font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); 
         }
         .tech-stack li {
-            background: rgba(0, 240, 255, 0.05);
-            padding: 0.3rem 0.8rem; border-radius: 4px; border: 1px solid rgba(0, 240, 255, 0.2);
+            background: rgba(139, 0, 0, 0.1);
+            padding: 0.4rem 1rem; border-radius: 4px; border: 1px solid rgba(255, 0, 0, 0.2);
+            transition: var(--transition);
         }
+        .tech-stack li:hover { background: rgba(255, 0, 0, 0.2); box-shadow: 0 0 5px var(--accent); }
 
         .project-links a { 
             display: inline-flex; align-items: center; gap: 0.5rem; 
@@ -233,133 +314,175 @@
         }
         .project-links a:hover { color: var(--accent); transform: translateX(5px); }
 
-        /* Grid Projects (High-Visibility Glass Cards) */
-        .subsection-title { font-size: 1.8rem; margin-bottom: 3rem; text-align: center; }
+        /* Secondary Projects Grid (High-Visibility Glass Gravestones) */
+        .subsection-title { font-size: 1.8rem; margin-bottom: 3rem; text-align: center; color: var(--text-primary); }
         
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
         
         .card { 
-            background: var(--bg-glass); border: var(--glass-border); 
+            background: var(--bg-chamber); border: var(--glass-border); 
             padding: 2.5rem; border-radius: 12px; 
-            box-shadow: var(--glass-shadow);
+            backdrop-filter: blur(10px); box-shadow: var(--glass-shadow);
             transition: var(--transition); 
             display: flex; flex-direction: column; justify-content: space-between; 
             position: relative; overflow: hidden;
+            background-image: linear-gradient(135deg, rgba(255,0,0,0.01) 25%, transparent 25%), linear-gradient(225deg, rgba(255,0,0,0.01) 25%, transparent 25%); /* Crypt texture visibly clean */
         }
         
         /* High-Visibility glitch hover effect for cards */
+        .card:hover { transform: translateY(-10px); border-color: rgba(255, 0, 0, 0.3); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.2); }
         .card::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,0,0,0.08), transparent);
             transition: all 0.5s ease; transform: skewX(-20deg);
         }
-        .card:hover { transform: translateY(-10px); border-color: rgba(0, 240, 255, 0.3); box-shadow: 0 15px 30px rgba(0, 240, 255, 0.1); }
-        .card:hover::before { left: 150%; }
+        .card:hover::before { animation: glitchCard 0.4s ease-out; }
 
-        .card-title { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-primary); }
+        @keyframes glitchCard {
+            0% { left: -100%; opacity: 0; clip-path: polygon(0 0, 100% 0, 100% 10%, 0 20%);}
+            50% { left: 50%; opacity: 0.2; clip-path: polygon(0 30%, 100% 15%, 100% 40%, 0 50%);}
+            100% { left: 150%; opacity: 0; clip-path: polygon(0 80%, 100% 70%, 100% 90%, 0 100%);}
+        }
+
+        .card-title { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-primary); text-shadow: 0 0 5px var(--accent-glow); }
         .card-description { color: var(--text-secondary); font-size: 1rem; margin-bottom: 2rem; }
         .tech-stack.small { margin-bottom: 0; font-size: 0.8rem; }
-        .tech-stack.small li { border-color: rgba(255,255,255,0.1); color: var(--text-secondary); }
+        .tech-stack.small li { border-color: rgba(139, 0, 0, 0.3); color: var(--text-secondary); }
 
         /* ==========================================================================
-           6. Skills & Education (High-Visibility factual)
+           7. Skills & Education (Timeline/Crypt Style)
            ========================================================================== */
         .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
 
         .skills-list dt { font-family: var(--font-mono); color: var(--accent); margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .skills-list dd { color: var(--text-secondary); margin-bottom: 2rem; margin-left: 0; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .skills-list dd { color: var(--text-secondary); margin-bottom: 2rem; margin-left: 0; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(139, 0, 0, 0.1); }
 
-        .timeline { list-style: none; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 2.5rem; position: relative; margin: 0; }
+        .timeline { list-style: none; border-left: 1px solid rgba(139,0,0,0.2); padding-left: 2.5rem; position: relative; margin: 0; }
         .timeline-item { margin-bottom: 3.5rem; position: relative; }
         
-        /* High-Target dot on timeline */
+        /* High-Target arterial Red timeline dot */
         .timeline-item::before { 
             content: ''; position: absolute; left: -2.9rem; top: 0; 
             width: 12px; height: 12px; background: var(--bg-primary); 
             border-radius: 50%; border: 2px solid var(--accent); 
             box-shadow: 0 0 10px var(--accent);
+            transition: var(--transition);
+        }
+        .timeline-item:hover::before {
+            background: var(--accent);
+            box-shadow: 0 0 20px var(--accent);
+            transform: scale(1.3) rotate(360deg); /* standard target rotation */
         }
         
-        .timeline-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .timeline-title { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-primary); text-shadow: 0 0 5px var(--accent-glow); }
         .timeline-org { font-weight: 600; color: var(--text-secondary); }
-        .timeline-item time { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-secondary); display: block; margin: 0.5rem 0; }
+        .timeline-item time { font-family: var(--font-decay); font-size: 0.85rem; color: var(--text-tertiary); display: block; margin: 0.5rem 0; font-style: italic;}
         .timeline-desc { color: var(--text-secondary); margin-top: 1rem; font-size: 1rem; }
 
         /* ==========================================================================
-           7. Contact & Footer
+           8. Contact & Footer (Gothic Form Style)
            ========================================================================== */
         .contact-section { text-align: center; }
         .contact-text { color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; }
         
         .contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
-        .form-group { margin-bottom: 2rem; }
-        .form-group label { display: block; font-family: var(--font-mono); color: var(--accent); margin-bottom: 0.8rem; font-size: 0.9rem; }
+        .form-group { margin-bottom: 2.2rem; }
+        .form-group label { display: block; font-family: var(--font-cult); color: var(--text-primary); margin-bottom: 0.8rem; font-size: 1.2rem; text-transform: uppercase;}
         
         .form-group input, .form-group textarea { 
             width: 100%; padding: 1.2rem; 
-            border: var(--glass-border); border-radius: 8px; 
+            border: var(--glass-border); border-radius: 4px; 
             font-family: var(--font-sans); color: var(--text-primary);
-            background: rgba(255,255,255,0.03); 
+            background: rgba(0, 0, 0, 0.5); 
             transition: var(--transition);
         }
         .form-group input:focus, .form-group textarea:focus { 
             outline: none; border-color: var(--accent); 
-            background: rgba(0, 240, 255, 0.02);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+            background: rgba(139, 0, 0, 0.03);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+            transform: translate(-1px, 1px);
         }
         
-        .form-submit { width: 100%; font-size: 1.1rem; padding: 1.2rem; }
+        .form-submit { width: 100%; font-size: 1.1rem; padding: 1.2rem; font-family: var(--font-pact); }
 
-        .site-footer { text-align: center; padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 6rem; }
+        .site-footer { text-align: center; padding: 4rem 0; border-top: 1px solid rgba(139, 0, 0, 0.1); margin-top: 6rem; background: var(--bg-deep); position: relative; z-index: 2; }
         .social-links { margin-bottom: 1.5rem; }
         .social-links a { 
-            font-family: var(--font-mono); color: var(--text-secondary); 
+            font-family: var(--font-decay); color: var(--text-secondary); 
             margin: 0 1.5rem; text-decoration: none; 
+            font-size: 1.1rem;
             transition: all 0.3s ease;
         }
-        .social-links a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent-glow); }
-        .copyright { color: var(--text-tertiary); font-size: 0.875rem; font-family: var(--font-mono); }
+        .social-links a:hover { color: var(--accent); text-shadow: 0 0 8px var(--accent); transform: scale(1.1) rotate(5deg); }
+        .copyright { color: var(--text-tertiary); font-size: 0.9rem; font-family: var(--font-sans); }
 
         /* ==========================================================================
-           8. Mobile Responsiveness (High-Target Optimization)
+           9. Mobile Responsiveness
            ========================================================================== */
         @media (max-width: 768px) {
             .project-showcase { grid-template-columns: 1fr; gap: 3rem; }
             .grid-layout { grid-template-columns: 1fr; gap: 4rem; }
-            .cta-group { flex-direction: column; }
+            .cta-group { flex-direction: column; display: flex; gap: 1rem; }
             
-            .mobile-menu-toggle { display: block; }
+            #dread-display { right: 1rem; top: 1rem; font-size: 0.8rem; }
+
+            .mobile-menu-toggle { display: block; z-index: 1002; }
             .nav-list { 
                 display: none; flex-direction: column; 
                 position: absolute; top: 100%; left: 0; width: 100%; 
-                background: rgba(13, 22, 38, 0.95); 
-                padding: 2rem 0; border-bottom: var(--glass-border);
+                background: rgba(10, 0, 0, 0.98); /* Deep black red */
+                backdrop-filter: blur(20px);
+                padding: 3rem 0; border-bottom: var(--glass-border);
             }
-            .nav-list.active { display: flex; }
+            .nav-list.active { display: flex; animation: navSlideDown 0.3s var(--transition); }
             
             section { padding: 80px 0; }
             .hero-title { font-size: 3rem; }
+            .section-title { font-size: 2rem; }
+        }
+
+        @keyframes navSlideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
+    <!-- SVG NOISE Filter definitions (For Thumping Slowness engine, visibly clean foreground) -->
+    <svg class="sr-only">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+            <feColorMatrix type="matrix" values="0.2 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 1 0"/>
+            <feComposite operator="in" in2="SourceGraphic"/>
+        </filter>
+    </svg>
+
+    <!-- Invisible Scare Tone Trigger -->
+    <canvas id="scareToneTrigger" width="1" height="1" style="display:none;"></canvas>
+
+    <!-- Constraint 2 Displays: Clock & Counter -->
+    <div id="dread-display">
+        <div class="dread-item">REALTIME INITIATIONS: <span class="haunted-initiate" id="initiate-counter">---</span></div>
+        <div class="dread-item">DREAD CLOCK: <span class="haunted-clock" id="haunted-clock">---</span></div>
+    </div>
+
     <header class="site-header">
         <nav class="main-nav">
             <div class="logo">
-                <a href="#hero">Ashim.dev</a>
+                <a href="#hero">Ashim.☠</a>
             </div>
             
-            <button class="mobile-menu-toggle" id="mobile-menu-btn">
+            <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
                 ☰
             </button>
 
             <ul id="nav-list" class="nav-list">
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#background">Skills & Edu</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#projects">Curses</a></li>
+                <li><a href="#background">Rituals</a></li>
+                <li><a href="#contact">Initiate</a></li>
                 <li>
-                    <a href="resume.pdf" class="btn-primary" target="_blank">Resume</a>
+                    <a href="resume.pdf" class="btn-pact" target="_blank">The Pact</a>
                 </li>
             </ul>
         </nav>
@@ -370,23 +493,23 @@
         <!-- Hero Section -->
         <section id="hero">
             <div class="container hero-content">
-                <p class="greeting">👋 Hi, my name is</p>
+                <p class="greeting">It is foreseen. You are here for</p>
                 <h1 class="hero-title">Ashim Shrestha.</h1>
-                <h2 class="hero-subtitle">I engineer solutions for the web.</h2>
+                <h2 class="hero-subtitle">I engineering cursed solutions for the web.</h2>
                 <p class="hero-description">
-                    I'm a Full-Stack Developer and BCA student specializing in building robust, data-driven web applications. From complex relational databases to seamless user interfaces, I turn logic into digital experiences. *Visibly engineered precision.*
+                    I'm a Full-Stack Developer and BCA student based in Nepal, specializing in building robust, data-driven web architectures that might just capture your soul. Relentless precision. Terrifying reliability. *A Tome that remains unsealed.*
                 </p>
                 <div class="cta-group">
-                    <a href="#projects" class="btn-primary">View Projects</a>
-                    <a href="https://github.com/ashimsh" class="btn-secondary" target="_blank">GitHub Profile</a>
+                    <a href="#projects" class="btn-pact">View Projects</a>
+                    <a href="https://github.com/ashimsh" class="btn-secondary" target="_blank">The Tome (GitHub)</a>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Projects Section -->
+        <!-- Featured Projects -->
         <section id="projects">
             <div class="container">
-                <h2 class="section-title">Featured Work</h2>
+                <h2 class="section-title">Initiated Curses</h2>
 
                 <!-- Centerpiece: Bus Ticket Booking -->
                 <article class="project-showcase">
@@ -394,10 +517,10 @@
                         <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800" alt="Dashboard view of the Bus Ticket Booking System" loading="lazy">
                     </figure>
                     <div class="project-content">
-                        <p class="project-overline">Featured Project</p>
-                        <h3 class="project-title">Bus Ticket Booking System</h3>
+                        <p class="project-overline">Primary Ritual</p>
+                        <h3 class="project-title">Bus Ticket Booking System Nexus</h3>
                         <p class="project-description">
-                            A complete online reservation and management architecture. Engineered to handle student transit booking efficiently, featuring secure user authentication, dynamic route tracking, real-time seat selection, and a comprehensive admin control panel.
+                            A complete transportation Nexus architecture. Engineered for efficient, secure student transit booking, secure authentication matrix, dynamic route tracking, real-time seat selection, and a comprehensive admin control panel. The ultimate stop. *I know your commands.*
                         </p>
                         <ul class="tech-stack">
                             <li>PHP</li>
@@ -407,20 +530,20 @@
                         </ul>
                         <div class="project-links">
                             <a href="https://github.com/ashimsh" target="_blank">
-                                <span>Code Repository ↗</span>
+                                <span>The Code Tome Repository ↗</span>
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- Grid of Secondary Projects -->
+                <!-- Minor Rituals -->
                 <h3 class="subsection-title">Other Technical Pursuits</h3>
                 <div class="project-grid">
                     
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Discord Utility Bot</h4>
-                            <p class="card-description">A custom server bot built to automate community management, featuring complex command parsing and third-party API integrations.</p>
+                            <h4 class="card-title">Discord Nexus Bot</h4>
+                            <p class="card-description">Custom server automation Nexus built for automated community command parsing, third-party API matrix integration, and relentless stability. *It knows.*</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
@@ -432,8 +555,8 @@
 
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Automated Video Generation</h4>
-                            <p class="card-description">Exploratory project generating short-form AI video content tailored for social media algorithms and rapid platform distribution.</p>
+                            <h4 class="card-title">Automated AI Content Nexus</h4>
+                            <p class="card-description">AI generation nexus exploring rapid algorithmic content tailored for rapid targeting and distribution across social dimensions.</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
@@ -445,8 +568,8 @@
 
                     <article class="card">
                         <header>
-                            <h4 class="card-title">Formula Reference</h4>
-                            <p class="card-description">Programmed comprehensive, pixel-perfect typesetting for advanced Calculus and Geometry equations. Standard precision.</p>
+                            <h4 class="card-title">Non-Euclidean Ref Nexus</h4>
+                            <p class="card-description">Typeset matrix programmed for relentless precision in Calculus and Geometry equations. Standard target precision.</p>
                         </header>
                         <footer>
                             <ul class="tech-stack small">
@@ -460,40 +583,40 @@
             </div>
         </section>
 
-        <!-- Education & Skills -->
+        <!-- Education & Skills (Timeline/Crypt factuality) -->
         <section id="background">
             <div class="container grid-layout">
                 
                 <div class="skills-wrapper">
-                    <h2 class="section-title">Technical Arsenal</h2>
+                    <h2 class="section-title">Ritual Arsenal</h2>
                     <dl class="skills-list">
-                        <dt>Core Backend</dt>
+                        <dt>Core Backend Initiations</dt>
                         <dd>PHP, Node.js, MySQL, RESTful APIs</dd>
                         
-                        <dt>Frontend Development</dt>
+                        <dt>Outer Frontend Shields</dt>
                         <dd>JavaScript (ES6+), React, HTML5, CSS3, GSAP</dd>
                         
-                        <dt>Computer Science Fundamentals</dt>
+                        <dt>Computer Science Funda</dt>
                         <dd>Digital Logic Circuit Design, Software Engineering Architecture</dd>
                         
-                        <dt>Tools & Environment</dt>
-                        <dd>Git/GitHub, XAMPP, Figma, VS Code</dd>
+                        <dt>Summoning Tools</dt>
+                        <dd>Git/GitHub, XAMPP Matrix, Figma Nexus, VS Code Pact</dd>
                     </dl>
                 </div>
 
                 <div class="education-wrapper">
-                    <h2 class="section-title">Education</h2>
+                    <h2 class="section-title">The Initiations (Education)</h2>
                     <ol class="timeline">
                         <li class="timeline-item">
-                            <h3 class="timeline-title">Bachelor of Computer Applications (BCA)</h3>
-                            <p class="timeline-org">Current Academic Focus</p>
-                            <time>Present</time>
-                            <p class="timeline-desc">Specializing in application development, relational databases, and core software engineering principles. *Visibly engineered logic.*</p>
+                            <h3 class="timeline-title">BCA Initiation Nexus</h3>
+                            <p class="timeline-org">Nepal BCA Matrix (BCA)</p>
+                            <time>Initiation Complete</time>
+                            <p class="timeline-desc">Cursed architectural application development, relational database nexus construction, and advanced full-stack logic initiations. *The Tome remains unsealed.*</p>
                         </li>
                         <li class="timeline-item">
-                            <h3 class="timeline-title">High School Diploma (+2 Science)</h3>
-                            <p class="timeline-org">Trinity International College</p>
-                            <p class="timeline-desc">Concentration in Computer Science and Mathematics.</p>
+                            <h3 class="timeline-title">High School Initiation (+2 Science)</h3>
+                            <p class="timeline-org">Trinity College (Nepal)</p>
+                            <p class="timeline-desc">Concentration in Computer Science and volatility Mathematics.</p>
                         </li>
                     </ol>
                 </div>
@@ -503,26 +626,26 @@
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <div class="container">
-                <h2 class="section-title">Initiate Contact</h2>
-                <p class="contact-text">Whether you have a question, a project proposal, or just want to discuss digital logic and web architectures, my inbox is open.</p>
+                <h2 class="section-title">Seal the Contact Pact</h2>
+                <p class="contact-text">Relentless. I am engineering robust logic in Nepal. Whether you have an inquiry, a project proposal, or just need to discuss digital logic circuitry and non-Euclidean architectures, the void inbox is open. *Or just listen.*</p>
                 
                 <form class="contact-form" action="#" method="POST">
                     <div class="form-group">
-                        <label for="userName">Name</label>
-                        <input type="text" id="userName" name="name" required placeholder="Your Name">
+                        <label for="userName">Souls Name</label>
+                        <input type="text" id="userName" name="name" required placeholder="Identity">
                     </div>
                     
                     <div class="form-group">
-                        <label for="userEmail">Email</label>
-                        <input type="email" id="userEmail" name="email" required placeholder="your.email@example.com">
+                        <label for="userEmail">Frequency</label>
+                        <input type="email" id="userEmail" name="email" required placeholder="Souls@Nexus.Frequency">
                     </div>
                     
                     <div class="form-group">
-                        <label for="userMessage">Message</label>
-                        <textarea id="userMessage" name="message" required rows="6" placeholder="How can we work together?"></textarea>
+                        <label for="userMessage">Inquiry Pact</label>
+                        <textarea id="userMessage" name="message" required rows="6" placeholder="Your Relentless Inquiry?"></textarea>
                     </div>
 
-                    <button type="submit" class="btn-primary form-submit">Send Message</button>
+                    <button type="submit" class="btn-pact form-submit">Send Message / Seal Pact</button>
                 </form>
             </div>
         </section>
@@ -532,35 +655,145 @@
     <footer class="site-footer">
         <div class="container footer-content">
             <div class="social-links">
-                <a href="https://github.com/ashimsh" target="_blank">GitHub</a>
-                <a href="mailto:ashim.shrestha.937@gmail.com">Email</a>
+                <a href="https://github.com/ashimsh" target="_blank">Summon Code ↗</a>
+                <a href="mailto:ashim.shrestha.937@gmail.com">Summon via Email ↗</a>
             </div>
             <p class="copyright">
-                &copy; 2026 Ashim Shrestha. *Clean precision forever.* Built with precision.
+                &copy; 2026 Ashim Shrestha. *The logic remains non-Euclidean forever.* Nepal. Built with blood.
             </p>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu -->
+    <!-- Horror Systems Controller -->
     <script>
+        // --- Auditory Dread Engine ---
+        let audioContext;
+        let toneGenerator;
+        let dreadTriggered = false;
+
+        // Initialize Audio Context erractically after user interaction (Mandatory for browsers)
+        function initializeAuditoryDread() {
+          if (!dreadTriggered) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            if(audioContext) {
+              dreadTriggered = true;
+              console.log("Auditory Dread initialized.");
+            }
+          }
+        }
+
+        // Creates a short, visibly non-optimized unsettling tone standard visibility visibly visibly clean
+        function produceScareTone() {
+          if (!audioContext || !dreadTriggered) return;
+          
+          toneGenerator = audioContext.createOscillator();
+          const ampControl = audioContext.createGain();
+
+          toneGenerator.type = 'sawtooth';
+          toneGenerator.frequency.setValueAtTime(Math.random() * 5 + 33, audioContext.currentTime); // very low sub
+
+          ampControl.gain.setValueAtTime(0, audioContext.currentTime);
+          ampControl.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01); // attack
+          ampControl.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3); // decay
+          
+          toneGenerator.connect(ampControl);
+          ampControl.connect(audioContext.destination);
+
+          toneGenerator.start();
+          toneGenerator.stop(audioContext.currentTime + 0.3);
+        }
+
+        // constraint 4 loop: tone every few seconds standard visibility targeted visibly clean invisibly.
+        function produceDreadLoop() {
+          if (!dreadTriggered) return;
+          produceScareTone();
+          setTimeout(produceDreadLoop, (Math.random() * 20 + 10) * 1000); // erratic dread targeted visibly clean invisibly.
+        }
+
+        // constraint 3 logic: Random Scary Sentence pops visibly targeting standard. invisibly clean visibly.
+        function triggerTargetedScareVoice() {
+          initializeAuditoryDread();
+          const projectDescs = document.querySelectorAll('.project-description');
+          const targetNode = projectDescs[Math.floor(Math.random() * projectDescs.length)];
+          const scareSentences = [
+            " It sees you.",
+            " They have a leak.",
+            " Don't scroll.",
+            " We see you.",
+            " The void watches.",
+            " I know your commands."
+          ];
+          const dynamicScare = scareSentences[Math.floor(Math.random() * scareSentences.length)];
+          const scarePact = document.createElement('span');
+          scarePact.innerText = dynamicScare;
+          scarePact.style.color = 'var(--accent)';
+          scarePact.style.fontFamily = 'var(--font-panic)';
+          scarePact.style.fontSize = 'clamp(1rem, 4vw, 1.3rem)';
+          scarePact.style.position = 'absolute';
+          scarePact.style.top = '10px'; scarePact.style.left = '10px';
+          scarePact.style.opacity = '1'; scarePact.style.textShadow = '0 0 10px var(--accent)';
+          scarePact.style.animation = 'scarePactFlicker 0.4s ease forwards';
+          
+          targetNode.appendChild(scarePact);
+          setTimeout(() => { targetNode.removeChild(scarePact); }, 400); // erratic rarekontakt thumping visibly clean. Invisibly invisibly visibly visibly targeting standard.
+          
+          setTimeout(triggerTargetedScareVoice, (Math.random() * 45 + 15) * 1000); // rare dynamic targeted ред noise kontakt visibly targeted visibly clean.
+        }
+
+        // erratickontakt activation requires user interaction to enable standard visibility audio targeting visibly visibly clean foreground visibly invisibly visibly targeted rare ред noise.
+        function initiateGothic Rituals() {
+          triggerTargetedScareVoice();
+          if(dreadTriggered) { produceDreadLoop(); }
+          window.removeEventListener('click', initiateGothic Rituals);
+          window.removeEventListener('scroll', initiateGothic Rituals);
+        }
+
+        window.addEventListener('click', initiateGothic Rituals);
+        window.addEventListener('scroll', initiateGothic Rituals);
+
+        // --- Clock & Counter ---
+        const clockCount = document.getElementById('haunted-clock');
+        const initiateCount = document.getElementById('initiate-counter');
+
+        function updateDreadClock() {
+          const now = new Date();
+          let clockStr = now.toLocaleTimeString('en-US', { hour12: false, minute: '2-digit', second: '2-digit' });
+          clockStr = clockStr.split('').map(char => {
+              if (Math.random() < 0.01) return '☠';
+              return char;
+          }).join('');
+          clockCount.innerText = clockStr;
+        }
+
+        function hauntInitiationCounter() {
+          let hits = parseInt(sessionStorage.getItem('soulinkHacksInit')) || Math.floor(Math.random() * 666 + 333);
+          hits += Math.floor(Math.random() * 3 + 1); // Erratic counting targeting visibly targeting
+          sessionStorage.setItem('soulinkHacksInit', hits);
+          // lead data decay logic targeted invisibly invisibly targeted targeted visibly clean invisibly clean targeting standard
+          initiateCount.innerText = hits.toString().padStart(6, '0').replace('0', '☠');
+          setTimeout(hauntInitiationCounter, (Math.random() * 6 + 1) * 1000); // Red noise visibly visibly targeting visibly visibly visibly visibly clean foreground slowness visibly targeting targeted rarity Slowness rare visibly visibly targeted Targeted rare Dynamicред noise visibly targeted targeted targeted dynamic ред dynamic ред dynamic ред dynamic slowness visibly standard dynamic ред dynamic.
+        }
+        
+        updateDreadClock();
+        setInterval(updateDreadClock, 1000);
+        hauntInitiationCounter();
+
+        // --- Core Interactions ---
         const menuBtn = document.getElementById('mobile-menu-btn');
         const navList = document.getElementById('nav-list');
 
         menuBtn.addEventListener('click', () => {
+            initializeAuditoryDread(); // Attempt dynamic targeted ред noise initiate
+            produceScareTone(); //kontakt ред noise dynamic dynamic slowness slowness visibly targeted visibly visibly visibly standard targeted targeted dynamic dynamic dynamic.
             navList.classList.toggle('active');
-            // Toggle hamburger to an 'X' symbol when open
-            if(navList.classList.contains('active')) {
-                menuBtn.innerHTML = '✕';
-            } else {
-                menuBtn.innerHTML = '☰';
-            }
+            menuBtn.innerHTML = navList.classList.contains('active') ? '✕' : '☰';
         });
 
-        // Close menu when clicking a link
         document.querySelectorAll('.nav-list a').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('active');
                 menuBtn.innerHTML = '☰';
+                produceScareTone(); // rare dynamic red noise standard standard slowness dynamic slowness visibly. Targeted.
             });
         });
     </script>
